@@ -1,0 +1,16 @@
+ 
+StrPgmExp  PgmLvl( *CURRENT )  Signature( 'UsrAppInf_01.0.1' )
+ 
+  Export symbol( "DLTUSRQRYA" )
+  Export symbol( "GETUSRQRYA" )
+  Export symbol( "SETUSRQRYA" )
+  Export symbol( "VFYUSRQRYA" )
+  Export symbol( "DLTUSRAPPINF" )
+  Export symbol( "GETUSRAPPINF" )
+  Export symbol( "SETUSRAPPINF" )
+  Export symbol( "VFYUSRAPPINF" )
+  Export symbol( "GETGRPPRF" )
+  Export symbol( "CHKOBJ" )
+ 
+EndPgmExp
+ 
