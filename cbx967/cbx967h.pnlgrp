@@ -1,0 +1,298 @@
+000100060519.*-----------------------------------------------------------------------**
+000200060519.*
+000300060519.*  Compile options:
+000400060519.*
+000500070128.*    CrtPnlGrp PnlGrp( CBX967H )
+000600060519.*              SrcFile( QPNLSRC )
+000700070128.*              SrcMbr( CBX967H )
+000800060519.*
+000900060519.*-----------------------------------------------------------------------**
+001000060519:PNLGRP.
+001100060519
+001200060519.* Command help section:
+001300061114:HELP NAME='DSPSBSJOBQ'.Display Subsystem Job Queues - Help
+001400060519:P.
+001500061114The Display Subsystem Job Queues (DSPSBSJOBQ) command allows you to
+001600061114monitor activity in all job queues currently allocated to the specified
+001700061114subsystem, but only if that subsystem is currently active.  For
+001800061114inactive subsystems, no job queues are listed.
+001900061114:P.
+002000060519The job queues are listed in job queue entry sequence number order.
+002100060519:EHELP.
+002200060519
+002300061114:HELP NAME='DSPSBSJOBQ/SBS'.Subsystem (SBSD) - Help
+002400060618:XH3.Subsystem (SBS)
+002500060519:P.
+002600060519Specify the name of the subsystem for which to list the currently
+002700061114allocated job queues.
+002800060519:P.
+002900060519This is a required parameter.
+003000060519:P.
+003100060519:XH3.Library
+003200060519:P.
+003300060519The library containing the specified subsystem.
+003400060519:P.
+003500060519The possible values are:
+003600060519:P.
+003700060519:PARML.
+003800060519:PT.:PK DEF.*LIBL:EPK.
+003900060519:PD.
+004000060519All libraries in the library list for the current thread are searched.
+004100060519:PT.:PK.*CURLIB:EPK.
+004200060519:PD.
+004300060519The current library for the thread is searched.  If no library is
+004400060519specified as the current library for the thread, the QGPL library is
+004500060519is searched.
+004600060519:PT.:PV.library-name:EPV.
+004700060519:PD.
+004800060519Specify the name of the library to be searched.
+004900060519:EPARML.
+005000060519:EHELP.
+005100060519
+005200060519.* Panel help section:
+005300060519:HELP NAME=HLPFKEYS.
+005400060519Function Keys - Help
+005500060519:XH3.Function keys
+005600060519:EHELP.
+005700060519
+005800060519:HELP NAME=HLPENT.
+005900060519:PARML.
+006000060519:PT.Enter
+006100060519:PD.Submits information on the display for processing.
+006200060519:EPARML.
+006300060519:EHELP.
+006400060519
+006500060519:HELP NAME=HLPF1.
+006600060519:PARML.
+006700060519:PT.F1=Help
+006800060519:PD.Provides additional information about using the display.
+006900060519:EPARML.
+007000060519:EHELP.
+007100060519
+007200060519:HELP     NAME=HLPF3.
+007300060519:PARML.
+007400060519:PT.F3=Exit
+007500060519:PD.Ends the current task and returns you to the display from which
+007600060519the task was started.
+007700060519:EPARML.
+007800060519:EHELP.
+007900060519
+008000060519:HELP NAME=HLPF4.
+008100060519:PARML.
+008200060519:PT.F4=Prompt
+008300060519:PD.Provides assistance in entering or selecting a command.
+008400060519:EPARML.
+008500060519:EHELP.
+008600060519
+008700060519:HELP NAME=HLPF5.
+008800060519:PARML.
+008900060519:PT.F5=Refresh
+009000060519:PD.Shows the display you are viewing with updated information.
+009100060519:EPARML.
+009200060519:EHELP.
+009300060519
+009400060519:HELP NAME='HLPF11/VIEW1'.
+009500060519:PARML.
+009600060519:PT.F11=Display text
+009700060519:PD.Shows the list again displaying job queue descriptive text
+009800060519information.
+009900060519:EPARML.
+010000060519:EHELP.
+010100060519
+010200070225:HELP NAME='HLPF11/VIEW2'.
+010300060524:PARML.
+010400060524:PT.F11=Display status
+010500060524:PD.Shows the list again displaying job queue status information.
+010600060524:EPARML.
+010700060524:EHELP.
+010800060524
+010900060519:HELP NAME=HLPF12.
+011000060519:PARML.
+011100060519:PT.F12=Cancel
+011200060519:PD.Cancels processing of any options or changes you have made to the
+011300060519current display and returns you to the previous menu or display.
+011400060519:EPARML.
+011500060519:EHELP.
+011600060519
+011700060519:HELP NAME=HLPF21.
+011800060519:PARML.
+011900060519:PT.F21=Print list
+012000060519:PD.Prints the current list, including information from both views.
+012100060519The spooled file is sent to the output queue and can be viewed using
+012200060519the WRKJOB or WRKSPLF command.
+012300060519:EPARML.
+012400060519:EHELP.
+012500060519
+012600060519:HELP NAME=HLPF24.
+012700060519:PARML.
+012800060519:PT.F24=More keys
+012900060519:PD.Changes the keys shown at the bottom of the display.  When you
+013000060519press this key, additional function keys are displayed at the bottom
+013100060519of the display.
+013200060519:EPARML.
+013300060519:EHELP.
+013400060519
+013500060519:HELP NAME=HLPHLP.
+013600060519:PARML.
+013700060519:PT.Help
+013800060519:PD.Provides additional information about using the display.
+013900060519:EPARML.
+014000060519:EHELP.
+014100060519
+014200060519:HELP NAME=HLPPGD.
+014300060519:PARML.
+014400060519:PT.Page Down (Roll Up)
+014500060519:PD.Moves the information displayed forward to show additional
+014600060519information.
+014700060519:EPARML.
+014800060519:EHELP.
+014900060519
+015000060519:HELP NAME=HLPPGU.
+015100060519:PARML.
+015200060519:PT.Page Up (Roll Down)
+015300060519:PD.Moves the information displayed backward to show additional
+015400060519information.
+015500060519:EPARML.
+015600060519:EHELP.
+015700060519
+015800060519:HELP NAME=HLPPRT.
+015900060519:PARML.
+016000060519:PT.Print
+016100060519:PD.Prints information currently shown on the display.
+016200060519:EPARML.
+016300060519:EHELP.
+016400060519
+016500061114:HELP NAME='DSPSBSJOBQ/'.Display Subsystem Job Queues - Help
+016600060519:P.
+016700061114The Display Subsystem Job Queues display shows the names and status
+016800060519of, as well as the current activity in, the specified subsystem's
+016900060519job queues.
+017000060519:P.
+017100060519You can type an option next to one or more job queues.  Then, when the
+017200060519Enter key is pressed, the function associated with the number you typed
+017300060519is performed for that job queue.
+017400060519:P.
+017500060519If you press the Enter key without typing any other data, you are
+017600060519returned to the previous menu or display.
+017700060519:P.
+017800060519You can type parameters on the command line if you want to override the
+017900060519defaults for the option(s) you typed.  Typing parameters is valid only
+018000060519if you used one of the options.  For example, you typed option 2 next
+018100060519to one or more subsystems and you want to type MAXPTY1(1) to change
+018200060519from the default, MAXPTY1(*SAME).
+018300060519:P.
+018400060519To run a command, type the command and press the Enter key.  For
+018500060519assistance in typing the command, type the command and press F4.  For
+018600060519assistance in selecting a command, press F4 without typing anything.
+018700060519:P.
+018800060519If you see More ... on the lower right side of your display, there is
+018900060519more information to view.  Press Page Down (Roll Up) to move toward the
+019000060519end of the information.  Press Page Up (Roll Down) to move toward the
+019100060519beginning of the information.
+019200060519:P.
+019300060519If you see Bottom instead of More ..., you are at the end of the list.
+019400060519:P.
+019500060519:EHELP.
+019600060618
+019700061114:HELP NAME='DSPSBSJOBQ/SBSNAM'.
+019800060618Subsystem name - Help
+019900060618:XH3.Subsystem name
+020000060618:P.
+020100060618The name of the subsystem whose job queues are listed.
+020200060618:EHELP.
+020300060519
+020400061114:HELP NAME='DSPSBSJOBQ/SBSLIB'.
+020500060618Library - Help
+020600060618:XH3.Library
+020700060618:P.
+020800060618The library containing the specified subsystem.
+020900060618:EHELP.
+021000060618
+021100061114:HELP NAME='DSPSBSJOBQ/SBSSTS'.
+021200060618Subsystem status - Help
+021300060618:XH3.Subsystem status
+021400060618:P.
+021500060618The current status of the specified subsystem.
+021600060618:EHELP.
+021700060618
+021800061114:HELP NAME='DSPSBSJOBQ/MAXACT'.
+021900060618Maximum active jobs - Help
+022000060618:XH3.Maximum active jobs
+022100060618:P.
+022200060618The maximum number of jobs that can be active at any given time
+022300060618in the specified subsystem.
+022400060618:EHELP.
+022500060519
+022600061114:HELP NAME='DSPSBSJOBQ/OPTDSP'.
+022700060519:PARML.
+022800061114:PT.5=Display job queue jobs
+022900061114:PD.This option runs the Display Job Queue Jobs (DSPJOBQJOB)
+023000060519command.
+023100060519:EPARML.
+023200060519:EHELP.
+023300060519
+023400061114:HELP NAME='DSPSBSJOBQ/OPTION'.
+023500060519Option - Help
+023600060519:XH3.Opt
+023700060519:P.
+023800060519Type the number of the option you want to specify.
+023900060519:EHELP.
+024000060519
+024100061114:HELP name='DSPSBSJOBQ/SEQNBR'.
+024200070225Sequence number - Help
+024300070225:XH3.Sequence number
+024400060519:P.
+024500060519The sequence number of the subsystem job queue entry.
+024600060519:EHELP.
+024700060519
+024800061114:HELP name='DSPSBSJOBQ/JBQNAM'.
+024900060519Job queue - Help
+025000060519:XH3.Job queue
+025100060519:P.
+025200060519The name of the job queue.
+025300060519:EHELP.
+025400060519
+025500061114:HELP name='DSPSBSJOBQ/JBQLIB'.
+025600070225Library - Help
+025700070225:XH3.Library
+025800060519:P.
+025900060519The name of the library where the job queue is located.
+026000060519:EHELP.
+026100060519
+026200061114:HELP name='DSPSBSJOBQ/JBQSTS'.
+026300060519Status - Help
+026400060519:XH3.Status
+026500060519:P.
+026600060519The current status of the job queue.
+026700060519:EHELP.
+026800060519
+026900061114:HELP name='DSPSBSJOBQ/JBQMAX'.
+027000060519Max jobs - Help
+027100060519:XH3.Max jobs
+027200060519:P.
+027300060519The maximum number of jobs from this job queue that can be active at
+027400060519any given time.
+027500060519:EHELP.
+027600060519
+027700061114:HELP name='DSPSBSJOBQ/CURACT'.
+027800060519Current active - Help
+027900060519:XH3.Current active
+028000060519:P.
+028100060519The number of jobs from this job queue that are currently active.
+028200060519:EHELP.
+028300060519
+028400061114:HELP name='DSPSBSJOBQ/JOBONQ'.
+028500060519Jobs on queue - Help
+028600060519:XH3.Jobs on queue
+028700060519:P.
+028800060519The number of jobs that are currenly waiting on this job queue.
+028900060519:EHELP.
+029000060519
+029100061114:HELP name='DSPSBSJOBQ/JBQDSC'.
+029200060519Text - Help
+029300060519:XH3.Text
+029400060519:P.
+029500060519The descriptive text of the job queue.
+029600060519:EHELP.
+029700060519
+029800060519:EPNLGRP.

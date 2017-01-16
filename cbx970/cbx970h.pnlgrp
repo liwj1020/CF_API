@@ -1,0 +1,486 @@
+000100070501.*-----------------------------------------------------------------------**
+000200070501.*
+000300070501.*  Compile options:
+000400070501.*
+000500070501.*    CrtPnlGrp PnlGrp( CBX970H )
+000600070501.*              SrcFile( QPNLSRC )
+000700070501.*              SrcMbr( *PNLGRP )
+000800070501.*
+000900070501.*-----------------------------------------------------------------------**
+001000070501:PNLGRP.
+001100070501
+001200070502:HELP NAME='WRKJRN2'.Work with Journal 2 - Help
+001300070501:P.
+001400070502The Work with Journal 2 (WRKJRN2) command creates a list of journals
+001500070502that match the specified journal name and are located in the specified
+001600070502library.
+001700070501:P.
+001800070501The displayed list allows you to run a number of commands, that let
+001900070501you display, change or delete the selected journal(s) or create a new
+002000070501journal.
+002100070501:EHELP.
+002200070501
+002300070502:HELP NAME='WRKJRN2/JRN'.Journal (JRN) - Help
+002400070501:XH3.Journal (JRN)
+002500070501:P.
+002600070502Specifies the journals to be shown on the Work with Journal 2 display.
+002700070501:P.
+002800070501The possible values are:
+002900070501:P.
+003000070501:PARML.
+003100070501:PT.:PK DEF.*ALL:EPK.
+003200070501:PD.
+003300070501All journals in the specified library are shown.
+003400070501:PT.:PV.*generic-journal-name:EPV.
+003500070501:PD.
+003600070501Specify the generic name of the journals to be shown.
+003700070501:P.
+003800070501A generic name is a character string that contains one or more
+003900070501characters followed by an asterisk (*).  If a generic name is
+004000070501specified, all journals that have names with the same prefix as the
+004100070501generic name are shown.
+004200070501:PT.:PV.journal-name:EPV.
+004300070501:PD.
+004400070501Specify the name of the journal to be shown.
+004500070501:EPARML.
+004600070501:XH3.Library
+004700070501:P.
+004800070501The library containing the specified journal.
+004900070501:P.
+005000070501The possible values are:
+005100070501:P.
+005200070501:PARML.
+005300070501:PT.:PK DEF.*LIBL:EPK.
+005400070501:PD.
+005500070501All libraries in the library list for the current thread are searched.
+005600070501All objects in these libraries with the specified object name are
+005700070501shown.
+005800070501:PT.:PK.*CURLIB:EPK.
+005900070501:PD.
+006000070501The current library for the thread is searched.  If no library is
+006100070501specified as the current library for the thread, the QGPL library is
+006200070501is searched.
+006300070501:PT.:PK.*USRLIBL:EPK.
+006400070501:PD.
+006500070501If a current library entry exists in the library list for the current
+006600070501thread, the current library and the libraries in the user portion of
+006700070501the library list are searched.  If there is no current library entry,
+006800070501only the libraries in the user portion of the library list are
+006900070501searched.
+007000070501:PT.:PK.*ALLUSR:EPK.
+007100070501:PD.
+007200070501All user libraries are searched.  All libraries with names that do not
+007300070501begin with the letter Q are considered user libraries, except for some
+007400070501IBM product libraries.  Some of the libraries beginning with the letter
+007500070501Q typically contain user data and they are therefore also searched:
+007600070501:P.
+007700070501:LINES.
+007800070501    QDSNX       QRCL        QUSRBRM     QUSRPOSGS
+007900070501    QGPL        QRCLxxxxx   QUSRDIRCL   QUSRPOSSA
+008000070501    QGPL38      QSYS2       QUSRDIRDB   QUSRPYMSVR
+008100070501    QMPGDATA    QSYS2xxxxx  QUSRIJS     QUSRRDARS
+008200070501    QMQMDATA    QS36F       QUSRINFSKR  QUSRSYS
+008300070501    QMQMPROC    QUSER38     QUSRNOTES   QUSRVI
+008400070501    QPFRDATA    QUSRADSM    QUSROND     QUSRVxRxMx
+008500070501:ELINES.
+008600070501:PT.:PK.*ALL:EPK.
+008700070501:PD.
+008800070501All libraries in the system, including QSYS, are searched.
+008900070501:PT.:PV.library-name:EPV.
+009000070501:PD.
+009100070501Specify the name of the library to be searched.
+009200070501:EPARML.
+009300070501:EHELP.
+009400070501
+009500070502:HELP NAME='WRKJRN2/ORDER'.List order (ORDER) - Help
+009600070501:XH3.List order (ORDER)
+009700070501:P.
+009800070501Specifies the order in which the found objects are presented in the
+009900070501displayed or printed list.
+010000070501:P.
+010100070501The possible values are:
+010200070501:P.
+010300070501:PARML.
+010400070501:PT.:PK DEF.*JRN:EPK.
+010500070501:PD.
+010600070501The list is sorted first by journal name, then by library name.
+010700070501:PT.:PK.*LIB:EPK.
+010800070501:PD.
+010900070501The list is sorted first by library name, then by journal name.
+011000070501:EPARML.
+011100070501:EHELP.
+011200070501
+011300070502:HELP NAME='WRKJRN2/OUTPUT'.Output (OUTPUT) - Help
+011400070501:XH3.Output (OUTPUT)
+011500070501:P.
+011600070501Specifies where the output from the command is sent.
+011700070501:P.
+011800070501The possible values are:
+011900070501:P.
+012000070501:PARML.
+012100070501:PT.:PK DEF.*:EPK.
+012200070501:PD.
+012300070501The output is displayed (if requested by an interactive job) or printed
+012400070501with the job's spooled output (if requested by a batch job).
+012500070501:PT.:PK.*PRINT:EPK.
+012600070501:PD.
+012700070501The output is printed with the job's spooled output.
+012800070501:EPARML.
+012900070501:EHELP.
+013000070501
+013100070501.* Panel help section:
+013200070501:HELP NAME=HLPFKEYS.
+013300070501Function Keys - Help
+013400070501:XH3.Function keys
+013500070501:EHELP.
+013600070501
+013700070501:HELP NAME=HLPENT.
+013800070501:PARML.
+013900070501:PT.Enter
+014000070501:PD.Submits information on the display for processing.
+014100070501:EPARML.
+014200070501:EHELP.
+014300070501
+014400070501:HELP NAME=HLPF1.
+014500070501:PARML.
+014600070501:PT.F1=Help
+014700070501:PD.Provides additional information about using the display.
+014800070501:EPARML.
+014900070501:EHELP.
+015000070501
+015100070501:HELP NAME=HLPF3.
+015200070501:PARML.
+015300070501:PT.F3=Exit
+015400070501:PD.Ends the current task and returns you to the display from which
+015500070501the task was started.
+015600070501:EPARML.
+015700070501:EHELP.
+015800070501
+015900070501:HELP NAME=HLPF4.
+016000070501:PARML.
+016100070501:PT.F4=Prompt
+016200070501:PD.Provides assistance in entering or selecting a command.
+016300070501:EPARML.
+016400070501:EHELP.
+016500070501
+016600070501:HELP NAME=HLPF5.
+016700070501:PARML.
+016800070501:PT.F5=Refresh
+016900070501:PD.Shows the display you are viewing with updated information.
+017000070501:EPARML.
+017100070501:EHELP.
+017200070501
+017300070501:HELP NAME=HLPF6.
+017400070501:PARML.
+017500070501:PT.F6=Create journal
+017600070501:PD.Executes the Create Journal (CRTJRN) command.
+017700070501:EPARML.
+017800070501:EHELP.
+017900070501
+018000070501:HELP NAME=HLPF9.
+018100070501:PARML.
+018200070501:PT.F9=Retrieve
+018300070501:PD.Displays the last command you entered on the command line and any
+018400070501parameters you included.  Pressing this key once, shows the last
+018500070501command you ran.  Pressing this key twice, shows the command you ran
+018600070501before that and so on.
+018700070501:EPARML.
+018800070501:EHELP.
+018900070501
+019000070501:HELP NAME='HLPF11/VIEW1'.
+019100070501:PARML.
+019200070501:PT.F11=Display receivers
+019300070501:PD.Shows the list again displaying journal receiver directory
+019400070501information.
+019500070501:EPARML.
+019600070501:EHELP.
+019700070501
+019800070501:HELP NAME='HLPF11/VIEW2'.
+019900070501:PARML.
+020000070501:PT.F11=Display text
+020100070501:PD.Shows the list again displaying journal text information and the
+020200070501ASP device containing the journal.
+020300070501:EPARML.
+020400070501:EHELP.
+020500070501
+020600070501:HELP NAME='HLPF11/VIEW3'.
+020700070501:PARML.
+020800070501:PT.F11=Display status
+020900070501:PD.Shows the list again displaying journal type, state as well as
+021000070501receiver count and directory size.
+021100070501:EPARML.
+021200070501:EHELP.
+021300070501
+021400070501:HELP NAME=HLPF12.
+021500070501:PARML.
+021600070501:PT.F12=Cancel
+021700070501:PD.Cancels processing of any options or changes you have made to the
+021800070501current display and returns you to the previous menu or display.
+021900070501:EPARML.
+022000070501:EHELP.
+022100070501
+022200070501:HELP NAME=HLPF17.
+022300070501:PARML.
+022400070501:PT.F17=Top
+022500070501:PD.Brings you back to the top of the list.
+022600070501:EPARML.
+022700070501:EHELP.
+022800070501
+022900070501:HELP NAME=HLPF18.
+023000070501:PARML.
+023100070501:PT.F18=Bottom
+023200070501:PD.Brings you to the bottom of the list.
+023300070501:EPARML.
+023400070501:EHELP.
+023500070501
+023600070501:HELP NAME=HLPF20.
+023700070501:PARML.
+023800070501:PT.F20=Journal commands
+023900070501:PD.Shows the Journal Commands Menu that lists all system CL commands
+024000070501available to perform journal administration.
+024100070501:EPARML.
+024200070501:EHELP.
+024300070501
+024400070512:HELP NAME=HLPF21.
+024500070512:PARML.
+024600070512:PT.F21=Work with journal
+024700070512:PD.Executes the Work with Journal (WRKJRN) command.
+024800070512:EPARML.
+024900070512:EHELP.
+025000070512
+025100070501:HELP NAME=HLPF24.
+025200070501:PARML.
+025300070501:PT.F24=More keys
+025400070501:PD.Changes the keys shown at the bottom of the display.  When you
+025500070501press this key, additional function keys are displayed at the bottom
+025600070501of the display.
+025700070501:EPARML.
+025800070501:EHELP.
+025900070501
+026000070501:HELP NAME=HLPHLP.
+026100070501:PARML.
+026200070501:PT.Help
+026300070501:PD.Provides additional information about using the display.
+026400070501:EPARML.
+026500070501:EHELP.
+026600070501
+026700070501:HELP NAME=HLPPGD.
+026800070501:PARML.
+026900070501:PT.Page Down (Roll Up)
+027000070501:PD.Moves the information displayed forward to show additional
+027100070501information.
+027200070501:EPARML.
+027300070501:EHELP.
+027400070501
+027500070501:HELP NAME=HLPPGU.
+027600070501:PARML.
+027700070501:PT.Page Up (Roll Down)
+027800070501:PD.Moves the information displayed backward to show additional
+027900070501information.
+028000070501:EPARML.
+028100070501:EHELP.
+028200070501
+028300070501:HELP NAME=HLPPRT.
+028400070501:PARML.
+028500070501:PT.Print
+028600070501:PD.Prints information currently shown on the display.
+028700070501:EPARML.
+028800070501:EHELP.
+028900070501
+029000070502:HELP NAME='WRKJRN2/'.Work with Journal 2 - Help
+029100070501:P.
+029200070502The Work with Journal 2 display shows a list of journals that match the
+029300070502specified journal and library selection criteria.
+029400070501:P.
+029500070501You can type an option next to one or more journals.  Then, when the
+029600070501Enter key is pressed, the function associated with the number you typed
+029700070501is performed for that journal.
+029800070501:P.
+029900070501If you press the Enter key without typing any other data, you are
+030000070501returned to the previous menu or display.
+030100070501:P.
+030200070501You can type parameters on the command line if you want to override the
+030300070501defaults for the option(s) you typed.  Typing parameters is valid only
+030400070501if you used one of the options.
+030500070501:P.
+030600070501To run a command, type the command and press the Enter key.  For
+030700070501assistance in typing the command, type the command and press F4.  For
+030800070501assistance in selecting a command, press F4 without typing anything.
+030900070501:P.
+031000070501If you see More ... on the lower right side of your display, there is
+031100070501more information to view.  Press Page Down (Roll Up) to move toward the
+031200070501end of the information.  Press Page Up (Roll Down) to move toward the
+031300070501beginning of the information.
+031400070501:P.
+031500070501If you see Bottom instead of More ..., you are at the end of the list.
+031600070501:P.
+031700070501:EHELP.
+031800070501
+031900070502:HELP NAME='WRKJRN2/OPTCHG'.
+032000070501:PARML.
+032100070501:PT.2=Change
+032200070501:PD.Use this option to run the Change Journal (CHGJRN) command.  If no
+032300070501 value is specified on the Parameter's input field, *SAME or the
+032400070501current value is shown for the parameters when you press F4 (prompt)
+032500070501key.
+032600070501:P.
+032700070501However, when values have been specified on the Parameters input field,
+032800070501the command is run without the prompt appearing when you press the
+032900070501Enter key.  Similarly, when you press F4, the specified values are
+033000070501highlighted and *SAME or the current value is shown for the remaining
+033100070501parameters.
+033200070501:P.
+033300070501If a successfull change is performed against a journal, the list panel
+033400070501will not reflect the change until a refresh of the panel occurs.
+033500070501:EPARML.
+033600070501:EHELP.
+033700070501
+033800070502:HELP NAME='WRKJRN2/OPTDLT'.
+033900070501:PARML.
+034000070501:PT.4=Delete
+034100070501:PD.Use this option to run the Delete Journal (DLTJRN) command.
+034200070501:P.
+034300070501The journal is removed from the list if the command runs successfully.
+034400070501:EPARML.
+034500070501:EHELP.
+034600070501
+034700070502:HELP NAME='WRKJRN2/OPTDSP'.
+034800070501:PARML.
+034900070501:PT.5=Display
+035000070501:PD.This option runs the Display Journal (DSPJRN) command.
+035100070501:EPARML.
+035200070501:EHELP.
+035300070501
+035400070502:HELP NAME='WRKJRN2/OPTWRKA'.
+035500070501:PARML.
+035600070501:PT.8=Work with journal attributes
+035700070501:PD.This option runs the Work with Journal Attributes (WRKJRNA)
+035800070501command.
+035900070501:EPARML.
+036000070501:EHELP.
+036100070501
+036200070502:HELP NAME='WRKJRN2/OPTWRKO'.
+036300070501:PARML.
+036400070501:PT.9=Work with object
+036500070501:PD.This option runs the Work with Object (WRKOBJ) command.
+036600070501:EPARML.
+036700070501:EHELP.
+036800070501
+036900070502:HELP name='WRKJRN2/WRKNAM'.
+037000070501Journal - Help
+037100070501:XH3.Journal
+037200070501:P.
+037300070502The value specified for the journal parameter (JRN) on the WRKJRN2
+037400070501command.
+037500070501:EHELP.
+037600070501
+037700070502:HELP name='WRKJRN2/WRKLIB'.
+037800070501Library - Help
+037900070501:XH3.Library
+038000070501:P.
+038100070502The value specified for journal library on the WRKJRN2 command.
+038200070501:EHELP.
+038300070501
+038400070502:HELP NAME='WRKJRN2/OPTION'.
+038500070501Option - Help
+038600070501:XH3.Opt
+038700070501:P.
+038800070501Type the number of the option you want to specify.
+038900070501:EHELP.
+039000070501
+039100070502:HELP name='WRKJRN2/JRNNAM'.
+039200070501Journal - Help
+039300070501:XH3.Journal
+039400070501:P.
+039500070501The name of each journal that you can work with.
+039600070501:EHELP.
+039700070501
+039800070502:HELP name='WRKJRN2/JRNLIB'.
+039900070501Library - Help
+040000070501:XH3.Library
+040100070501:P.
+040200070501The name of the library where the journal is located.
+040300070501:EHELP.
+040400070501
+040500070502:HELP name='WRKJRN2/JRNTYP'.
+040600070501Type - Help
+040700070501:XH3.Type
+040800070501:P.
+040900070501The type of journal.
+041000070501:P.
+041100070501Possible values are:
+041200070501:DL COMPACT.
+041300070501:DT.*LCL:DD.The journal is a local journal.
+041400070501:DT.*RMT:DD.The journal is a remote journal.
+041500070501:EDL.
+041600070501:EHELP.
+041700070501
+041800070502:HELP name='WRKJRN2/JRNSTT'.
+041900070501State - Help
+042000070501:XH3.State
+042100070501:P.
+042200070501The current journal state.
+042300070501:P.
+042400070501Possible values are:
+042500070502:DL.
+042600070501:DT.*INACTIVE :DD.If this is a remote journal, this means journal
+042700070501entries cannot be received from a source journal.
+042800070501:DT.*ACTIVE   :DD.If this is a local journal, this means journal
+042900070501entries can be deposited to this journal. If this is a remote journal,
+043000070501this means journal entries can be received from a source journal.
+043100070501:DT.*FAILED   :DD.If this is a remote journal, this means journal
+043200070501entries cannot be received from a source journal due toa remote journal
+043300070501function failure, for example, a communications failure.
+043400070501:DT.*INACTPEND:DD.If this is a remote journal, this means a request is
+043500070501being processed to set the journal state to *INACTIVE.  Or, the remote
+043600070501journal was a target in a synchronous environment and the environment
+043700070501 has gone down, leaving unconfirmed entries in the journal.
+043800070501:DT.*STANDBY  :DD.If this is a local journal, this means that most
+043900070501journal entries are not deposited into the journal and there will be no
+044000070501errors indicating that the entry was not deposited.  While in standby
+044100070501state, journaling can be started or stopped, however using explicit
+044200070501commitment control is not allowed.
+044300070501:EDL.
+044400070501:EHELP.
+044500070501
+044600070502:HELP name='WRKJRN2/RCVINF'.
+044700070501Receiver - Help
+044800070501:XH3.Receiver
+044900070501:P.
+045000070501Specifies the current number of receivers as well as the receiver
+045100070501directory size in kilobytes.
+045200070501:EHELP.
+045300070501
+045400070502:HELP name='WRKJRN2/RCVDIR'.
+045500070501Receiver directory - Help
+045600070501:XH3.Receiver directory
+045700070501:P.
+045800070501Specifies the name and library of the currently attached receiver as
+045900070501well as the name and library of the oldest receiver currently in the
+046000070501receiver directory.
+046100070501:EHELP.
+046200070501
+046300070502:HELP name='WRKJRN2/ASPDEV'.
+046400070501ASP device - Help
+046500070501:XH3.ASP device
+046600070501:P.
+046700070501The ASP device containing the journal.
+046800070501:EHELP.
+046900070501
+047000070502:HELP name='WRKJRN2/JRNTXT'.
+047100070501Text - Help
+047200070501:XH3.Text
+047300070501:P.
+047400070501The descriptive text of the journal.
+047500070501:EHELP.
+047600070501
+047700070501:HELP name='CNFPNL/OPTION'.
+047800070501Opt - Help
+047900070501:XH3.Opt
+048000070501:P.
+048100070501This is the option field showing the delete journal option which causes
+048200070501the confirmation panel to be displayed.  For this panel, the option
+048300070501number will always be 4.
+048400070501:EHELP.
+048500070501
+048600070501:EPNLGRP.

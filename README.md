@@ -10,6 +10,11 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 ## Utilities
 * 100 - Sample of QDBRTVFD
 * ... - More utilities/samples
+* 967 - DSDSBSJOBQ Display Subsystem Job Queues
+* 968 - DSPJOBQJOB Display Job Queue Jobs
+* 969 - WRKJOB2 Work with Job
+* 970 - WRKJRN2 Work with journals
+* 971 - WRKOUTQAUT Work with Out Queue Authority
 * 972 - WRKPRFSECA Work with Profile Security Attributes
 * 973 - SETDFTJRN Set Default journal 
 * 974 - WRKDFTJRN Work with Default Journal
