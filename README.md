@@ -63,7 +63,7 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 * 99A - Query Governor Exit Program Setup
 
 ##Build
-run the shell script setup in QP2TERM ./code_examples/rpg/cf_api/setup '999'. Note: Some of the utilities require additional
+run the shell script setup in QP2TERM ./cf_api/setup 'api_Number(see above)'. Note: Some of the utilities require additional
 utilities to be built to run correctly.
 
 ##Documentation
