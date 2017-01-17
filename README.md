@@ -10,6 +10,13 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 ## Utilities
 * 100 - Sample of QDBRTVFD
 * ... - More utilities/samples
+* 960 - ADDSVRSHR Add Server Share
+* 961 - RMVSVRSHR Remove Server Share
+* 962 - CHGSVRSHR Change Server Share
+* 963 - DSPSVRSHR Display Server Shares
+* 964 - WRKSVRSHR Work Server Shares
+* 965 - DSPUSRJOB Display User Job
+* 966 - DSPSBSACT Display Subsystem Activity
 * 967 - DSDSBSJOBQ Display Subsystem Job Queues
 * 968 - DSPJOBQJOB Display Job Queue Jobs
 * 969 - WRKJOB2 Work with Job

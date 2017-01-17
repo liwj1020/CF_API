@@ -1,0 +1,327 @@
+000100060512.*-----------------------------------------------------------------------**
+000200060512.*
+000300060512.*  Compile options:
+000400060512.*
+000500070102.*    CrtPnlGrp PnlGrp( CBX966H )
+000600060512.*              SrcFile( QPNLSRC )
+000700070102.*              SrcMbr( CBX966H )
+000800060512.*
+000900060512.*-----------------------------------------------------------------------**
+001000060512:PNLGRP.
+001100060518
+001200060518.* Command help section:
+001300061122:HELP NAME='DSPSBSACT'.Display Subsystem Activity - Help
+001400060512:P.
+001500061122The Display Subsystem Activity (DSPSBSACT) command allows you to
+001600061122monitor the subsystem activity on your system.
+001700060512:P.
+001800060512:EHELP.
+001900060519
+002000061122:HELP NAME='DSPSBSACT/SBS'.Subsystem (SBS) - Help
+002100060512:XH3.Subsystem (SBS)
+002200060512:P.
+002300061122Specify the subsystem or subsystems to monitor.
+002400060512:P.
+002500060512This is a required parameter.
+002600060512:P.
+002700060512The possible values are:
+002800060512:P.
+002900060512:PARML.
+003000060519:PT.:PK.*ACTIVE:EPK.
+003100060512:PD.
+003200060512All currently active subsystems are listed.
+003300060512:PT.:PK.*ALL:EPK.
+003400060512:PD.
+003500060512All subsystems in the specified library are listed.
+003600060512:PT.:PV.*generic-subsystem-name:EPV.
+003700060512:PD.
+003800060512Specify the generic name of the subsystems to list.  A generice name is
+003900060512a character string that contains one or more characters followed by an
+004000060512asterisk (*).  For example, ABC*.
+004100060512:PT.:PV.subsystem-name:EPV.
+004200060512:PD.
+004300061122Specify the name of a subsystem to monitor.
+004400060512:EPARML.
+004500060512:XH3.Library
+004600060512:P.
+004700060512The library containing the specified subsystem or subsystems.
+004800060512:P.
+004900060512The possible values are:
+005000060512:P.
+005100060512:PARML.
+005200060512:PT.:PK DEF.*LIBL:EPK.
+005300060512:PD.
+005400060512All libraries in the library list for the current thread are searched.
+005500060512All objects in these libraries with the specified object name are
+005600060512shown.
+005700060512:PT.:PK.*CURLIB:EPK.
+005800060512:PD.
+005900060512The current library for the thread is searched.  If no library is
+006000060512specified as the current library for the thread, the QGPL library is
+006100060512is searched.
+006200060512:PT.:PK.*USRLIBL:EPK.
+006300060512:PD.
+006400060512If a current library entry exists in the library list for the current
+006500060512thread, the current library and the libraries in the user portion of
+006600060512the library list are searched.  If there is no current library entry,
+006700060512only the libraries in the user portion of the library list are
+006800060512searched.
+006900060512:PT.:PK.*ALLUSR:EPK.
+007000060512:PD.
+007100060512All user libraries are searched.  All libraries with names that do not
+007200060512begin with the letter Q are considered user libraries, except for some
+007300060512IBM product libraries.  Some of the libraries beginning with the letter
+007400060512Q typically contain user data and they are therefore also searched:
+007500060512:P.
+007600060512:LINES.
+007700060512    QDSNX       QRCL        QUSRBRM     QUSRPOSGS
+007800060512    QGPL        QRCLxxxxx   QUSRDIRCL   QUSRPOSSA
+007900060512    QGPL38      QSYS2       QUSRDIRDB   QUSRPYMSVR
+008000060512    QMPGDATA    QSYS2xxxxx  QUSRIJS     QUSRRDARS
+008100060512    QMQMDATA    QS36F       QUSRINFSKR  QUSRSYS
+008200060512    QMQMPROC    QUSER38     QUSRNOTES   QUSRVI
+008300060512    QPFRDATA    QUSRADSM    QUSROND     QUSRVxRxMx
+008400060512:ELINES.
+008500060512:PT.:PK.*ALL:EPK.
+008600060512:PD.
+008700060512All libraries in the system, including QSYS, are searched.
+008800060512:PT.:PV.library-name:EPV.
+008900060512:PD.
+009000060512Specify the name of the library to be searched.
+009100060512:EPARML.
+009200060512:EHELP.
+009300060519
+009400061122:HELP NAME='DSPSBSACT/EXCLUDE'.Exclude library (EXCLUDE) - Help
+009500060512:XH3.Exclude library (EXCLUDE)
+009600060512:P.
+009700060512The library or libraries specified will not be included in the search
+009800060512for the specified subsystem.
+009900060512:P.
+010000060512The possible values are:
+010100060512:P.
+010200060512:PARML.
+010300060512:PT.:PK DEF.*NONE:EPK.
+010400060512:PD.
+010500060512No libraries are excluded from the subsystem search.
+010600060512:PT.:PV.*generic-exclude-library-name:EPV.
+010700060512:PD.
+010800060512Specify the generic name of the subsystems to exclude from the search.
+010900060512A generice name is a character string that contains one or more
+011000060512characters followed by an asterisk (*).  For example, QIN*.
+011100060512:PT.:PV.exclude-library-name:EPV.
+011200060512:PD.
+011300060512Specify the name of the library to be excluded from the search.
+011400060512:EPARML.
+011500060512:EHELP.
+011600060518
+011700060518.* Panel help section:
+011800060518:HELP NAME=HLPFKEYS.
+011900060518Function Keys - Help
+012000060518:XH3.Function keys
+012100060518:EHELP.
+012200060518
+012300060518:HELP NAME=HLPENT.
+012400060518:PARML.
+012500060518:PT.Enter
+012600060518:PD.Submits information on the display for processing.
+012700060518:EPARML.
+012800060518:EHELP.
+012900060518
+013000060518:HELP NAME=HLPF1.
+013100060518:PARML.
+013200060518:PT.F1=Help
+013300060518:PD.Provides additional information about using the display.
+013400060518:EPARML.
+013500060518:EHELP.
+013600060518
+013700060603:HELP NAME=HLPF3.
+013800060518:PARML.
+013900060518:PT.F3=Exit
+014000060518:PD.Ends the current task and returns you to the display from which
+014100060518the task was started.
+014200060518:EPARML.
+014300060518:EHELP.
+014400060518
+014500060518:HELP NAME=HLPF5.
+014600060518:PARML.
+014700060518:PT.F5=Refresh
+014800060518:PD.Shows the display you are viewing with updated information.
+014900060518:EPARML.
+015000060518:EHELP.
+015100060518
+015200060518:HELP NAME='HLPF11/VIEW1'.
+015300060518:PARML.
+015400060518:PT.F11=Display text
+015500060518:PD.Shows the list again displaying subsystem description text
+015600060518information.
+015700060518:EPARML.
+015800060518:EHELP.
+015900060518
+016000060518:HELP NAME='HLPF11/VIEW2'.
+016100060518:PARML.
+016200060518:PT.F11=Display status
+016300060518:PD.Shows the list again displaying subsystem status information.
+016400060518:EPARML.
+016500060518:EHELP.
+016600060518
+016700060518:HELP NAME=HLPF12.
+016800060518:PARML.
+016900060518:PT.F12=Cancel
+017000060518:PD.Cancels processing of any options or changes you have made to the
+017100060518current display and returns you to the previous menu or display.
+017200060518:EPARML.
+017300060518:EHELP.
+017400060518
+017500060518:HELP NAME=HLPF21.
+017600060518:PARML.
+017700060518:PT.F21=Print list
+017800060518:PD.Prints the current list, including information from both views.
+017900060518The spooled file is sent to the output queue and can be viewed using
+018000060518the WRKJOB or WRKSPLF command.
+018100060518:EPARML.
+018200060518:EHELP.
+018300060518
+018400060518:HELP NAME=HLPF24.
+018500060518:PARML.
+018600060518:PT.F24=More keys
+018700060518:PD.Changes the keys shown at the bottom of the display.  When you
+018800060518press this key, additional function keys are displayed at the bottom
+018900060518of the display.
+019000060518:EPARML.
+019100060518:EHELP.
+019200060518
+019300060518:HELP NAME=HLPHLP.
+019400060518:PARML.
+019500060518:PT.Help
+019600060518:PD.Provides additional information about using the display.
+019700060518:EPARML.
+019800060518:EHELP.
+019900060518
+020000060518:HELP NAME=HLPPGD.
+020100060518:PARML.
+020200060518:PT.Page Down (Roll Up)
+020300060518:PD.Moves the information displayed forward to show additional
+020400060518information.
+020500060518:EPARML.
+020600060518:EHELP.
+020700060518
+020800060518:HELP NAME=HLPPGU.
+020900060518:PARML.
+021000060518:PT.Page Up (Roll Down)
+021100060518:PD.Moves the information displayed backward to show additional
+021200060518information.
+021300060518:EPARML.
+021400060518:EHELP.
+021500060518
+021600060518:HELP NAME=HLPPRT.
+021700060518:PARML.
+021800060518:PT.Print
+021900060518:PD.Prints information currently shown on the display.
+022000060518:EPARML.
+022100060518:EHELP.
+022200060518
+022300061130:HELP NAME='DSPSBSACT/'.Display Subsystem Activity - Help
+022400060518:P.
+022500061130Display Subsystem Activity display shows the names and status of, as
+022600061130well as the current activity in, the specified subsystems.
+022700060518:P.
+022800060518You can type an option next to one or more subsystems.  Then, when the
+022900060518Enter key is pressed, the function associated with the number you typed
+023000060518is performed for that subsystem.
+023100060518:P.
+023200060518If you press the Enter key without typing any other data, you are
+023300060518returned to the previous menu or display.
+023400060518:P.
+023500060518If you see More ... on the lower right side of your display, there is
+023600060518more information to view.  Press Page Down (Roll Up) to move toward the
+023700060518end of the information.  Press Page Up (Roll Down) to move toward the
+023800060518beginning of the information.
+023900060518:P.
+024000060518If you see Bottom instead of More ..., you are at the end of the list.
+024100060518:P.
+024200060518:EHELP.
+024300060518
+024400061122:HELP NAME='DSPSBSACT/OPTDSP'.
+024500060518:PARML.
+024600070123:PT.5=Display subsystem description
+024700060518:PD.This option runs the Display Subsystem Description (DSPSBSD)
+024800060518command, which displays the Display Subsystem Description Menu.
+024900060518The Display Subsystem Description Menu allows you to select options to
+025000060518display the different subsystem attributes and entries.
+025100060518:EPARML.
+025200060518:EHELP.
+025300060518
+025400070123:HELP NAME='DSPSBSACT/OPTDJQ'.
+025500070123:PARML.
+025600131107:PT.9=Display subsystem job queues
+025700070123:PD.This option runs the Display Subsystem Job Queues (DSPSBSJOBQ)
+025800070123command, which displays the Display Subsystem Job Queues panel.
+025900070123:P.
+026000070123The Display Subsystem Job Queues display panel the names and status
+026100070123of, as well as the current activity in, the specified subsystem's
+026200070123job queues.
+026300070123:EPARML.
+026400070123:EHELP.
+026500061122
+026600061122:HELP NAME='DSPSBSACT/OPTION'.
+026700060518Option - Help
+026800060518:XH3.Opt
+026900060518:P.
+027000060518Type the number of the option you want to specify.
+027100060518:EHELP.
+027200060518
+027300061122:HELP name='DSPSBSACT/SBSNAM'.
+027400060518Subsystem - Help
+027500060518:XH3.Subsystem
+027600060518:P.
+027700061130The name of each subsystem that you can display information about.
+027800060518:EHELP.
+027900060518
+028000061122:HELP name='DSPSBSACT/SBSLIB'.
+028100060518Library - Help
+028200060518:XH3.Library
+028300060518:P.
+028400060518The name of the library where the subsystem is located.
+028500060518:EHELP.
+028600060518
+028700061122:HELP name='DSPSBSACT/SBSSTS'.
+028800060518Status - Help
+028900060518:XH3.Status
+029000060518:P.
+029100060518The current status of the subsystem.
+029200060518:EHELP.
+029300060518
+029400061122:HELP name='DSPSBSACT/MAXACT'.
+029500060518Max jobs - Help
+029600060518:XH3.Max jobs
+029700060518:P.
+029800060518The maximum number of jobs that can be active in the subsystem at any
+029900060518given time.
+030000060518:EHELP.
+030100060518
+030200061122:HELP name='DSPSBSACT/CURACT'.
+030300060518Current active - Help
+030400060518:XH3.Current active
+030500060518:P.
+030600060518The number of jobs currently active in the subsystem.
+030700060518:EHELP.
+030800060518
+030900070128:HELP name='DSPSBSACT/JOBONQ'.
+031000070128Jobs on queue - Help
+031100070128:XH3.Jobs on queue
+031200070128:P.
+031300070128The number of jobs currently waiting on job queues allocated by the
+031400070128subsystem.
+031500070128:P.
+031600070128A value of *NOTALC indicates that the subsystem currently does not
+031700070128allocate any job queues.
+031800070128:EHELP.
+031900070128
+032000061122:HELP name='DSPSBSACT/SBSDSC'.
+032100060518Text - Help
+032200060518:XH3.Text
+032300060518:P.
+032400060518The descriptive text of the subsystem.
+032500060518:EHELP.
+032600060518
+032700060512:EPNLGRP.

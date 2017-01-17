@@ -1,0 +1,318 @@
+000100061029.*-----------------------------------------------------------------------**
+000200061029.*
+000300061029.*  Compile options:
+000400061029.*
+000500061104.*    CrtPnlGrp PnlGrp( CBX963H )
+000600061029.*              SrcFile( QPNLSRC )
+000700061104.*              SrcMbr( CBX963H )
+000800061029.*
+000900061029.*-----------------------------------------------------------------------**
+001000061029:PNLGRP.
+001100061029
+001200061104:HELP NAME='DSPSVRSHR'.Display Server Share - Help
+001300061029:P.
+001400061104The Display Server Share (DSPSVRSHR) command displays information about
+001500061104the specified server share.  The type of information varies depending
+001600061106on the actual type of server share, being either a print of file share.
+001700061029:P.
+001800061029:EHELP.
+001900061029
+002000061104:HELP NAME='DSPSVRSHR/SHARE'.Share (SHARE) - Help
+002100061104:XH3.Share (SHARE)
+002200061104:P.
+002300061104The name of the share for which to display information.
+002400061104:P.
+002500061104This is a required parameter.
+002600061104:P.
+002700061104:EHELP.
+002800061029
+002900061104:HELP NAME='DSPSVRSHR/OUTPUT'.Output (OUTPUT) - Help
+003000061104:XH3.Output (OUTPUT)
+003100061104:P.
+003200061104Specifies where the output from the command is sent.
+003300061104:P.
+003400061104The possible values are:
+003500061104:P.
+003600061104:PARML.
+003700061104:PT.:PK DEF.*:EPK.
+003800061104:PD.
+003900061104The output is displayed (if requested by an interactive job) or printed
+004000061104with the job's spooled output (if requested by a batch job).
+004100061104:PT.:PK.*PRINT:EPK.
+004200061104:PD.
+004300061104The output is printed with the job's spooled output.
+004400061104:EPARML.
+004500061104:EHELP.
+004600061104
+004700061106.* Panel help section:
+004800061106:HELP NAME=HLPFKEYS.
+004900061106Function Keys - Help
+005000061106:XH3.Function keys
+005100061106:EHELP.
+005200061106
+005300061106:HELP NAME=HLPENT.
+005400061106:PARML.
+005500061106:PT.Enter
+005600061106:PD.Returns to previous menu or display.
+005700061106:EPARML.
+005800061106:EHELP.
+005900061106
+006000061106:HELP NAME=HLPF1.
+006100061106:PARML.
+006200061106:PT.F1=Help
+006300061106:PD.Provides additional information about using the display.
+006400061106:EPARML.
+006500061106:EHELP.
+006600061106
+006700061106:HELP     NAME=HLPF3.
+006800061106:PARML.
+006900061106:PT.F3=Exit
+007000061106:PD.Ends the current task and returns you to the display from which
+007100061106the task was started.
+007200061106:EPARML.
+007300061106:EHELP.
+007400061106
+007500061106:HELP NAME=HLPF5.
+007600061106:PARML.
+007700061106:PT.F5=Refresh
+007800061106:PD.Shows the display you are viewing with updated information.
+007900061106:EPARML.
+008000061106:EHELP.
+008100061106
+008200061106:HELP NAME=HLPF12.
+008300061106:PARML.
+008400061106:PT.F12=Cancel
+008500061106:PD.Cancels processing of any options or changes you have made to the
+008600061106current display and returns you to the previous menu or display.
+008700061106:EPARML.
+008800061106:EHELP.
+008900061106
+009000061106:HELP NAME='HLPF20'.
+009100061106:PARML.
+009200061106:PT.F20=Display file extensions
+009300061106:PD.Displays all file extensions for the specified server share, if any
+009400061106have been registered.
+009500061106:EPARML.
+009600061106:EHELP.
+009700061106
+009800061106:HELP NAME=HLPF22.
+009900061106:PARML.
+010000061106:PT.F22=Display entire path
+010100061106:PD.Displays the entire path name if it is longer than 256 characters.
+010200061106:EPARML.
+010300061106:EHELP.
+010400061106
+010500061106:HELP NAME=HLPF24.
+010600061106:PARML.
+010700061106:PT.F24=More keys
+010800061106:PD.Changes the keys shown at the bottom of the display.  When you
+010900061106press this key, additional function keys are displayed at the bottom
+011000061106of the display.
+011100061106:EPARML.
+011200061106:EHELP.
+011300061106
+011400061106:HELP NAME=HLPHLP.
+011500061106:PARML.
+011600061106:PT.Help
+011700061106:PD.Provides additional information about using the display.
+011800061106:EPARML.
+011900061106:EHELP.
+012000061106
+012100061106:HELP NAME=HLPPGD.
+012200061106:PARML.
+012300061106:PT.Page Down (Roll Up)
+012400061106:PD.Moves the information displayed forward to show additional
+012500061106information.
+012600061106:EPARML.
+012700061106:EHELP.
+012800061106
+012900061106:HELP NAME=HLPPGU.
+013000061106:PARML.
+013100061106:PT.Page Up (Roll Down)
+013200061106:PD.Moves the information displayed backward to show additional
+013300061106information.
+013400061106:EPARML.
+013500061106:EHELP.
+013600061106
+013700061106:HELP NAME=HLPPRT.
+013800061106:PARML.
+013900061106:PT.Print
+014000061106:PD.Prints information currently shown on the display.
+014100061106:EPARML.
+014200061106:EHELP.
+014300061106
+014400061106:HELP NAME='DSPSVRSHR/'.Display Server Share  - Help
+014500061106:P.
+014600061106The Display Server Share display shows information about the specified
+014700061106server share.  The type of information varies depending on the actual
+014800061106type of server share, being either a print or file share.
+014900061106:P.
+015000061106If you press the Enter key you are returned to the previous menu or
+015100061106display.
+015200061106:P.
+015300061106If you see More ... on the lower right side of your display, there is
+015400061106more information to view.  Press Page Down (Roll Up) to move toward the
+015500061106end of the information.  Press Page Up (Roll Down) to move toward the
+015600061106beginning of the information.
+015700061106:P.
+015800061106If you see Bottom instead of More ..., you are at the end of the list.
+015900061106:P.
+016000061106:EHELP.
+016100061106
+016200061106:HELP NAME='DSPSVRSHR/SHRNAM'.
+016300061106Share - Help
+016400061106:XH3.Share
+016500061106:P.
+016600061106The name of the share whose information is displayed.
+016700061106:EHELP.
+016800061106
+016900061106:HELP NAME='DSPSVRSHR/DEVTYP'.
+017000061106Type - Help
+017100061106:XH3.Type
+017200061106:P.
+017300061106The type of share, which can be *FILE or *PRINT for file shares and
+017400061106printer shares, respectively.
+017500061106:EHELP.
+017600061106
+017700061106:HELP NAME='DSPSVRSHR/TXTDSC'.
+017800061106Description - Help
+017900061106:XH3.Description
+018000061106:P.
+018100061106The text description of the specified share.
+018200061106:EHELP.
+018300061106
+018400061106:HELP NAME='DSPSVRSHR/MAXUSR'.
+018500061106Maximum users - Help
+018600061106:XH3.Maximum users
+018700061106:P.
+018800061106The maximum number of concurrent connections that the shared resource
+018900061106can accommodate.
+019000061106:EHELP.
+019100061106
+019200061106:HELP NAME='DSPSVRSHR/CURUSR'.
+019300061106Current users - Help
+019400061106:XH3.Current users
+019500061106:P.
+019600061106The number of connections that are currently made to the resource.
+019700061106:EHELP.
+019800061106
+019900061106:HELP NAME='DSPSVRSHR/PERMIS'.
+020000061106Share permissions - Help
+020100061106:XH3.Share permissions
+020200061106:P.
+020300061106Permissions to be applied against the disk for sharing.
+020400061106:P.
+020500061106Possible values are:
+020600061106:DL COMPACT.
+020700061106:DT.*READONLY :DD.Read only
+020800061106:DT.*READWRITE:DD.Read/Write
+020900061106:EDL.
+021000061106:EHELP.
+021100061106
+021200061106:HELP name='DSPSVRSHR/ENBCNV'.
+021300061106Enable text conversion - Help
+021400061106:XH3.Enable text conversion
+021500061106:P.
+021600061106Whether the server enables text conversion for this share.
+021700061106:P.
+021800061106Possible values are:
+021900061106:DL COMPACT.
+022000061106:DT.*NO   :DD.Text conversion not enabled
+022100061106:DT.*YES  :DD.Text conversion enabled
+022200061106:DT.*MIXED:DD.Text conversion enabled and mixed data is allowed
+022300061106:EDL.
+022400061106:EHELP.
+022500061106
+022600061106:HELP name='DSPSVRSHR/CCSID'.
+022700061106Coded Character Set Identifier (CCSID) - Help
+022800061106:XH3.Coded Character Set Identifier (CCSID)
+022900061106:P.
+023000061106The CCSID that is used for text file data conversion.
+023100061106:EHELP.
+023200061106
+023300061106:HELP name='DSPSVRSHR/NBREXT'.
+023400061106Number of file extensions - Help
+023500061106:XH3.Number of file extensions
+023600061106:P.
+023700061106The number of file extension entries in the shares file extension
+023800061106table.
+023900061106:P.
+024000061106Use F20 to display the actuel file extension entries in effect for the
+024100061106specified share.
+024200061106:EHELP.
+024300061106
+024400061106:HELP name='DSPSVRSHR/PATH'.
+024500061106Path - Help
+024600061106:XH3.Path
+024700061106:P.
+024800061106The path name in the Integrated File System (IFS) that is shared.
+024900061106:EHELP.
+025000061106
+025100061106:HELP name='DSPSVRSHR/OTQNAM'.
+025200061106Output queue - Help
+025300061106:XH3.Output queue
+025400061106:P.
+025500061106The name of the output queue that is shared.
+025600061106:EHELP.
+025700061106
+025800061106:HELP name='DSPSVRSHR/OTQLIB'.
+025900061106Library - Help
+026000061106:XH3.Library
+026100061106:P.
+026200061106The library of the output queue that is shared.
+026300061106:EHELP.
+026400061106
+026500061106:HELP name='DSPSVRSHR/PRTNAM'.
+026600061106Printer file - Help
+026700061106:XH3.Printer file
+026800061106:P.
+026900061106A template printer file containing attributes used to create spooled
+027000061106files for the specified share.
+027100061106:EHELP.
+027200061106
+027300061106:HELP name='DSPSVRSHR/PRTLIB'.
+027400061106Library - Help
+027500061106:XH3.Library
+027600061106:P.
+027700061106The library of the template printer file used for this share.
+027800061106:EHELP.
+027900061106
+028000061106:HELP name='DSPSVRSHR/SPFTYP'.
+028100061106Spooled file type - Help
+028200061106:XH3.Spooled file type
+028300061106:P.
+028400061106The type of spooled files that are created using this share.  This is
+028500061106based on spooled file data expected to be sent by the client; no
+028600061106conversion will be done.
+028700061106:P.
+028800061106Possible values are:
+028900061106:DL COMPACT.
+029000061106:DT.*USERASCII:DD.User ASCII
+029100061106:DT.*AFPDS    :DD.Advanced function print data stream
+029200061106:DT.*SCS      :DD.SNA character string
+029300061106:DT.*AUTO     :DD.Automatic type sensing
+029400061106:EDL.
+029500061106:EHELP.
+029600061106
+029700061106:HELP name='DSPSVRSHR/PRTDRV'.
+029800061106Printer driver - Help
+029900061106:XH3.Printer driver
+030000061106:P.
+030100061106The text string that identifies the print driver that is appropriate
+030200061106for this share.
+030300061106:EHELP.
+030400061106
+030500061106:HELP name='DSPSVRSHR/PUBSHR'.
+030600061106Publish print share - Help
+030700061106:XH3.Publish print share
+030800061106:P.
+030900061106Whether the print share is to be published.
+031000061106:P.
+031100061106Possible values are:
+031200061106:DL COMPACT.
+031300061106:DT.*NO :DD.Print share is not published
+031400061106:DT.*YES:DD.Print share is published
+031500061106:EDL.
+031600061106:EHELP.
+031700061106
+031800061029:EPNLGRP.

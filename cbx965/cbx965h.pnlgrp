@@ -1,0 +1,444 @@
+000100060512.*-----------------------------------------------------------------------**
+000200060512.*
+000300060512.*  Compile options:
+000400060512.*
+000500070101.*    CrtPnlGrp PnlGrp( CBX965H )
+000600060512.*              SrcFile( QPNLSRC )
+000700070101.*              SrcMbr( CBX965H )
+000800060512.*
+000900060512.*-----------------------------------------------------------------------**
+001000060512:PNLGRP.
+001100060514
+001200060514.* Command help section:
+001300061116:HELP NAME='DSPUSRJOB'.Display User Jobs - Help
+001400060512:P.
+001500061116The Display User Jobs (DSPUSRJOB) command allows you to display a list
+001600061116of jobs based on a combination of user name, job status and job type.
+001700060512:P.
+001800060514The list is presented in descending job creation date and time order.
+001900060514:P.
+002000060512:EHELP.
+002100060531
+002200061116:HELP NAME='DSPUSRJOB/COMMAND/EXAMPLES'.
+002300061116Examples for DSPUSRJOB - Help
+002400061116:XH3.Examples for DSPUSRJOB
+002500060531:P.
+002600061116:HP2.Example 1: Current user's active jobs:EHP2.
+002700060531:XMP.
+002800061116DSPUSRJOB USER(*CURRENT) STATUS(*ACTIVE)
+002900060531:EXMP.
+003000060531:P.
+003100061116This command shows all active jobs for the user profile running the
+003200061116DSPUSRJOB command.
+003300060531:P.
+003400060531:HP2.Example 2: Specific user's non-completed jobs:EHP2.
+003500060531:XMP.
+003600061116DSPUSRJOB USER(CHUCK) STATUS(*NONOUTQ)
+003700060531:EXMP.
+003800060531:P.
+003900060531This command shows all jobs initiated by user profile CHUCK, that are
+004000060531currently either active or on a job queue.
+004100060531:P.
+004200060531:HP2.Example 3: Jobs running under specific current user profile:EHP2.
+004300060531:XMP.
+004400061116DSPUSRJOB USER(*CURUSR) STATUS(*ACTIVE) CURUSR(GARY)
+004500060531:EXMP.
+004600060531:P.
+004700060531This command shows all active jobs running under the current user
+004800060531profile GARY.  This allows you to identify jobs that were initiated by
+004900060531one user profile, but are currently running under another, specific
+005000060531user profile.
+005100060531:EHELP.
+005200060514
+005300061116:HELP NAME='DSPUSRJOB/USER'.User name (USER) - Help
+005400060512:XH3.User name (USER)
+005500060512:P.
+005600060514Specifies the name of the user profiles whose jobs should be included
+005700060514in the job list.
+005800060512:P.
+005900060512The possible values are:
+006000060512:P.
+006100060512:PARML.
+006200061117:PT.:PK DEF.*CURRENT:EPK.
+006300060518:PD.
+006400060518Only the jobs run be the user of the job from which this command is
+006500060518executed, are included in the job list.
+006600061117:PT.:PK.*ALL:EPK.
+006700061117:PD.
+006800061117No jobs are excluded from the job list based on user name.
+006900060512:PT.:PK.*CURUSR:EPK.
+007000060512:PD.
+007100060514The job list is selected based on the value specified for the
+007200061116:LINK PERFORM='DSPHELP DSPUSRJOB/CURUSR'.
+007300060514CURUSR
+007400060514:ELINK.
+007500060514keyword.  The current user of a job is the user profile under which the
+007600060514job is currently executing, and can be different from the user profile
+007700060514that initiated the job.
+007800060514:PT.:PV.*generic-user-name:EPV.
+007900060512:PD.
+008000060514Specify the generic name of the user profiles to be included in the job
+008100060514list.  A generic name is a character string that contains one or more
+008200060514characters followed by an asterisk (*).  If a generic name is
+008300060514specified, all user profiles that have names with the same prefix as
+008400060514generic name are shown.
+008500060512:PT.:PV.user-name:EPV.
+008600060512:PD.
+008700060514Specify the name of the user profile whose jobs should be included in
+008800060514the job list.
+008900060512:EPARML.
+009000060514
+009100060512:EHELP.
+009200061116:HELP NAME='DSPUSRJOB/STATUS'.Job status (STATUS) - Help
+009300060512:XH3.Job status (STATUS)
+009400060512:P.
+009500060514Specifies the status of the user jobs being worked with.
+009600060512:P.
+009700060512The possible values are:
+009800060512:P.
+009900060512:PARML.
+010000060520:PT.:PK DEF.*ACTIVE:EPK.
+010100060520:PD.
+010200060520Only jobs that are active are selected, including all group jobs
+010300060520and system request jobs.
+010400060516:PT.:PK.*ALL:EPK.
+010500060516:PD.
+010600060516All jobs of any status are selected, including jobs on job queues,
+010700060516active jobs, and jobs on output queues.
+010800060520:PT.:PK.*NONOUTQ:EPK.
+010900060520:PD.
+011000060520All jobs of status *JOBQ and *ACTIVE are included in the job list.
+011100060512:PT.:PK.*JOBQ:EPK.
+011200060512:PD.
+011300060514Only jobs that are on job queues are included in the job list.
+011400060512:PT.:PK.*OUTQ:EPK.
+011500060512:PD.
+011600060514Only user jobs that have completed running but still have output on an
+011700060514queue, are included in the job list.
+011800060512:EPARML.
+011900060512:EHELP.
+012000060514
+012100061116:HELP NAME='DSPUSRJOB/JOBTYPE'.Job type (JOBTYPE) - Help
+012200060512:XH3.Job type (JOBTYPE)
+012300060512:P.
+012400060514Specifies the type of the jobs included in the job list.
+012500060512:P.
+012600060512The possible values are:
+012700060512:P.
+012800060512:PARML.
+012900060512:PT.:PK DEF.*ALL:EPK.
+013000060512:PD.
+013100060514All types of jobs are selected, including interactive jobs and batch
+013200060514jobs.
+013300060512:PT.:PK.*AUTO:EPK.
+013400060512:PD.
+013500060514Only jobs having job type autostart are included in the job list.
+013600060512:PT.:PK.*BATCH:EPK.
+013700060512:PD.
+013800060514Only jobs having job type batch are included in the job list.
+013900060512:PT.:PK.*INTER:EPK.
+014000060512:PD.
+014100060514Only jobs having job type interactive are included in the job list.
+014200060512:PT.:PK.*SBSMON:EPK.
+014300060512:PD.
+014400060514Only jobs having job type subsystem monitors are included in the job
+014500060514list.
+014600060512:PT.:PK.*SPLRDR:EPK.
+014700060512:PD.
+014800060514Only jobs having job type spooled reader are included in the job
+014900060514list.
+015000060512:PT.:PK.*SPLWTR:EPK.
+015100060512:PD.
+015200060514Only jobs having job type spooled writer are included in the job list.
+015300060512:PT.:PK.*SYS:EPK.
+015400060512:PD.
+015500060514Only jobs having job type system job are included in the job list.
+015600060512:PT.:PK.*SCPF:EPK.
+015700060512:PD.
+015800060514Only the SCPF system job is included in the job list.
+015900060512:EPARML.
+016000060512:EHELP.
+016100060514
+016200061116:HELP NAME='DSPUSRJOB/CURUSR'.Current user (CURUSR) - Help
+016300060512:XH3.Current user (CURUSR)
+016400060512:P.
+016500060514Specifies the user name that is currently active in the jobs to include
+016600060514in the job list.
+016700060512:P.
+016800060514This parameter can only be specified if job status *ACTIVE is selected.
+016900060514:P.
+017000060512The possible values are:
+017100060512:P.
+017200060512:PARML.
+017300060512:PT.:PK DEF.*NOCHK:EPK.
+017400060512:PD.
+017500060514The job's current user profile is not checked when the job list is
+017600060514created.
+017700060512:PT.:PV.current-user:EPV.
+017800060512:PD.
+017900060514Specify the name of the current user profile that should be active in
+018000060514a job, for the job to be included in the job list.  Only jobs that has
+018100060514the specified user name as the job's current user profile are included.
+018200060512:EPARML.
+018300060512:EHELP.
+018400060514
+018500061116:HELP NAME='DSPUSRJOB/COMPSTS'.Completion status (COMPSTS) - Help
+018600060512:XH3.Completion status (COMPSTS)
+018700060512:P.
+018800060514Include jobs in the job list based on their completion status.
+018900060514:P.
+019000060514This parameter can only be specified if job status *OUTQ is selected.
+019100060512:P.
+019200060512The possible values are:
+019300060512:P.
+019400060512:PARML.
+019500060512:PT.:PK DEF.*ALL:EPK.
+019600060512:PD.
+019700060514No jobs are excluded from the job list based on completion status.
+019800060512:PT.:PK.*NORMAL:EPK.
+019900060512:PD.
+020000060514Only jobs having completion status normal are included in the job list.
+020100060512:PT.:PK.*ABNORMAL:EPK.
+020200060512:PD.
+020300060514Only jobs having completion status abnormal are included in the job
+020400060514list.
+020500060512:EPARML.
+020600060512:EHELP.
+020700060514
+020800060514.* Panel help section:
+020900060514:HELP NAME=HLPFKEYS.
+021000060514Function Keys - Help
+021100060514:XH3.Function keys
+021200060514:EHELP.
+021300060514
+021400060514:HELP NAME=HLPENT.
+021500060514:PARML.
+021600060514:PT.Enter
+021700060514:PD.Submits information on the display for processing.
+021800060514:EPARML.
+021900060514:EHELP.
+022000060514
+022100060514:HELP NAME=HLPF1.
+022200060514:PARML.
+022300060514:PT.F1=Help
+022400060514:PD.Provides additional information about using the display.
+022500060514:EPARML.
+022600060514:EHELP.
+022700060514
+022800060514:HELP     NAME=HLPF3.
+022900060514:PARML.
+023000060514:PT.F3=Exit
+023100060514:PD.Ends the current task and returns you to the display from which
+023200060514the task was started.
+023300060514:EPARML.
+023400060514:EHELP.
+023500060514
+023600060514:HELP NAME=HLPF4.
+023700060514:PARML.
+023800060514:PT.F4=Prompt
+023900060514:PD.Provides assistance in entering or selecting a command.
+024000060514:EPARML.
+024100060514:EHELP.
+024200060514
+024300060514:HELP NAME=HLPF5.
+024400060514:PARML.
+024500060514:PT.F5=Refresh
+024600060514:PD.Shows the display you are viewing with updated information.
+024700060514:EPARML.
+024800060514:EHELP.
+024900060517
+025000060517:HELP NAME='HLPF11/VIEW1'.
+025100060517:PARML.
+025200060517:PT.F11=View 2
+025300060517:PD.Shows the list again displaying job initiation information.
+025400060517:EPARML.
+025500060517:EHELP.
+025600060514
+025700060517:HELP NAME='HLPF11/VIEW2'.
+025800060517:PARML.
+025900060517:PT.F11=View 1
+026000060517:PD.Shows the list again displaying job status information.
+026100060517:EPARML.
+026200060517:EHELP.
+026300060517
+026400060514:HELP NAME=HLPF12.
+026500060514:PARML.
+026600060514:PT.F12=Cancel
+026700060514:PD.Cancels processing of any options or changes you have made to the
+026800060514current display and returns you to the previous menu or display.
+026900060514:EPARML.
+027000060514:EHELP.
+027100060514
+027200060517:HELP NAME=HLPF21.
+027300060514:PARML.
+027400060517:PT.F21=Print list
+027500060517:PD.Prints the current list, including information from both views.
+027600060517The spooled file is sent to the output queue and can be viewed using
+027700060517the WRKJOB or WRKSPLF command.
+027800060514:EPARML.
+027900060514:EHELP.
+028000060514
+028100060514:HELP NAME=HLPF24.
+028200060514:PARML.
+028300060514:PT.F24=More keys
+028400060514:PD.Changes the keys shown at the bottom of the display.  When you
+028500060514press this key, additional function keys are displayed at the bottom
+028600060514of the display.
+028700060514:EPARML.
+028800060514:EHELP.
+028900060514
+029000060514:HELP NAME=HLPHLP.
+029100060514:PARML.
+029200060514:PT.Help
+029300060514:PD.Provides additional information about using the display.
+029400060514:EPARML.
+029500060514:EHELP.
+029600060514
+029700060514:HELP NAME=HLPPGD.
+029800060514:PARML.
+029900060514:PT.Page Down (Roll Up)
+030000060514:PD.Moves the information displayed forward to show additional
+030100060514information.
+030200060514:EPARML.
+030300060514:EHELP.
+030400060514
+030500060514:HELP NAME=HLPPGU.
+030600060514:PARML.
+030700060514:PT.Page Up (Roll Down)
+030800060514:PD.Moves the information displayed backward to show additional
+030900060514information.
+031000060514:EPARML.
+031100060514:EHELP.
+031200060514
+031300060514:HELP NAME=HLPPRT.
+031400060514:PARML.
+031500060514:PT.Print
+031600060514:PD.Prints information currently shown on the display.
+031700060514:EPARML.
+031800060514:EHELP.
+031900060514
+032000061116:HELP NAME='DSPUSRJOB/'.Display User Jobs  - Help
+032100060514:P.
+032200061116The Display User Jobs display shows the name, status and job initiation
+032300060517information of the jobs selected.
+032400060517:P.
+032500060514If you see More ... on the lower right side of your display, there is
+032600060514more information to view.  Press Page Down (Roll Up) to move toward the
+032700060514end of the information.  Press Page Up (Roll Down) to move toward the
+032800060514beginning of the information.
+032900060514:P.
+033000060514If you see Bottom instead of More ..., you are at the end of the list.
+033100060514:P.
+033200060514:EHELP.
+033300060514
+033400061116:HELP name='DSPUSRJOB/JOBNAM'.
+033500060517Job - Help
+033600060517:XH3.Job
+033700060514:P.
+033800060517The simple name of the job.
+033900060514:EHELP.
+034000060514
+034100061116:HELP name='DSPUSRJOB/JOBUSR'.
+034200060517User - Help
+034300060517:XH3.User
+034400060517:P.
+034500060517The user name identifies the user profile under which the job is
+034600060517started.
+034700060517:EHELP.
+034800060517
+034900061116:HELP name='DSPUSRJOB/JOBNBR'.
+035000060517Number - Help
+035100060517:XH3.Number
+035200060517:P.
+035300060517The system-assigned job number.
+035400060517:EHELP.
+035500060517
+035600061116:HELP name='DSPUSRJOB/CURUSP'.
+035700060517Current user - Help
+035800060517:XH3.Current user
+035900060517:P.
+036000060517The user profile under which the job is currently running.  The current
+036100060517user profile can be different from the user profile that initiated the
+036200060517job.
+036300060517:EHELP.
+036400060517
+036500061116:HELP name='DSPUSRJOB/JOBTYP'.
+036600060517Type - Help
+036700060517:XH3.Type
+036800060517:P.
+036900060517The type of active job.  Possible values are:
+037000060517:UL COMPACT.
+037100060517:LI.ASJ: Autostart
+037200060517:LI.BCH: Batch
+037300060517:LI.BCI: Batch Immediate
+037400060517:LI.EVK: Started by a procedure start request
+037500060517:LI.INT: Interactive
+037600060517:LI.M36: Advanced 36 server job
+037700060517:LI.MRT: Multiple requester terminal
+037800060517:LI.PJ:  Prestart job
+037900060517:LI.PDJ: Print driver job
+038000060517:LI.RDR: Reader
+038100060517:LI.SBS: Subsystem monitor
+038200060517:LI.SYS: System
+038300060517:LI.WTR: Writer
+038400060517:EUL.
+038500060517:EHELP.
+038600060517
+038700061116:HELP name='DSPUSRJOB/JOBSTS'.
+038800060517Status - Help
+038900060517:XH3.Status
+039000060514:P.
+039100060517The current status of the job (in two fields).
+039200060514:EHELP.
+039300060514
+039400061116:HELP name='DSPUSRJOB/JOBDAT'.
+039500060517Job date - Help
+039600060517:XH3.Job date
+039700060517:P.
+039800060517Specifies the date that is assigned to the job when it is started.
+039900060517:EHELP.
+040000060517
+040100061116:HELP name='DSPUSRJOB/ENTDTS'.
+040200060517Entered system - Help
+040300060517:XH3.Entered system
+040400060517:P.
+040500060517The date and time when the job was entered into the system.
+040600060517:EHELP.
+040700060517
+040800061116:HELP name='DSPUSRJOB/ACTDTS'.
+040900060517Job active - Help
+041000060517:XH3.Job active
+041100060517:P.
+041200060517The date and time the job began to run.
+041300060517:EHELP.
+041400060517
+041500061116:HELP name='DSPUSRJOB/FNCCMP'.
+041600060517Function/Completion - Help
+041700060517:XH3.Function/Completion
+041800060517:P.
+041900060518:HP2.Job status *ACTIVE::EHP2.
+042000060517For an active job this field contains the last high-level function
+042100060517initiated by the initial thread.  This field is blank when a logged
+042200060517function has not been performed.  The field is not cleared when a
+042300060517a function is completed.  The function name is prefixed by a function
+042400060517type followed by a hyphen.
+042500060517:P.
+042600060518:HP2.Job status *JOBQ::EHP2.
+042700060517For a job on a job queue this field is blank.
+042800060517:P.
+042900060518:HP2.Job status *OUTQ::EHP2.
+043000060517For a job that has completed running, this field contains the
+043100060518completion status *NORMAL or *ABNORMAL, depending on how the job
+043200060518ended.
+043300060517:EHELP.
+043400060514
+043500060517:HELP name='CNFPNL/OPTION'.
+043600060517Opt - Help
+043700060517:XH3.Opt
+043800060517:P.
+043900060517This is the option field showing the end job option which causes the
+044000060517confirmation panel to be displayed.  For this panel, the option
+044100060517number will always be 4.
+044200060517:EHELP.
+044300060514
+044400060512:EPNLGRP.
