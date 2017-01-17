@@ -1,0 +1,54 @@
+000100050216.*-----------------------------------------------------------------------**
+000200050216.*
+000300050216.*  Compile options:
+000400050216.*
+000500060624.*    CrtPnlGrp PnlGrp( CBX957H )
+000600050216.*              SrcFile( QPNLSRC )
+000700050216.*              SrcMbr( *PNLGRP )
+000800050216.*
+000900050216.*-----------------------------------------------------------------------**
+001000050216:PNLGRP.
+001100060624
+001200060624:HELP NAME='CHGNETUSR'.Change NetServer User - Help
+001300050216:P.
+001400060624The Change NetServer User (CHGNETUSR) command enables activation of a
+001500060624disabled NetServer user profile.
+001600050219:P.
+001700060624:HP2.Restriction&COLON.:EHP2. Special authority *SECADM and object
+001800050216authority *OBJMGT and *USE to the corresponding system user profile is
+001900050216required to activate a NetServer user profile.
+002000060624:P.
+002100050216:HP2.Restriction&COLON.:EHP2. Special authority *IOSYSCFG is required
+002200050216to successfully run this command.
+002300050216:P.
+002400050216:EHELP.
+002500060623
+002600060624:HELP NAME='CHGNETSVR/USRPRF'.User profile (USRPRF) - Help
+002700060623:XH3.User profile (USRPRF)
+002800060623:P.
+002900060624Specifies the name of the NetServer user profile that you want to
+003000060624enable.
+003100060623:P.
+003200060623This is a required parameter.
+003300060623:P.
+003400060623:EHELP.
+003500060624
+003600060624:HELP NAME='CHGNETUSR/STATUS'.New status (STATUS) - Help
+003700060624:XH3.New status (STATUS)
+003800060624:P.
+003900060624Specify the new status that should apply to the specified NetServer
+004000060624user profile.
+004100060624:P.
+004200060624The possible values are:
+004300060624:P.
+004400060624:PARML.
+004500060624:PT.:PK DEF.*SAME:EPK.
+004600060624:PD.
+004700060624The specified NetServer user profile's status does not change.
+004800060624:PT.:PK.*ENABLED:EPK.
+004900060624:PD.
+005000060624The specified NetServer user profile is enabled.
+005100060624:EPARML.
+005200060624:EHELP.
+005300060623
+005400060623:EPNLGRP.

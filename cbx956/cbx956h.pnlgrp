@@ -1,0 +1,66 @@
+000100060219.*-----------------------------------------------------------------------**
+000200060219.*
+000300060219.*  Compile options:
+000400060219.*
+000500060219.*    CrtPnlGrp PnlGrp( CBX956H )
+000600060219.*              SrcFile( QPNLSRC )
+000700060219.*              SrcMbr( *PNLGRP )
+000800060219.*
+000900060219.*-----------------------------------------------------------------------**
+001000060219:PNLGRP.
+001100060219:HELP NAME='PRTUSRAUTL'.Print User Authorization Lists - Help
+001200060219:P.
+001300060219The Print User Authorization Lists (PRTUSRAUTL) command prints a list
+001400060219of all authorization list entries for the specified user profile.
+001500060226:P.
+001600060226The list also includes an entry for ownership and primary group if the
+001700060226specified user profile owns the authorization list or is primary group
+001800060226for the authorization list.
+001900060219:P.
+002000060219Optionally all authorization list entries for the specified user
+002100060219profile's group profiles can be included in the printed list.
+002200060219:P.
+002300060219The list is written to a spooled file and placed in the current job's
+002400060219default output queue.
+002500060219:P.
+002600060219To avoid a negative impact on the system performance and interactive
+002700060219response times, please consider running the command in batch.
+002800060219:P.
+002900060219:NT.
+003000060219Read authority is required to the specified user profile as well as
+003100060219all the user profile's group profiles, if they are requested to be
+003200060219included in the list.
+003300060219:ENT.
+003400060219:EHELP.
+003500060219:HELP NAME='PRTUSRAUTL/USRPRF'.User profile (USRPRF) - Help
+003600060219:XH3.User profile (USRPRF)
+003700060219:P.
+003800060219Specify the name of the user profile for which all authorization list
+003900060219entries should be printed.
+004000060219:P.
+004100060219This is a required parameter.
+004200060219:P.
+004300060219:EHELP.
+004400060219:HELP NAME='PRTUSRAUTL/INCGRP'.Include group profiles (INCGRP) - Help
+004500060219:XH3.Include group profiles (INCGRP)
+004600060219:P.
+004700060219Specifies whether to include the specified user profile's group
+004800060219profiles' authorization list entries in the printed list.
+004900060219:P.
+005000060219Each group profile's authorization list entries will be printed on a
+005100060219separate page.
+005200060219:P.
+005300060219The possible values are:
+005400060219:P.
+005500060219:PARML.
+005600060219:PT.:PK DEF.*NO:EPK.
+005700060219:PD.
+005800060219Do not include the user profile's group profile authorization list
+005900060219entries in the printed list.
+006000060219:PT.:PK.*YES:EPK.
+006100060219:PD.
+006200060219Include the user profile's group profile authorization list entries
+006300060219in the printed list.
+006400060219:EPARML.
+006500060219:EHELP.
+006600060219:EPNLGRP.

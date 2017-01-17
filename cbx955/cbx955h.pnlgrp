@@ -1,0 +1,167 @@
+000100060216.*-----------------------------------------------------------------------**
+000200060216.*
+000300060216.*  Compile options:
+000400060216.*
+000500060216.*    CrtPnlGrp PnlGrp( CBX955H )
+000600060216.*              SrcFile( QPNLSRC )
+000700060216.*              SrcMbr( *PNLGRP )
+000800060216.*
+000900060216.*-----------------------------------------------------------------------**
+001000060216:PNLGRP.
+001100070807
+001200060216:HELP NAME='SCAN'.Scan String - Help
+001300060216:P.
+001400060216The Scan String (SCAN) command is used to scan a string of characters
+001500060216to see if the string contains a pattern.  This function is similar to
+001600060216the scan function supported within source entry utility (SEU) and on
+001700060216the display presented by the Display Spooled File (DSPSPLF) command.
+001800060216:P.
+001900060216In addition, the SCAN command also allows you to specify a 1-byte
+002000060216character in the pattern that matches with any characters to be
+002100060216searched, and a start position, which allows you to search the same
+002200060216string more than once.
+002300060216:EHELP.
+002400070807
+002500060216:HELP NAME='SCAN/STRING'.String to scan (STRING) - Help
+002600060216:XH3.String to scan (STRING)
+002700060216:P.
+002800060216A character field from 1 through 999 characters that contains the
+002900060216string to be scanned for the pattern.
+003000060216:P.
+003100060216This is a required parameter.
+003200060216:P.
+003300060216:EHELP.
+003400060216:HELP NAME='SCAN/PATTERN'.Pattern to scan for (PATTERN) - Help
+003500060216:XH3.Pattern to scan for (PATTERN)
+003600060216:P.
+003700060216The pattern being scanned for.
+003800060216:P.
+003900060216This is a required parameter.
+004000060216:P.
+004100060216:EHELP.
+004200070807
+004300060216:HELP NAME='SCAN/START'.Starting position (START) - Help
+004400060216:XH3.Starting position (START)
+004500060216:P.
+004600060216The position in the string where the scan is to start.  The position
+004700060216must be greater than zero and not greater than the string length.
+004800060216Normally this value is 1.  If the same string has multiple sets of
+004900060216patterns, this allows the string to remain the same while only the
+005000060216start position is varied to find the additional patterns.
+005100060216:P.
+005200060216The possible values are:
+005300060216:P.
+005400060216:PARML.
+005500060216:PT.:PK DEF.*START:EPK.
+005600060216:PD.
+005700060216The scan begins from the start of the characer string to be scanned.
+005800060216:PT.:PV.starting-position:EPV.
+005900060216:PD.
+006000060216Specify a position from which the scan should begin.  This value
+006100060216cannot exceed the length of the string to scan.
+006200060216:EPARML.
+006300060216:EHELP.
+006400070807
+006500060216:HELP NAME='SCAN/TRANSLATE'.Translate characters (TRANSLATE) - Help
+006600060216:XH3.Translate characters (TRANSLATE)
+006700060216:P.
+006800060216This parameter specifies whether to translate lowercase characters in
+006900060216the specified character string to uppercase characters.  If *YES is
+007000060216specified, the command translates lowercase characters of the string
+007100060216to uppercase before the scan using the coded character set identifier
+007200060216(CCSID) for the current job.  If the translation cannot be done using
+007300060216the CCSID for the job, *CCSID37 is used.  This does not change the
+007400060216user's data.
+007500060216:P.
+007600060216Note that if *YES is specified and the pattern contains lowercase
+007700060216characters, a match never occurs.  If *YES is specified, and the
+007800060216data to be searched contains noncharacter data (for example, packed or
+007900060216binary), unexpected results can occur.
+008000060216:P.
+008100060216The possible values are:
+008200060216:P.
+008300060216:PARML.
+008400060216:PT.:PK DEF.*NO:EPK.
+008500060216:PD.
+008600060216Do not translate lowercase characters in the specified character string
+008700060216to uppercase characters.
+008800060216:PT.:PK.*YES:EPK.
+008900060216:PD.
+009000060216Translate lowercase characters in the specified character string to
+009100060216uppercase characters.
+009200060216:EPARML.
+009300060216:EHELP.
+009400070807
+009500060216:HELP NAME='SCAN/TRIM'.Trim trailing blanks (TRIM) - Help
+009600060216:XH3.Trim trailing blanks (TRIM)
+009700060216:P.
+009800060216Specifies it trailing blanks are to be trimmed from the end of the
+009900060216pattern before the scan is started.
+010000060216:P.
+010100060216The possible values are:
+010200060216:P.
+010300060216:PARML.
+010400060216:PT.:PK DEF.*NO:EPK.
+010500060216:PD.
+010600060216Trimming of trailing blanks is not performed.
+010700060216:PT.:PK.*YES:EPK.
+010800060216:PD.
+010900060216Trimming of trailing blanks is performed.
+011000060216:EPARML.
+011100060216:EHELP.
+011200070807
+011300060216:HELP NAME='SCAN/WILDCARD'.Wildcard character (WILDCARD) - Help
+011400060216:XH3.Wildcard character (WILDCARD)
+011500060216:P.
+011600060216A variable that you can specify in the pattern, in positions that
+011700060216should not be tested when scanning for a match.  When this character
+011800060216appears in the pattern, any character in the data is considered a
+011900060216match.
+012000060216:P.
+012100060216If the wildcard character is the first character in the pattern, an
+012200060216error will occur.
+012300060216:P.
+012400060216The possible values are:
+012500060216:P.
+012600060216:PARML.
+012700060216:PT.:PK DEF.*NONE:EPK.
+012800060216:PD.
+012900060216All characters of the pattern take part in the scan.
+013000060216:PT.:PV.wildcard-character:EPV.
+013100060216:PD.
+013200060216Specify a character to be used as a pattern wildcard character
+013300060216during the scan operation.
+013400060216:EPARML.
+013500060216:EHELP.
+013600070807
+013700060216:HELP NAME='SCAN/RESULT'.CL var for RESULT      (3 0) (RESULT) - Help
+013800060216:XH3.Result (RESULT)
+013900060216:XH3.CL var for RESULT      (3 0) (RESULT)
+014000060216:P.
+014100060216This parameter is returned to the program running this command, when
+014200060216the command call completes.
+014300060216:P.
+014400060216The variable specified must be a 3-digit decimal variable with no
+014500060216decimal positions.
+014600060216:P.
+014700060216This is a required parameter.
+014800060216:P.
+014900060216If the value returned is positive, the result is the position of the
+015000060216first character of the pattern in the string.
+015100060216:P.
+015200060216If the value returned is zero, the pattern was not found.
+015300060216:P.
+015400060216If the value returned is negative, one of the following errors
+015500060216occurred:
+015600060216:P.
+015700060216:DL.
+015800060216:DT.-1:DD.The pattern is longer than the string.
+015900060216:DT.-2:DD.The pattern length is less than 1.
+016000060216:DT.-3:DD.The first character of the pattern is a wildcard character.
+016100060216:DT.-4:DD.The pattern is blank and the trim trailing blanks parameter
+016200060216value is 1.
+016300060216:DT.-5:DD.The starting position within the string is not valid.
+016400060216:EDL.
+016500060216:EHELP.
+016600070807
+016700060216:EPNLGRP.

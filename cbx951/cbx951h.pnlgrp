@@ -1,0 +1,123 @@
+000100050630.*-----------------------------------------------------------------------**
+000200050630.*
+000300050630.*  Compile options:
+000400050630.*
+000500060117.*    CrtPnlGrp PnlGrp( CBX951H )
+000600050630.*              SrcFile( QPNLSRC )
+000700050630.*              SrcMbr( *PNLGRP )
+000800050630.*
+000900050630.*-----------------------------------------------------------------------**
+001000050630:PNLGRP.
+001100050630:HELP NAME='ADDPRNSEED'.Add Pseudo Random Number Seed - Help
+001200050630:P.
+001300050630The Add Pseudorandom Number Seed (ADDPRNSEED) command allows the user
+001400050630to add seed into the server's pseudorandom number generator system seed
+001500050630digest.
+001600050630:P.
+001700150417The seed is entered in the form of five strings each holding 32 bits. Each
+001800150417bit is entered as either a '0' or a '1' binary digit.  This command will
+001900150417concatenate the five bit strings and convert all the 160 bit values to a
+002000150417binary string, that is then added into the server's pseudorandom number
+002100150417generator system seed.
+002200150417:P.
+002300050630The pseudorandom number generator is composed of two parts:
+002400050630Pseudorandom number generation and seed management.  Pseudorandom
+002500050630number generation is performed using the FIPS 186-1 algorithm.
+002600050630:P.
+002700050630Cryptographically-secure pseudorandom numbers rely on good seed. The
+002800050630FIPS 186-1 key and seed values are obtained from the system seed
+002900050630digest. The server automatically generates seed using data collected
+003000050630from system information or by using the random number generator
+003100050630function on a cryptographic coprocessor, such as a 4758, if one is
+003200050630available. System-generated seed can never be truly unpredictable.
+003300050630:P.
+003400050630If a cryptographic coprocessor is not available, you can use this
+003500050630command to add your own random seed to the system seed digest.  This
+003600050630should be done as soon as possible any time the Licensed Internal Code
+003700050630is installed.
+003800050630:P.
+003900150417:NT.
+004000150417It is important that the seed data be unpredictable and have as much
+004100150417entropy as possible.  Entropy is the minimum number of bits needed to
+004200150417represent the information contained in some data.  For seeding purposes,
+004300150417entropy is a measure of the amount of uncertainty or unpredictability
+004400150417of the seed.
+004500150417:P.
+004600150417The system seed digest holds a maximum of 160 bits of entropy.  Your
+004700150417entropy.  You should add at least that much entropy to refresh the
+004800150417system seed digest totally.  Possible sources of seed data are coin
+004900150417flipping, keystroke or mouse timings, or a noise source such as the one
+005000150417available on the 4758 Cryptographic Coprocessor.
+005100150417:ENT.
+005200150417:P.
+005300050630:HP2.Restriction&COLON.:EHP2. All object (*ALLOBJ) special authority is
+005400050630needed to use this command.
+005500050630:P.
+005600050630:HP2.Restriction&COLON.:EHP2. This command is only allowed to be run
+005700050630from a command line.
+005800050630:EHELP.
+005900050630:HELP NAME='ADDPRNSEED/SEED1'.Seed block 1 (SEED1) - Help
+006000050630:XH3.Seed block 1 (SEED1)
+006100050630:P.
+006200050630The first block of 32 bits input seed data for the system seed digest.
+006300050630:P.
+006400150417:NT.
+006500050630It is important that the seed data be unpredictable and have as much
+006600050630entropy as possible.  Entropy is the minimum number of bits needed to
+006700050630represent the information contained in some data.  For seeding purposes,
+006800050630entropy is a measure of the amount of uncertainty or unpredictability
+006900050630of the seed.
+007000050630:P.
+007100050630The system seed digest holds a maximum of 160 bits of entropy.  Your
+007200050630entropy.  You should add at least that much entropy to refresh the
+007300050630system seed digest totally.  Possible sources of seed data are coin
+007400050630flipping, keystroke or mouse timings, or a noise source such as the one
+007500050630available on the 4758 Cryptographic Coprocessor.
+007600150417:ENT.
+007700050630:P.
+007800050701Specify the seed bits as a string of binary digits '0' and '1'.  The
+007900050701string must have all 32 bits specified.
+008000050701:P.
+008100050630This is a required parameter.
+008200050630:EHELP.
+008300050630:HELP NAME='ADDPRNSEED/SEED2'.Seed block 2 (SEED2) - Help
+008400050630:XH3.Seed block 2 (SEED2)
+008500050630:P.
+008600050630The second block of 32 bits input seed data for the system seed digest.
+008700050701:P.
+008800050701Specify the seed bits as a string of binary digits '0' and '1'.  The
+008900050701string must have all 32 bits specified.
+009000050630:P.
+009100050630This is a required parameter.
+009200050630:EHELP.
+009300050630:HELP NAME='ADDPRNSEED/SEED3'.Seed block 3 (SEED3) - Help
+009400050630:XH3.Seed block 3 (SEED3)
+009500050630:P.
+009600050630The third block of 32 bits input seed data for the system seed digest.
+009700050701:P.
+009800050701Specify the seed bits as a string of binary digits '0' and '1'.  The
+009900050701string must have all 32 bits specified.
+010000050630:P.
+010100050630This is a required parameter.
+010200050630:EHELP.
+010300050630:HELP NAME='ADDPRNSEED/SEED4'.Seed block 4 (SEED4) - Help
+010400050630:XH3.Seed block 4 (SEED4)
+010500050630:P.
+010600050630The fourth block of 32 bits input seed data for the system seed digest.
+010700050701:P.
+010800050701Specify the seed bits as a string of binary digits '0' and '1'.  The
+010900050701string must have all 32 bits specified.
+011000050630:P.
+011100050630This is a required parameter.
+011200050630:EHELP.
+011300050630:HELP NAME='ADDPRNSEED/SEED5'.Seed block 5 (SEED5) - Help
+011400050630:XH3.Seed block 5 (SEED5)
+011500050630:P.
+011600050630The fifth block of 32 bits input seed data for the system seed digest.
+011700050701:P.
+011800050701Specify the seed bits as a string of binary digits '0' and '1'.  The
+011900050701string must have all 32 bits specified.
+012000050630:P.
+012100050630This is a required parameter.
+012200050630:EHELP.
+012300050630:EPNLGRP.

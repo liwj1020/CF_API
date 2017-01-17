@@ -10,6 +10,16 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 ## Utilities
 * 100 - Sample of QDBRTVFD
 * ... - More utilities/samples
+* 950 - DSPJOBIFSL Display Job IFS Locks
+* 951 - ADDPRNSEED Add Pseudo Random Number Seed
+* 952 - PRTJOBRUNA Print Job Run Attributes
+* 953 - ADDGRPPRF Add Group Profile
+* 954 - RMVGRPPRF Remove Group Profile
+* 955 - SCAN Scan string
+* 956 - PRTUSRAUTL Print User Authorization list
+* 957 - CHGNETUSR Change Netserver Users
+* 958 - WRKNETUSR Work with Netserver Users
+* 959 - RMVJRNRCV Remove Journal Receivers
 * 960 - ADDSVRSHR Add Server Share
 * 961 - RMVSVRSHR Remove Server Share
 * 962 - CHGSVRSHR Change Server Share
@@ -45,6 +55,8 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 * 994 - WRKQRYPRFO Work with Query Profile Opts
 * 998 - WRKSBSE Work with Subsystem Entries
 * 999 - WRKRMTOUTQ Work with Remote OUTQ's
+* 9562 - Display User Objects
+* 9563 - DSPIDXECNT Display Index Entry Count
 * 9811 - ADDUSRQRYA Add User Query Attributes
 * 9812 - CHGUSRQRYA Change User Query Attributes
 * 9813 - RMVUSRQRYA Remove User Query Attributes

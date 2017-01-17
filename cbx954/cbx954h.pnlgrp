@@ -1,0 +1,222 @@
+000100060319.*-----------------------------------------------------------------------**
+000200060319.*
+000300060319.*  Compile options:
+000400060319.*
+000500060520.*    CrtPnlGrp PnlGrp( CBX954H )
+000600060319.*              SrcFile( QPNLSRC )
+000700060319.*              SrcMbr( *PNLGRP )
+000800060319.*
+000900060319.*-----------------------------------------------------------------------**
+001000060319:PNLGRP.
+001100060603
+001200060520:HELP NAME='RMVGRPPRF'.Remove Group Profile - Help
+001300060319:P.
+001400060520The Remove Group Profile (RMVGRPPRF) command removes the specified
+001500060520group profile from all user profiles that meet the specified selection
+001600060520criteria.
+001700060319:P.
+001800060529The group profile is removed as either primary group profile or
+001900060529supplemental group profile, dependent on it's current status.
+002000060319:P.
+002100060319A completion status report is written to a spooled file and placed in
+002200060323the current job's default output queue.  The group profile name and
+002300060323supplemental group profile count specified, will reflect the status of
+002400060323the user profile prior to any change.
+002500060319:P.
+002600060323For each user profile that is changed a completion message is sent to
+002700060323the job running this command.
+002800060323:P.
+002900060319:NT.
+003000060319Only user profiles to which the current user profile of the job running
+003100060319this command has *READ authority, are selected for processing.
+003200060319:ENT.
+003300060319:P.
+003400060319:NT.
+003500060319Depending on the number of user profiles on the system, this command
+003600060319will possibly take some time to complete and consume many system
+003700060319resources.  To avoid a negative impact on the system performance and
+003800060319interactive response times, please consider running the command in
+003900060319batch.
+004000060319:ENT.
+004100060319:EHELP.
+004200060603
+004300060520:HELP NAME='RMVGRPPRF/USRPRF'.User profile (USRPRF) - Help
+004400060319:XH3.User profile (USRPRF)
+004500060319:P.
+004600060320Specify the user profiles to be processed.
+004700060319:P.
+004800060319This is a required parameter.
+004900060319:P.
+005000060319The possible values are:
+005100060319:P.
+005200060319:PARML.
+005300060319:PT.:PK.*FILE:EPK.
+005400060319:PD.
+005500060320The names of the user profiles to be processed are stored in the file
+005600060320specified by the
+005700060529:Link Perform='DSPHELP RMVGRPPRF/FILE CBX954H'.
+005800060320FILE
+005900060320:ELink.
+006000060320(File) parameter.
+006100060321:PT.:PK.*ALL:EPK.
+006200060321:PD.
+006300060321All user profiles are eligible to processing.
+006400060321:NT.
+006500060321If no further selection is performed using the :HP2.USRCLS:EHP2. and
+006600060321:HP2.GRPPRF:EHP2. parameters, all user profiles will be processed.
+006700060321:ENT.
+006800060319:PT.:PV.*generic-user-profile-name:EPV.
+006900060319:PD.
+007000060320Specify the generic name of the user profiles to be processed.  A
+007100060320generic name is a character string that contains one or more characters
+007200060320followed by an asterisk (*).  If a generic name is specified, all user
+007300060320profiles that have names with the same prefix as the generic name are
+007400060320processed.
+007500060319:PT.:PV.user-profile-name:EPV.
+007600060319:PD.
+007700060320Specify the name of the user profile to be processed.
+007800060319:EPARML.
+007900060319:EHELP.
+008000060603
+008100060529:HELP NAME='RMVGRPPRF/RMVGRPPRF'.Group profile to remove (RMVGRPPRF) - Help
+008200060529:XH3.Group profile to remove (RMVGRPPRF)
+008300060319:P.
+008400060529Specifies the name of the group profile to be removed as a group
+008500060529profile or supplemental group profile for the user profiles selected.
+008600060319:P.
+008700060319This is a required parameter.
+008800060319:P.
+008900060319:EHELP.
+009000060603
+009100060520:HELP NAME='RMVGRPPRF/GRPOWNER'.Group ownership (GRPOWNER) - Help
+009200060322:XH3.Group ownership (GRPOWNER)
+009300060322:P.
+009400060529Specifies if the user profiles having removed a group profile or
+009500060529supplemental group profile, should also be changed to not transfer
+009600060322ownership to it's primary group profile, when objects are created by
+009700060322that user profile.
+009800060322:P.
+009900060322The possible values are:
+010000060322:P.
+010100060322:PARML.
+010200060322:PT.:PK DEF.*SAME:EPK.
+010300060322:PD.
+010400060322The user profile's ownership setting will not changed.
+010500060322:PT.:PK.*YES:EPK.
+010600060322:PD.
+010700060322The user profile's group profile will be the owner of objects created
+010800060322by the user profile.
+010900060322:PT.:PK.*NO:EPK.
+011000060322:PD.
+011100060322The user profile will remain the owner of objects created by the user
+011200060322profile.
+011300060322:EPARML.
+011400060322:EHELP.
+011500060603
+011600060520:HELP NAME='RMVGRPPRF/USRCLS'.User classes to select (USRCLS) - Help
+011700060320:XH3.User classes to select (USRCLS)
+011800060320:P.
+011900060320Specifies the user classes to include in the user profile selection.
+012000060320:P.
+012100060320The possible values are:
+012200060320:P.
+012300060320:PARML.
+012400060320:PT.:PK DEF.*ALL:EPK.
+012500060320:PD.
+012600060320All user profiles are selected, regardless of their user class.
+012700060320:PT.:PK.*NONUSER:EPK.
+012800060320:PD.
+012900060320All user profiles having a user class different from *USER are
+013000060320selected.
+013100060320:PT.:PK.*USER:EPK.
+013200060320:PD.
+013300060320Only user profiles having a user class of *USER are selected.
+013400060320:PT.:PK.*PGMR:EPK.
+013500060320:PD.
+013600060320Only user profiles having a user class of *PGMR are selected.
+013700060320:PT.:PK.*SYSOPR:EPK.
+013800060320:PD.
+013900060320Only user profiles having a user class of *SYSOPR are selected.
+014000060320:PT.:PK.*SECADM:EPK.
+014100060320:PD.
+014200060320Only user profiles having a user class of *SECADM are selected.
+014300060320:PT.:PK.*SECOFR:EPK.
+014400060320:PD.
+014500060320Only user profiles having a user class of *SECOFR are selected.
+014600060320:EPARML.
+014700060320:EHELP.
+014800060529:HELP NAME='RMVGRPPRF/PROMOTE'.Group profile to promote (PROMOTE) - Help
+014900060529:XH3.Group profile to promote (GRPPRF)
+015000060320:P.
+015100060529Specify a supplemental group profile to be promoted to primary group
+015200060529profile.
+015300060320:P.
+015400060529If the specified group profile is found in the user profile's
+015500060529supplemental group profile array, the group profile will be promoted
+015600060529to the user profile's new primary group profile.
+015700060529:P.
+015800060529If the specified group profile is not found in the supplemental group
+015900060529profile array, the first supplemental group profile found will be
+016000060529promoted to the new primary group profile.  If no supplemental group
+016100060529profiles are found, the primary group profile will be set to *NONE.
+016200060529:P.
+016300060320The possible values are:
+016400060320:P.
+016500060320:PARML.
+016600060320:PT.:PK DEF.*ANY:EPK.
+016700060320:PD.
+016800060529The first supplemental group profile found will be promoted to the new
+016900060529primary group profile.
+017000060529:PT.:PV.group-profile-to-promote:EPV.
+017100060320:PD.
+017200060529The specified group profile will be promoted to new primary group
+017300060529profile, if it is currently in the supplemental group profile array.
+017400060320:EPARML.
+017500060320:EHELP.
+017600060603
+017700060520:HELP NAME='RMVGRPPRF/OPTION'.User profile option (Option) - Help
+017800060323:XH3.User profile option (OPTION)
+017900060323:P.
+018000060323Specify whether to actually perform the user profile update or to
+018100060323simply verify the extent and impact of the change resulting from the
+018200060323specified set of parameters.
+018300060323:P.
+018400060323The possible values are:
+018500060323:P.
+018600060323:PARML.
+018700060323:PT.:PK DEF.*UPDATE:EPK.
+018800060323:PD.
+018900060323The selected user profiles will be processed in accordance with the
+019000060323specified parameter setting.
+019100060323:PT.:PK.*VERIFY:EPK.
+019200060323:PD.
+019300060323The selected user profiles will not be processed, but the completion
+019400060323status report will be produced.
+019500060323:EPARML.
+019600060323:EHELP.
+019700060520:HELP NAME='RMVGRPPRF/FILE'.File (FILE) - Help
+019800060319:XH3.File (FILE)
+019900060319:P.
+020000060320Specify the name of the file containing the names of the user profiles
+020100060320to be processed.
+020200060319:P.
+020300060320The file must have a record length of 10 bytes, which should contain
+020400060320a user profile name only.
+020500060320:P.
+020600060319:XH3.Library
+020700060319:P.
+020800060320The library name containing the file.
+020900060319:P.
+021000060319The possible values are:
+021100060319:P.
+021200060319:PARML.
+021300060319:PT.:PK DEF.*LIBL:EPK.
+021400060319:PD.
+021500060320All libraries in the library list for the current thread are searched
+021600060320until the first match is found.
+021700060319:PT.:PV.library-name:EPV.
+021800060319:PD.
+021900060320Specify the name of the library to be searched.
+022000060319:EPARML.
+022100060319:EHELP.
+022200060319:EPNLGRP.

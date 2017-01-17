@@ -1,0 +1,240 @@
+000100060217.*-----------------------------------------------------------------------**
+000200060217.*
+000300060217.*  Compile options:
+000400060217.*
+000500060217.*    CrtPnlGrp PnlGrp( CBX952H )
+000600060217.*              SrcFile( QPNLSRC )
+000700060217.*              SrcMbr( *PNLGRP )
+000800060217.*
+000900060217.*-----------------------------------------------------------------------**
+001000060217:PNLGRP.
+001100100403
+001200060217:HELP NAME='PRTJOBRUNA'.Print Job Run Attributes - Help
+001300060217:P.
+001400060217The Print Job Run Attributes (PRTJOBRUNA) command produces a list of
+001500060217jobs being of the specified job type.  For each job the job's currrent
+001600100403run attributes are printed.  This information is partly similar to the
+001700060217information presented when running the command :HP2.DSPJOB
+001800100403OPTION(*RUNA):EHP2. and further includes the job's number of auxiliary
+001900100403I/O requests.
+002000060217:P.
+002100100403The list can be sorted in either :HP2.CPU time used, Temporary storage
+002200100403used:EHP2. or :HP2.Auxiliary I/O:EHP2. order.
+002300060217:P.
+002400060217To avoid a negative impact on the interactive workload, the print job
+002500060217will be submitted to run in batch.
+002600060217:EHELP.
+002700100403
+002800060217:HELP NAME='PRTJOBRUNA/JOBTYP'.Job type (JOBTYP) - Help
+002900060217:XH3.Job type (JOBTYP)
+003000060217:P.
+003100060217Specify the job type to include in the list.
+003200060217:P.
+003300060217The possible values are:
+003400060217:P.
+003500060217:PARML.
+003600060217:PT.:PK DEF.*ALL:EPK.
+003700060217:PD.
+003800060217All jobs, regardless of job type, are included in the printed list.
+003900060217:PT.:PK.*AUTOSTART:EPK.
+004000060217:PD.
+004100060217Only autostart jobs are included in the printed list.
+004200060217:PT.:PK.*BATCH:EPK.
+004300060217:PD.
+004400060217Only batch jobs are included in the printed list.
+004500060217:PT.:PK.*INTERACT:EPK.
+004600060217:PD.
+004700060217Only interactive jobs are included in the printed list.
+004800060217:PT.:PK.*SYSTEM:EPK.
+004900060217:PD.
+005000060217Only system jobs are included in the printed list.
+005100060217:EPARML.
+005200060217:EHELP.
+005300100403
+005400060217:HELP NAME='PRTJOBRUNA/CPUTIMLMT'.CPU time limit in millisecs (CPUTIMLMT) - Help
+005500060217:XH3.CPU time limit in millisecs (CPUTIMLMT)
+005600060217:P.
+005700060217Specifies the minimum CPU processing time limit in milliseconds that a
+005800060217job must have before it is included in the list.
+005900060217:P.
+006000060217The possible values are:
+006100060217:P.
+006200060217:PARML.
+006300060217:PT.:PK DEF.*NONE:EPK.
+006400060217:PD.
+006500060217There is no minimum CPU processing time limit that a job must have
+006600060217to be included in the list.
+006700060217:PT.:PV.cpu-time-limit (ms):EPV.
+006800060217:PD.
+006900060217Specify the minimum CPU processing time limit in milliseconds that a
+007000060217job must have to be included in the list.
+007100060217:EPARML.
+007200060217:EHELP.
+007300100403
+007400060217:HELP NAME='PRTJOBRUNA/TMPSTGLMT'.Temporary storage limit in Mb (TMPSTGLMT) - Help
+007500060217:XH3.Temporary storage limit in Mb (TMPSTGLMT)
+007600060217:P.
+007700060217Specifies the minimum temporary storage limit in megabytes that a job
+007800060217must have before it is included in the list.
+007900060217:P.
+008000060217The possible values are:
+008100060217:P.
+008200060217:PARML.
+008300060217:PT.:PK DEF.*NONE:EPK.
+008400060217:PD.
+008500060217There is no minimum temporary storage limit that a job must have to be
+008600060217included in the list.
+008700060217:PT.:PV.temporary-storage-limit (Mb):EPV.
+008800060217:PD.
+008900060217Specify the minimum temporary storage limit in megabytes that a job
+009000060217must have to be included in the list.
+009100060217:EPARML.
+009200100403:EHELP.
+009300100403
+009400100403:HELP NAME='PRTJOBRUNA/AUXIOLMT'.Auxiliary I/O limit in 1000 (AUXIOLMT) - Help
+009500100403:XH3.Auxiliary I/O limit in 1000 (AUXIOLMT)
+009600100403:P.
+009700100403Specifies the minimum number of auxiliary I/O requsts multiplied by
+0098001004031000 that a job must have issued before it is included in the list.
+009900100403:P.
+010000100403The possible values are:
+010100100403:P.
+010200100403:PARML.
+010300100403:PT.:PK DEF.*NONE:EPK.
+010400100403:PD.
+010500100403There is no minimum auxiliary I/O request limit that a job must have
+010600100403issued to be included in the list.
+010700100403:PT.:PV.auxiliary-I/O-limit (1000):EPV.
+010800100403:PD.
+010900100403Specify the minimum auxiliary I/0 request limit that a just must have
+011000100403issued to be included in the list.  The specified value will be
+011100100403multiplied by 1000 before the check is performed.
+011200100403:EPARML.
+011300060217:EHELP.
+011400100403
+011500060217:HELP NAME='PRTJOBRUNA/ORDER'.Printing order (ORDER) - Help
+011600060217:XH3.Printing order (ORDER)
+011700060217:P.
+011800060217Specifies the order in which the selected jobs are presented in the
+011900060217printed list.
+012000060217:P.
+012100060217:XH3.Sort fields
+012200060217:P.
+012300060217Defines the fields to use as key when sorting the object list.
+012400060217:P.
+012500060217The possible values are:
+012600060217:P.
+012700060217:PARML.
+012800060217:PT.:PK DEF.*CPUTIM:EPK.
+012900060217:PD.
+013000060217The list is sorted by the CPU time used value.
+013100060217:PT.:PK.*TMPSTG:EPK.
+013200060217:PD.
+013300060217The list is sorted by the Temporary storage used value.
+013400100403:PT.:PK.*AUXIO:EPK.
+013500100403:PD.
+013600100403The list is sorted by the Auxiliary I/O requests issued value.
+013700060217:EPARML.
+013800060217:XH3.Sequence
+013900060217:P.
+014000060217Specifies the sequence of the sort order.
+014100060217:P.
+014200060217The possible values are:
+014300060217:P.
+014400060217:PARML.
+014500060217:PT.:PK DEF.*DESCEND:EPK.
+014600060217:PD.
+014700060217The sort is performed in descending sequence.
+014800060217:PT.:PK.*ASCEND:EPK.
+014900060217:PD.
+015000060217The sort is performed in ascending sequence.
+015100060217:EPARML.
+015200060217:EHELP.
+015300060217:HELP NAME='PRTJOBRUNA/JOBD'.Job description (JOBD) - Help
+015400060217:XH3.Job description (JOBD)
+015500060217:P.
+015600060217Specifies the name of the job description used when submitting the
+015700060217print job.
+015800060217:P.
+015900060217The possible values are:
+016000060217:P.
+016100060217:PARML.
+016200060217:PT.:PK DEF.*USRPRF:EPK.
+016300060217:PD.
+016400060217The job description in the user profile under which the submitted print
+016500060217job runs, is used as the job description of the submitted job.
+016600060217:PT.:PV.job-description-name:EPV.
+016700060217:PD.
+016800060217Specify the name (library-name/job-description-name) of the job
+016900060217description used for the job.
+017000060217:EPARML.
+017100060217:XH3.Library
+017200060217:P.
+017300060217The library containing the job description to be used.
+017400060217:P.
+017500060217The possible values are:
+017600060217:P.
+017700060217:PARML.
+017800060217:PT.:PK DEF.*LIBL:EPK.
+017900060217:PD.
+018000060217All libraries in the job's library list are searched until the first
+018100060217match is found.
+018200060217:PT.:PK.*CURLIB:EPK.
+018300060217:PD.
+018400060217The current library for the job is used to locate the job description
+018500060217name.  If no library is specified as the current library for the job,
+018600060217QGPL is used.
+018700060217:PT.:PV.library-name:EPV.
+018800060217:PD.
+018900060217Specify the name of the library where the job description name is
+019000060217located.
+019100060217:EPARML.
+019200060217:EHELP.
+019300060217:HELP NAME='PRTJOBRUNA/OUTQ'.Output queue (OUTQ) - Help
+019400060217:XH3.Output queue (OUTQ)
+019500060217:P.
+019600060217Specifies the qualified name of the output queue used for the printed
+019700060217list.
+019800060217:P.
+019900060217The possible values are:
+020000060217:P.
+020100060217:PARML.
+020200060217:PT.:PK DEF.*CURRENT:EPK.
+020300060217:PD.
+020400060217The output queue used by the job that is currently running is used for
+020500060217the submitted job.
+020600060217:PT.:PK.*JOBD:EPK.
+020700060217:PD.
+020800060217The output queue named in the job description used with the submitted
+020900060217print job is the job's default output queue.
+021000060217:PT.:PK.*USRPRF:EPK.
+021100060217:PD.
+021200060217The output queue in the user profile where the submitted job runs is
+021300060217used as the output queue for the submitted print job.  The output queue
+021400060217name is obtained from the profile when this command is run.
+021500060217:PT.:PV.output-queue:EPV.
+021600060217:PD.
+021700060217Specify the name (library-name/output-queue-name) of the output queue
+021800060217that is used as the default output queue by the submitted print job.
+021900060217:EPARML.
+022000060217:XH3.Library
+022100060217:P.
+022200060217The library containing the output queue to be used.
+022300060217:P.
+022400060217The possible values are:
+022500060217:P.
+022600060217:PARML.
+022700060217:PT.:PK DEF.*LIBL:EPK.
+022800060217:PD.
+022900060217All libraries in the job's library list are searched until the first
+023000060217match is found.
+023100060217:PT.:PK.*CURLIB:EPK.
+023200060217:PD.
+023300060217The current library for the job is used to locate the output queue
+023400060217name.  If no library is specified as the current library for the job,
+023500060217:PT.:PV.library-name:EPV.
+023600060217:PD.
+023700060217Specify the name of the library where the output queue name is located.
+023800060217:EPARML.
+023900060217:EHELP.
+024000060217:EPNLGRP.
