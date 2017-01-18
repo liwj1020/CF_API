@@ -5,6 +5,11 @@ SRCLIB=OSSILESRC
 OLIB=OSSILE
 VLDCHK="*NONE"
 PMTOP="*NONE"
+ACTGRP="*NEW"
+# if second parm then activation group needs to be set
+if["$2"]; then
+  $ACTGRP = $2
+fi  
 
 # need parameter to determine the build directory
 if [ "$#" -eq 0 ]; then
@@ -61,9 +66,15 @@ for FILE in "$PWD/$BUILD"
   # copy the source across
   system -kpieb "CPYFRMSTMF FROMSTMF('$PWD/$BUILD/$FILE') TOMBR('/QSYS.lib/OSSILE.lib/$BUILD.file/$OBJ.mbr')"
   if[ "$EXT" == "rpgle" ]
-  	# build the module and program
-  	system -kpieb "CRTRPGMOD MODULE($OLIB/$OBJ) SRCFILE($SRCLIB/$BUILD) DBGVIEW(*LIST)"
-  	system -kpieb "CRTPGM PGM($OLIB/$OBJ) ACTGRP(*NEW)"
+    # service programs can be built with standard parms. User needs to veryfy
+    if[ "$OBJ" = "$BUILDs"]; then
+      system -kpieb "CRTRPGMOD MODULE($OLIB/$OBJ) SRCFILE($SRCLIB/$BUILD) DBGVIEW(*LIST)"
+      system -kpieb "CRTSRVPGM MODULE($OLIB/$OBJ) EXPORT(*ALL) ACTGRP($ACTGRP)"
+    else
+  	  # build the module and program
+  	  system -kpieb "CRTRPGMOD MODULE($OLIB/$OBJ) SRCFILE($SRCLIB/$BUILD) DBGVIEW(*LIST)"
+  	  system -kpieb "CRTPGM PGM($OLIB/$OBJ) ACTGRP(*NEW)"
+  	fi  
   fi
   if[ "$EXT" = "cmd" ]
      # create the command

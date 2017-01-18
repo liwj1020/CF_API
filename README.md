@@ -10,6 +10,11 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 ## Utilities
 * 100 - Sample of QDBRTVFD
 * ... - More utilities/samples
+* 945 - CHGPRFEXIT Change Profile Exit Program
+* 946 - Enhanced System Request Menu. NOTE: CBX946S service programs needs setup script to be called with additional parm 'QSRVPGM'
+* 947 - CHKPTFSTS Check PTF Status
+* 948 - ANZPRFUSG Analyze User Profile Usage
+* 949 - PRTREGEXIT Print Registered Exit Programs
 * 950 - DSPJOBIFSL Display Job IFS Locks
 * 951 - ADDPRNSEED Add Pseudo Random Number Seed
 * 952 - PRTJOBRUNA Print Job Run Attributes

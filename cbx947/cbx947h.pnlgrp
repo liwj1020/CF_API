@@ -1,0 +1,114 @@
+000100051001.*-----------------------------------------------------------------------**
+000200051001.*
+000300051001.*  Compile options:
+000400051001.*
+000500051001.*    CrtPnlGrp PnlGrp( CBX947H )
+000600051001.*              SrcFile( QPNLSRC )
+000700051001.*              SrcMbr( CBX947H )
+000800051001.*
+000900051001.*-----------------------------------------------------------------------**
+001000050911:PNLGRP.
+001100091011
+001200050911:HELP NAME='CHKPTFSTS'.Check PTF Status - Help
+001300050911:P.
+001400051016The Check PTF Status command (CHKPTFSTS) locates all PTFs having the
+001500100819specified current status.  All installed products are searched unless
+001600100819you specify the optional :HP2.Select product (SELECT):EHP2. parameter.
+001700050911:P.
+001800051015:NT.
+001900051015Proper authorization to the DSPPTF (Display Program Temporary Fix)
+002000051016command is required to run this command with OPTION(*DSP).
+002100051015:ENT.
+002200051021:NT.
+002300051021Server IPL requirements are not reported.  Use the DSPPTF command to
+002400051021check if a server IPL is required.  If a server IPL is required, message
+002500051021ID CPD35F8 will be issued.  A server IPL is required when PTFs related
+002600051021to the Hardware Management Console (HMC) are applied.
+002700051021:P.
+002800051021This information applies to release V5R3 and onward.  Check the
+002900051021Information Center for more information on HMC PTFs and server IPL.
+003000051021:ENT.
+003100050911:EHELP.
+003200091011
+003300050911:HELP NAME='CHKPTFSTS/PTFSTS'.PTF status (PTFSTS) - Help
+003400050911:XH3.PTF status (PTFSTS)
+003500050911:P.
+003600051016Specify the current status that PTFs should have in order to be
+003700051016selected.
+003800050911:P.
+003900050911The possible values are:
+004000050911:P.
+004100050911:PARML.
+004200051020:PT.:PK DEF.*NONAPY:EPK.
+004300051020:PD.
+004400051021All PTFs having a status of :HP2.Not applied, Save file only, Cover
+004500051021letter only:EHP2. or :HP2.On order only:EHP2., or that currently have
+004600051021:HP2.Required actions pending:EHP2., are selected.
+004700051021:PT.:PK.*ACTRQD:EPK.
+004800051021:PD.
+004900051021All PTFs that currently have :HP2.Required actions pending:EHP2. are
+005000051021selected.
+005100051020:PT.:PK.*NOTAPY:EPK.
+005200050911:PD.
+005300051021All PTFs having a status of :HP2.Not applied:EHP2. are selected.
+005400051016:P.
+005500051016The informational message will further define whether PTFs having this
+005600051016status, have had their IPL Action set to *YES.
+005700051016:P.
+005800051016IPL action:  PTF status:
+005900051016:DL COMPACT.
+006000051016:DT.Yes  :DD.'Not applied - IPL action'
+006100051016:DT.None :DD.'Not applied'
+006200051016:EDL.
+006300051016:PT.:PK.*PTFSAVF:EPK.
+006400050911:PD.
+006500051021All PTFs having a status of :HP2.Save file only:EHP2. are selected.
+006600050911:PT.:PK.*COVERONLY:EPK.
+006700050911:PD.
+006800051021All PTFs having a status of :HP2.Cover letter only:EHP2. are selected.
+006900050913:PT.:PK.*ONORDER:EPK.
+007000050911:PD.
+007100051021All PTFs having a status of :HP2.On order only:EHP2. are selected.
+007200050911:EPARML.
+007300050911:EHELP.
+007400091011
+007500051015:HELP NAME='CHKPTFSTS/OPTION'.Option (OPTION) - Help
+007600051015:XH3.Option (OPTION)
+007700051015:P.
+007800051015Defines what action to perform for each selected PTF ID.
+007900051015:P.
+008000051015The possible values are:
+008100051015:P.
+008200051015:PARML.
+008300051015:PT.:PK DEF.*MSG:EPK.
+008400051015:PD.
+008500051015An informational message is sent for each selected PTF ID.
+008600051015:PT.:PK.*DSP:EPK.
+008700051015:PD.
+008800051015The information panel for the DSPPTF (Display PTF) command is displayed.
+008900051015:EPARML.
+009000051015:EHELP.
+009100091011
+009200091011:HELP NAME='CHKPTFSTS/SELECT'.Select product (SELECT) - Help
+009300091011:XH3.Select product (SELECT)
+009400091011:P.
+009500091011Spefies whether to display a list panel from which you can select the
+009600091011products you want to run the PTF check against.  If the selection list
+009700091011is not displayed, the PTF check is performed against all currently
+009800091011installed products.
+009900091011:P.
+010000091011The possible values are:
+010100091011:P.
+010200091011:PARML.
+010300091011:PT.:PK DEF.*NO:EPK.
+010400091011:PD.
+010500091011No product selection list is displayed and the PTF check is performed
+010600091011against all currently installed products.
+010700091011:PT.:PK.*YES:EPK.
+010800091011:PD.
+010900091011A product selection list is displayed and the PTF check is performed
+011000091011only against the products selected from the list.
+011100091011:EPARML.
+011200091011:EHELP.
+011300091011
+011400050911:EPNLGRP.
