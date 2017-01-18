@@ -1,0 +1,97 @@
+000100050604.*-----------------------------------------------------------------------**
+000200050604.*
+000300050604.*  Compile options:
+000400050604.*
+000500050604.*    CrtPnlGrp PnlGrp( CBX938H )
+000600050604.*              SrcFile( QPNLSRC )
+000700050604.*              SrcMbr( *PNLGRP )
+000800050604.*
+000900050604.*-----------------------------------------------------------------------**
+001000050529:PNLGRP.
+001100050529:HELP NAME='PRTJRNRCV'.Print Journal Receivers - Help
+001200050529:P.
+001300050604The Print Journal Receivers (PRTJRNRCV) generates a report of journal
+001400050604and journal receiver directory information.
+001500050604:P.
+001600050604The journal receiver report is written to a spooled file and placed in
+001700050604current job's default output queue.
+001800050604:P.
+001900050604:NT.
+002000050604Depending on the number of journals selected, this command will
+002100050604possibly take some time to complete and consume many system resources.
+002200050604:P.
+002300050604To avoid a negative impact on the system performance and interactive
+002400050604response times, please consider running the command in a batch job.
+002500050604:ENT.
+002600050529:EHELP.
+002700050529:HELP NAME='PRTJRNRCV/JRN'.Journal (JRN) - Help
+002800050529:XH3.Journal (JRN)
+002900050529:P.
+003000050604Specifies the name and library of the journal for which to print the
+003100050604journal receiver directory information list.
+003200050529:P.
+003300050529This is a required parameter.
+003400050529:P.
+003500050529The possible values are:
+003600050529:P.
+003700050529:PARML.
+003800050529:PT.:PK.*ALL:EPK.
+003900050529:PD.
+004000050529All journals in the specified library are selected.
+004100050529:PT.:PV.*generic-journal-name:EPV.
+004200050529:PD.
+004300050529Specify the generic name of the journal whose journal receiver
+004400050529directory should be printed in the generated list.  A generic name is a
+004500050529character string that contains one or more characters followed
+004600050529by an asterisk (*).
+004700050529:PT.:PV.journal-name:EPV.
+004800050529:PD.
+004900050529Specify the name of the journal whose journal receiver directory should
+005000050529be printed in the generated list.
+005100050529:EPARML.
+005200050529:XH3.Library
+005300050529:P.
+005400050529Specifies the library to search for the objects specified.
+005500050529:P.
+005600050529The possible values are:
+005700050529:P.
+005800050529:PARML.
+005900050529:PT.:PK DEF.*LIBL:EPK.
+006000050529:PD.
+006100050529All libraries in the thread's library list are searched.  All objects
+006200050529in these libraries with the specified object name are considered for
+006300050529selection.
+006400050529:PT.:PK.*CURLIB:EPK.
+006500050529:PD.
+006600050529The current library for the thread is searched.  If no library is
+006700050529specified as the current library for the thread, the QGPL library is
+006800050529used.
+006900050529:PT.:PK.*ALL:EPK.
+007000050529:PD.
+007100050529All libraries on the system are searched.
+007200050529:PT.:PK.*ALLUSR:EPK.
+007300050529:PD.
+007400050529All user libraries are searched.  All libraries with names that do not
+007500050529begin with the letter Q are considered user libraries, except for some
+007600050529IBM product libraries.  Some of the libraries beginning with the letter
+007700050529Q typically contain user data and they are therefore also searched:
+007800050529:P.
+007900050529:LINES.
+008000050529    QDSNX       QRCL        QUSRBRM     QUSRPOSGS
+008100050529    QGPL        QRCLxxxxx   QUSRDIRCL   QUSRPOSSA
+008200050529    QGPL38      QSYS2       QUSRDIRDB   QUSRPYMSVR
+008300050529    QMPGDATA    QSYS2xxxxx  QUSRIJS     QUSRRDARS
+008400050529    QMQMDATA    QS36F       QUSRINFSKR  QUSRSYS
+008500050529    QMQMPROC    QUSER38     QUSRNOTES   QUSRVI
+008600050529    QPFRDATA    QUSRADSM    QUSROND     QUSRVxRxMx
+008700050529:ELINES.
+008800050529:PT.:PK.*USRLIBL:EPK.
+008900050529:PD.
+009000050529All the libraries listed in the user portion of the thread's library
+009100050529list are searched.
+009200050529:PT.:PV.library-name:EPV.
+009300050529:PD.
+009400050529Specify the name of the library to be searched.
+009500050529:EPARML.
+009600050529:EHELP.
+009700050529:EPNLGRP.

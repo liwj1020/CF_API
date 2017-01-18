@@ -1,0 +1,121 @@
+000100050328.*-----------------------------------------------------------------------**
+000200050328.*
+000300050328.*  Compile options:
+000400050328.*
+000500050328.*    CrtPnlGrp PnlGrp( CBX934H )
+000600050328.*              SrcFile( QPNLSRC )
+000700050328.*              SrcMbr( *PNLGRP )
+000800050328.*
+000900050328.*-----------------------------------------------------------------------**
+001000050327:PNLGRP.
+001100050327:HELP NAME='ENDJRNLIB'.End Journal for Library - Help
+001200050327:P.
+001300050328The End Journal for Library (ENDJRNLIB) command will end journaling
+001400050328for all objects of the specified object type in the specified library.
+001500050328:P.
+001600050328Specify a generic object name to further qualify the selection of
+001700050328objects to end journaling changes.
+001800050328:P.
+001900050328Only objects currently being journaled will be selected.
+002000050328:P.
+002100050328A completion message returns the number of objects that have ended
+002200050328journaling changes, as well as the number of objects that were not
+002300050328processed due to not currently being journaled.
+002400050327:P.
+002500050327:EHELP.
+002600050327:HELP NAME='ENDJRNLIB/LIB'.Library (LIB) - Help
+002700050327:XH3.Library (LIB)
+002800050327:P.
+002900050328Specify the name of the library whose objects should end journaling
+003000050328changes.
+003100050327:P.
+003200050327This is a required parameter.
+003300050327:P.
+003400050327:EHELP.
+003500050327:HELP NAME='ENDJRNLIB/OBJ'.Object (OBJ) - Help
+003600050327:XH3.Object (OBJ)
+003700050327:P.
+003800050328Specify a generic object name to qualify the selection of objects to
+003900050328be processed.
+004000050327:P.
+004100050327The possible values are:
+004200050327:P.
+004300050327:PARML.
+004400050327:PT.:PK DEF.*ALL:EPK.
+004500050327:PD.
+004600050328All objects of the specified object type will be selected.
+004700050327:PT.:PV.*generic--object-name:EPV.
+004800050327:PD.
+004900050328Specify the generic object name of the objects to select.
+005000050327:PT.:PV.object-name:EPV.
+005100050327:PD.
+005200050328Specify the name of the object to select.
+005300050327:EPARML.
+005400050327:EHELP.
+005500050327:HELP NAME='ENDJRNLIB/OBJTYPE'.Object type (OBJTYPE) - Help
+005600050327:XH3.Object type (OBJTYPE)
+005700050327:P.
+005800050328Specifies the type of objects that should be selected.
+005900050327:P.
+006000050327The possible values are:
+006100050328:P.
+006200050327:PARML.
+006300050327:PT.:PK DEF.*ALL:EPK.
+006400050327:PD.
+006500050328All object types that can be journaled will be selected.  Currently
+006600050328the following object types can be journaled:
+006700050328:UL COMPACT.
+006800050328:LI.*FILE-PF
+006900050328:LI.*DTAQ
+007000050328:LI.*DTAARA
+007100050328:EUL.
+007200050327:PT.:PK.*FILE:EPK.
+007300050327:PD.
+007400050328Only physical database files will be selected.
+007500050327:PT.:PK.*DTAQ:EPK.
+007600050327:PD.
+007700050328Only data queue objects will be selected.
+007800050327:PT.:PK.*DTAARA:EPK.
+007900050327:PD.
+008000050328Only data area objects will be selected.
+008100050327:EPARML.
+008200050327:EHELP.
+008300050327:HELP NAME='ENDJRNLIB/JRN'.Journal (JRN) - Help
+008400050327:XH3.Journal (JRN)
+008500050327:P.
+008600050328Specifies the name and library of the journal to which changes in
+008700050328the indicated objects are currently being journaled.
+008800050327:P.
+008900050327The possible values are:
+009000050327:P.
+009100050327:PARML.
+009200050327:PT.:PK DEF.*OBJ:EPK.
+009300050327:PD.
+009400050328The journal is determined by the system from the specified object name
+009500050328and object type.
+009600050327:PT.:PV.journal-name:EPV.
+009700050327:PD.
+009800050328Specify the name of the journal to which the indicated objects are
+009900050328currently being journaled.
+010000050327:EPARML.
+010100050327:XH3.Library
+010200050327:P.
+010300050328The name of the library where the journal is located.
+010400050327:P.
+010500050327The possible values are:
+010600050327:P.
+010700050327:PARML.
+010800050327:PT.:PK DEF.*LIBL:EPK.
+010900050327:PD.
+011000050328All libraries in the job's library list are searched until the first
+011100050328match is found.
+011200050327:PT.:PK.*CURLIB:EPK.
+011300050327:PD.
+011400050328The current library for the job is searched.  If no library is
+011500050328specified as the current library for the job, QGPL is used.
+011600050327:PT.:PV.library-name:EPV.
+011700050327:PD.
+011800050328Specify the name of the library to be searched.
+011900050327:EPARML.
+012000050327:EHELP.
+012100050327:EPNLGRP.

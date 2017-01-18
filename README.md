@@ -10,6 +10,16 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 ## Utilities
 * 100 - Sample of QDBRTVFD
 * ... - More utilities/samples
+* 930 - PRTPGMADPS Print Programs which adopt special Authorities.
+* 931 - CHGOBJAUT Change Object Authority
+* 932 - PRTSAVINF Print Save Information
+* 933 - SJLIB Start Journaling for object in a library. Note: STRJRNLIB is now IBM command so rename required. 
+* 934 - EJLIB End Journaling for objects in a library. Note: ENDJRNLIB is now IBM command so rename required.
+* 935 - RUNJOBCMD Run job Command
+* 936 - ANZUSRPRF Analyse User Profiles
+* 937 - PRTPTFLVL Print PTF Cum Level
+* 938 - PRTJRNRCV Print Journal Receiver Information
+* 939 - RTVSYSDTA Retrieve System Data
 * 940 - CHKCRPSPT Check cryptographic support
 * 943 - PRTJRNRPT Print Journal Report. Note: cbx943.clp submits itself as a job, when its run its calls cbx9432.rpgle
 * 944 - PRCOBJLCK Process Object Locks

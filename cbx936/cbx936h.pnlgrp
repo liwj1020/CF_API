@@ -1,0 +1,94 @@
+000100050507.*-----------------------------------------------------------------------**
+000200050507.*
+000300050507.*  Compile options:
+000400050507.*
+000500050507.*    CrtPnlGrp PnlGrp( CBX936H )
+000600050507.*              SrcFile( QPNLSRC )
+000700050507.*              SrcMbr( *PNLGRP )
+000800050507.*
+000900050507.*-----------------------------------------------------------------------**
+001000050507:PNLGRP.
+001100050508:HELP NAME='ANZUSRPRF'.Analyze User Profiles - Help
+001200050507:P.
+001300050508The Analyze User Profiles (ANZUSRPRF) command prints a list of all user
+001400050508profiles meeting the specified selection criteria.
+001500050507:P.
+001600050507The user profile list is written to a spooled file and placed in the
+001700050507current job's default output queue.
+001800050507:P.
+001900050507:NT.
+002000050507Only user profiles to which the current user profile of the job running
+002100050507this command has *READ authority, are included in the list.
+002200050507:ENT.
+002300050507:P.
+002400050508:NT.
+002500050508Depending on the number of user profiles on the system, this command
+002600050508will possibly take some time to complete and consume many system
+002700050508resources.  To avoid a negative impact on the system performance and
+002800050508interactive response times, please consider running the command in
+002900050508batch.
+003000050508:ENT.
+003100050507:EHELP.
+003200050508:HELP NAME='ANZUSRPRF/SELECT'.Select (SELECT) - Help
+003300050507:XH3.Select (SELECT)
+003400050507:P.
+003500050507Specify the selection criteria for user profiles to include in the
+003600050507printed list.
+003700050507:P.
+003800050507This is a required parameter.
+003900050507:P.
+004000050507The possible values are:
+004100050507:P.
+004200050507:PARML.
+004300050507:PT.:PK.*DISABLED:EPK.
+004400050507:PD.
+004500050507Only user profiles having a status of *DISABLED are included in the
+004600050507list.
+004700050507:PT.:PK.*EXPIRED:EPK.
+004800050507:PD.
+004900050507Only user profiles meeting at least one of the following two conditions
+005000050507are included in the list:
+005100050507:UL.
+005200050507:LI.The user profile's password has been set to expire.
+005300050507:LI.The user profile's password expiration date has been reached or
+005400050507exceeded.
+005500050507:EUL.
+005600050507:PT.:PK.*INVSIGNON:EPK.
+005700050507:PD.
+005800050507Only user profiles having a number of invalid sign-on attempts that is
+005900050507greater than zero are included in the list.
+006000050507:PT.:PK.*NOGROUP:EPK.
+006100050507:PD.
+006200050507Only user profiles that do not have a group profile are included in the
+006300050507list.
+006400050507:PT.:PK.*NOPWD:EPK.
+006500050507:PD.
+006600050507Only user profiles having a password value of *NONE are included in the
+006700050507list.
+006800050507:PT.:PK.*NOTLMTCAP:EPK.
+006900050507:PD.
+007000050507Only user profiles having limit capabilites *NO or *PARTIAL are
+007100050507included in the list.
+007200050507:EPARML.
+007300050507:EHELP.
+007400050508:HELP NAME='ANZUSRPRF/SYSPRF'.Include system profiles (SYSPRF) - Help
+007500050507:XH3.Include system profiles (SYSPRF)
+007600050507:P.
+007700050507Specifies whether system profiles should be included in the printed
+007800050507list.  User profiles having a creator user profile of *IBM are
+007900050507considered system profiles.
+008000050507:P.
+008100050507The possible values are:
+008200050507:P.
+008300050507:PARML.
+008400050507:PT.:PK DEF.*YES:EPK.
+008500050507:PD.
+008600050507All selected user profiles, regardless of creator user profile, are
+008700050507included in the printed list.
+008800050507:PT.:PK.*NO:EPK.
+008900050507:PD.
+009000050507Selected user profiles having a creator user profile of *IBM are
+009100050507excluded from the printed list.
+009200050507:EPARML.
+009300050507:EHELP.
+009400050507:EPNLGRP.

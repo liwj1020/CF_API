@@ -1,0 +1,156 @@
+000100050325.*-----------------------------------------------------------------------**
+000200050325.*
+000300050325.*  Compile options:
+000400050325.*
+000500050325.*    CrtPnlGrp PnlGrp( CBX933H )
+000600050325.*              SrcFile( QPNLSRC )
+000700050325.*              SrcMbr( *PNLGRP )
+000800050325.*
+000900050325.*-----------------------------------------------------------------------**
+001000050325:PNLGRP.
+001100050327:HELP NAME='STRJRNLIB'.Start Journal for Library - Help
+001200050325:P.
+001300050325The Start Journal for Library (STRJRNLIB) command will start journaling
+001400050325for all objects of the specified object type in the specified library.
+001500050327:P.
+001600050327Specify a generic object name to further qualify the selection of
+001700050327objects to start journaling changes.
+001800050325:P.
+001900050325Only objects currently not journaled will be selected.
+002000050325:P.
+002100050327A completion message returns the number of objects that have started
+002200050327journaling changes, as well as the number of objects that were not
+002300050327processed due to already being journaled.
+002400050327:P.
+002500050325:EHELP.
+002600050325:HELP NAME='STRJRNLIB/LIB'.Library (LIB) - Help
+002700050325:XH3.Library (LIB)
+002800050325:P.
+002900050325Specify the name of the library whose objects should start journaling
+003000050325changes.
+003100050325:P.
+003200050325This is a required parameter.
+003300050325:P.
+003400050325:EHELP.
+003500050325:HELP NAME='STRJRNLIB/JRN'.Journal (JRN) - Help
+003600050325:XH3.Journal (JRN)
+003700050325:P.
+003800050325Specifies the name and library of the journal that will receive the
+003900050325generated journal entries.
+004000050325:P.
+004100050325This is a required parameter.
+004200050325:P.
+004300050325:XH3.Library
+004400050325:P.
+004500050325The name of the library where the journal is located.
+004600050325:P.
+004700050325The possible values are:
+004800050325:P.
+004900050325:PARML.
+005000050325:PT.:PK DEF.*LIBL:EPK.
+005100050325:PD.
+005200050325All libraries in the job's library list are searched until the first
+005300050325match is found.
+005400050325:PT.:PK.*CURLIB:EPK.
+005500050325:PD.
+005600050325The current library for the job is searched.  If no library is
+005700050325specified as the current library for the job, QGPL is used.
+005800050325:PT.:PV.library-name:EPV.
+005900050325:PD.
+006000050325Specify the name of the library to be searched.
+006100050325:EPARML.
+006200050325:EHELP.
+006300050325:HELP NAME='STRJRNLIB/OBJ'.Object (OBJ) - Help
+006400050325:XH3.Object (OBJ)
+006500050325:P.
+006600050327Specify a generic object name to qualify the selection of objects to
+006700050327be processed.
+006800050325:P.
+006900050325The possible values are:
+007000050325:P.
+007100050325:PARML.
+007200050325:PT.:PK DEF.*ALL:EPK.
+007300050325:PD.
+007400050325All objects of the specified object type will be selected.
+007500050325:PT.:PV.*generic-object-name:EPV.
+007600050325:PD.
+007700050325Specify the generic object name of the objects to select.
+007800050325:PT.:PV.object-name:EPV.
+007900050325:PD.
+008000050325Specify the name of the object to select.
+008100050325:EPARML.
+008200050325:EHELP.
+008300050325:HELP NAME='STRJRNLIB/OBJTYPE'.Object type (OBJTYP) - Help
+008400050325:XH3.Object type (OBJTYP)
+008500050325:P.
+008600050325Specifies the type of objects that are selected.
+008700050325:P.
+008800050325The possible values are:
+008900050325:P.
+009000050325:PARML.
+009100050325:PT.:PK DEF.*ALL:EPK.
+009200050325:PD.
+009300050325All object types that can be journaled will be selected.  Currently
+009400050325the following object types can be journaled:
+009500050325:UL COMPACT.
+009600050325:LI.*FILE-PF
+009700050325:LI.*DTAQ
+009800050325:LI.*DTAARA
+009900050325:EUL.
+010000050325:PT.:PK.*FILE:EPK.
+010100050325:PD.
+010200050325Only physical database files will be selected.
+010300050325:PT.:PK.*DTAQ:EPK.
+010400050325:PD.
+010500050325Only data queue objects will be selected.
+010600050325:PT.:PK.*DTAARA:EPK.
+010700050325:PD.
+010800050325Only data area objects will be selected.
+010900050325:EPARML.
+011000050325:EHELP.
+011100050325:HELP NAME='STRJRNLIB/IMAGES'.Record images (IMAGES) - Help
+011200050325:XH3.Record images (IMAGES)
+011300050325:P.
+011400050325Specifies the kinds of images that are written to the journal
+011500050325receiver for changes to objects or records in a file.
+011600050325:P.
+011700050325The possible values are:
+011800050325:P.
+011900050325:PARML.
+012000050325:PT.:PK DEF.*AFTER:EPK.
+012100050325:PD.
+012200050325Only :HP1.after:EHP1. images are written to the journal for changes to
+012300050325objects or records in a file.
+012400050325:PT.:PK.*BOTH:EPK.
+012500050325:PD.
+012600050325The system generates both :HP1.before:EHP1. and :HP1.after:EHP1. images
+012700050325to the journal for changes to objects or records in a file.
+012800050325:P.
+012900050325:NT.
+013000050325The value *BOTH is not valid for *DTAQ objects.
+013100050325:ENT.
+013200050325:EPARML.
+013300050325:EHELP.
+013400050325:HELP NAME='STRJRNLIB/OMTJRNE'.Journal entries to be omitted (OMTJRNE) - Help
+013500050325:XH3.Journal entries to be omitted (OMTJRNE)
+013600050325:P.
+013700050325Specifies the journal entries that are omitted.
+013800050325:P.
+013900050325The possible values are:
+014000050325:P.
+014100050325:PARML.
+014200050325:PT.:PK DEF.*NONE:EPK.
+014300050325:PD.
+014400050325No journal entries are omitted.
+014500050325:PT.:PK.*OPNCLO:EPK.
+014600050325:PD.
+014700050325:HP1.Open:EHP1. and :HP1.close:EHP1. entries are omitted.  Open and
+014800050325close operations on the specified file members do not create open and
+014900050325close journal entries.
+015000050325:P.
+015100050325:NT.
+015200050325This parameter only applies to physical database files.
+015300050325:ENT.
+015400050325:EPARML.
+015500050325:EHELP.
+015600050325:EPNLGRP.

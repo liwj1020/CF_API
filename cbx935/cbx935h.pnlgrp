@@ -1,0 +1,65 @@
+000100050513.*-----------------------------------------------------------------------**
+000200050513.*
+000300050513.*  Compile options:
+000400050513.*
+000500050513.*    CrtPnlGrp PnlGrp( CBX935H )
+000600050513.*              SrcFile( QPNLSRC )
+000700050513.*              SrcMbr( *PNLGRP )
+000800050513.*
+000900050513.*-----------------------------------------------------------------------**
+001000050321:PNLGRP.
+001100050321:HELP NAME='RUNJOBCMD'.Run job command - Help
+001200050321:P.
+001300050321The Run Job Command (RUNJOBCMD) allows you to run a command in another
+001400050321job, including batch jobs.
+001500050321:P.
+001600050322If the command generates completion, exception or any other types of
+001700050322messages, these will be visible in the joblog of the job where the
+001800050322command is run.
+001900050322:P.
+002000050322:HP2.Restriction&COLON.:EHP2. Special authorities *ALLOBJ and *JOBCTL
+002100050322are required to run this command.
+002200050321:P.
+002300050321:EHELP.
+002400050321:HELP NAME='RUNJOBCMD/JOB'.Job name (JOB) - Help
+002500050321:XH3.Job name (JOB)
+002600050321:P.
+002700050321Specifies the name of the job where the specified command is to be run.
+002800050321:P.
+002900050321This is a required parameter.
+003000050321:P.
+003100050321:XH3.User
+003200050321:P.
+003300050321Specify the name that identifies the user profile under which the job
+003400050321is run.
+003500050321:P.
+003600050321:XH3.Number
+003700050321:P.
+003800050321Specify the job number assigned by the system.
+003900050321:P.
+004000050321:EHELP.
+004100050321:HELP NAME='RUNJOBCMD/CMD'.Command (CMD) - Help
+004200050321:XH3.Command (CMD)
+004300050321:P.
+004400050321Specify a command to be executed in the specified job.
+004500050321:P.
+004600050321This is a required parameter.
+004700050321:P.
+004800050321:EHELP.
+004900050321:HELP NAME='RUNJOBCMD/TIMEOUT'.Request time-out (TIMEOUT) - Help
+005000050321:XH3.Request time-out (TIMEOUT)
+005100050321:P.
+005200050321The number of seconds allowed for the requested command to complete.
+005300050321:P.
+005400050321The possible values are:
+005500050321:P.
+005600050321:PARML.
+005700050321:PT.:PK DEF.25:EPK.
+005800050321:PD.
+005900050321The specified command should complete within 25 seconds.
+006000050321:PT.:PV.request-time-out:EPV.
+006100050321:PD.
+006200050321Specify the number of seconds allowed for the command to complete.
+006300050321:EPARML.
+006400050321:EHELP.
+006500050321:EPNLGRP.
