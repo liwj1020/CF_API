@@ -10,6 +10,9 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 ## Utilities
 * 100 - Sample of QDBRTVFD
 * ... - More utilities/samples
+* 940 - CHKCRPSPT Check cryptographic support
+* 943 - PRTJRNRPT Print Journal Report. Note: cbx943.clp submits itself as a job, when its run its calls cbx9432.rpgle
+* 944 - PRCOBJLCK Process Object Locks
 * 945 - CHGPRFEXIT Change Profile Exit Program
 * 946 - Enhanced System Request Menu. NOTE: CBX946S service programs needs setup script to be called with additional parm 'QSRVPGM'
 * 947 - CHKPTFSTS Check PTF Status
@@ -60,6 +63,11 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 * 994 - WRKQRYPRFO Work with Query Profile Opts
 * 998 - WRKSBSE Work with Subsystem Entries
 * 999 - WRKRMTOUTQ Work with Remote OUTQ's
+* 9411 - RTVDIRSMTP Retrieve Directory Entry SMTP Address
+* 9412 - DSPDIRSMTP Display Directory Entry SMTP Address
+* 9413 - Break message handler, send message to email.
+* 9421 - RTVDEVIP Retrieve Device IP
+* 9422 - DSPDEVIP Display Device IP
 * 9562 - Display User Objects
 * 9563 - DSPIDXECNT Display Index Entry Count
 * 9811 - ADDUSRQRYA Add User Query Attributes

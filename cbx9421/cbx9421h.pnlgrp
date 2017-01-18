@@ -1,0 +1,52 @@
+000100050730.*-----------------------------------------------------------------------**
+000200050730.*
+000300050730.*  Compile options:
+000400050730.*
+000500050730.*    CrtPnlGrp PnlGrp( CBX9421H )
+000600050730.*              SrcFile( QPNLSRC )
+000700050730.*              SrcMbr( *PNLGRP )
+000800050730.*
+000900050730.*-----------------------------------------------------------------------**
+001000050730:PNLGRP.
+001100050730:HELP NAME='RTVDEVIP'.Retrieve Device IP Address - Help
+001200050730:P.
+001300050730The Retrieve Device IP Address (RTVDEVIP) command returns the current
+001400050730IP address of the specified display or printer device in dotted decimal
+001500050730form.  If the specified device is not currently varied on, the special
+001600050730value :HP2.*NONE:EHP2. is returned.
+001700050730:P.
+001800050730:NT.
+001900050730An IP address applies only to display or printer devices that are used
+002000050730by TELNET or TCP/IP over Twinax.
+002100050730:ENT.
+002200050730:EHELP.
+002300050730:HELP NAME='RTVDEVIP/DEV'.Device (DEV) - Help
+002400050730:XH3.Device (DEV)
+002500050730:P.
+002600050730Specifies the name of the display or printer device for which to
+002700050730retrieve the IP address.
+002800050730:P.
+002900050730The possible values are:
+003000050730:P.
+003100050730:PARML.
+003200050730:PT.:PK DEF.*CURRENT:EPK.
+003300050730:PD.
+003400050730The device currently in use by the interactive job from which this
+003500050730command is run will have it's IP address retrieved.
+003600050730:PT.:PV.device-name:EPV.
+003700050730:PD.
+003800050730Specify the name of the display or printer device for which to retrieve
+003900050730the IP address.
+004000050730:EPARML.
+004100050730:EHELP.
+004200050730:HELP NAME='RTVDEVIP/IPADDR'.CL var for IPADDR       (15) (IPADDR) - Help
+004300050730:XH3.CL var for IPADDR       (15) (IPADDR)
+004400050730:P.
+004500050730Specifies the name of the CL variable that receives the display or
+004600050730printer device IP address in dotted decimal form.
+004700050730:P.
+004800050730The variable must be a character variable with a minumum length of 15
+004900050730characters.
+005000050730:P.
+005100050730:EHELP.
+005200050730:EPNLGRP.
