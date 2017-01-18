@@ -24,7 +24,7 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 * 943 - PRTJRNRPT Print Journal Report. Note: cbx943.clp submits itself as a job, when its run its calls cbx9432.rpgle
 * 944 - PRCOBJLCK Process Object Locks
 * 945 - CHGPRFEXIT Change Profile Exit Program
-* 946 - Enhanced System Request Menu. NOTE: CBX946S service programs needs setup script to be called with additional parm 'QSRVPGM'
+* 946 - Enhanced System Request Menu. NOTE: CBX946S service program needs setup script to be called with additional parm 'QSRVPGM'
 * 947 - CHKPTFSTS Check PTF Status
 * 948 - ANZPRFUSG Analyze User Profile Usage
 * 949 - PRTREGEXIT Print Registered Exit Programs
@@ -103,6 +103,7 @@ utilities to be built to run correctly.
 
 ##Documentation
 See [IBM Knowledge Center](http://www.ibm.com/support/knowledgecenter/ssw_ibm_i) for details of the API's used.
+See [Carsten's Blog](https://apimymymy.wordpress.com/blog/) for a history of the API collection
 
 ## Important Notes
 * The code should compile using the setup script provided but is based on a naming convention which could be compromised.
