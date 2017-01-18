@@ -104,6 +104,13 @@ utilities to be built to run correctly.
 ##Documentation
 See [IBM Knowledge Center](http://www.ibm.com/support/knowledgecenter/ssw_ibm_i) for details of the API's used.
 
+## Important Notes
+* The code should compile using the setup script provided but is based on a naming convention which could be compromised.
+* The content has been slimmed down in some cases where the same program is provided in multiple versions.
+* Support of the code contained in the samples is not provided by the contributors, you can raise an issue via the github repository requesting help.
+* The code has been built over a number of years and may need some adjustment to run on the later OS levels. It is supplied as is with no guarantee to work.
+* All of the source in its original state is available from Carsten's website.
+
 ##Contributors
 * Original code by Carsten Flensburg. [Website](https://spaces.hightail.com/space/00SJA)
 * updates and formatting for OSSILE Chris Hird. [Website](http://www.shieldadvanced.com)
