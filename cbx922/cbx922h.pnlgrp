@@ -1,0 +1,186 @@
+000100040807.*-----------------------------------------------------------------------**
+000200040807.*
+000300040807.*  Compile options:
+000400040807.*
+000500040831.*    CrtPnlGrp PnlGrp( CBX922H )
+000600040807.*              SrcFile( QPNLSRC )
+000700040831.*              SrcMbr( CBX922H )
+000800040807.*
+000900040807.*-----------------------------------------------------------------------**
+001000040807:PNLGRP.
+001100040813:IMPORT PNLGRP='QHWTCMD' NAME='ENDJOB/DELAY'.
+001200040831:HELP NAME='PRCRCDLCK'.Process Record Locks - Help
+001300040807:P.
+001400040831The Process Record Locks (PRCRCDLCK) command identifies all jobs
+001500040831currently holding a record lock for the specified relative record
+001600040831number(s) in the specified physical file, and for each job either sends
+001700040831a break message or ends the job.  The break message is sent to the job
+001800040831holding the record lock or optionally to all jobs currently running
+001900040831under the user profile of the job holding the record lock.
+002000040808:P.
+002100040808:HP2.Restriction&COLON.:EHP2. Special authority *JOBCTL is required
+002200040808to run this command.
+002300040807:P.
+002400040807:EHELP.
+002500040831:HELP NAME='PRCRCDLCK/FILE'.File (FILE) - Help
+002600040831:XH3.Physical file (FILE)
+002700040807:P.
+002800040831Specifies the name and library of the physical file that contains
+002900040831the member whose record locks are processed.
+003000040807:P.
+003100040901If you specify a logical file for this parameter and that logical file
+003200040901is based-on only one physical file, this command will retrieve the
+003300040901qualified name of that based-on physical file to use during the record
+003400040901lock listing process.  In any other event the physical file name must
+003500040901be specified directly, otherwise an exception will occur and an error
+003600040901message be returned.
+003700040901:P.
+003800040807This is a required parameter.
+003900040807:P.
+004000040807:XH3.Library
+004100040807:P.
+004200040810The name of the file object can be qualified by one of the following
+004300040810library values:
+004400040807:P.
+004500040807:PARML.
+004600040807:PT.:PK DEF.*LIBL:EPK.
+004700040807:PD.
+004800040810All libraries in the thread's library list are searched until a match
+004900040810is found.
+005000040807:PT.:PK.*CURLIB:EPK.
+005100040807:PD.
+005200040810The current library for the thread is searched.  If no library
+005300040810is specified as the current library for the thread, the QGPL
+005400040810library is used.
+005500040807:PT.:PV.library-name:EPV.
+005600040807:PD.
+005700040810Specify the name of the library containing the file object.
+005800040807:EPARML.
+005900040807:EHELP.
+006000040831:HELP NAME='PRCRCDLCK/MBR'.Member (MBR) - Help
+006100040831:XH3.Member (MBR)
+006200040831:P.
+006300040831Specifies the name of the member in the file whose record locks are
+006400040831processed.
+006500040831:P.
+006600040831The possible values are:
+006700040831:P.
+006800040831:PARML.
+006900040831:PT.:PK DEF.*FIRST:EPK.
+007000040831:PD.
+007100040831The first member of the specified file is used.
+007200040831:PT.:PV.member-name:EPV.
+007300040831:PD.
+007400040831Specify the name of the physical file member that is shown.
+007500040831:EPARML.
+007600040831:EHELP.
+007700040831:HELP NAME='PRCRCDLCK/RCDNBR'.Record number (RCDNBR) - Help
+007800040831:XH3.Record number (RCDNBR)
+007900040831:P.
+008000040831Specifies a particular relative record number or all records of a
+008100040831member.
+008200040831:P.
+008300040831The possible values are:
+008400040831:P.
+008500040831:PARML.
+008600040831:PT.:PK DEF.*ALL:EPK.
+008700040831:PD.
+008800040831All records currently locked in the specified physical file member
+008900040831are processed.
+009000040831:PT.:PV.record-number:EPV.
+009100040831:PD.
+009200040831Specify a specific relative record number whose lock holder should
+009300040831be processed.
+009400040831:EPARML.
+009500040831:EHELP.
+009600040831:HELP NAME='PRCRCDLCK/ACTION'.Action to perform (ACTION) - Help
+009700040807:XH3.Action to perform (ACTION)
+009800040807:P.
+009900040810Defines what action should be taken against all the jobs currently
+010000040831holding a record lock for the specified file object.
+010100040807:P.
+010200040807The possible values are:
+010300040807:P.
+010400040807:PARML.
+010500040807:PT.:PK DEF.*BRKMSG:EPK.
+010600040807:PD.
+010700040831Send a break message to the job holding the record lock.  The break
+010800040831message text is specified in the :HP2.Message text:EHP2. prompt
+010900040831(MSG parameter).
+011000040810:P.
+011100040810Optionally the message can be sent to all jobs currently running under
+011200040831the user profile of the record lock holding job.  Use the :HP2.Send
+011300040831message to:EHP2.prompt (MSGTO parameter) to specify where to send the
+011400040831break message.
+011500040807:PT.:PK.*ENDJOB:EPK.
+011600040807:PD.
+011700040831The :HP2.ENDJOB:EHP2. command is issued against all jobs holding a
+011800040831record lock for the specified file object.
+011900040813:P.
+012000040813Specify how the identified jobs should be ended using the :HP2.How
+012100040813to end:EHP2. prompt (ENDOPT parameter) in conjunction with the
+012200040813:HP2.Delay time:EHP2. prompt (DELAY parameter).
+012300040813:P.
+012400040807:EPARML.
+012500040807:EHELP.
+012600040831:HELP NAME='PRCRCDLCK/MSG'.Message text (MSG) - Help
+012700040807:XH3.Message text (MSG)
+012800040807:P.
+012900040810Specify the message text to be sent to the identified jobs or user
+013000040810profiles.
+013100040807:P.
+013200040807:EHELP.
+013300040831:HELP NAME='PRCRCDLCK/MSGTO'.Send message to (MSGTO) - Help
+013400040807:XH3.Send message to (MSGTO)
+013500040807:P.
+013600040813This parameter identifies whether the break message should be sent to
+013700040831the job holding the record lock only, or all jobs currently run by user
+013800040831profile of the record lock holding job.
+013900040807:P.
+014000040807The possible values are:
+014100040807:P.
+014200040807:PARML.
+014300040807:PT.:PK DEF.*JOB:EPK.
+014400040807:PD.
+014500040831The break message is sent to the job holding the record lock.
+014600040807:PT.:PK.*USER:EPK.
+014700040807:PD.
+014800040810The break message is sent to all jobs run by the user profile of the
+014900040831record lock holding job.
+015000040807:EPARML.
+015100040807:EHELP.
+015200040831:HELP NAME='PRCRCDLCK/ENDOPT'.How to end (ENDOPT) - Help
+015300040813:XH3.How to end (ENDOPT)
+015400040813:P.
+015500040813Specifies whether the job ends immediately or in a controlled manner
+015600040813that lets the application program perform end-of-job processing.  In
+015700040813either case, the system performs certain job cleanup processing.
+015800040813:P.
+015900040813The possible values are:
+016000040813:P.
+016100040813:PARML.
+016200040813:PT.:PK DEF.*CNTRLD:EPK.
+016300040813:PD.
+016400040813The job ends in a controlled manner.  This allows the program
+016500040813running to perform cleanup (end-of-job processing).  The
+016600040813application has the amount of time specified on the DELAY
+016700040813parameter to complete cleanup before the job is ended.
+016800040813:PT.:PK.*IMMED:EPK.
+016900040813:PD.
+017000040813The job ends immediately and the system performs end-of-job
+017100040813cleanup.  System cleanup can take from a brief amount of time to
+017200040813several minutes.  The program that is running is not allowed to
+017300040813perform any cleanup.
+017400040813:P.
+017500040813:NT.
+017600040813This option might cause undesirable results if data has been
+017700040813partially updated; therefore, it should be used only after a
+017800040813controlled end has been attempted unsuccessfully.
+017900040813:ENT.
+018000040813:EPARML.
+018100040813:EHELP.
+018200040831:HELP NAME='PRCRCDLCK/DELAY'.Delay time, if *CNTRLD (DELAY) - Help
+018300040813:P.
+018400040813:IMHELP NAME='ENDJOB/DELAY'.
+018500040813:EHELP.
+018600040807:EPNLGRP.

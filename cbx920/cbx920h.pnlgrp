@@ -1,0 +1,168 @@
+000100040807.*-----------------------------------------------------------------------**
+000200040807.*
+000300040807.*  Compile options:
+000400040807.*
+000500040807.*    CrtPnlGrp PnlGrp( CBX920H )
+000600040807.*              SrcFile( QPNLSRC )
+000700040807.*              SrcMbr( CBX920H )
+000800040807.*
+000900040807.*-----------------------------------------------------------------------**
+001000040807:PNLGRP.
+001100040813:IMPORT PNLGRP='QHWTCMD' NAME='ENDJOB/DELAY'.
+001200040807:HELP NAME='PRCFILLCK'.Process File Locks - Help
+001300040807:P.
+001400040810The Process File Locks (PRCFILLCK) command identifies all jobs currently
+001500040813holding a lock for the specified object, and for each job either sends
+001600040813a break message or ends the job.  The break message is sent to the job
+001700040813holding the lock or optionally to all jobs currently running under the
+001800040813user profile of the job holding the lock.
+001900040808:P.
+002000040808:HP2.Restriction&COLON.:EHP2. Special authority *JOBCTL is required
+002100040808to run this command.
+002200040807:P.
+002300040807:EHELP.
+002400040807:HELP NAME='PRCFILLCK/FILE'.File (FILE) - Help
+002500040807:XH3.File (FILE)
+002600040807:P.
+002700040813Specifies the name of the file object that will have it's current lock
+002800040813holders identified.
+002900040807:P.
+003000040807This is a required parameter.
+003100040807:P.
+003200040807:XH3.Library
+003300040807:P.
+003400040810The name of the file object can be qualified by one of the following
+003500040810library values:
+003600040807:P.
+003700040807:PARML.
+003800040807:PT.:PK DEF.*LIBL:EPK.
+003900040807:PD.
+004000040810All libraries in the thread's library list are searched until a match
+004100040810is found.
+004200040807:PT.:PK.*CURLIB:EPK.
+004300040807:PD.
+004400040810The current library for the thread is searched.  If no library
+004500040810is specified as the current library for the thread, the QGPL
+004600040810library is used.
+004700040807:PT.:PV.library-name:EPV.
+004800040807:PD.
+004900040810Specify the name of the library containing the file object.
+005000040807:EPARML.
+005100040807:EHELP.
+005200040807:HELP NAME='PRCFILLCK/ACTION'.Action to perform (ACTION) - Help
+005300040807:XH3.Action to perform (ACTION)
+005400040807:P.
+005500040810Defines what action should be taken against all the jobs currently
+005600040813holding a lock for the specified file object.
+005700040807:P.
+005800040807The possible values are:
+005900040807:P.
+006000040807:PARML.
+006100040807:PT.:PK DEF.*BRKMSG:EPK.
+006200040807:PD.
+006300040810Send a break message to the job holding the lock.  The break message
+006400040813text is specified in the :HP2.Message text:EHP2. prompt (MSG parameter).
+006500040810:P.
+006600040810Optionally the message can be sent to all jobs currently running under
+006700040813the user profile of the lock holding job.  Use the :HP2.Send message to
+006800040813:EHP2.prompt (MSGTO parameter) to specify where to send the break
+006900040813message.
+007000040807:PT.:PK.*ENDJOB:EPK.
+007100040807:PD.
+007200040813The :HP2.ENDJOB:EHP2. command is issued against all jobs holding a lock
+007300040813for the specified file object.
+007400040813:P.
+007500040813Specify how the identified jobs should be ended using the :HP2.How
+007600040813to end:EHP2. prompt (ENDOPT parameter) in conjunction with the
+007700040813:HP2.Delay time:EHP2. prompt (DELAY parameter).
+007800040813:P.
+007900040807:EPARML.
+008000040807:EHELP.
+008100040807:HELP NAME='PRCFILLCK/MSG'.Message text (MSG) - Help
+008200040807:XH3.Message text (MSG)
+008300040807:P.
+008400040810Specify the message text to be sent to the identified jobs or user
+008500040810profiles.
+008600040807:P.
+008700040807:EHELP.
+008800040807:HELP NAME='PRCFILLCK/MSGTO'.Send message to (MSGTO) - Help
+008900040807:XH3.Send message to (MSGTO)
+009000040807:P.
+009100040813This parameter identifies whether the break message should be sent to
+009200040813the job holding the lock only, or all jobs currently run by user
+009300040810profile of the lock holding job.
+009400040807:P.
+009500040807The possible values are:
+009600040807:P.
+009700040807:PARML.
+009800040807:PT.:PK DEF.*JOB:EPK.
+009900040807:PD.
+010000040810The break message is sent to the job holding the lock.
+010100040807:PT.:PK.*USER:EPK.
+010200040807:PD.
+010300040810The break message is sent to all jobs run by the user profile of the
+010400040810lock holding job.
+010500040807:EPARML.
+010600040807:EHELP.
+010700040813:HELP NAME='PRCFILLCK/ENDOPT'.How to end (ENDOPT) - Help
+010800040813:XH3.How to end (ENDOPT)
+010900040813:P.
+011000040813Specifies whether the job ends immediately or in a controlled manner
+011100040813that lets the application program perform end-of-job processing.  In
+011200040813either case, the system performs certain job cleanup processing.
+011300040813:P.
+011400040813The possible values are:
+011500040813:P.
+011600040813:PARML.
+011700040813:PT.:PK DEF.*CNTRLD:EPK.
+011800040813:PD.
+011900040813The job ends in a controlled manner.  This allows the program
+012000040813running to perform cleanup (end-of-job processing).  The
+012100040813application has the amount of time specified on the DELAY
+012200040813parameter to complete cleanup before the job is ended.
+012300040813:PT.:PK.*IMMED:EPK.
+012400040813:PD.
+012500040813The job ends immediately and the system performs end-of-job
+012600040813cleanup.  System cleanup can take from a brief amount of time to
+012700040813several minutes.  The program that is running is not allowed to
+012800040813perform any cleanup.
+012900040813:P.
+013000040813:NT.
+013100040813This option might cause undesirable results if data has been
+013200040813partially updated; therefore, it should be used only after a
+013300040813controlled end has been attempted unsuccessfully.
+013400040813:ENT.
+013500040813:EPARML.
+013600040813:EHELP.
+013700040813:HELP NAME='PRCFILLCK/DELAY'.Delay time, if *CNTRLD (DELAY) - Help
+013800040813:P.
+013900040813:IMHELP NAME='ENDJOB/DELAY'.
+014000040813:EHELP.
+014100040807:HELP NAME='PRCFILLCK/IGNRCDLCK'.Ignore record lock (IGNRCDLCK) - Help
+014200040807:XH3.Ignore record lock (IGNRCDLCK)
+014300040807:P.
+014400040810If action *ENDJOB is specified, this parameter defines whether all lock
+014500040813holding jobs should be checked to ensure that none of the jobs being
+014600040813ended are currently holding a record lock for a file located in a
+014700040813library of type *PROD.
+014800040807:P.
+014900040807The possible values are:
+015000040807:P.
+015100040807:PARML.
+015200040807:PT.:PK DEF.*NO:EPK.
+015300040807:PD.
+015400040813Run the ENDJOB command regardless of record lock(s) for files in
+015500040813production libraries.
+015600040807:PT.:PK.*YES:EPK.
+015700040807:PD.
+015800040813Do not run the ENDJOB command if the job holding the lock is also
+015900040813holding one or more record locks for files in production libraries.
+016000040810:P.
+016100040813:NT.
+016200040810If an ENDJOB command is skipped, an informational message is issued,
+016300040813identifying the job as well as the file and the relative record
+016400040810number that prevented the ENDJOB command from being run.
+016500040813:ENT.
+016600040807:EPARML.
+016700040807:EHELP.
+016800040807:EPNLGRP.

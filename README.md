@@ -10,6 +10,16 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 ## Utilities
 * 100 - Sample of QDBRTVFD
 * ... - More utilities/samples
+* 918 - A collection of programs to Retrieve and set Encrypted User Password. Note: pass second parameter '*CALLER' for service program build.
+* 919 - RMVARPTBLE Remove ARP Table Entry
+* 920 - PRCFILLCK Process File Locks
+* 921 - Break Message Handling Program
+* 922 - PRCRCDLCK Process Record Lock
+* 923 - CHGUSRSTS Change User Status
+* 924 - DSPSFWINV Display Software Inventory
+* 925 - Sample programs showing how to process journal entries using RCVJRNE 
+* 927 - DSPATR Display Attributes
+* 929 - RTVUSRSPCA Retrieve User Special Authority
 * 930 - PRTPGMADPS Print Programs which adopt special Authorities.
 * 931 - CHGOBJAUT Change Object Authority
 * 932 - PRTSAVINF Print Save Information
@@ -73,6 +83,11 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 * 994 - WRKQRYPRFO Work with Query Profile Opts
 * 998 - WRKSBSE Work with Subsystem Entries
 * 999 - WRKRMTOUTQ Work with Remote OUTQ's
+* 9261 - Check IFS lock then open, read and close the file
+* 9262 - Program to Check IFS Lock
+* 9263 - Various IFS test and processing programs
+* 9281 - RTVSPCAUT Retrieve User Special Authority
+* 9282 - CHKSPCAUT Check User Special Authority
 * 9411 - RTVDIRSMTP Retrieve Directory Entry SMTP Address
 * 9412 - DSPDIRSMTP Display Directory Entry SMTP Address
 * 9413 - Break message handler, send message to email.

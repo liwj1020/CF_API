@@ -1,0 +1,61 @@
+000100040318.*-----------------------------------------------------------------------**
+000200040318.*
+000300040318.*  Compile options:
+000400040318.*
+000500041203.*    CrtPnlGrp PnlGrp( CBX927H )
+000600040318.*              SrcFile( QPNLSRC )
+000700040318.*              SrcMbr( *PNLGRP )
+000800040318.*
+000900040318.*-----------------------------------------------------------------------**
+001000040314:PNLGRP.
+001100041128:HELP NAME='DSPATR'.Display Attributes - Help
+001200040314:P.
+001300041128Displays attribute information for a specific object.
+001400040318:P.
+001500041106This information includes the following attributes:
+001600041127:P.
+001700041127:UL COMPACT.
+001800041106:LI.Object owner
+001900041106:LI.Object type
+002000041128:LI.Object authorization list and primary group
+002100041106:LI.Object and data sizes
+002200041106:LI.Object usage information
+002300041106:LI.Coded character set ID and codepage information
+002400041106:LI.Create, access, change and data modification timestamps
+002500041106:LI.Check out information
+002600041106:LI.Journal and audit information
+002700041106:LI.Plus a number of other object attributes
+002800041106:EUL.
+002900040314:EHELP.
+003000041128:HELP NAME='DSPATR/OBJ'.IFS object (OBJ) - Help
+003100041128:XH3.Object (OBJ)
+003200040314:P.
+003300041128Specify the path name to the object whose attribute information should
+003400041128be displayed.
+003500040314:P.
+003600041128For more information on specifying path names, refer to "Object naming
+003700041128rules" in "CL concepts and reference" in the CL Reference information
+003800041128in the iSeries Information Center at
+003900041128http://www.iseries.ibm.com/infocenter.
+004000041128:P.
+004100040314This is a required parameter.
+004200040314:P.
+004300040314:EHELP.
+004400041128:HELP NAME='DSPATR/OUTPUT'.Output (OUTPUT) - Help
+004500040314:XH3.Output (OUTPUT)
+004600040314:P.
+004700040318Specifies where the output from the command is sent.
+004800040314:P.
+004900040314The possible values are:
+005000040314:P.
+005100040314:PARML.
+005200040314:PT.:PK DEF.*:EPK.
+005300040314:PD.
+005400040318The output is displayed (if requested by an interactive job) or printed
+005500040318with the job's spooled output (if requested by a batch job).
+005600040314:PT.:PK.*PRINT:EPK.
+005700040314:PD.
+005800040318The output is printed with the job's spooled output.
+005900040314:EPARML.
+006000040314:EHELP.
+006100040314:EPNLGRP.

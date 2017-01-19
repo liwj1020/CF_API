@@ -1,0 +1,64 @@
+000100040731.*-----------------------------------------------------------------------**
+000200040731.*
+000300040731.*  Compile options:
+000400040731.*
+000500040731.*    CrtPnlGrp PnlGrp( CBX919H )
+000600040731.*              SrcFile( QPNLSRC )
+000700040731.*              SrcMbr( CBX919H )
+000800040731.*
+000900040731.*-----------------------------------------------------------------------**
+001000040728:PNLGRP.
+001100040728:HELP NAME='RMVARPTBLE'.Remove ARP table entry - Help
+001200040728:P.
+001300040728The Remove ARP Table Entry (RMVARPTBLE) command removes one or all
+001400040728dynamic entries from the ARP (Address Resolution Protocol) table for
+001500040728the specified line. Local interface entries cannot be removed.
+001600040728:P.
+001700040728:NT.
+001800040728TCP/IP must be active on this system; otherwise error message TCP84C0
+001900040728is issued.
+002000040728:ENT.
+002100040728:EHELP.
+002200040728:HELP NAME='RMVARPTBLE/LIND'.Line name (LIND) - Help
+002300040728:XH3.Line name (LIND)
+002400040728:P.
+002500040728The name of the physical interface corresponding to the ARP table from
+002600040728which to remove entries.
+002700040728:P.
+002800040728This is a required parameter.
+002900040728:P.
+003000040728:EHELP.
+003100040728:HELP NAME='RMVARPTBLE/INTNETADR'.Internet address (INTNETADR) - Help
+003200040728:XH3.Internet address (INTNETADR)
+003300040728:P.
+003400040728The IP address of the entry to remove from the ARP table.
+003500040728:P.
+003600040728The possible values are:
+003700040728:P.
+003800040728:PARML.
+003900040728:PT.:PK DEF.*NONE:EPK.
+004000040728:PD.
+004100040728No single entry is to be removed.
+004200040728:PT.:PV.internet-address:EPV.
+004300040728:PD.
+004400040728Specify the IP address of the entry to remove from the ARP table.
+004500040728:EPARML.
+004600040728:EHELP.
+004700040728:HELP NAME='RMVARPTBLE/ENTTYP'.Entry type (ENTTYP) - Help
+004800040728:XH3.Entry type (ENTTYP)
+004900040728:P.
+005000040728Whether a single entry or all entries are removed from the ARP table.
+005100040728:P.
+005200040728The possible values are:
+005300040728:P.
+005400040728:PARML.
+005500040728:PT.:PK DEF.*IPADDR:EPK.
+005600040728:PD.
+005700040728The Internet address field corresponds to a single entry to be removed.
+005800040728:PT.:PK.*ALL:EPK.
+005900040728:PD.
+006000040728The Internet address field must be *NONE and all ARP table entries
+006100040728will be removed.
+006200040728:EPARML.
+006300040728:EHELP.
+006400040728:EPNLGRP.
