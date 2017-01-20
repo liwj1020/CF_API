@@ -1,292 +1,292 @@
-000100050216.*-----------------------------------------------------------------------**
-000200050216.*
-000300050216.*  Compile options:
-000400050216.*
-000500060730.*    CrtPnlGrp PnlGrp( CBX958H )
-000600050216.*              SrcFile( QPNLSRC )
-000700050216.*              SrcMbr( *PNLGRP )
-000800050216.*
-000900050216.*-----------------------------------------------------------------------**
-001000050216:PNLGRP.
-001100060730:HELP NAME='WRKNETUSR'.Work with NetServer Users - Help
-001200050216:P.
-001300060730The Work with NetServer Users (WRKNETUSR) command allows you to work
-001400060730with NetServer users currently being disabled, and optionally enable
-001500060730these users.
-001600050216:P.
-001700050216:HP2.Restriction&COLON.:EHP2. Special authority *IOSYSCFG is required
-001800050216to successfully run this command.
-001900050216:P.
-002000050216:EHELP.
-002100060623
-002200060730:HELP NAME='WRKNETUSR/USRPRF'.User profile (USRPRF) - Help
-002300060623:XH3.User profile (USRPRF)
-002400060623:P.
-002500060730Specifies the user profiles you want to work with.
-002600060623:P.
-002700060623This is a required parameter.
-002800060623:P.
-002900060623The possible values are:
-003000060623:P.
-003100060623:PARML.
-003200060623:PT.:PK DEF.*ALL:EPK.
-003300060623:PD.
-003400060623All disabled NetServer user profiles are listed.
-003500060623:P.
-003600060623:PT.:PV.user-profile-name:EPV.
-003700060623:PD.
-003800060623Specify the name of the disabled NetServer user profile you want to
-003900060623work with.
-004000060730:PT.:PV.*generic-name:EPV.
-004100060730:PD.
-004200060730Specify the generic name of the NetServer users to be shown.  A generic
-004300060730name is a character string that contains one or more characters
-004400060730followed by an asterisk (*).  If a generic name is specified, all
-004500060730NetServer users that have names with the same prefix as the generic
-004600060730name are shown.
-004700060623:EPARML.
-004800060730:EHELP.
-004900060730
-005000060730:HELP NAME='WRKNETUSR/STATUS'.NetServer user status (STATUS) - Help
-005100060730:XH3.NetServer user status (STATUS)
-005200060730:P.
-005300060730Specifies the current status that qualifies a NetServer user to be
-005400060730selected.
-005500060730:P.
-005600060730The possible values are:
-005700060730:P.
-005800060730:PARML.
-005900060730:PT.:PK DEF.*DISABLED:EPK.
-006000060730:PD.
-006100060730NetServer users currently having a status of disabled are selected.
-006200060730:P.
-006300060730This is the only status currently being available.
-006400060730:EPARML.
-006500060730:EHELP.
-006600060730
-006700060730:HELP NAME='WRKNETUSR/OUTPUT'.Output (OUTPUT) - Help
-006800060730:XH3.Output (OUTPUT)
-006900060730:P.
-007000060730Specifies where the output from the command is sent.
-007100060730:P.
-007200060730The possible values are:
-007300060730:P.
-007400060730:PARML.
-007500060730:PT.:PK DEF.*:EPK.
-007600060730:PD.
-007700060730The output is displayed (if requested by an interactive job) or printed
-007800060730with the job's spooled output (if requested by a batch job).
-007900060730:PT.:PK.*PRINT:EPK.
-008000060730:PD.
-008100060730The output is printed with the job's spooled output.
-008200060730:EPARML.
-008300060623:EHELP.
-008400060730
-008500060623.* Panel help section:
-008600060623:HELP NAME=HLPFKEYS.
-008700060623Function Keys - Help
-008800060623:XH3.Function keys
-008900060623:EHELP.
-009000060623
-009100060623:HELP NAME=HLPENT.
-009200060623:PARML.
-009300060623:PT.Enter
-009400060623:PD.Submits information on the display for processing.
-009500060623:EPARML.
-009600060623:EHELP.
-009700060623
-009800060623:HELP NAME=HLPF1.
-009900060623:PARML.
-010000060623:PT.F1=Help
-010100060623:PD.Provides additional information about using the display.
-010200060623:EPARML.
-010300060623:EHELP.
-010400060623
-010500060623:HELP NAME=HLPF3.
-010600060623:PARML.
-010700060623:PT.F3=Exit
-010800060623:PD.Ends the current task and returns you to the display from which
-010900060623the task was started.
-011000060623:EPARML.
-011100060623:EHELP.
-011200060623
-011300060623:HELP NAME=HLPF4.
-011400060623:PARML.
-011500060623:PT.F4=Prompt
-011600060623:PD.Provides assistance in entering or selecting a command.
-011700060623:EPARML.
-011800060623:EHELP.
-011900060623
-012000060623:HELP NAME=HLPF5.
-012100060623:PARML.
-012200060623:PT.F5=Refresh
-012300060623:PD.Shows the display you are viewing with updated information.
-012400060623:EPARML.
-012500060623:EHELP.
-012600060623
-012700060623:HELP NAME=HLPF9.
-012800060623:PARML.
-012900060623:PT.F9=Retrieve
-013000060623:PD.Displays the last command you entered on the command line and any
-013100060623parameters you included.  Pressing this key once, shows the last
-013200060623command you ran.  Pressing this key twice, shows the command you ran
-013300060623before that and so on.
-013400060623:EPARML.
-013500060623:EHELP.
-013600060623
-013700060623:HELP NAME='HLPF11/VIEW1'.
-013800060623:PARML.
-013900060730:PT.F11=Display names only
-014000060730:PD. Displays only the names of the NetServer users being listed.
-014100060623:EPARML.
-014200060623:EHELP.
-014300060623
-014400060623:HELP NAME='HLPF11/VIEW2'.
-014500060623:PARML.
-014600060730:PT.F11=Display status and text
-014700060730:PD.Shows the list again displaying the NetServer users' status and
-014800060730description.
-014900060623:EPARML.
-015000060623:EHELP.
-015100060623
-015200060623:HELP NAME=HLPF12.
-015300060623:PARML.
-015400060623:PT.F12=Cancel
-015500060623:PD.Cancels processing of any options or changes you have made to the
-015600060623current display and returns you to the previous menu or display.
-015700060623:EPARML.
-015800060623:EHELP.
-015900060623
-016000141114:HELP NAME=HLPF21.
-016100141114:PARML.
-016200141114:PT.F21=Activate NetServer users
-016300141114:PD.Executes the Activate NetServer Users (ACTNETUSR) command which will
-016400141114activate all currently disabled NetServer users on the system.
-016500141114:EPARML.
-016600141114:EHELP.
-016700141114
-016800060623:HELP NAME=HLPF24.
-016900060623:PARML.
-017000060623:PT.F24=More keys
-017100060623:PD.Changes the keys shown at the bottom of the display.  When you
-017200060623press this key, additional function keys are displayed at the bottom
-017300060623of the display.
-017400060623:EPARML.
-017500060623:EHELP.
-017600060623
-017700060623:HELP NAME=HLPHLP.
-017800060623:PARML.
-017900060623:PT.Help
-018000060623:PD.Provides additional information about using the display.
-018100060623:EPARML.
-018200060623:EHELP.
-018300060623
-018400060623:HELP NAME=HLPPGD.
-018500060623:PARML.
-018600060623:PT.Page Down (Roll Up)
-018700060623:PD.Moves the information displayed forward to show additional
-018800060623information.
-018900060623:EPARML.
-019000060623:EHELP.
-019100060623
-019200060623:HELP NAME=HLPPGU.
-019300060623:PARML.
-019400060623:PT.Page Up (Roll Down)
-019500060623:PD.Moves the information displayed backward to show additional
-019600060623information.
-019700060623:EPARML.
-019800060623:EHELP.
-019900060623
-020000060623:HELP NAME=HLPPRT.
-020100060623:PARML.
-020200060623:PT.Print
-020300060623:PD.Prints information currently shown on the display.
-020400060623:EPARML.
-020500060623:EHELP.
-020600060623
-020700060730:HELP NAME='WRKNETUSR/'.Work with NetServer Users - Help
-020800060623:P.
-020900060730The Work with NetServer Users command displayes shows the name, status
-021000060730and description of the selected NetServer users.
-021100060623:P.
-021200060730You can type an option next to one or more users.  Then, when the Enter
-021300060730key is pressed, the function associated with the number you typed is
-021400060730is performed for that user.
-021500060623:P.
-021600060623To run a command, type the command and press the Enter key.  For
-021700060623assistance in typing the command, type the command and press F4.  For
-021800060623assistance in selecting a command, press F4 without typing anything.
-021900060623:P.
-022000060623If you see More ... on the lower right side of your display, there is
-022100060623more information to view.  Press Page Down (Roll Up) to move toward the
-022200060623end of the information.  Press Page Up (Roll Down) to move toward the
-022300060623beginning of the information.
-022400060623:P.
-022500060623If you see Bottom instead of More ..., you are at the end of the list.
-022600060623:P.
-022700060623:EHELP.
-022800060623
-022900060730:HELP NAME='WRKNETUSR/OPTENB'.
-023000060623:PARML.
-023100060730:PT.1=Enable NetServer user
-023200060730:PD.Use this option to run the Change NetServer User (CHGNETUSR)
-023300060730command.
-023400060623:P.
-023500060730*ENABLED is placed as the new value in the status field if the command
-023600060730runs successfully.
-023700060623:EPARML.
-023800060623:EHELP.
-023900060623
-024000060730:HELP NAME='WRKNETUSR/OPTION'.
-024100060623Option - Help
-024200060623:XH3.Opt
-024300060623:P.
-024400060623Type the number of the option you want to specify.
-024500060623:EHELP.
-024600060623
-024700060730:HELP name='WRKNETUSR/NETUSR'.
-024800060730User - Help
-024900060730:XH3.User
-025000060623:P.
-025100060730The name of each NetServer user that you can work with.
-025200060623:EHELP.
-025300060623
-025400060730:HELP name='WRKNETUSR/USRSTS'.
-025500060623Status - Help
-025600060623:XH3.Status
-025700060623:P.
-025800060730The current status of the NetServer user.
-025900060623:EHELP.
-026000060623
-026100060730:HELP name='WRKNETUSR/USRTXT'.
-026200060623Text - Help
-026300060623:XH3.Text
-026400060623:P.
-026500060730The descriptive text of the NetServer user's user profile.
-026600060623:EHELP.
-026700071014
-026800071014:HELP name='WRKNETUSR/WRKUSR'.
-026900071014User - Help
-027000071014:XH3.User
-027100071014:P.
-027200071014The name of the user(s) to work with.  Specify a user name, a
-027300071014generic user name or the special value *ALL.
-027400071014:EHELP.
-027500071014
-027600071014:HELP name='WRKNETUSR/POSUSR'.
-027700071014Position to - Help
-027800071014:XH3.Position to
-027900071014:P.
-028000071014Use this prompt to go to a particular area in the list.  Use it for
-028100071014quick repositioning of the list, not for creating a subset of the list.
-028200071014:P.
-028300071014Specify a name or a partial name of the user you want to position the
-028400071014list to.
-028500071014:P.
-028600071014The list of users is positioned to the first user name beginning with
-028700071014the string specified.  If no users exist in the present list, then the
-028800071014list is positioned to the item immediately preceding the position you
-028900071014want.
-029000071014:EHELP.
-029100060623
-029200060623:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX958H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='WRKNETUSR'.Work with NetServer Users - Help
+:P.
+The Work with NetServer Users (WRKNETUSR) command allows you to work
+with NetServer users currently being disabled, and optionally enable
+these users.
+:P.
+:HP2.Restriction&COLON.:EHP2. Special authority *IOSYSCFG is required
+to successfully run this command.
+:P.
+:EHELP.
+
+:HELP NAME='WRKNETUSR/USRPRF'.User profile (USRPRF) - Help
+:XH3.User profile (USRPRF)
+:P.
+Specifies the user profiles you want to work with.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+All disabled NetServer user profiles are listed.
+:P.
+:PT.:PV.user-profile-name:EPV.
+:PD.
+Specify the name of the disabled NetServer user profile you want to
+work with.
+:PT.:PV.*generic-name:EPV.
+:PD.
+Specify the generic name of the NetServer users to be shown.  A generic
+name is a character string that contains one or more characters
+followed by an asterisk (*).  If a generic name is specified, all
+NetServer users that have names with the same prefix as the generic
+name are shown.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKNETUSR/STATUS'.NetServer user status (STATUS) - Help
+:XH3.NetServer user status (STATUS)
+:P.
+Specifies the current status that qualifies a NetServer user to be
+selected.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*DISABLED:EPK.
+:PD.
+NetServer users currently having a status of disabled are selected.
+:P.
+This is the only status currently being available.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKNETUSR/OUTPUT'.Output (OUTPUT) - Help
+:XH3.Output (OUTPUT)
+:P.
+Specifies where the output from the command is sent.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*:EPK.
+:PD.
+The output is displayed (if requested by an interactive job) or printed
+with the job's spooled output (if requested by a batch job).
+:PT.:PK.*PRINT:EPK.
+:PD.
+The output is printed with the job's spooled output.
+:EPARML.
+:EHELP.
+
+.* Panel help section:
+:HELP NAME=HLPFKEYS.
+Function Keys - Help
+:XH3.Function keys
+:EHELP.
+
+:HELP NAME=HLPENT.
+:PARML.
+:PT.Enter
+:PD.Submits information on the display for processing.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF1.
+:PARML.
+:PT.F1=Help
+:PD.Provides additional information about using the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF3.
+:PARML.
+:PT.F3=Exit
+:PD.Ends the current task and returns you to the display from which
+the task was started.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF4.
+:PARML.
+:PT.F4=Prompt
+:PD.Provides assistance in entering or selecting a command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF5.
+:PARML.
+:PT.F5=Refresh
+:PD.Shows the display you are viewing with updated information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF9.
+:PARML.
+:PT.F9=Retrieve
+:PD.Displays the last command you entered on the command line and any
+parameters you included.  Pressing this key once, shows the last
+command you ran.  Pressing this key twice, shows the command you ran
+before that and so on.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW1'.
+:PARML.
+:PT.F11=Display names only
+:PD. Displays only the names of the NetServer users being listed.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW2'.
+:PARML.
+:PT.F11=Display status and text
+:PD.Shows the list again displaying the NetServer users' status and
+description.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF12.
+:PARML.
+:PT.F12=Cancel
+:PD.Cancels processing of any options or changes you have made to the
+current display and returns you to the previous menu or display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF21.
+:PARML.
+:PT.F21=Activate NetServer users
+:PD.Executes the Activate NetServer Users (ACTNETUSR) command which will
+activate all currently disabled NetServer users on the system.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF24.
+:PARML.
+:PT.F24=More keys
+:PD.Changes the keys shown at the bottom of the display.  When you
+press this key, additional function keys are displayed at the bottom
+of the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPHLP.
+:PARML.
+:PT.Help
+:PD.Provides additional information about using the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPGD.
+:PARML.
+:PT.Page Down (Roll Up)
+:PD.Moves the information displayed forward to show additional
+information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPGU.
+:PARML.
+:PT.Page Up (Roll Down)
+:PD.Moves the information displayed backward to show additional
+information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPRT.
+:PARML.
+:PT.Print
+:PD.Prints information currently shown on the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKNETUSR/'.Work with NetServer Users - Help
+:P.
+The Work with NetServer Users command displayes shows the name, status
+and description of the selected NetServer users.
+:P.
+You can type an option next to one or more users.  Then, when the Enter
+key is pressed, the function associated with the number you typed is
+is performed for that user.
+:P.
+To run a command, type the command and press the Enter key.  For
+assistance in typing the command, type the command and press F4.  For
+assistance in selecting a command, press F4 without typing anything.
+:P.
+If you see More ... on the lower right side of your display, there is
+more information to view.  Press Page Down (Roll Up) to move toward the
+end of the information.  Press Page Up (Roll Down) to move toward the
+beginning of the information.
+:P.
+If you see Bottom instead of More ..., you are at the end of the list.
+:P.
+:EHELP.
+
+:HELP NAME='WRKNETUSR/OPTENB'.
+:PARML.
+:PT.1=Enable NetServer user
+:PD.Use this option to run the Change NetServer User (CHGNETUSR)
+command.
+:P.
+*ENABLED is placed as the new value in the status field if the command
+runs successfully.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKNETUSR/OPTION'.
+Option - Help
+:XH3.Opt
+:P.
+Type the number of the option you want to specify.
+:EHELP.
+
+:HELP name='WRKNETUSR/NETUSR'.
+User - Help
+:XH3.User
+:P.
+The name of each NetServer user that you can work with.
+:EHELP.
+
+:HELP name='WRKNETUSR/USRSTS'.
+Status - Help
+:XH3.Status
+:P.
+The current status of the NetServer user.
+:EHELP.
+
+:HELP name='WRKNETUSR/USRTXT'.
+Text - Help
+:XH3.Text
+:P.
+The descriptive text of the NetServer user's user profile.
+:EHELP.
+
+:HELP name='WRKNETUSR/WRKUSR'.
+User - Help
+:XH3.User
+:P.
+The name of the user(s) to work with.  Specify a user name, a
+generic user name or the special value *ALL.
+:EHELP.
+
+:HELP name='WRKNETUSR/POSUSR'.
+Position to - Help
+:XH3.Position to
+:P.
+Use this prompt to go to a particular area in the list.  Use it for
+quick repositioning of the list, not for creating a subset of the list.
+:P.
+Specify a name or a partial name of the user you want to position the
+list to.
+:P.
+The list of users is positioned to the first user name beginning with
+the string specified.  If no users exist in the present list, then the
+list is positioned to the item immediately preceding the position you
+want.
+:EHELP.
+
+:EPNLGRP.

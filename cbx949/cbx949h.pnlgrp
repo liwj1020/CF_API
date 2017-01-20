@@ -1,51 +1,51 @@
-000100051119.*-----------------------------------------------------------------------**
-000200051119.*
-000300051119.*  Compile options:
-000400051119.*
-000500051119.*    CrtPnlGrp PnlGrp( CBX949H )
-000600051119.*              SrcFile( QPNLSRC )
-000700051119.*              SrcMbr( CBX949H )
-000800051119.*
-000900051119.*-----------------------------------------------------------------------**
-001000051119:PNLGRP.
-001100051119:HELP NAME='PRTREGEXIT'.Print Registered Exit Programs - Help
-001200051119:P.
-001300051120The Print Registered Exit Programs (PRTREGEXIT) command produces a list
-001400051120of all exit points currently having one or more exit programs
-001500051120registered.  For each exit point all registered exit programs and a
-001600051120number of the exit programs' attributes are listed.
-001700051119:P.
-001800051119:EHELP.
-001900051119:HELP NAME='PRTREGEXIT/EXITPNT'.Exit point (EXITPNT) - Help
-002000051119:XH3.Exit point (EXITPNT)
-002100051119:P.
-002200051119Specifies the name of the exit point to search for registered exit
-002300051119programs.
-002400051119:P.
-002500051119The possible values are:
-002600051119:P.
-002700051119:PARML.
-002800051119:PT.:PK DEF.*REGISTERED:EPK.
-002900051119:PD.
-003000051119All registered exit points are searched.  Registered exit points are
-003100051119exit points that were added to the registration facility.
-003200051119:PT.:PK.*UNREGISTERED:EPK.
-003300051119:PD.
-003400051119All unregistered exit points are searched.  Unregistered exit points
-003500051119are exit points that are created by the registration facility in the
-003600051119absence of the exit point at the time an exit program was added.
-003700051119:PT.:PK.*ALL:EPK.
-003800051119:PD.
-003900051119All registered and unregistered exit points are searched.
-004000051119:PT.:PV.*generic-exit-point-name:EPV.
-004100051119:PD.
-004200051119Specify a generic name for the exit point.  A generic name is a
-004300051119character string of one or more characters followed by an asterisk (*);
-004400051119for example, ABC*.  If a generic name is specified, all exit points
-004500051119with names that begin with the generic name are searched.
-004600051119:PT.:PV.exit-point-name:EPV.
-004700051119:PD.
-004800051119Specify the name of the exit point that is to be searched.
-004900051119:EPARML.
-005000051119:EHELP.
-005100051119:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX949H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBX949H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='PRTREGEXIT'.Print Registered Exit Programs - Help
+:P.
+The Print Registered Exit Programs (PRTREGEXIT) command produces a list
+of all exit points currently having one or more exit programs
+registered.  For each exit point all registered exit programs and a
+number of the exit programs' attributes are listed.
+:P.
+:EHELP.
+:HELP NAME='PRTREGEXIT/EXITPNT'.Exit point (EXITPNT) - Help
+:XH3.Exit point (EXITPNT)
+:P.
+Specifies the name of the exit point to search for registered exit
+programs.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*REGISTERED:EPK.
+:PD.
+All registered exit points are searched.  Registered exit points are
+exit points that were added to the registration facility.
+:PT.:PK.*UNREGISTERED:EPK.
+:PD.
+All unregistered exit points are searched.  Unregistered exit points
+are exit points that are created by the registration facility in the
+absence of the exit point at the time an exit program was added.
+:PT.:PK.*ALL:EPK.
+:PD.
+All registered and unregistered exit points are searched.
+:PT.:PV.*generic-exit-point-name:EPV.
+:PD.
+Specify a generic name for the exit point.  A generic name is a
+character string of one or more characters followed by an asterisk (*);
+for example, ABC*.  If a generic name is specified, all exit points
+with names that begin with the generic name are searched.
+:PT.:PV.exit-point-name:EPV.
+:PD.
+Specify the name of the exit point that is to be searched.
+:EPARML.
+:EHELP.
+:EPNLGRP.

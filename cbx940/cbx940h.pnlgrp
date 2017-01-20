@@ -1,107 +1,107 @@
-000100050716.*-----------------------------------------------------------------------**
-000200050716.*
-000300050716.*  Compile options:
-000400050716.*
-000500050716.*    CrtPnlGrp PnlGrp( CBX940H )
-000600050716.*              SrcFile( QPNLSRC )
-000700050716.*              SrcMbr( *PNLGRP )
-000800050716.*
-000900050716.*-----------------------------------------------------------------------**
-001000050702:PNLGRP.
-001100050703:HELP NAME='CHKCRPSPT'.Check Cryptographic Support - Help
-001200050702:P.
-001300050703The Check Cryptographic Support (CHKCRPSPT) command checks whether the
-001400050703specified cryptographic algorithm is currently supported on the system,
-001500050703or displays a list, in the form of informational messages, of all
-001600050703currently supported cryptographic algorithms.
-001700050702:P.
-001800050703Each algorithm's maximum key length is included in the information
-001900050703provided.  A maximum key length of zero indicates that no key value
-002000050703is used by the specified algorithm.
-002100050716:P.
-002200050716The cryptographic support checked by this command is provided with the
-002300050716IBM licensed program 5722AC3 - Cryptographic Access Provider.
-002400050703:P.
-002500050703Cryptographic support in general is provided with the following IBM
-002600050703licensed programs and OS options:
-002700050703:UL COMPACT.
-002800050703:LI.5722AC3 - Cryptographic Access Provider 128-bit for AS/400
-002900050703:LI.5722CE3 - Client Encryption 128-bit
-003000050703:LI.5722SS1 - Option 34 - OS/400 Digital Certificate Manager
-003100050703:LI.5722SS1 - Option 35 - OS/400 Cryptographic Service Provider
-003200050703:EUL.
-003300050703:P.
-003400050702:EHELP.
-003500050702:HELP NAME='CHKCRPSPT/ALGORITHM'.Cryptographic algorithm (ALGORITHM) - Help
-003600050702:XH3.Cryptographic algorithm (ALGORITHM)
-003700050702:P.
-003800050703Specify the cryptographic algorithm for which to check support.
-003900050702:P.
-004000050702The possible values are:
-004100050702:P.
-004200050702:PARML.
-004300050702:PT.:PK DEF.*LIST:EPK.
-004400050702:PD.
-004500050716List all cryptographic algorithms currently supported on the system.
-004600050702:PT.:PK.*MAC:EPK.
-004700050702:PD.
-004800050702Check if the MAC - Message Authentication Code - algorithm is currently
-004900050702supported on the system.
-005000050702:PT.:PK.*MD5:EPK.
-005100050702:PD.
-005200050702Check if the MD5 algorithm is currently supported on the system.
-005300050703:P.
-005400050703No key value is used for this algorithm.
-005500050702:PT.:PK.*SHA_1:EPK.
-005600050702:PD.
-005700050702Check if the SHA-1 - Secure Hash Algorithm - is currently supported on
-005800050702the system.
-005900050703:P.
-006000050703No key value is used for this algorithm.
-006100050702:PT.:PK.*DES_E:EPK.
-006200050702:PD.
-006300050702Check if the DES - Data Encryption Standard - algorithm (encrypt only)
-006400050702is currently supported on the system.
-006500050702:PT.:PK.*DES:EPK.
-006600050702:PD.
-006700050702Check if the DES - Data Encryption Standard - algorithm is currently
-006800050702supported on the system.
-006900050702:PT.:PK.*RC4:EPK.
-007000050702:PD.
-007100050702Check if the RC4 algorithm is currently supported on the system.
-007200050702:PT.:PK.*RC5:EPK.
-007300050702:PD.
-007400050702Check if the RC5 algorithm is currently supported on the system.
-007500050702:PT.:PK.*DESX:EPK.
-007600050702:PD.
-007700050702Check if the DESX algorithm is currently supported on the system.
-007800050702:PT.:PK.*TDES:EPK.
-007900050702:PD.
-008000050702Check if the TDES - Triple-DES - algorithm is currently supported on
-008100050702the system.
-008200050702:PT.:PK.*DSA:EPK.
-008300050702:PD.
-008400050702Check if the DSA - Digital Signature Algorithm - is currently supported
-008500050702on the system.
-008600050702:PT.:PK.*RSA:EPK.
-008700050702:PD.
-008800050702Check if the RSA - Rivest-Shamir-Adlem - algorithm is currently
-008900050702supported on the system.
-009000050702:PT.:PK.*DIFHEL:EPK.
-009100050702:PD.
-009200050702Check if the Diffie-Hellman algorithm is currently supported on the
-009300050702system.
-009400050702:PT.:PK.*CDMF:EPK.
-009500050702:PD.
-009600050702Check if the CDMF - Commercial Data Masking Facility - algorithm is
-009700050702currently supported on the system.
-009800050702:PT.:PK.*RC2:EPK.
-009900050702:PD.
-010000050702Check if the RC2 algorithm is currently supported on the system.
-010100050702:PT.:PK.*AES:EPK.
-010200050702:PD.
-010300050702Check if the AES - Advanced Encryption Standard - algorithm is
-010400050702currently supported on the system.
-010500050702:EPARML.
-010600050702:EHELP.
-010700050702:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX940H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='CHKCRPSPT'.Check Cryptographic Support - Help
+:P.
+The Check Cryptographic Support (CHKCRPSPT) command checks whether the
+specified cryptographic algorithm is currently supported on the system,
+or displays a list, in the form of informational messages, of all
+currently supported cryptographic algorithms.
+:P.
+Each algorithm's maximum key length is included in the information
+provided.  A maximum key length of zero indicates that no key value
+is used by the specified algorithm.
+:P.
+The cryptographic support checked by this command is provided with the
+IBM licensed program 5722AC3 - Cryptographic Access Provider.
+:P.
+Cryptographic support in general is provided with the following IBM
+licensed programs and OS options:
+:UL COMPACT.
+:LI.5722AC3 - Cryptographic Access Provider 128-bit for AS/400
+:LI.5722CE3 - Client Encryption 128-bit
+:LI.5722SS1 - Option 34 - OS/400 Digital Certificate Manager
+:LI.5722SS1 - Option 35 - OS/400 Cryptographic Service Provider
+:EUL.
+:P.
+:EHELP.
+:HELP NAME='CHKCRPSPT/ALGORITHM'.Cryptographic algorithm (ALGORITHM) - Help
+:XH3.Cryptographic algorithm (ALGORITHM)
+:P.
+Specify the cryptographic algorithm for which to check support.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*LIST:EPK.
+:PD.
+List all cryptographic algorithms currently supported on the system.
+:PT.:PK.*MAC:EPK.
+:PD.
+Check if the MAC - Message Authentication Code - algorithm is currently
+supported on the system.
+:PT.:PK.*MD5:EPK.
+:PD.
+Check if the MD5 algorithm is currently supported on the system.
+:P.
+No key value is used for this algorithm.
+:PT.:PK.*SHA_1:EPK.
+:PD.
+Check if the SHA-1 - Secure Hash Algorithm - is currently supported on
+the system.
+:P.
+No key value is used for this algorithm.
+:PT.:PK.*DES_E:EPK.
+:PD.
+Check if the DES - Data Encryption Standard - algorithm (encrypt only)
+is currently supported on the system.
+:PT.:PK.*DES:EPK.
+:PD.
+Check if the DES - Data Encryption Standard - algorithm is currently
+supported on the system.
+:PT.:PK.*RC4:EPK.
+:PD.
+Check if the RC4 algorithm is currently supported on the system.
+:PT.:PK.*RC5:EPK.
+:PD.
+Check if the RC5 algorithm is currently supported on the system.
+:PT.:PK.*DESX:EPK.
+:PD.
+Check if the DESX algorithm is currently supported on the system.
+:PT.:PK.*TDES:EPK.
+:PD.
+Check if the TDES - Triple-DES - algorithm is currently supported on
+the system.
+:PT.:PK.*DSA:EPK.
+:PD.
+Check if the DSA - Digital Signature Algorithm - is currently supported
+on the system.
+:PT.:PK.*RSA:EPK.
+:PD.
+Check if the RSA - Rivest-Shamir-Adlem - algorithm is currently
+supported on the system.
+:PT.:PK.*DIFHEL:EPK.
+:PD.
+Check if the Diffie-Hellman algorithm is currently supported on the
+system.
+:PT.:PK.*CDMF:EPK.
+:PD.
+Check if the CDMF - Commercial Data Masking Facility - algorithm is
+currently supported on the system.
+:PT.:PK.*RC2:EPK.
+:PD.
+Check if the RC2 algorithm is currently supported on the system.
+:PT.:PK.*AES:EPK.
+:PD.
+Check if the AES - Advanced Encryption Standard - algorithm is
+currently supported on the system.
+:EPARML.
+:EHELP.
+:EPNLGRP.

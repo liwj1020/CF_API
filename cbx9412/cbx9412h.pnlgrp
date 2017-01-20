@@ -1,83 +1,83 @@
-000100050809.*-----------------------------------------------------------------------**
-000200050809.*
-000300050809.*  Compile options:
-000400050809.*
-000500050809.*    CrtPnlGrp PnlGrp( CBX9412H )
-000600050809.*              SrcFile( QPNLSRC )
-000700050809.*              SrcMbr( *PNLGRP )
-000800050809.*
-000900050809.*-----------------------------------------------------------------------**
-001000050724:PNLGRP.
-001100050726:HELP NAME='DSPDIRSMTP'.Display Directory Entry SMTP Address - Help
-001200050724:P.
-001300050809The Display Directory Entry SMTP Address (DSPDIRSMTP) command is used
-001400050809to display the SMTP address of the specified system distribution
-001500050809directory entry.
-001600050809:P.
-001700050809The information is returned in an informational message.
-001800050724:P.
-001900050724:EHELP.
-002000050724:HELP NAME='DSPDIRSMTP/USRID'.User identifier (USRID) - Help
-002100050724:XH3.User identifier (USRID)
-002200050724:P.
-002300050809Specifies the user ID and address of the user for whom the directory
-002400050809entry SMTP address is displayed.
-002500050809:P.
-002600050809If the :HP2.USRID:EHP2. parameter is specified, the :HP2.USER:EHP2.
-002700050809parameter cannot be specified.
-002800050809:P.
-002900050809:NT.
-003000050809Do not type anything for the :HP2.USRID:EHP2. parameter if you want to
-003100050809identify the directory entry by the :HP2.USER:EHP2. parameter,
-003200050809otherwise the error message CPD9105 is issued.
-003300050809:ENT.
-003400050724:P.
-003500050724The possible values are:
-003600050724:P.
-003700050724:PARML.
-003800050724:PT.:PK DEF.*USRPRF:EPK.
-003900050724:PD.
-004000050809The value specified for the
-004100050809:LINK PERFORM='DSPHELP DSPDIRSMTP/USER'.
-004200050809USER
-004300050809:ELINK.
-004400050809parameter is used to identify the directory entry to have its SMTP
-004500050809address displayed.
-004600050724:PT.:PV.user-identifier:EPV.
-004700050724:PD.
-004800050809The user ID and address of the user for which to display the directory
-004900050809entry SMTP address.
-005000050724:EPARML.
-005100050724:XH3.User ID
-005200050724:P.
-005300050809Specify the user ID of the user for whom an existing directory entry
-005400050809SMTP address is displayed.
-005500050724:P.
-005600050724:XH3.Address
-005700050724:P.
-005800050809Specify the user address of the user for whom an existing entry SMTP
-005900050809address is displayed.
-006000050724:P.
-006100050724:EHELP.
-006200050724:HELP NAME='DSPDIRSMTP/USER'.User profile (USER) - Help
-006300050724:XH3.User profile (USER)
-006400050724:P.
-006500050809Specifies a user profile for which the directory entry SMTP address is
-006600050809displayed.
-006700050809:P.
-006800050809If the :HP2.USER:EHP2. parameter is specified, the :HP2.USRID:EHP2.
-006900050809parameter cannot be specified.
-007000050724:P.
-007100050724The possible values are:
-007200050724:P.
-007300050724:PARML.
-007400050724:PT.:PK DEF.*CURRENT:EPK.
-007500050724:PD.
-007600050809The user profile under which the current job is running is used.
-007700050724:PT.:PV.user-profile-name:EPV.
-007800050724:PD.
-007900050809Specify a user profile name whose corresponding directory entry SMTP
-008000050809address is displayed.
-008100050724:EPARML.
-008200050724:EHELP.
-008300050724:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX9412H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='DSPDIRSMTP'.Display Directory Entry SMTP Address - Help
+:P.
+The Display Directory Entry SMTP Address (DSPDIRSMTP) command is used
+to display the SMTP address of the specified system distribution
+directory entry.
+:P.
+The information is returned in an informational message.
+:P.
+:EHELP.
+:HELP NAME='DSPDIRSMTP/USRID'.User identifier (USRID) - Help
+:XH3.User identifier (USRID)
+:P.
+Specifies the user ID and address of the user for whom the directory
+entry SMTP address is displayed.
+:P.
+If the :HP2.USRID:EHP2. parameter is specified, the :HP2.USER:EHP2.
+parameter cannot be specified.
+:P.
+:NT.
+Do not type anything for the :HP2.USRID:EHP2. parameter if you want to
+identify the directory entry by the :HP2.USER:EHP2. parameter,
+otherwise the error message CPD9105 is issued.
+:ENT.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*USRPRF:EPK.
+:PD.
+The value specified for the
+:LINK PERFORM='DSPHELP DSPDIRSMTP/USER'.
+USER
+:ELINK.
+parameter is used to identify the directory entry to have its SMTP
+address displayed.
+:PT.:PV.user-identifier:EPV.
+:PD.
+The user ID and address of the user for which to display the directory
+entry SMTP address.
+:EPARML.
+:XH3.User ID
+:P.
+Specify the user ID of the user for whom an existing directory entry
+SMTP address is displayed.
+:P.
+:XH3.Address
+:P.
+Specify the user address of the user for whom an existing entry SMTP
+address is displayed.
+:P.
+:EHELP.
+:HELP NAME='DSPDIRSMTP/USER'.User profile (USER) - Help
+:XH3.User profile (USER)
+:P.
+Specifies a user profile for which the directory entry SMTP address is
+displayed.
+:P.
+If the :HP2.USER:EHP2. parameter is specified, the :HP2.USRID:EHP2.
+parameter cannot be specified.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*CURRENT:EPK.
+:PD.
+The user profile under which the current job is running is used.
+:PT.:PV.user-profile-name:EPV.
+:PD.
+Specify a user profile name whose corresponding directory entry SMTP
+address is displayed.
+:EPARML.
+:EHELP.
+:EPNLGRP.

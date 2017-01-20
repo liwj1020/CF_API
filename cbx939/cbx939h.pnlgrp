@@ -1,286 +1,286 @@
-000100050630.*-----------------------------------------------------------------------**
-000200050630.*
-000300050630.*  Compile options:
-000400050630.*
-000500050630.*    CrtPnlGrp PnlGrp( CBX939H )
-000600050630.*              SrcFile( QPNLSRC )
-000700050630.*              SrcMbr( *PNLGRP )
-000800050630.*
-000900050630.*-----------------------------------------------------------------------**
-001000050625:PNLGRP.
-001100050626:HELP NAME='RTVSYSDTA'.Retrieve System Data - Help
-001200050625:P.
-001300050630The Retrieve System Data (RTVSYSDTA) command is used in a CL program
-001400050630to retrieve various system data and attributes.  The values are
-001500050630returned (copied) to the specified CL variables in the program running
-001600050630this command.
-001700050625:P.
-001800050630:HP2.Restriction&COLON.:EHP2. The attributes of the system data and
-001900050630the receiving CL variable must be compatible.
-002000050625:EHELP.
-002100050626:HELP NAME='RTVSYSDTA/RESET'.Reset statistics (RESET) - Help
-002200050626:XH3.Reset statistics (RESET)
-002300050626:P.
-002400050626Specifies whether the system status statistics and elapsed time are
-002500050626reset to zero.  The statistics will be reset before new information is
-002600050626is gathered.  This parameter will also reset the status statistics on
-002700050626the Display System Status (DSPSYSSTS) and Work with System Status
-002800050626(WRKSYSSTS) commands.
-002900050626:P.
-003000050626This parameter applies only if one of the following three return values
-003100050626are requested:
-003200050626:UL COMPACT.
-003300050626:LI.System ASP % used
-003400050626:LINK PERFORM='DSPHELP RTVSYSDTA/SYSASPUSED'.
-003500050626SYSASPUSED
-003600050626:ELINK.
-003700050626:LI.CPU % used
-003800050626:LINK PERFORM='DSPHELP RTVSYSDTA/CPUPCTUSED'.
-003900050626CPUPCTUSED
-004000050626:ELINK.
-004100050626:LI.DB capability % used
-004200050626:LINK PERFORM='DSPHELP RTVSYSDTA/DBCAPUSED'.
-004300050626DBCAPUSED
-004400050626:ELINK.
-004500050626:EUL.
-004600050626:P.
-004700050626The possible values are:
-004800050626:P.
-004900050626:PARML.
-005000050626:PT.:PK DEF.*NO:EPK.
-005100050626:PD.
-005200050626System status statistics and elapsed time are not reset to zero.
-005300050626:PT.:PK.*YES:EPK.
-005400050626:PD.
-005500050626System status statistics and elapsed time are reset to zero.
-005600050626:EPARML.
-005700050626:EHELP.
-005800050626:HELP NAME='RTVSYSDTA/PRCTYPE'.CL var for PRCTYPE       (4) (PRCTYPE) - Help
-005900050625:XH3.CL var for PRCTYPE       (4) (PRCTYPE)
-006000050625:P.
-006100050626Specifies the name of a variable used to retrieve the system processor
-006200050626type.
-006300050625:P.
-006400050626In CL programs, this should be a 4-character variable.
-006500050625:EHELP.
-006600050626:HELP NAME='RTVSYSDTA/PRCGROUP'.CL var for PRCGROUP      (4) (PRCGROUP) - Help
-006700050625:XH3.CL var for PRCGROUP      (4) (PRCGROUP)
-006800050625:P.
-006900050626Specifies the name of a variable used to retrieve the system processor
-007000050626group.
-007100050626:P.
-007200050626In CL programs, this should be a 4-character variable.
-007300050625:EHELP.
-007400050626:HELP NAME='RTVSYSDTA/MAINSTGSIZ'.CL var for MAINSTGSIZ (10 0) (MAINSTGSIZ) - Help
-007500050626:XH3.CL var for MAINSTGSIZ (10 0) (MAINSTGSIZ)
-007600050625:P.
-007700050626Specifies the name of a variable used to retrieve the system main
-007800050626storage size in kilobytes (Kb).
-007900050626:P.
-008000050626In CL programs, this should be a 10-position decimal variable.
-008100050625:EHELP.
-008200050626:HELP NAME='RTVSYSDTA/TOTAUXSTG'.CL var for TOTAUXSTG  (10 0) (TOTAUXSTG) - Help
-008300050625:XH3.CL var for TOTAUXSTG  (10 0) (TOTAUXSTG)
-008400050625:P.
-008500050626Specifies the name of a variable used to retrieve the system's total
-008600050626auxilliary storage size in millions of bytes (Mb).
-008700050626:P.
-008800050626In CL programs, this should be a 10-position decimal variable.
-008900050625:EHELP.
-009000050626:HELP NAME='RTVSYSDTA/SYSASPSIZ'.CL var for SYSASPSIZ  (10 0) (SYSASPSIZ) - Help
-009100050625:XH3.CL var for SYSASPSIZ  (10 0) (SYSASPSIZ)
-009200050625:P.
-009300050626Specifies the name of a variable used to retrieve the system ASP's
-009400050626total size in millions of bytes (Mb).
-009500050626:P.
-009600050626In CL programs, this should be a 10-position decimal variable.
-009700050625:EHELP.
-009800050626:HELP NAME='RTVSYSDTA/SYSASPUSED'.CL var for SYSASPUSED  (4 1) (SYSASPUSED) - Help
-009900050626:XH3.CL var for SYSASPUSED  (7 4) (SYSASPUSED)
-010000050625:P.
-010100050628Specifies the name of a variable used to retrieve the percentage of the
-010200050628system storage pool currently in use.
-010300050628:P.
-010400050628To reset the elapsed time counter to zero and thereby also reset the
-010500050628in-use percentage calculation, specify :HP2.*YES:EHP2. for the
-010600050628:LINK PERFORM='DSPHELP RTVSYSDTA/RESET'.
-010700050628RESET
-010800050628:ELINK.
-010900050628parameter.
-011000050628:P.
-011100050628In CL programs, this should be a 7-position decimal variable with 4
-011200050628decimal positions.
-011300050625:EHELP.
-011400050626:HELP NAME='RTVSYSDTA/SYSASPTHR'.CL var for SYSASPTHR   (4 1) (SYSASPTHR) - Help
-011500050625:XH3.CL var for SYSASPTHR   (4 1) (SYSASPTHR)
-011600050625:P.
-011700050628Specifies the name of a variable used to retrieve the system storage
-011800050628pool threshold percentage.
-011900050628:P.
-012000050628In CL programs, this should be a 4-position decimal variable with 1
-012100050628decimal position.
-012200050625:EHELP.
-012300050626:HELP NAME='RTVSYSDTA/CPUPCTUSED'.CL var for CPUPCTUSED  (4 1) (CPUPCTUSED) - Help
-012400050625:XH3.CL var for CPUPCTUSED  (4 1) (CPUPCTUSED)
-012500050625:P.
-012600050628Specifies the name of a variable used to retrieve the average of the
-012700050628elapsed time during which the processing units were in use.
-012800050628:P.
-012900050628To reset the elapsed time counter to zero and thereby also reset the
-013000050628in-use average calculation, specify :HP2.*YES:EHP2. for the
-013100050628:LINK PERFORM='DSPHELP RTVSYSDTA/RESET'.
-013200050628RESET
-013300050628:ELINK.
-013400050628parameter.
-013500050625:P.
-013600050628In CL programs, this should be a 4-position decimal variable with 1
-013700050628decimal position.
-013800050625:EHELP.
-013900050626:HELP NAME='RTVSYSDTA/DBCAPUSED'.CL var for DBCAPUSED   (4 1) (DBCAPUSED) - Help
-014000050625:XH3.CL var for DBCAPUSED   (4 1) (DBCAPUSED)
-014100050625:P.
-014200050629Specifies the name of a variable used to retrieve the percentage of
-014300050629processor database capability that was used during the elapsed time.
-014400050629Database capability is the maximum CPU utilization available for
-014500050629database processing on this server.  -1 is returned if this server does
-014600050629not report the amount of CPU used for database processing.
-014700050628:P.
-014800050628To reset the elapsed time counter to zero and thereby also reset the
-014900050628in-use percentage calculation, specify :HP2.*YES:EHP2. for the
-015000050628:LINK PERFORM='DSPHELP RTVSYSDTA/RESET'.
-015100050628RESET
-015200050628:ELINK.
-015300050628parameter.
-015400050625:P.
-015500050628In CL programs, this should be a 4-position decimal variable with 1
-015600050628decimal position.
-015700050625:EHELP.
-015800050626:HELP NAME='RTVSYSDTA/PRCINTTHR'.CL var for PRCINTTHR   (4 1) (PRCINTTHR) - Help
-015900050625:XH3.CL var for PRCINTTHR   (4 1) (PRCINTTHR)
-016000050625:P.
-016100050629Specifies the name of a variable used to retrieve the highest level of
-016200050629interactive processor utilization which can be sustained without
-016300050629causing a disproportionate increase in system overhead.  On a machine
-016400050629with no limit on interactive utilization, the value returned will be
-016500050629100%.
-016600050625:P.
-016700050628In CL programs, this should be a 4-position decimal variable with 1
-016800050628decimal position.
-016900050628:EHELP.
-017000050626:HELP NAME='RTVSYSDTA/PRCINTLMT'.CL var for PRCINTLMT   (4 1) (PRCINTLMT) - Help
-017100050625:XH3.CL var for PRCINTLMT   (4 1) (PRCINTLMT)
-017200050625:P.
-017300050629Specifies the name of a variable used to retrieve the maximum
-017400050629sustainable level of interactive processor utilization.  The machine
-017500050629determines the interactive limit based on the interactive feature.  On
-017600050629a machine with no limit on interactive utilization, the value returned
-017700050629will be 100%.
-017800050625:P.
-017900050628In CL programs, this should be a 4-position decimal variable with 1
-018000050628decimal position.
-018100050625:EHELP.
-018200050626:HELP NAME='RTVSYSDTA/DBCAPTHR'.CL var for DBCAPTHR    (4 1) (DBCAPTHR) - Help
-018300050625:XH3.CL var for DBCAPTHR    (4 1) (DBCAPTHR)
-018400050625:P.
-018500050629Specifies the name of a variable used to retrieve the highest level of
-018600050629database processor utilization which can be sustained without causing a
-018700050629disproportionate increase in system overhead.  On a machine with no
-018800050629limit on database utilization, the value returned will be 100%.
-018900050625:P.
-019000050628In CL programs, this should be a 4-position decimal variable with 1
-019100050628decimal position.
-019200050625:EHELP.
-019300050626:HELP NAME='RTVSYSDTA/DBCAPLMT'.CL var for DBCAPLMT    (4 1) (DBCAPLMT) - Help
-019400050625:XH3.CL var for DBCAPLMT    (4 1) (DBCAPLMT)
-019500050625:P.
-019600050629Specifies the name of a variable used to retrieve the maximum
-019700050629sustainable level of database processor utilization.  On a machine with
-019800050629no limit on database utilization, the value returned will be 100%.
-019900050625:P.
-020000050628In CL programs, this should be a 4-position decimal variable with 1
-020100050628decimal position.
-020200050625:EHELP.
-020300050626:HELP NAME='RTVSYSDTA/OSREL'.CL var for OSREL         (6) (OSREL) - Help
-020400050625:XH3.CL var for OSREL         (6) (OSREL)
-020500050625:P.
-020600050626Returns the current release level of the operating system in the format
-020700050626:HP2.VnRnMn:EHP2. where :HP2.n:EHP2. is a digit specifying version,
-020800050626release and modification level, respectively.
-020900050626:P.
-021000050626Specifies the name of a 6-character variable used to return the
-021100050626current operating system release level.
-021200050625:EHELP.
-021300050626:HELP NAME='RTVSYSDTA/SYSSTT'.CL var for SYSSTT        (1) (SYSSTT) - Help
-021400050625:XH3.CL var for SYSSTT        (1) (SYSSTT)
-021500050625:P.
-021600050625Provides an indication of whether the system is currently in a
-021700050625restricted state.
-021800050625:P.
-021900050625Specifies the name of a 1-character variable used to return the
-022000050625current system state.
-022100050625:P.
-022200050625Possible return values:
-022300050625:DL.
-022400050625:DT.'0':DD.The system is currently not in a restricted state.
-022500050625:DT.'1':DD.The system is currently in a restricted state.
-022600050625:DT.' ':DD.Error occurred while retrieving the current system state.
-022700050625:EDL.
-022800050625:EHELP.
-022900050626:HELP NAME='RTVSYSDTA/TCPSTS'.CL var for TCPSTS        (1) (TCPSTS) - Help
-023000050625:XH3.CL var for TCPSTS        (1) (TCPSTS)
-023100050625:P.
-023200050625Provides an indication of whether the TCP/IPv4 stack is currently in an
-023300050625operational status.
-023400050625:P.
-023500050625Specifies the name of a 1-character variable used to return the
-023600050625result of the TCP/IPv4 stack status check.
-023700050625:P.
-023800050625Possible return values:
-023900050625:DL.
-024000050625:DT.'O':DD.The TCP/IPv4 stack is in an operational status.
-024100050625:DT.'N':DD.The TCP/IPv4 stack is not in an operational status.
-024200050625:DT.'E':DD.Error occurred while retrieving the TCP/IPv4 stack status.
-024300050625:EDL.
-024400050625:EHELP.
-024500050626:HELP NAME='RTVSYSDTA/IPLDTS'.CL var for IPLDTS       (17) (IPLDTS) - Help
-024600050625:XH3.CL var for IPLDTS       (17) (IPLDTS)
-024700050625:P.
-024800050626Returns the timestamp of the most recent system IPL.
-024900050626:P.
-025000050626The timestamp is returned in the format :HP2.YYYYMMDDHHMMSSMMM:EHP2.:
-025100050626:P.
-025200050626:DL COMPACT.
-025300050626:DT.YYYY:DD.Year
-025400050626:DT.MM  :DD.Month
-025500050626:DT.DD  :DD.Day
-025600050626:DT.HH  :DD.Hour
-025700050626:DT.MM  :DD.Minute
-025800050626:DT.SS  :DD.Second
-025900050626:DT.MMM :DD.Millisecond
-026000050626:EDL.
-026100050625:P.
-026200050626Specify the name of a 17-character variable used to return the most
-026300050626recent system IPL timestamp.
-026400050625:EHELP.
-026500050626:HELP NAME='RTVSYSDTA/CURIPLTYP'.CL var for CURIPLTYP     (1) (CURIPLTYP) - Help
-026600050625:XH3.CL var for CURIPLTYP     (1) (CURIPLTYP)
-026700050625:P.
-026800050626Returns information about the current system IPL type as set in the
-026900050626system operations panel.
-027000050625:P.
-027100050626Possible values are 'A', 'B', 'C', 'D'.
-027200050626:P.
-027300050626Specify the name of a 1-character variable used to return the current
-027400050626system IPL type.
-027500050625:EHELP.
-027600050626:HELP NAME='RTVSYSDTA/PNLKEYPOS'.CL var for PNLKEYPOS     (6) (PNLKEYPOS) - Help
-027700050625:XH3.CL var for PNLKEYPOS     (6) (PNLKEYPOS)
-027800050625:P.
-027900050626Returns information about the current panel key lock position.
-028000050626:P.
-028100050626Possible values are 'Auto', 'Normal', 'Manual', 'Secure'.
-028200050625:P.
-028300050626Specify the name of a 6-character variable used to return the current
-028400050626panel key lock position.
-028500050625:EHELP.
-028600050625:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX939H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='RTVSYSDTA'.Retrieve System Data - Help
+:P.
+The Retrieve System Data (RTVSYSDTA) command is used in a CL program
+to retrieve various system data and attributes.  The values are
+returned (copied) to the specified CL variables in the program running
+this command.
+:P.
+:HP2.Restriction&COLON.:EHP2. The attributes of the system data and
+the receiving CL variable must be compatible.
+:EHELP.
+:HELP NAME='RTVSYSDTA/RESET'.Reset statistics (RESET) - Help
+:XH3.Reset statistics (RESET)
+:P.
+Specifies whether the system status statistics and elapsed time are
+reset to zero.  The statistics will be reset before new information is
+is gathered.  This parameter will also reset the status statistics on
+the Display System Status (DSPSYSSTS) and Work with System Status
+(WRKSYSSTS) commands.
+:P.
+This parameter applies only if one of the following three return values
+are requested:
+:UL COMPACT.
+:LI.System ASP % used
+:LINK PERFORM='DSPHELP RTVSYSDTA/SYSASPUSED'.
+SYSASPUSED
+:ELINK.
+:LI.CPU % used
+:LINK PERFORM='DSPHELP RTVSYSDTA/CPUPCTUSED'.
+CPUPCTUSED
+:ELINK.
+:LI.DB capability % used
+:LINK PERFORM='DSPHELP RTVSYSDTA/DBCAPUSED'.
+DBCAPUSED
+:ELINK.
+:EUL.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+System status statistics and elapsed time are not reset to zero.
+:PT.:PK.*YES:EPK.
+:PD.
+System status statistics and elapsed time are reset to zero.
+:EPARML.
+:EHELP.
+:HELP NAME='RTVSYSDTA/PRCTYPE'.CL var for PRCTYPE       (4) (PRCTYPE) - Help
+:XH3.CL var for PRCTYPE       (4) (PRCTYPE)
+:P.
+Specifies the name of a variable used to retrieve the system processor
+type.
+:P.
+In CL programs, this should be a 4-character variable.
+:EHELP.
+:HELP NAME='RTVSYSDTA/PRCGROUP'.CL var for PRCGROUP      (4) (PRCGROUP) - Help
+:XH3.CL var for PRCGROUP      (4) (PRCGROUP)
+:P.
+Specifies the name of a variable used to retrieve the system processor
+group.
+:P.
+In CL programs, this should be a 4-character variable.
+:EHELP.
+:HELP NAME='RTVSYSDTA/MAINSTGSIZ'.CL var for MAINSTGSIZ (10 0) (MAINSTGSIZ) - Help
+:XH3.CL var for MAINSTGSIZ (10 0) (MAINSTGSIZ)
+:P.
+Specifies the name of a variable used to retrieve the system main
+storage size in kilobytes (Kb).
+:P.
+In CL programs, this should be a 10-position decimal variable.
+:EHELP.
+:HELP NAME='RTVSYSDTA/TOTAUXSTG'.CL var for TOTAUXSTG  (10 0) (TOTAUXSTG) - Help
+:XH3.CL var for TOTAUXSTG  (10 0) (TOTAUXSTG)
+:P.
+Specifies the name of a variable used to retrieve the system's total
+auxilliary storage size in millions of bytes (Mb).
+:P.
+In CL programs, this should be a 10-position decimal variable.
+:EHELP.
+:HELP NAME='RTVSYSDTA/SYSASPSIZ'.CL var for SYSASPSIZ  (10 0) (SYSASPSIZ) - Help
+:XH3.CL var for SYSASPSIZ  (10 0) (SYSASPSIZ)
+:P.
+Specifies the name of a variable used to retrieve the system ASP's
+total size in millions of bytes (Mb).
+:P.
+In CL programs, this should be a 10-position decimal variable.
+:EHELP.
+:HELP NAME='RTVSYSDTA/SYSASPUSED'.CL var for SYSASPUSED  (4 1) (SYSASPUSED) - Help
+:XH3.CL var for SYSASPUSED  (7 4) (SYSASPUSED)
+:P.
+Specifies the name of a variable used to retrieve the percentage of the
+system storage pool currently in use.
+:P.
+To reset the elapsed time counter to zero and thereby also reset the
+in-use percentage calculation, specify :HP2.*YES:EHP2. for the
+:LINK PERFORM='DSPHELP RTVSYSDTA/RESET'.
+RESET
+:ELINK.
+parameter.
+:P.
+In CL programs, this should be a 7-position decimal variable with 4
+decimal positions.
+:EHELP.
+:HELP NAME='RTVSYSDTA/SYSASPTHR'.CL var for SYSASPTHR   (4 1) (SYSASPTHR) - Help
+:XH3.CL var for SYSASPTHR   (4 1) (SYSASPTHR)
+:P.
+Specifies the name of a variable used to retrieve the system storage
+pool threshold percentage.
+:P.
+In CL programs, this should be a 4-position decimal variable with 1
+decimal position.
+:EHELP.
+:HELP NAME='RTVSYSDTA/CPUPCTUSED'.CL var for CPUPCTUSED  (4 1) (CPUPCTUSED) - Help
+:XH3.CL var for CPUPCTUSED  (4 1) (CPUPCTUSED)
+:P.
+Specifies the name of a variable used to retrieve the average of the
+elapsed time during which the processing units were in use.
+:P.
+To reset the elapsed time counter to zero and thereby also reset the
+in-use average calculation, specify :HP2.*YES:EHP2. for the
+:LINK PERFORM='DSPHELP RTVSYSDTA/RESET'.
+RESET
+:ELINK.
+parameter.
+:P.
+In CL programs, this should be a 4-position decimal variable with 1
+decimal position.
+:EHELP.
+:HELP NAME='RTVSYSDTA/DBCAPUSED'.CL var for DBCAPUSED   (4 1) (DBCAPUSED) - Help
+:XH3.CL var for DBCAPUSED   (4 1) (DBCAPUSED)
+:P.
+Specifies the name of a variable used to retrieve the percentage of
+processor database capability that was used during the elapsed time.
+Database capability is the maximum CPU utilization available for
+database processing on this server.  -1 is returned if this server does
+not report the amount of CPU used for database processing.
+:P.
+To reset the elapsed time counter to zero and thereby also reset the
+in-use percentage calculation, specify :HP2.*YES:EHP2. for the
+:LINK PERFORM='DSPHELP RTVSYSDTA/RESET'.
+RESET
+:ELINK.
+parameter.
+:P.
+In CL programs, this should be a 4-position decimal variable with 1
+decimal position.
+:EHELP.
+:HELP NAME='RTVSYSDTA/PRCINTTHR'.CL var for PRCINTTHR   (4 1) (PRCINTTHR) - Help
+:XH3.CL var for PRCINTTHR   (4 1) (PRCINTTHR)
+:P.
+Specifies the name of a variable used to retrieve the highest level of
+interactive processor utilization which can be sustained without
+causing a disproportionate increase in system overhead.  On a machine
+with no limit on interactive utilization, the value returned will be
+100%.
+:P.
+In CL programs, this should be a 4-position decimal variable with 1
+decimal position.
+:EHELP.
+:HELP NAME='RTVSYSDTA/PRCINTLMT'.CL var for PRCINTLMT   (4 1) (PRCINTLMT) - Help
+:XH3.CL var for PRCINTLMT   (4 1) (PRCINTLMT)
+:P.
+Specifies the name of a variable used to retrieve the maximum
+sustainable level of interactive processor utilization.  The machine
+determines the interactive limit based on the interactive feature.  On
+a machine with no limit on interactive utilization, the value returned
+will be 100%.
+:P.
+In CL programs, this should be a 4-position decimal variable with 1
+decimal position.
+:EHELP.
+:HELP NAME='RTVSYSDTA/DBCAPTHR'.CL var for DBCAPTHR    (4 1) (DBCAPTHR) - Help
+:XH3.CL var for DBCAPTHR    (4 1) (DBCAPTHR)
+:P.
+Specifies the name of a variable used to retrieve the highest level of
+database processor utilization which can be sustained without causing a
+disproportionate increase in system overhead.  On a machine with no
+limit on database utilization, the value returned will be 100%.
+:P.
+In CL programs, this should be a 4-position decimal variable with 1
+decimal position.
+:EHELP.
+:HELP NAME='RTVSYSDTA/DBCAPLMT'.CL var for DBCAPLMT    (4 1) (DBCAPLMT) - Help
+:XH3.CL var for DBCAPLMT    (4 1) (DBCAPLMT)
+:P.
+Specifies the name of a variable used to retrieve the maximum
+sustainable level of database processor utilization.  On a machine with
+no limit on database utilization, the value returned will be 100%.
+:P.
+In CL programs, this should be a 4-position decimal variable with 1
+decimal position.
+:EHELP.
+:HELP NAME='RTVSYSDTA/OSREL'.CL var for OSREL         (6) (OSREL) - Help
+:XH3.CL var for OSREL         (6) (OSREL)
+:P.
+Returns the current release level of the operating system in the format
+:HP2.VnRnMn:EHP2. where :HP2.n:EHP2. is a digit specifying version,
+release and modification level, respectively.
+:P.
+Specifies the name of a 6-character variable used to return the
+current operating system release level.
+:EHELP.
+:HELP NAME='RTVSYSDTA/SYSSTT'.CL var for SYSSTT        (1) (SYSSTT) - Help
+:XH3.CL var for SYSSTT        (1) (SYSSTT)
+:P.
+Provides an indication of whether the system is currently in a
+restricted state.
+:P.
+Specifies the name of a 1-character variable used to return the
+current system state.
+:P.
+Possible return values:
+:DL.
+:DT.'0':DD.The system is currently not in a restricted state.
+:DT.'1':DD.The system is currently in a restricted state.
+:DT.' ':DD.Error occurred while retrieving the current system state.
+:EDL.
+:EHELP.
+:HELP NAME='RTVSYSDTA/TCPSTS'.CL var for TCPSTS        (1) (TCPSTS) - Help
+:XH3.CL var for TCPSTS        (1) (TCPSTS)
+:P.
+Provides an indication of whether the TCP/IPv4 stack is currently in an
+operational status.
+:P.
+Specifies the name of a 1-character variable used to return the
+result of the TCP/IPv4 stack status check.
+:P.
+Possible return values:
+:DL.
+:DT.'O':DD.The TCP/IPv4 stack is in an operational status.
+:DT.'N':DD.The TCP/IPv4 stack is not in an operational status.
+:DT.'E':DD.Error occurred while retrieving the TCP/IPv4 stack status.
+:EDL.
+:EHELP.
+:HELP NAME='RTVSYSDTA/IPLDTS'.CL var for IPLDTS       (17) (IPLDTS) - Help
+:XH3.CL var for IPLDTS       (17) (IPLDTS)
+:P.
+Returns the timestamp of the most recent system IPL.
+:P.
+The timestamp is returned in the format :HP2.YYYYMMDDHHMMSSMMM:EHP2.:
+:P.
+:DL COMPACT.
+:DT.YYYY:DD.Year
+:DT.MM  :DD.Month
+:DT.DD  :DD.Day
+:DT.HH  :DD.Hour
+:DT.MM  :DD.Minute
+:DT.SS  :DD.Second
+:DT.MMM :DD.Millisecond
+:EDL.
+:P.
+Specify the name of a 17-character variable used to return the most
+recent system IPL timestamp.
+:EHELP.
+:HELP NAME='RTVSYSDTA/CURIPLTYP'.CL var for CURIPLTYP     (1) (CURIPLTYP) - Help
+:XH3.CL var for CURIPLTYP     (1) (CURIPLTYP)
+:P.
+Returns information about the current system IPL type as set in the
+system operations panel.
+:P.
+Possible values are 'A', 'B', 'C', 'D'.
+:P.
+Specify the name of a 1-character variable used to return the current
+system IPL type.
+:EHELP.
+:HELP NAME='RTVSYSDTA/PNLKEYPOS'.CL var for PNLKEYPOS     (6) (PNLKEYPOS) - Help
+:XH3.CL var for PNLKEYPOS     (6) (PNLKEYPOS)
+:P.
+Returns information about the current panel key lock position.
+:P.
+Possible values are 'Auto', 'Normal', 'Manual', 'Secure'.
+:P.
+Specify the name of a 6-character variable used to return the current
+panel key lock position.
+:EHELP.
+:EPNLGRP.

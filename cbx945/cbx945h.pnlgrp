@@ -1,80 +1,80 @@
-000100030602.*-----------------------------------------------------------------------**
-000200030602.*
-000300030602.*  Compile options:
-000400030602.*
-000500050917.*    CrtPnlGrp PnlGrp( CBX945H )
-000600030602.*              SrcFile( QPNLSRC )
-000700030809.*              SrcMbr( *PNLGRP )
-000800030602.*
-000900030602.*-----------------------------------------------------------------------**
-001000000000:PNLGRP.
-001100050917:HELP NAME='CHGPRFEXIT'.
-001200050917Change Profile Exit Program - Help
-001300971111:P.
-001400050925The Change Profile Exit Program command (CHGPRFEXIT) activates or
-001500050925deactivates for the specified user profile, the exit program(s)
-001600050925registered for the exit point defined by the format parameter.
-001700030829:P.
-001800030829The current setting is retrieved for the specified user profile if the
-001900030829command is prompted prior to execution.
-002000000000:EHELP.
-002100050917:HELP NAME='CHGPRFEXIT/USRPRF'.
-002200030824User profile (USRPRF) - Help
-002300030824:XH3.User profile (USRPRF)
-002400030824:P.
-002500030829Specifies the name of the user profile whose exit program setting you
-002600030829want to change.
-002700030824:P.
-002800030824The possible values are:
-002900030824:PARML.
-003000030829:PT.:PV.user-name:EPV.
-003100030824:PD.
-003200030829The name of the user profile that you want to change the profile exit
-003300030829program setting for.
-003400030829:PT.:PK.*CURRENT:EPK.
-003500030824:PD.
-003600030829The user profile that is currently running is used.
-003700030824:EPARML.
-003800030824:EHELP.
-003900050917:HELP NAME='CHGPRFEXIT/FORMAT'.
-004000030829Exit program format (FORMAT) - Help
-004100030829:XH3.Exit program format (FORMAT)
-004200030829:P.
-004300030829The format name defines the specific exit program setting to change.
-004400030829:P.
-004500030829The possible values are:
-004600030829:PARML.
-004700030829:PT.:PK DEF.*SYSRQS:EPK.
-004800030829:PD.
-004900030829The presystem request program exit point setting is changed for the
-005000030829specified user profile.
-005100030829:PT.:PK.*ATTN:EPK.
-005200030829:PD.
-005300030829The preattention program exit point setting is changed for the
-005400030829specified user profile.
-005500030829:EPARML.
-005600030829:EHELP.
-005700050917:HELP NAME='CHGPRFEXIT/EXITPGM'.
-005800030829Exit program option (EXITPGM) - Help
-005900030829:XH3.Exit program option (EXITPGM)
-006000030824:P.
-006100030829Specifies for the registered exit point programs in the order 1 to 8
-006200030829if the corresponding exit program should be activated, deactivated or
-006300030829have it's current setting remain unchanged.
-006400030824:P.
-006500030824The possible values are:
-006600030824:PARML.
-006700030829:PT.:PK.*SAME:EPK.
-006800030824:PD.
-006900030829The current setting remains unchanged for corresponding exit program.
-007000030829:PT.:PK.*ON:EPK.
-007100030824:PD.
-007200030829The corresponding exit program is activated for the specified user
-007300030829profile.
-007400030829:PT.:PK.*OFF:EPK.
-007500030829:PD.
-007600030829The corresponding exit program is deactivated for the specified user
-007700030829profile.
-007800030824:EPARML.
-007900030824:EHELP.
-008000000000:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX945H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='CHGPRFEXIT'.
+Change Profile Exit Program - Help
+:P.
+The Change Profile Exit Program command (CHGPRFEXIT) activates or
+deactivates for the specified user profile, the exit program(s)
+registered for the exit point defined by the format parameter.
+:P.
+The current setting is retrieved for the specified user profile if the
+command is prompted prior to execution.
+:EHELP.
+:HELP NAME='CHGPRFEXIT/USRPRF'.
+User profile (USRPRF) - Help
+:XH3.User profile (USRPRF)
+:P.
+Specifies the name of the user profile whose exit program setting you
+want to change.
+:P.
+The possible values are:
+:PARML.
+:PT.:PV.user-name:EPV.
+:PD.
+The name of the user profile that you want to change the profile exit
+program setting for.
+:PT.:PK.*CURRENT:EPK.
+:PD.
+The user profile that is currently running is used.
+:EPARML.
+:EHELP.
+:HELP NAME='CHGPRFEXIT/FORMAT'.
+Exit program format (FORMAT) - Help
+:XH3.Exit program format (FORMAT)
+:P.
+The format name defines the specific exit program setting to change.
+:P.
+The possible values are:
+:PARML.
+:PT.:PK DEF.*SYSRQS:EPK.
+:PD.
+The presystem request program exit point setting is changed for the
+specified user profile.
+:PT.:PK.*ATTN:EPK.
+:PD.
+The preattention program exit point setting is changed for the
+specified user profile.
+:EPARML.
+:EHELP.
+:HELP NAME='CHGPRFEXIT/EXITPGM'.
+Exit program option (EXITPGM) - Help
+:XH3.Exit program option (EXITPGM)
+:P.
+Specifies for the registered exit point programs in the order 1 to 8
+if the corresponding exit program should be activated, deactivated or
+have it's current setting remain unchanged.
+:P.
+The possible values are:
+:PARML.
+:PT.:PK.*SAME:EPK.
+:PD.
+The current setting remains unchanged for corresponding exit program.
+:PT.:PK.*ON:EPK.
+:PD.
+The corresponding exit program is activated for the specified user
+profile.
+:PT.:PK.*OFF:EPK.
+:PD.
+The corresponding exit program is deactivated for the specified user
+profile.
+:EPARML.
+:EHELP.
+:EPNLGRP.

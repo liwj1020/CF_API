@@ -1,29 +1,29 @@
-000100050602.*-----------------------------------------------------------------------**
-000200050602.*
-000300050602.*  Compile options:
-000400050602.*
-000500050602.*    CrtPnlGrp PnlGrp( CBX937H )
-000600050602.*              SrcFile( QPNLSRC )
-000700050602.*              SrcMbr( *PNLGRP )
-000800050602.*
-000900050602.*-----------------------------------------------------------------------**
-001000050602:PNLGRP.
-001100050602:HELP NAME='DSPPTFLVL'.Display PTF CUM level - Help
-001200050602:P.
-001300050602The Display PTF CUM Level (DSPPTFLVL) command displays the current
-001400050602system PTF cumulative package level as well as the date and time of the
-001500050602most recent system IPL (Initial Program Load).
-001600050602:P.
-001700050602The information is returned in an informational message.
-001800050602:P.
-001900050602The format of the CUM level information is :HP2.CYDDDVRM:EHP2.:
-002000050602:DL.
-002100050602:DT.'C':DD.Cumulative package
-002200050602:DT.Y  :DD.Year CUM package was released
-002300050602:DT.DDD:DD.Julian day of year package was released
-002400050602:DT.VRM:DD.System Version, Release and Modification for which CUM
-002500050602package was created
-002600050602:EDL.
-002700050602:P.
-002800050602:EHELP.
-002900050602:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX937H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='DSPPTFLVL'.Display PTF CUM level - Help
+:P.
+The Display PTF CUM Level (DSPPTFLVL) command displays the current
+system PTF cumulative package level as well as the date and time of the
+most recent system IPL (Initial Program Load).
+:P.
+The information is returned in an informational message.
+:P.
+The format of the CUM level information is :HP2.CYDDDVRM:EHP2.:
+:DL.
+:DT.'C':DD.Cumulative package
+:DT.Y  :DD.Year CUM package was released
+:DT.DDD:DD.Julian day of year package was released
+:DT.VRM:DD.System Version, Release and Modification for which CUM
+package was created
+:EDL.
+:P.
+:EHELP.
+:EPNLGRP.

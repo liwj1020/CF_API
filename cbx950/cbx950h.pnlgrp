@@ -1,86 +1,86 @@
-000100051222.*-----------------------------------------------------------------------**
-000200051222.*
-000300051222.*  Compile options:
-000400051222.*
-000500051222.*    CrtPnlGrp PnlGrp( CBX950H )
-000600051222.*              SrcFile( QPNLSRC )
-000700051222.*              SrcMbr( CBX950H )
-000800051222.*
-000900051222.*-----------------------------------------------------------------------**
-001000051222:PNLGRP.
-001100051222:HELP NAME='DSPJOBIFSL'.Display Job IFS Object Locks - Help
-001200051222:P.
-001300051222The Display Job IFS Object Locks (DSPJOBIFSL) displayes Integrated
-001400051222File System (IFS) object access and lock information for the specified
-001500051222job.
-001600051222:P.
-001700051222This information includes the type of lock or access for all IFS
-001800051222objects currently referenced by the job.
-001900051222:P.
-002000051222:NT.
-002100051222This command requires release V5R3 or higher to run.
-002200051222:ENT.
-002300051222:EHELP.
-002400051222:HELP NAME='DSPJOBIFSL/JOB'.Job name (JOB) - Help
-002500051222:XH3.Job name (JOB)
-002600051222:P.
-002700051222Identifies the job for which to display IFS access and locks.
-002800051222:P.
-002900051222The possible values are:
-003000051222:P.
-003100051222:PARML.
-003200051222:PT.:PK DEF.*:EPK.
-003300051222:PD.
-003400051222The job whose information is displayed is the job from which this
-003500051222display command is run.
-003600051222:PT.:PV.job-name:EPV.
-003700051222:PD.
-003800051222Specify the name of the job for which to display IFS object access and
-003900051222lock information.
-004000051222:EPARML.
-004100051222:XH3.User
-004200051222:P.
-004300051222Specify the name that identifies the user profile under which the job
-004400051222is run.
-004500051222:P.
-004600051222:XH3.Number
-004700051222:P.
-004800051222Specify the job number assigned by the system.
-004900051222:P.
-005000051222:EHELP.
-005100051222:HELP NAME='DSPJOBIFSL/OUTPUT'.Output (OUTPUT) - Help
-005200051222:XH3.Output (OUTPUT)
-005300051222:P.
-005400051222Specifies where the output from the command is sent.
-005500051222:P.
-005600051222The possible values are:
-005700051222:P.
-005800051222:PARML.
-005900051222:PT.:PK DEF.*:EPK.
-006000051222:PD.
-006100051222The output is displayed (if requested by an interactive job) or printed
-006200051222with the job's spooled output (if requested by a batch job).
-006300051222:PT.:PK.*PRINT:EPK.
-006400051222:PD.
-006500051222The output is printed with the job's spooled output.
-006600051222:EPARML.
-006700051222:EHELP.
-006800051222:HELP NAME='DSPJOBIFSL/LONGPATH'.Long path name (LONGPATH) - Help
-006900051222:XH3.Long path name (LONGPATH)
-007000051222:P.
-007100051222Defines how path names that are longer than the space provided in the
-007200051222basic list are displayed.
-007300051222:P.
-007400051222The possible values are:
-007500051222:P.
-007600051222:PARML.
-007700051222:PT.:PK DEF.*PARTIAL:EPK.
-007800051222:PD.
-007900051222Only the rightmost part of the path name is printed in the basic list.
-008000051222:PT.:PK.*FULL:EPK.
-008100051222:PD.
-008200051222Both the rightmost part of the path name as well as one or more
-008300051222separate lines displaying the full path name are printed in the list.
-008400051222:EPARML.
-008500051222:EHELP.
-008600051222:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX950H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBX950H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='DSPJOBIFSL'.Display Job IFS Object Locks - Help
+:P.
+The Display Job IFS Object Locks (DSPJOBIFSL) displayes Integrated
+File System (IFS) object access and lock information for the specified
+job.
+:P.
+This information includes the type of lock or access for all IFS
+objects currently referenced by the job.
+:P.
+:NT.
+This command requires release V5R3 or higher to run.
+:ENT.
+:EHELP.
+:HELP NAME='DSPJOBIFSL/JOB'.Job name (JOB) - Help
+:XH3.Job name (JOB)
+:P.
+Identifies the job for which to display IFS access and locks.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*:EPK.
+:PD.
+The job whose information is displayed is the job from which this
+display command is run.
+:PT.:PV.job-name:EPV.
+:PD.
+Specify the name of the job for which to display IFS object access and
+lock information.
+:EPARML.
+:XH3.User
+:P.
+Specify the name that identifies the user profile under which the job
+is run.
+:P.
+:XH3.Number
+:P.
+Specify the job number assigned by the system.
+:P.
+:EHELP.
+:HELP NAME='DSPJOBIFSL/OUTPUT'.Output (OUTPUT) - Help
+:XH3.Output (OUTPUT)
+:P.
+Specifies where the output from the command is sent.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*:EPK.
+:PD.
+The output is displayed (if requested by an interactive job) or printed
+with the job's spooled output (if requested by a batch job).
+:PT.:PK.*PRINT:EPK.
+:PD.
+The output is printed with the job's spooled output.
+:EPARML.
+:EHELP.
+:HELP NAME='DSPJOBIFSL/LONGPATH'.Long path name (LONGPATH) - Help
+:XH3.Long path name (LONGPATH)
+:P.
+Defines how path names that are longer than the space provided in the
+basic list are displayed.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*PARTIAL:EPK.
+:PD.
+Only the rightmost part of the path name is printed in the basic list.
+:PT.:PK.*FULL:EPK.
+:PD.
+Both the rightmost part of the path name as well as one or more
+separate lines displaying the full path name are printed in the list.
+:EPARML.
+:EHELP.
+:EPNLGRP.

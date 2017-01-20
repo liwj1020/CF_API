@@ -1,44 +1,44 @@
-000100050730.*-----------------------------------------------------------------------**
-000200050730.*
-000300050730.*  Compile options:
-000400050730.*
-000500050730.*    CrtPnlGrp PnlGrp( CBX9422H )
-000600050730.*              SrcFile( QPNLSRC )
-000700050730.*              SrcMbr( *PNLGRP )
-000800050730.*
-000900050730.*-----------------------------------------------------------------------**
-001000050730:PNLGRP.
-001100050730:HELP NAME='DSPDEVIP'.Display Device IP Address - Help
-001200050730:P.
-001300050730The Display Device IP Address (DSPDEVIP) command displays the current
-001400050730IP address of the specified display or printer device in dotted decimal
-001500050730form.  If the specified device is not currently varied on, the special
-001600050730value :HP2.*NONE:EHP2. is returned.
-001700050730:P.
-001800050730The device IP address is displayed as an informational message.
-001900050730:P.
-002000050730:NT.
-002100050730An IP address applies only to display or printer devices that are used
-002200050730by TELNET or TCP/IP over Twinax.
-002300050730:ENT.
-002400050730:EHELP.
-002500050730:HELP NAME='DSPDEVIP/DEV'.Device (DEV) - Help
-002600050730:XH3.Device (DEV)
-002700050730:P.
-002800050730Specifies the name of the display or printer device for which to
-002900050730display the IP address.
-003000050730:P.
-003100050730The possible values are:
-003200050730:P.
-003300050730:PARML.
-003400050730:PT.:PK DEF.*CURRENT:EPK.
-003500050730:PD.
-003600050730The device currently in use by the interactive job from which this
-003700050730command is run will have it's IP address displayed.
-003800050730:PT.:PV.device-name:EPV.
-003900050730:PD.
-004000050730Specify the name of the display or printer device for which to display
-004100050730the IP address.
-004200050730:EPARML.
-004300050730:EHELP.
-004400050730:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX9422H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='DSPDEVIP'.Display Device IP Address - Help
+:P.
+The Display Device IP Address (DSPDEVIP) command displays the current
+IP address of the specified display or printer device in dotted decimal
+form.  If the specified device is not currently varied on, the special
+value :HP2.*NONE:EHP2. is returned.
+:P.
+The device IP address is displayed as an informational message.
+:P.
+:NT.
+An IP address applies only to display or printer devices that are used
+by TELNET or TCP/IP over Twinax.
+:ENT.
+:EHELP.
+:HELP NAME='DSPDEVIP/DEV'.Device (DEV) - Help
+:XH3.Device (DEV)
+:P.
+Specifies the name of the display or printer device for which to
+display the IP address.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*CURRENT:EPK.
+:PD.
+The device currently in use by the interactive job from which this
+command is run will have it's IP address displayed.
+:PT.:PV.device-name:EPV.
+:PD.
+Specify the name of the display or printer device for which to display
+the IP address.
+:EPARML.
+:EHELP.
+:EPNLGRP.

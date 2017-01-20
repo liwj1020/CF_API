@@ -1,34 +1,34 @@
-000100040408/*-------------------------------------------------------------------*/
-000200040408/*                                                                   */
-000300040408/*  Compile options:                                                 */
-000400040408/*                                                                   */
-000500050529/*    CrtCmd Cmd( PRTJRNRCV )                                        */
-000600050529/*           Pgm( CBX938 )                                           */
-000700050529/*           SrcMbr( CBX938X )                                       */
-000800050529/*           HlpPnlGrp( CBX938H )                                    */
-000900040408/*           HlpId( *CMD )                                           */
-001000040408/*                                                                   */
-001100040408/*-------------------------------------------------------------------*/
-001200050529          Cmd      Prompt( 'Print journal receivers' )
-001300040311
-001400050529          Parm     JRN         Q0001                  +
-001500050529                   Min( 1 )                           +
-001600050529                   Choice( *NONE )                    +
-001700050529                   Prompt( 'Journal' )
-001800050306
-001900041212
-002000050529Q0001:    Qual                 *Generic    10         +
-002100050529                   SpcVal(( *ALL ))                   +
-002200050529                   Expr( *YES )
-002300050529
-002400050529          Qual                 *Name       10         +
-002500050529                   Dft( *LIBL )                       +
-002600050529                   SpcVal(( *LIBL    )                +
-002700050529                          ( *CURLIB  )                +
-002800050529                          ( *ALL     )                +
-002900050529                          ( *ALLUSR  )                +
-003000050529                          ( *USRLIBL ))               +
-003100050529                   Expr( *YES )                       +
-003200050529                   Prompt( 'Library' )
-003300041212
-003400050325
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtCmd Cmd( PRTJRNRCV )                                        */
+/*           Pgm( CBX938 )                                           */
+/*           SrcMbr( CBX938X )                                       */
+/*           HlpPnlGrp( CBX938H )                                    */
+/*           HlpId( *CMD )                                           */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+          Cmd      Prompt( 'Print journal receivers' )
+
+          Parm     JRN         Q0001                  +
+                   Min( 1 )                           +
+                   Choice( *NONE )                    +
+                   Prompt( 'Journal' )
+
+
+Q0001:    Qual                 *Generic    10         +
+                   SpcVal(( *ALL ))                   +
+                   Expr( *YES )
+
+          Qual                 *Name       10         +
+                   Dft( *LIBL )                       +
+                   SpcVal(( *LIBL    )                +
+                          ( *CURLIB  )                +
+                          ( *ALL     )                +
+                          ( *ALLUSR  )                +
+                          ( *USRLIBL ))               +
+                   Expr( *YES )                       +
+                   Prompt( 'Library' )
+
+

@@ -1,30 +1,30 @@
-000100031113/*-------------------------------------------------------------------*/
-000200031113/*                                                                   */
-000300031113/*  Compile options:                                                 */
-000400031113/*                                                                   */
-000500061114/*    CrtCmd Cmd( DSPSBSJOBQ )                                       */
-000600070128/*           Pgm( CBX967 )                                           */
-000700070128/*           SrcMbr( CBX967X )                                       */
-000800070128/*           VldCkr( CBX967V )                                       */
-000900060519/*           Allow( *INTERACT *IPGM *IREXX *IMOD )                   */
-001000060519/*           AlwLmtUsr( *NO )                                        */
-001100070128/*           HlpPnlGrp( CBX967H )                                    */
-001200031113/*           HlpId( *CMD )                                           */
-001300031113/*                                                                   */
-001400031113/*-------------------------------------------------------------------*/
-001500061114             Cmd        Prompt( 'Display Subsystem Job Queues' )
-001600930930
-001700060519             Parm       SBS         Q0001                            +
-001800040925                        Min( 1 )                                     +
-001900060504                        Prompt( 'Subsystem' )
-002000040925
-002100040926
-002200040926 Q0001:      Qual                   *Name                            +
-002300040926                        Expr( *YES )
-002400040926
-002500040926             Qual                   *Name                            +
-002600040926                        Dft( *LIBL )                                 +
-002700040926                        SpcVal(( *LIBL ) ( *CURLIB ))                +
-002800040926                        Expr( *YES )                                 +
-002900040926                        Prompt( 'Library' )
-003000040925
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtCmd Cmd( DSPSBSJOBQ )                                       */
+/*           Pgm( CBX967 )                                           */
+/*           SrcMbr( CBX967X )                                       */
+/*           VldCkr( CBX967V )                                       */
+/*           Allow( *INTERACT *IPGM *IREXX *IMOD )                   */
+/*           AlwLmtUsr( *NO )                                        */
+/*           HlpPnlGrp( CBX967H )                                    */
+/*           HlpId( *CMD )                                           */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+             Cmd        Prompt( 'Display Subsystem Job Queues' )
+
+             Parm       SBS         Q0001                            +
+                        Min( 1 )                                     +
+                        Prompt( 'Subsystem' )
+
+
+ Q0001:      Qual                   *Name                            +
+                        Expr( *YES )
+
+             Qual                   *Name                            +
+                        Dft( *LIBL )                                 +
+                        SpcVal(( *LIBL ) ( *CURLIB ))                +
+                        Expr( *YES )                                 +
+                        Prompt( 'Library' )
+

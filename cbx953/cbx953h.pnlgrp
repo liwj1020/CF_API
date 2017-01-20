@@ -1,240 +1,240 @@
-000100060319.*-----------------------------------------------------------------------**
-000200060319.*
-000300060319.*  Compile options:
-000400060319.*
-000500060319.*    CrtPnlGrp PnlGrp( CBX953H )
-000600060319.*              SrcFile( QPNLSRC )
-000700060319.*              SrcMbr( *PNLGRP )
-000800060319.*
-000900060319.*-----------------------------------------------------------------------**
-001000060319:PNLGRP.
-001100060319:HELP NAME='ADDGRPPRF'.Add Group Profile - Help
-001200060319:P.
-001300060319The Add Group Profile (ADDGRPPRF) command adds the specified group
-001400060319profile to all user profiles that meet the specified selection criteria.
-001500060319:P.
-001600060319The group profile is added as the primary group if the user profile
-001700060319does not already have one.  Otherwise the group profile is added as a
-001800060319supplemental group, provided that not all supplemental groups have
-001900060319already been specified.
-002000060319:P.
-002100060322User profiles created by *IBM or beginning with the letter Q are
-002200060322considered system user profiles and are therefore not processed by
-002300060322this command.  In stead a diagnostic message is written to the
-002400060322completion status report.
-002500060319:P.
-002600060319A completion status report is written to a spooled file and placed in
-002700060323the current job's default output queue.  The group profile name and
-002800060323supplemental group profile count specified, will reflect the status of
-002900060323the user profile prior to any change.
-003000060319:P.
-003100060323For each user profile that is changed a completion message is sent to
-003200060323the job running this command.
-003300060323:P.
-003400060319:NT.
-003500060319Only user profiles to which the current user profile of the job running
-003600060319this command has *READ authority, are selected for processing.
-003700060319:ENT.
-003800060319:P.
-003900060319:NT.
-004000060319Depending on the number of user profiles on the system, this command
-004100060319will possibly take some time to complete and consume many system
-004200060319resources.  To avoid a negative impact on the system performance and
-004300060319interactive response times, please consider running the command in
-004400060319batch.
-004500060319:ENT.
-004600060319:EHELP.
-004700060319:HELP NAME='ADDGRPPRF/USRPRF'.User profile (USRPRF) - Help
-004800060319:XH3.User profile (USRPRF)
-004900060319:P.
-005000060320Specify the user profiles to be processed.
-005100060319:P.
-005200060319This is a required parameter.
-005300060319:P.
-005400060319The possible values are:
-005500060319:P.
-005600060319:PARML.
-005700060319:PT.:PK.*FILE:EPK.
-005800060319:PD.
-005900060320The names of the user profiles to be processed are stored in the file
-006000060320specified by the
-006100060320:Link Perform='DSPHELP ADDGRPPRF/FILE CBX953H'.
-006200060320FILE
-006300060320:ELink.
-006400060320(File) parameter.
-006500060321:PT.:PK.*ALL:EPK.
-006600060321:PD.
-006700060321All user profiles are eligible to processing.
-006800060321:NT.
-006900060321If no further selection is performed using the :HP2.USRCLS:EHP2. and
-007000060321:HP2.GRPPRF:EHP2. parameters, all user profiles will be processed.
-007100060321:ENT.
-007200060319:PT.:PV.*generic-user-profile-name:EPV.
-007300060319:PD.
-007400060320Specify the generic name of the user profiles to be processed.  A
-007500060320generic name is a character string that contains one or more characters
-007600060320followed by an asterisk (*).  If a generic name is specified, all user
-007700060320profiles that have names with the same prefix as the generic name are
-007800060320processed.
-007900060319:PT.:PV.user-profile-name:EPV.
-008000060319:PD.
-008100060320Specify the name of the user profile to be processed.
-008200060319:EPARML.
-008300060319:EHELP.
-008400060320:HELP NAME='ADDGRPPRF/NEWGRPPRF'.Group profile to add (NEWGRPPRF) - Help
-008500060320:XH3.Group profile to add (NEWGRPPRF)
-008600060319:P.
-008700060320Specifies the name of the group profile to be added as a group profile
-008800060320or supplemental group profile for the user profiles selected.
-008900060322:P.
-009000060322User profiles created by *IBM or beginning with the letter Q are
-009100060322considered system user profiles and are therefore not allowed to be
-009200060322specified.
-009300060319:P.
-009400060319This is a required parameter.
-009500060319:P.
-009600060319:EHELP.
-009700060322:HELP NAME='ADDGRPPRF/GRPOWNER'.Group ownership (GRPOWNER) - Help
-009800060322:XH3.Group ownership (GRPOWNER)
-009900060322:P.
-010000060322Specifies if the user profiles having added a group profile or
-010100060322supplemental group profile, should also be changed to transfer
-010200060322ownership to it's primary group profile, when objects are created by
-010300060322that user profile.
-010400060322:P.
-010500060322The possible values are:
-010600060322:P.
-010700060322:PARML.
-010800060322:PT.:PK DEF.*SAME:EPK.
-010900060322:PD.
-011000060322The user profile's ownership setting will not changed.
-011100060322:PT.:PK.*YES:EPK.
-011200060322:PD.
-011300060322The user profile's group profile will be the owner of objects created
-011400060322by the user profile.
-011500060322:PT.:PK.*NO:EPK.
-011600060322:PD.
-011700060322The user profile will remain the owner of objects created by the user
-011800060322profile.
-011900060322:EPARML.
-012000060322:EHELP.
-012100060320:HELP NAME='ADDGRPPRF/USRCLS'.User classes to select (USRCLS) - Help
-012200060320:XH3.User classes to select (USRCLS)
-012300060320:P.
-012400060320Specifies the user classes to include in the user profile selection.
-012500060320:P.
-012600060320The possible values are:
-012700060320:P.
-012800060320:PARML.
-012900060320:PT.:PK DEF.*ALL:EPK.
-013000060320:PD.
-013100060320All user profiles are selected, regardless of their user class.
-013200060320:PT.:PK.*NONUSER:EPK.
-013300060320:PD.
-013400060320All user profiles having a user class different from *USER are
-013500060320selected.
-013600060320:PT.:PK.*USER:EPK.
-013700060320:PD.
-013800060320Only user profiles having a user class of *USER are selected.
-013900060320:PT.:PK.*PGMR:EPK.
-014000060320:PD.
-014100060320Only user profiles having a user class of *PGMR are selected.
-014200060320:PT.:PK.*SYSOPR:EPK.
-014300060320:PD.
-014400060320Only user profiles having a user class of *SYSOPR are selected.
-014500060320:PT.:PK.*SECADM:EPK.
-014600060320:PD.
-014700060320Only user profiles having a user class of *SECADM are selected.
-014800060320:PT.:PK.*SECOFR:EPK.
-014900060320:PD.
-015000060320Only user profiles having a user class of *SECOFR are selected.
-015100060320:EPARML.
-015200060320:EHELP.
-015300060320:HELP NAME='ADDGRPPRF/GRPPRF'.Group profile to select (GRPPRF) - Help
-015400060320:XH3.Group profile to select (GRPPRF)
-015500060320:P.
-015600060320Specify a group profile to determine which user profiles should be
-015700060320included in the list.
-015800060320:P.
-015900060320The possible values are:
-016000060320:P.
-016100060320:PARML.
-016200060320:PT.:PK DEF.*ANY:EPK.
-016300060320:PD.
-016400060320User profiles are selected regardless of their group profile.
-016500060320:PT.:PK.*NONE:EPK.
-016600060320:PD.
-016700060320User profiles are only selected if they currently have no group profile
-016800060320assigned.
-016900060320:PT.:PV.group-profile-to-select:EPV.
-017000060320:PD.
-017100060320Only user profiles having this group profile as their primary group
-017200060320profile are selected.
-017300060320:EPARML.
-017400060320:EHELP.
-017500060322:HELP NAME='ADDGRPPRF/REPLACE'.Replace primary group (REPLACE) - Help
-017600060322:XH3.Replace primary group (REPLACE)
-017700060322:P.
-017800060322Specifies whether to replace a current group profile if the user
-017900060322profile already has been assigned a primary group profile.
-018000060322:P.
-018100060322The possible values are:
-018200060322:P.
-018300060322:PARML.
-018400060322:PT.:PK DEF.*NO:EPK.
-018500060322:PD.
-018600060322The group profile will be added as a supplemental group if a primary
-018700060322group profile has already been assigned.
-018800060322:PT.:PK.*YES:EPK.
-018900060322:PD.
-019000060322The group profile will replace any current primary group profile.  The
-019100060322group profile being replaced will no longer be assigned to the user
-019200060322profile.
-019300060322:EPARML.
-019400060322:EHELP.
-019500060323:HELP NAME='ADDGRPPRF/OPTION'.User profile option (Option) - Help
-019600060323:XH3.User profile option (OPTION)
-019700060323:P.
-019800060323Specify whether to actually perform the user profile update or to
-019900060323simply verify the extent and impact of the change resulting from the
-020000060323specified set of parameters.
-020100060323:P.
-020200060323The possible values are:
-020300060323:P.
-020400060323:PARML.
-020500060323:PT.:PK DEF.*UPDATE:EPK.
-020600060323:PD.
-020700060323The selected user profiles will be processed in accordance with the
-020800060323specified parameter setting.
-020900060323:PT.:PK.*VERIFY:EPK.
-021000060323:PD.
-021100060323The selected user profiles will not be processed, but the completion
-021200060323status report will be produced.
-021300060323:EPARML.
-021400060323:EHELP.
-021500060319:HELP NAME='ADDGRPPRF/FILE'.File (FILE) - Help
-021600060319:XH3.File (FILE)
-021700060319:P.
-021800060320Specify the name of the file containing the names of the user profiles
-021900060320to be processed.
-022000060319:P.
-022100060320The file must have a record length of 10 bytes, which should contain
-022200060320a user profile name only.
-022300060320:P.
-022400060319:XH3.Library
-022500060319:P.
-022600060320The library name containing the file.
-022700060319:P.
-022800060319The possible values are:
-022900060319:P.
-023000060319:PARML.
-023100060319:PT.:PK DEF.*LIBL:EPK.
-023200060319:PD.
-023300060320All libraries in the library list for the current thread are searched
-023400060320until the first match is found.
-023500060319:PT.:PV.library-name:EPV.
-023600060319:PD.
-023700060320Specify the name of the library to be searched.
-023800060319:EPARML.
-023900060319:EHELP.
-024000060319:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX953H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='ADDGRPPRF'.Add Group Profile - Help
+:P.
+The Add Group Profile (ADDGRPPRF) command adds the specified group
+profile to all user profiles that meet the specified selection criteria.
+:P.
+The group profile is added as the primary group if the user profile
+does not already have one.  Otherwise the group profile is added as a
+supplemental group, provided that not all supplemental groups have
+already been specified.
+:P.
+User profiles created by *IBM or beginning with the letter Q are
+considered system user profiles and are therefore not processed by
+this command.  In stead a diagnostic message is written to the
+completion status report.
+:P.
+A completion status report is written to a spooled file and placed in
+the current job's default output queue.  The group profile name and
+supplemental group profile count specified, will reflect the status of
+the user profile prior to any change.
+:P.
+For each user profile that is changed a completion message is sent to
+the job running this command.
+:P.
+:NT.
+Only user profiles to which the current user profile of the job running
+this command has *READ authority, are selected for processing.
+:ENT.
+:P.
+:NT.
+Depending on the number of user profiles on the system, this command
+will possibly take some time to complete and consume many system
+resources.  To avoid a negative impact on the system performance and
+interactive response times, please consider running the command in
+batch.
+:ENT.
+:EHELP.
+:HELP NAME='ADDGRPPRF/USRPRF'.User profile (USRPRF) - Help
+:XH3.User profile (USRPRF)
+:P.
+Specify the user profiles to be processed.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*FILE:EPK.
+:PD.
+The names of the user profiles to be processed are stored in the file
+specified by the
+:Link Perform='DSPHELP ADDGRPPRF/FILE CBX953H'.
+FILE
+:ELink.
+(File) parameter.
+:PT.:PK.*ALL:EPK.
+:PD.
+All user profiles are eligible to processing.
+:NT.
+If no further selection is performed using the :HP2.USRCLS:EHP2. and
+:HP2.GRPPRF:EHP2. parameters, all user profiles will be processed.
+:ENT.
+:PT.:PV.*generic-user-profile-name:EPV.
+:PD.
+Specify the generic name of the user profiles to be processed.  A
+generic name is a character string that contains one or more characters
+followed by an asterisk (*).  If a generic name is specified, all user
+profiles that have names with the same prefix as the generic name are
+processed.
+:PT.:PV.user-profile-name:EPV.
+:PD.
+Specify the name of the user profile to be processed.
+:EPARML.
+:EHELP.
+:HELP NAME='ADDGRPPRF/NEWGRPPRF'.Group profile to add (NEWGRPPRF) - Help
+:XH3.Group profile to add (NEWGRPPRF)
+:P.
+Specifies the name of the group profile to be added as a group profile
+or supplemental group profile for the user profiles selected.
+:P.
+User profiles created by *IBM or beginning with the letter Q are
+considered system user profiles and are therefore not allowed to be
+specified.
+:P.
+This is a required parameter.
+:P.
+:EHELP.
+:HELP NAME='ADDGRPPRF/GRPOWNER'.Group ownership (GRPOWNER) - Help
+:XH3.Group ownership (GRPOWNER)
+:P.
+Specifies if the user profiles having added a group profile or
+supplemental group profile, should also be changed to transfer
+ownership to it's primary group profile, when objects are created by
+that user profile.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*SAME:EPK.
+:PD.
+The user profile's ownership setting will not changed.
+:PT.:PK.*YES:EPK.
+:PD.
+The user profile's group profile will be the owner of objects created
+by the user profile.
+:PT.:PK.*NO:EPK.
+:PD.
+The user profile will remain the owner of objects created by the user
+profile.
+:EPARML.
+:EHELP.
+:HELP NAME='ADDGRPPRF/USRCLS'.User classes to select (USRCLS) - Help
+:XH3.User classes to select (USRCLS)
+:P.
+Specifies the user classes to include in the user profile selection.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+All user profiles are selected, regardless of their user class.
+:PT.:PK.*NONUSER:EPK.
+:PD.
+All user profiles having a user class different from *USER are
+selected.
+:PT.:PK.*USER:EPK.
+:PD.
+Only user profiles having a user class of *USER are selected.
+:PT.:PK.*PGMR:EPK.
+:PD.
+Only user profiles having a user class of *PGMR are selected.
+:PT.:PK.*SYSOPR:EPK.
+:PD.
+Only user profiles having a user class of *SYSOPR are selected.
+:PT.:PK.*SECADM:EPK.
+:PD.
+Only user profiles having a user class of *SECADM are selected.
+:PT.:PK.*SECOFR:EPK.
+:PD.
+Only user profiles having a user class of *SECOFR are selected.
+:EPARML.
+:EHELP.
+:HELP NAME='ADDGRPPRF/GRPPRF'.Group profile to select (GRPPRF) - Help
+:XH3.Group profile to select (GRPPRF)
+:P.
+Specify a group profile to determine which user profiles should be
+included in the list.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ANY:EPK.
+:PD.
+User profiles are selected regardless of their group profile.
+:PT.:PK.*NONE:EPK.
+:PD.
+User profiles are only selected if they currently have no group profile
+assigned.
+:PT.:PV.group-profile-to-select:EPV.
+:PD.
+Only user profiles having this group profile as their primary group
+profile are selected.
+:EPARML.
+:EHELP.
+:HELP NAME='ADDGRPPRF/REPLACE'.Replace primary group (REPLACE) - Help
+:XH3.Replace primary group (REPLACE)
+:P.
+Specifies whether to replace a current group profile if the user
+profile already has been assigned a primary group profile.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+The group profile will be added as a supplemental group if a primary
+group profile has already been assigned.
+:PT.:PK.*YES:EPK.
+:PD.
+The group profile will replace any current primary group profile.  The
+group profile being replaced will no longer be assigned to the user
+profile.
+:EPARML.
+:EHELP.
+:HELP NAME='ADDGRPPRF/OPTION'.User profile option (Option) - Help
+:XH3.User profile option (OPTION)
+:P.
+Specify whether to actually perform the user profile update or to
+simply verify the extent and impact of the change resulting from the
+specified set of parameters.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*UPDATE:EPK.
+:PD.
+The selected user profiles will be processed in accordance with the
+specified parameter setting.
+:PT.:PK.*VERIFY:EPK.
+:PD.
+The selected user profiles will not be processed, but the completion
+status report will be produced.
+:EPARML.
+:EHELP.
+:HELP NAME='ADDGRPPRF/FILE'.File (FILE) - Help
+:XH3.File (FILE)
+:P.
+Specify the name of the file containing the names of the user profiles
+to be processed.
+:P.
+The file must have a record length of 10 bytes, which should contain
+a user profile name only.
+:P.
+:XH3.Library
+:P.
+The library name containing the file.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+All libraries in the library list for the current thread are searched
+until the first match is found.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library to be searched.
+:EPARML.
+:EHELP.
+:EPNLGRP.

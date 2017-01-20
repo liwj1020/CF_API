@@ -1,49 +1,49 @@
-000100031113/*-------------------------------------------------------------------*/
-000200031113/*                                                                   */
-000300031113/*  Compile options:                                                 */
-000400031113/*                                                                   */
-000500070502/*    CrtCmd   Cmd( WRKJRN2 )                                        */
-000600070429/*             Pgm( CBX970 )                                         */
-000700070429/*             SrcMbr( CBX970X )                                     */
-000800070429/*             VldCkr( CBX970V )                                     */
-000900060825/*             AlwLmtUsr( *NO )                                      */
-001000070429/*             HlpPnlGrp( CBX970H )                                  */
-001100060825/*             HlpId( *CMD )                                         */
-001200031113/*                                                                   */
-001300031113/*-------------------------------------------------------------------*/
-001400070502          Cmd      Prompt( 'Work with Journal 2' )
-001500060825
-001600070429          Parm     JRN         Q0001                            +
-001700060825                   Choice( *NONE )                              +
-001800070429                   Prompt( 'Journal' )
-001900060826
-002000060826          Parm     ORDER       *Char       10                   +
-002100070429                   Dft( *JRN )                                  +
-002200060826                   Rstd( *YES )                                 +
-002300070429                   SpcVal(( *JRN )                              +
-002400070429                          ( *LIB ))                             +
-002500060826                   Expr( *YES )                                 +
-002600060826                   Prompt( 'List order' )
-002700040926
-002800060825          Parm     OUTPUT      *Char       3                    +
-002900060825                   Rstd( *YES )                                 +
-003000060825                   Dft( * )                                     +
-003100060825                   SpcVal(( * 'DSP' ) ( *PRINT 'PRT' ))         +
-003200060825                   Prompt( 'Output' )
-003300060825
-003400060825
-003500060826 Q0001:   Qual                 *Generic    10                   +
-003600060825                   Dft( *ALL )                                  +
-003700060825                   SpcVal(( *ALL ))                             +
-003800060825                   Expr( *YES )
-003900040926
-004000060825          Qual                 *Name       10                   +
-004100060825                   Dft( *LIBL )                                 +
-004200060825                   SpcVal(( *LIBL    )                          +
-004300060825                          ( *CURLIB  )                          +
-004400060825                          ( *USRLIBL )                          +
-004500060825                          ( *ALLUSR  )                          +
-004600060825                          ( *ALL     ))                         +
-004700060825                   Expr( *YES )                                 +
-004800060825                   Prompt( 'Library' )
-004900040925
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtCmd   Cmd( WRKJRN2 )                                        */
+/*             Pgm( CBX970 )                                         */
+/*             SrcMbr( CBX970X )                                     */
+/*             VldCkr( CBX970V )                                     */
+/*             AlwLmtUsr( *NO )                                      */
+/*             HlpPnlGrp( CBX970H )                                  */
+/*             HlpId( *CMD )                                         */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+          Cmd      Prompt( 'Work with Journal 2' )
+
+          Parm     JRN         Q0001                            +
+                   Choice( *NONE )                              +
+                   Prompt( 'Journal' )
+
+          Parm     ORDER       *Char       10                   +
+                   Dft( *JRN )                                  +
+                   Rstd( *YES )                                 +
+                   SpcVal(( *JRN )                              +
+                          ( *LIB ))                             +
+                   Expr( *YES )                                 +
+                   Prompt( 'List order' )
+
+          Parm     OUTPUT      *Char       3                    +
+                   Rstd( *YES )                                 +
+                   Dft( * )                                     +
+                   SpcVal(( * 'DSP' ) ( *PRINT 'PRT' ))         +
+                   Prompt( 'Output' )
+
+
+ Q0001:   Qual                 *Generic    10                   +
+                   Dft( *ALL )                                  +
+                   SpcVal(( *ALL ))                             +
+                   Expr( *YES )
+
+          Qual                 *Name       10                   +
+                   Dft( *LIBL )                                 +
+                   SpcVal(( *LIBL    )                          +
+                          ( *CURLIB  )                          +
+                          ( *USRLIBL )                          +
+                          ( *ALLUSR  )                          +
+                          ( *ALL     ))                         +
+                   Expr( *YES )                                 +
+                   Prompt( 'Library' )
+

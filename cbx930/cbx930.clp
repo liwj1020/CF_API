@@ -1,139 +1,139 @@
-000100041212/*-------------------------------------------------------------------*/
-000200041212/*                                                                   */
-000300050210/*  Program . . : CBX9301                                            */
-000400041212/*  Description : Print programs adopting special authorities - CPP  */
-000500041212/*  Author  . . : Carsten Flensburg                                  */
-000600041212/*                                                                   */
-000700041212/*                                                                   */
-000800041212/*  Compile options:                                                 */
-000900041212/*                                                                   */
-001000050210/*    CrtClPgm   Pgm( CBX9301 )                                      */
-001100041212/*               SrcFile( QCLSRC )                                   */
-001200041212/*               SrcMbr( *PGM )                                      */
-001300041212/*               Option( *NOSRCDBG )                                 */
-001400041212/*               Log( *NO )                                          */
-001500050225/*               AlwRtvSrc( *NO )                                    */
-001600041212/*                                                                   */
-001700050210/*    ChgPgm     Pgm( CBX9301 )                                      */
-001800041212/*               RmvObs( *ALL )                                      */
-001900041212/*                                                                   */
-002000041212/*                                                                   */
-002100041212/*-------------------------------------------------------------------*/
-002200041212     Pgm      ( &PgmLib           +
-002300041212                &SpcAutL          +
-002400050122                &SrtOrd           +
-002500050306                &SysObj           +
-002600000906                &JobD_q           +
-002700041212                &OutQ_q           +
-002800041212              )
-002900960301
-003000991109/*-- Parameters:  ---------------------------------------------------*/
-003100041212     Dcl        &PgmLib     *Char    10
-003200041212     Dcl        &SpcAutL    *Char    82
-003300050122     Dcl        &SrtOrd     *Char    10
-003400050306     Dcl        &SysObj     *Char    10
-003500000906     Dcl        &JobD_q     *Char    20
-003600041212     Dcl        &OutQ_q     *Char    20
-003700991109
-003800991109/*-- Global variables:  ---------------------------------------------*/
-003900000906     Dcl        &JobD       *Char    10
-004000000906     Dcl        &JobD_l     *Char    10
-004100041212     Dcl        &OutQ       *Char    10
-004200041212     Dcl        &OutQ_l     *Char    10
-004300041212
-004400050122     Dcl        &AutInd     *Char     1
-004500000906     Dcl        &JobTyp     *Char     1
-004600000906
-004700940809/*-- Global error monitoring:  --------------------------------------*/
-004800000906     MonMsg     CPF0000     *N       GoTo Error
-004900991109
-005000050122
-005100050122     RtvSpcAut  UsrPrf( *CURRENT )     +
-005200050122                SpcAut( *SECADM )      +
-005300050122                AutInd( &AutInd )
-005400041212
-005500050122     If       ( &AutInd *NE 'Y' ) Do
-005600050122
-005700050122     SndPgmMsg  MsgId( CPF222E )       +
-005800050122                MsgF( QCPFMSG )        +
-005900050122                MsgDta( '*SECADM' )    +
-006000050122                MsgType( *ESCAPE )
-006100050122     EndDo
-006200050122
-006300041212     ChgVar     &JobD        %SSt( &JobD_q   1  10 )
-006400041212     ChgVar     &JobD_l      %SSt( &JobD_q  11  10 )
-006500041212
-006600041212     ChgVar     &OutQ        %SSt( &OutQ_q   1  10 )
-006700041212     ChgVar     &OutQ_l      %SSt( &OutQ_q  11  10 )
-006800041212
-006900041212     If       ( &JobD_l = ' ' )    Do
-007000041212     ChgVar     &JobD_l   '*N'
-007100041212     EndDo
-007200041212
-007300041212     Else Do
-007400041212     ChkObj     &JobD_l/&JobD      *JOBD
-007500041212     EndDo
-007600041212
-007700041212     If       ( &OutQ_l = ' ' )    Do
-007800041212     ChgVar     &OutQ_l   '*N'
-007900041212     EndDo
-008000041212
-008100041212     Else Do
-008200041212     ChkObj     &OutQ_l/&OutQ      *OUTQ
-008300041212     EndDo
-008400041212
-008500041212     If       ( %Sst( &PgmLib  1  1 ) *NE '*' )  Do
-008600041212     ChkObj     &PgmLib            *LIB
-008700041212     EndDo
-008800041212
-008900000906     RtvJobA    Type( &JobTyp )
-009000041212
-009100050122     If       ( &JobTyp   =  '1' )     Do
-009200000906
-009300050306     SbmJob     Cmd( Call Pgm( CBX9301 )                             +
-009400050306                          Parm( &PgmLib                              +
-009500050306                                &SpcAutL                             +
-009600050306                                &SrtOrd                              +
-009700050306                                &SysObj                              +
-009800050306                                &JobD_q                              +
-009900050306                                &OutQ_q ))                           +
-010000050306                Job( PRTPGMADPS )                                    +
-010100050306                JobD( &JobD_l/&JobD )                                +
-010200041212                OutQ( &OutQ_l/&OutQ )
-010300000906
-010400041212     Call       QMHMOVPM    ( '    '                                 +
-010500041212                             '*COMP'                                 +
-010600041212                             x'00000001'                             +
-010700041212                             '*PGMBDY'                               +
-010800041212                             x'00000001'                             +
-010900041212                             x'0000000800000000'                     +
-011000041212                           )
-011100000906
-011200000906     EndDo
-011300041212
-011400050122     Else If  ( &JobTyp   =  '0' )     Do
-011500041212
-011600050210     Call       Pgm( CBX9302 )              +
-011700050306                Parm( &PgmLib &SpcAutL &SrtOrd &SysObj )
-011800000906
-011900041212     EndDo
-012000041212
-012100991109 Return:
-012200991109     Return
-012300960228
-012400041212/*-- Resend system error messages:  ---------------------------------*/
-012500991109 Error:
-012600041212     Call       QMHMOVPM    ( '    '                                 +
-012700041212                              '*DIAG'                                +
-012800041212                              x'00000001'                            +
-012900041212                              '*PGMBDY'                              +
-013000041212                              x'00000001'                            +
-013100041212                              x'0000000800000000'                    +
-013200041212                            )
-013300041212
-013400041212     Call       QMHRSNEM    ( '    '                                 +
-013500041212                              x'0000000800000000'                    +
-013600041212                            )
-013700041212
-013800960229 EndPgm:
-013900960301     EndPgm
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Program . . : CBX9301                                            */
+/*  Description : Print programs adopting special authorities - CPP  */
+/*  Author  . . : Carsten Flensburg                                  */
+/*                                                                   */
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtClPgm   Pgm( CBX9301 )                                      */
+/*               SrcFile( QCLSRC )                                   */
+/*               SrcMbr( *PGM )                                      */
+/*               Option( *NOSRCDBG )                                 */
+/*               Log( *NO )                                          */
+/*               AlwRtvSrc( *NO )                                    */
+/*                                                                   */
+/*    ChgPgm     Pgm( CBX9301 )                                      */
+/*               RmvObs( *ALL )                                      */
+/*                                                                   */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+     Pgm      ( &PgmLib           +
+                &SpcAutL          +
+                &SrtOrd           +
+                &SysObj           +
+                &JobD_q           +
+                &OutQ_q           +
+              )
+
+/*-- Parameters:  ---------------------------------------------------*/
+     Dcl        &PgmLib     *Char    10
+     Dcl        &SpcAutL    *Char    82
+     Dcl        &SrtOrd     *Char    10
+     Dcl        &SysObj     *Char    10
+     Dcl        &JobD_q     *Char    20
+     Dcl        &OutQ_q     *Char    20
+
+/*-- Global variables:  ---------------------------------------------*/
+     Dcl        &JobD       *Char    10
+     Dcl        &JobD_l     *Char    10
+     Dcl        &OutQ       *Char    10
+     Dcl        &OutQ_l     *Char    10
+
+     Dcl        &AutInd     *Char     1
+     Dcl        &JobTyp     *Char     1
+
+/*-- Global error monitoring:  --------------------------------------*/
+     MonMsg     CPF0000     *N       GoTo Error
+
+
+     RtvSpcAut  UsrPrf( *CURRENT )     +
+                SpcAut( *SECADM )      +
+                AutInd( &AutInd )
+
+     If       ( &AutInd *NE 'Y' ) Do
+
+     SndPgmMsg  MsgId( CPF222E )       +
+                MsgF( QCPFMSG )        +
+                MsgDta( '*SECADM' )    +
+                MsgType( *ESCAPE )
+     EndDo
+
+     ChgVar     &JobD        %SSt( &JobD_q   1  10 )
+     ChgVar     &JobD_l      %SSt( &JobD_q  11  10 )
+
+     ChgVar     &OutQ        %SSt( &OutQ_q   1  10 )
+     ChgVar     &OutQ_l      %SSt( &OutQ_q  11  10 )
+
+     If       ( &JobD_l = ' ' )    Do
+     ChgVar     &JobD_l   '*N'
+     EndDo
+
+     Else Do
+     ChkObj     &JobD_l/&JobD      *JOBD
+     EndDo
+
+     If       ( &OutQ_l = ' ' )    Do
+     ChgVar     &OutQ_l   '*N'
+     EndDo
+
+     Else Do
+     ChkObj     &OutQ_l/&OutQ      *OUTQ
+     EndDo
+
+     If       ( %Sst( &PgmLib  1  1 ) *NE '*' )  Do
+     ChkObj     &PgmLib            *LIB
+     EndDo
+
+     RtvJobA    Type( &JobTyp )
+
+     If       ( &JobTyp   =  '1' )     Do
+
+     SbmJob     Cmd( Call Pgm( CBX9301 )                             +
+                          Parm( &PgmLib                              +
+                                &SpcAutL                             +
+                                &SrtOrd                              +
+                                &SysObj                              +
+                                &JobD_q                              +
+                                &OutQ_q ))                           +
+                Job( PRTPGMADPS )                                    +
+                JobD( &JobD_l/&JobD )                                +
+                OutQ( &OutQ_l/&OutQ )
+
+     Call       QMHMOVPM    ( '    '                                 +
+                             '*COMP'                                 +
+                             x'00000001'                             +
+                             '*PGMBDY'                               +
+                             x'00000001'                             +
+                             x'0000000800000000'                     +
+                           )
+
+     EndDo
+
+     Else If  ( &JobTyp   =  '0' )     Do
+
+     Call       Pgm( CBX9302 )              +
+                Parm( &PgmLib &SpcAutL &SrtOrd &SysObj )
+
+     EndDo
+
+ Return:
+     Return
+
+/*-- Resend system error messages:  ---------------------------------*/
+ Error:
+     Call       QMHMOVPM    ( '    '                                 +
+                              '*DIAG'                                +
+                              x'00000001'                            +
+                              '*PGMBDY'                              +
+                              x'00000001'                            +
+                              x'0000000800000000'                    +
+                            )
+
+     Call       QMHRSNEM    ( '    '                                 +
+                              x'0000000800000000'                    +
+                            )
+
+ EndPgm:
+     EndPgm

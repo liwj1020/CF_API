@@ -1,34 +1,34 @@
-000100040408/*-------------------------------------------------------------------*/
-000200040408/*                                                                   */
-000300040408/*  Compile options:                                                 */
-000400040408/*                                                                   */
-000500041201/*    CrtCmd Cmd( CHKSPCAUT )                                        */
-000600041202/*           Pgm( CBX9282 )                                          */
-000700041202/*           SrcMbr( CBX9282X )                                      */
-000800041202/*           HlpPnlGrp( CBX9282H )                                   */
-000900040408/*           HlpId( *CMD )                                           */
-001000040408/*                                                                   */
-001100040408/*-------------------------------------------------------------------*/
-001200041201          Cmd      Prompt( 'Check User Special Authorities' )
-001300040311
-001400041201          Parm     USRPRF        *Name                          +
-001500041201                   Min( 1 )                                     +
-001600041201                   SpcVal(( *CURRENT ))                         +
-001700041201                   Expr( *YES )                                 +
-001800041201                   Prompt( 'User profile' )
-001900041201
-002000041201          Parm     SPCAUT        *Char    10                    +
-002100041201                   Min( 1 )                                     +
-002200041201                   Max( 8 )                                     +
-002300041201                   Rstd( *YES )                                 +
-002400041201                   SpcVal(( *ALLOBJ )                           +
-002500041201                          ( *AUDIT )                            +
-002600041201                          ( *IOSYSCFG )                         +
-002700041201                          ( *JOBCTL )                           +
-002800041201                          ( *SAVSYS )                           +
-002900041201                          ( *SECADM )                           +
-003000041201                          ( *SERVICE )                          +
-003100041201                          ( *SPLCTL ))                          +
-003200041201                   Expr( *YES )                                 +
-003300041201                   Prompt( 'Special authority' )
-003400040723
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtCmd Cmd( CHKSPCAUT )                                        */
+/*           Pgm( CBX9282 )                                          */
+/*           SrcMbr( CBX9282X )                                      */
+/*           HlpPnlGrp( CBX9282H )                                   */
+/*           HlpId( *CMD )                                           */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+          Cmd      Prompt( 'Check User Special Authorities' )
+
+          Parm     USRPRF        *Name                          +
+                   Min( 1 )                                     +
+                   SpcVal(( *CURRENT ))                         +
+                   Expr( *YES )                                 +
+                   Prompt( 'User profile' )
+
+          Parm     SPCAUT        *Char    10                    +
+                   Min( 1 )                                     +
+                   Max( 8 )                                     +
+                   Rstd( *YES )                                 +
+                   SpcVal(( *ALLOBJ )                           +
+                          ( *AUDIT )                            +
+                          ( *IOSYSCFG )                         +
+                          ( *JOBCTL )                           +
+                          ( *SAVSYS )                           +
+                          ( *SECADM )                           +
+                          ( *SERVICE )                          +
+                          ( *SPLCTL ))                          +
+                   Expr( *YES )                                 +
+                   Prompt( 'Special authority' )
+

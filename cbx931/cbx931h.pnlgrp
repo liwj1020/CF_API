@@ -1,333 +1,333 @@
-000100050305.*-----------------------------------------------------------------------**
-000200050305.*
-000300050305.*  Compile options:
-000400050305.*
-000500050305.*    CrtPnlGrp PnlGrp( CBX931H )
-000600050305.*              SrcFile( QPNLSRC )
-000700050305.*              SrcMbr( *PNLGRP )
-000800050305.*
-000900050305.*-----------------------------------------------------------------------**
-001000050303:PNLGRP.
-001100050303:HELP NAME='CHGOBJAUT'.Change Object Authority - Help
-001200050303:P.
-001300050304The Change Object Authority (GHGOBJAUT) command changes the specified
-001400050304user's authority to the selected objects.  Only objects that the user
-001500050304has the specified current authority to, are changed.
-001600050303:P.
-001700050303:EHELP.
-001800050303:HELP NAME='CHGOBJAUT/OBJ'.Object (OBJ) - Help
-001900050303:XH3.Object (OBJ)
-002000050303:P.
-002100050304Specifies the name of the objects (library name/object name) for which
-002200050304the specified user's authority is replaced.
-002300050303:P.
-002400050303This is a required parameter.
-002500050303:P.
-002600050303The possible values are:
-002700050303:P.
-002800050303:PARML.
-002900050303:PT.:PK.*ALL:EPK.
-003000050303:PD.
-003100050304All objects of the specified type (OBJTYPE) are searched.
-003200050303:PT.:PV.*generic--object-name:EPV.
-003300050303:PD.
-003400050304Specify the generic name of the object for which specific
-003500050304authority is given to one or more users.  A generic name is a
-003600050304character string that contains one or more characters followed
-003700050304by an asterisk (*).
-003800050303:PT.:PV.object-name:EPV.
-003900050303:PD.
-004000050304Specify the name of the object for which the specified user's
-004100050304authority is replaced.
-004200050303:EPARML.
-004300050303:XH3.Library
-004400050303:P.
-004500050304Specifies the library to search for the objects specified.
-004600050303:P.
-004700050303The possible values are:
-004800050303:P.
-004900050303:PARML.
-005000050303:PT.:PK DEF.*LIBL:EPK.
-005100050303:PD.
-005200050304All libraries in the thread's library list are searched.  All objects
-005300050304in these libraries with the specified object name are considered for
-005400050304selection.
-005500050303:PT.:PK.*CURLIB:EPK.
-005600050303:PD.
-005700050304The current library for the thread is searched.  If no library is
-005800050304specified as the current library for the thread, the QGPL library is
-005900050304used.
-006000050303:PT.:PK.*ALL:EPK.
-006100050303:PD.
-006200050304All libraries on the system are searched.
-006300050303:PT.:PK.*ALLUSR:EPK.
-006400050303:PD.
-006500050304All user libraries are searched.  All libraries with names that do not
-006600050304begin with the letter Q are considered user libraries, except for some
-006700050304IBM product libraries.  Some of the libraries beginning with the letter
-006800050304Q typically contain user data and they are therefore also searched:
-006900050304:P.
-007000050304:LINES.
-007100050304    QDSNX       QRCL        QUSRBRM     QUSRPOSGS
-007200050304    QGPL        QRCLxxxxx   QUSRDIRCL   QUSRPOSSA
-007300050304    QGPL38      QSYS2       QUSRDIRDB   QUSRPYMSVR
-007400050304    QMPGDATA    QSYS2xxxxx  QUSRIJS     QUSRRDARS
-007500050304    QMQMDATA    QS36F       QUSRINFSKR  QUSRSYS
-007600050304    QMQMPROC    QUSER38     QUSRNOTES   QUSRVI
-007700050304    QPFRDATA    QUSRADSM    QUSROND     QUSRVxRxMx
-007800050304:ELINES.
-007900050303:PT.:PK.*USRLIBL:EPK.
-008000050303:PD.
-008100050304All the libraries listed in the user portion of the thread's library
-008200050304list are searched.
-008300050303:PT.:PV.library-name:EPV.
-008400050303:PD.
-008500050304Specify the name of the library to be searched.
-008600050303:EPARML.
-008700050303:EHELP.
-008800050303:HELP NAME='CHGOBJAUT/OBJTYPE'.Object type (OBJTYPE) - Help
-008900050303:XH3.Object type (OBJTYPE)
-009000050303:P.
-009100050303Specifies the object type of the object for which specific authorities
-009200050303are granted to the specified users or to an authorization list.  Any of
-009300050303the object types can be specified except *AUTL.  For a complete list of
-009400050303object types, position the cursor on the field for the :HP2.Object type
-009500050303:EHP2.prompt (OBJTYPE parameter), and press the F4 key.
-009600050303:P.
-009700050303This is a required parameter.
-009800050303:P.
-009900050303The possible values are:
-010000050303:P.
-010100050303:PARML.
-010200050303:PT.:PK.*ALL:EPK.
-010300050303:PD.
-010400050303Specified authority given to the specified user for all object types
-010500050303except *AUTL.
-010600050303:PT.:PV.Object-type:EPV.
-010700050303:PD.
-010800050303Specify the object type for objects to be selected, such as command
-010900050303(*CMD), file (*FILE), or program (*PGM).  For a complete list of
-011000050303object types, position the cursor on the field for the :HP2.Object type
-011100050303:EHP2. prompt (OBJTYPE parameter), and press F4.
-011200050303:EPARML.
-011300050303:EHELP.
-011400050303:HELP NAME='CHGOBJAUT/USER'.User (USER) - Help
-011500050303:XH3.User (USER)
-011600050303:P.
-011700050303Specifies the names of the user to who authority for the specified
-011800050303objects is being given.
-011900050303:P.
-012000050303This is a required parameter.
-012100050303:P.
-012200050303The possible values are:
-012300050303:P.
-012400050303:PARML.
-012500050303:PT.:PK.*PUBLIC:EPK.
-012600050303:PD.
-012700050303Users are authorized to use the object as specified in the AUT
-012800050303parameter when they do not have authority specifically given to them
-012900050303for the object, are not on the authorization list and none of their
-013000050303groups have any authority or are on the authorization list.  Users
-013100050303who do not have any authority, and whose groups do not have any
-013200050303authority, are authorized to use the object as specified in the AUT
-013300050303parameter.
-013400050303:PT.:PV.user-ID:EPV.
-013500050303:PD.
-013600050304Specify the name of a user profile.
-013700050303:EPARML.
-013800050303:EHELP.
-013900050303:HELP NAME='CHGOBJAUT/CURAUT'.Current authority (CURAUT) - Help
-014000050303:XH3.Current authority (CURAUT)
-014100050303:P.
-014200050304The authority that the specified user must have to an object for the
-014300050304user's authority to be changed to the authority specified by the
-014400050304:HP2.New authority:EHP2. prompt (NEWAUT parameter).
-014500050303:P.
-014600050303The possible values are:
-014700050304:P.
-014800050304:PARML.
-014900050304:PT.:PK DEF.*CHANGE:EPK.
-015000050304:PD.
-015100050304Change authority allows the user to perform all operations on the
-015200050304object except those limited to the owner or controlled by object
-015300050304existence authority and object management authority.
-015400050304:PT.:PK.*ALL:EPK.
-015500050304:PD.
-015600050304The user can perform all operations except those limited to the owner
-015700050304or controlled by authorization list management authority.  The user can
-015800050304control the object's existence, specify the security for the object,
-015900050304change the object, and perform basic functions on the object.  The user
-016000050304user also can change ownership of the object.
-016100050304:PT.:PK.*USE:EPK.
-016200050304:PD.
-016300050304The user can perform basic operations on the edit description, such as
-016400050304running a program or reading a file.  The user cannot change the edit
-016500050304description.  *USE authority provides object operational authority,
-016600050304read authority, and execute authority.
-016700050304:PT.:PK.*EXCLUDE:EPK.
-016800050304:PD.
-016900050304The user cannot access the object.
-017000050304:P.
-017100050304:EPARML.
-017200050304:P.
-017300050304A maximum of ten of the following values can be specified:
-017400050304:P.
-017500050304:PARML.
-017600050304:PT.:PK.*OBJALTER:EPK.
-017700050304:PD.
-017800050304Object alter authority provides the authority needed to alter the
-017900050304attributes of an object.  If the user has this authority on a database
-018000050304file, the user can add and remove triggers, add and remove referential
-018100050304and unique constraints, and change the attributes of the database file.
-018200050304If the user has this authority on an SQL package, the user can change
-018300050304the attributes of the SQL package.  This authority is currently only
-018400050304used for database files and SQL packages.
-018500050304:PT.:PK.*OBJEXIST:EPK.
-018600050304:PD.
-018700050304Object existence authority provides the authority to control the
-018800050304object's existence and ownership.  If a user has special save system
-018900050304authority (*SAVSYS), object existence authority is not needed to
-019000050304perform save restore operations on the object.
-019100050304:PT.:PK.*OBJMGT:EPK.
-019200050304:PD.
-019300050304Object management authority provides the authority to specify the
-019400050304security for the object, move or rename the object, and add members to
-019500050304database files.
-019600050304:PT.:PK.*OBJOPR:EPK.
-019700050304:PD.
-019800050304Object operational authority provides authority to look at the
-019900050304description of an object and use the object as determined by the data
-020000050304authority that the user has to the object.
-020100050304:PT.:PK.*OBJREF:EPK.
-020200050304:PD.
-020300050304Object reference authority provides the authority needed to reference
-020400050304an object from another object such that operations on that object may
-020500050304be restricted by the other object.  If the user has this authority on
-020600050304a physical file, the user can add referential constraints in which the
-020700050304physical file is the parent.  This authority is currently only used
-020800050304for database files.
-020900050304:EPARML.
-021000050304:P.
-021100050304The possible data authorities are:
-021200050304:P.
-021300050304:PARML.
-021400050304:PT.:PK.*ADD:EPK.
-021500050304:PD.
-021600050304Authority to add entries to an object.
-021700050304:PT.:PK.*DLT:EPK.
-021800050304:PD.
-021900050304Delete authority provides the authority to remove entries from an
-022000050304object.
-022100050304:PT.:PK.*READ:EPK.
-022200050304:PD.
-022300050304Read authority provides the authority needed to get the contents of an
-022400050304entry in an object.
-022500050304:PT.:PK.*UPD:EPK.
-022600050304:PD.
-022700050304Update authority provides the authority to change the entries in an
-022800050304an object.
-022900050304:PT.:PK.*EXECUTE:EPK.
-023000050304:PD.
-023100050304Execute authority provides the authority needed to run a program or
-023200050304locate an object in a library.
-023300050304:EPARML.
-023400050303:EHELP.
-023500050303:HELP NAME='CHGOBJAUT/NEWAUT'.New authority (NEWAUT) - Help
-023600050303:XH3.New authority (NEWAUT)
-023700050303:P.
-023800050304Specifies the authority given to the users specified on the :HP2.User
-023900050304:EHP2. prompt (USER parameter).  A maximum of 10 authorities can be
-024000050304specified.
-024100050304:P.
-024200050304You can enter multiple values for this parameter.
-024300050303:P.
-024400050303The possible values are:
-024500050303:P.
-024600050303:PARML.
-024700050303:PT.:PK DEF.*CHANGE:EPK.
-024800050303:PD.
-024900050304Change authority allows the user to perform all operations on the
-025000050304object except those limited to the owner or controlled by object
-025100050304existence authority and object management authority.
-025200050303:PT.:PK.*ALL:EPK.
-025300050303:PD.
-025400050304The user can perform all operations except those limited to the owner
-025500050304or controlled by authorization list management authority.  The user can
-025600050304control the object's existence, specify the security for the object,
-025700050304change the object, and perform basic functions on the object.  The user
-025800050304user also can change ownership of the object.
-025900050303:PT.:PK.*USE:EPK.
-026000050303:PD.
-026100050304The user can perform basic operations on the edit description, such as
-026200050304running a program or reading a file.  The user cannot change the edit
-026300050304description.  *USE authority provides object operational authority,
-026400050304read authority, and execute authority.
-026500050303:PT.:PK.*EXCLUDE:EPK.
-026600050303:PD.
-026700050304The user cannot access the object.
-026800050304:P.
-026900050304:EPARML.
-027000050304:P.
-027100050304A maximum of ten of the following values can be specified:
-027200050304:P.
-027300050304:PARML.
-027400050303:PT.:PK.*OBJALTER:EPK.
-027500050303:PD.
-027600050304Object alter authority provides the authority needed to alter the
-027700050304attributes of an object.  If the user has this authority on a database
-027800050304file, the user can add and remove triggers, add and remove referential
-027900050304and unique constraints, and change the attributes of the database file.
-028000050304If the user has this authority on an SQL package, the user can change
-028100050304the attributes of the SQL package.  This authority is currently only
-028200050304used for database files and SQL packages.
-028300050303:PT.:PK.*OBJEXIST:EPK.
-028400050303:PD.
-028500050304Object existence authority provides the authority to control the
-028600050304object's existence and ownership.  If a user has special save system
-028700050304authority (*SAVSYS), object existence authority is not needed to
-028800050304perform save restore operations on the object.
-028900050303:PT.:PK.*OBJMGT:EPK.
-029000050303:PD.
-029100050304Object management authority provides the authority to specify the
-029200050304security for the object, move or rename the object, and add members to
-029300050304database files.
-029400050303:PT.:PK.*OBJOPR:EPK.
-029500050303:PD.
-029600050304Object operational authority provides authority to look at the
-029700050304description of an object and use the object as determined by the data
-029800050304authority that the user has to the object.
-029900050303:PT.:PK.*OBJREF:EPK.
-030000050303:PD.
-030100050304Object reference authority provides the authority needed to reference
-030200050304an object from another object such that operations on that object may
-030300050304be restricted by the other object.  If the user has this authority on
-030400050304a physical file, the user can add referential constraints in which the
-030500050304physical file is the parent.  This authority is currently only used
-030600050304for database files.
-030700050304:EPARML.
-030800050304:P.
-030900050304The possible data authorities are:
-031000050304:P.
-031100050304:PARML.
-031200050303:PT.:PK.*ADD:EPK.
-031300050303:PD.
-031400050304Authority to add entries to an object.
-031500050303:PT.:PK.*DLT:EPK.
-031600050303:PD.
-031700050304Delete authority provides the authority to remove entries from an
-031800050304object.
-031900050303:PT.:PK.*READ:EPK.
-032000050303:PD.
-032100050304Read authority provides the authority needed to get the contents of an
-032200050304entry in an object.
-032300050303:PT.:PK.*UPD:EPK.
-032400050303:PD.
-032500050304Update authority provides the authority to change the entries in an
-032600050304an object.
-032700050303:PT.:PK.*EXECUTE:EPK.
-032800050303:PD.
-032900050304Execute authority provides the authority needed to run a program or
-033000050304locate an object in a library.
-033100050303:EPARML.
-033200050303:EHELP.
-033300050303:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX931H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='CHGOBJAUT'.Change Object Authority - Help
+:P.
+The Change Object Authority (GHGOBJAUT) command changes the specified
+user's authority to the selected objects.  Only objects that the user
+has the specified current authority to, are changed.
+:P.
+:EHELP.
+:HELP NAME='CHGOBJAUT/OBJ'.Object (OBJ) - Help
+:XH3.Object (OBJ)
+:P.
+Specifies the name of the objects (library name/object name) for which
+the specified user's authority is replaced.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*ALL:EPK.
+:PD.
+All objects of the specified type (OBJTYPE) are searched.
+:PT.:PV.*generic--object-name:EPV.
+:PD.
+Specify the generic name of the object for which specific
+authority is given to one or more users.  A generic name is a
+character string that contains one or more characters followed
+by an asterisk (*).
+:PT.:PV.object-name:EPV.
+:PD.
+Specify the name of the object for which the specified user's
+authority is replaced.
+:EPARML.
+:XH3.Library
+:P.
+Specifies the library to search for the objects specified.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+All libraries in the thread's library list are searched.  All objects
+in these libraries with the specified object name are considered for
+selection.
+:PT.:PK.*CURLIB:EPK.
+:PD.
+The current library for the thread is searched.  If no library is
+specified as the current library for the thread, the QGPL library is
+used.
+:PT.:PK.*ALL:EPK.
+:PD.
+All libraries on the system are searched.
+:PT.:PK.*ALLUSR:EPK.
+:PD.
+All user libraries are searched.  All libraries with names that do not
+begin with the letter Q are considered user libraries, except for some
+IBM product libraries.  Some of the libraries beginning with the letter
+Q typically contain user data and they are therefore also searched:
+:P.
+:LINES.
+    QDSNX       QRCL        QUSRBRM     QUSRPOSGS
+    QGPL        QRCLxxxxx   QUSRDIRCL   QUSRPOSSA
+    QGPL38      QSYS2       QUSRDIRDB   QUSRPYMSVR
+    QMPGDATA    QSYS2xxxxx  QUSRIJS     QUSRRDARS
+    QMQMDATA    QS36F       QUSRINFSKR  QUSRSYS
+    QMQMPROC    QUSER38     QUSRNOTES   QUSRVI
+    QPFRDATA    QUSRADSM    QUSROND     QUSRVxRxMx
+:ELINES.
+:PT.:PK.*USRLIBL:EPK.
+:PD.
+All the libraries listed in the user portion of the thread's library
+list are searched.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library to be searched.
+:EPARML.
+:EHELP.
+:HELP NAME='CHGOBJAUT/OBJTYPE'.Object type (OBJTYPE) - Help
+:XH3.Object type (OBJTYPE)
+:P.
+Specifies the object type of the object for which specific authorities
+are granted to the specified users or to an authorization list.  Any of
+the object types can be specified except *AUTL.  For a complete list of
+object types, position the cursor on the field for the :HP2.Object type
+:EHP2.prompt (OBJTYPE parameter), and press the F4 key.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*ALL:EPK.
+:PD.
+Specified authority given to the specified user for all object types
+except *AUTL.
+:PT.:PV.Object-type:EPV.
+:PD.
+Specify the object type for objects to be selected, such as command
+(*CMD), file (*FILE), or program (*PGM).  For a complete list of
+object types, position the cursor on the field for the :HP2.Object type
+:EHP2. prompt (OBJTYPE parameter), and press F4.
+:EPARML.
+:EHELP.
+:HELP NAME='CHGOBJAUT/USER'.User (USER) - Help
+:XH3.User (USER)
+:P.
+Specifies the names of the user to who authority for the specified
+objects is being given.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*PUBLIC:EPK.
+:PD.
+Users are authorized to use the object as specified in the AUT
+parameter when they do not have authority specifically given to them
+for the object, are not on the authorization list and none of their
+groups have any authority or are on the authorization list.  Users
+who do not have any authority, and whose groups do not have any
+authority, are authorized to use the object as specified in the AUT
+parameter.
+:PT.:PV.user-ID:EPV.
+:PD.
+Specify the name of a user profile.
+:EPARML.
+:EHELP.
+:HELP NAME='CHGOBJAUT/CURAUT'.Current authority (CURAUT) - Help
+:XH3.Current authority (CURAUT)
+:P.
+The authority that the specified user must have to an object for the
+user's authority to be changed to the authority specified by the
+:HP2.New authority:EHP2. prompt (NEWAUT parameter).
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*CHANGE:EPK.
+:PD.
+Change authority allows the user to perform all operations on the
+object except those limited to the owner or controlled by object
+existence authority and object management authority.
+:PT.:PK.*ALL:EPK.
+:PD.
+The user can perform all operations except those limited to the owner
+or controlled by authorization list management authority.  The user can
+control the object's existence, specify the security for the object,
+change the object, and perform basic functions on the object.  The user
+user also can change ownership of the object.
+:PT.:PK.*USE:EPK.
+:PD.
+The user can perform basic operations on the edit description, such as
+running a program or reading a file.  The user cannot change the edit
+description.  *USE authority provides object operational authority,
+read authority, and execute authority.
+:PT.:PK.*EXCLUDE:EPK.
+:PD.
+The user cannot access the object.
+:P.
+:EPARML.
+:P.
+A maximum of ten of the following values can be specified:
+:P.
+:PARML.
+:PT.:PK.*OBJALTER:EPK.
+:PD.
+Object alter authority provides the authority needed to alter the
+attributes of an object.  If the user has this authority on a database
+file, the user can add and remove triggers, add and remove referential
+and unique constraints, and change the attributes of the database file.
+If the user has this authority on an SQL package, the user can change
+the attributes of the SQL package.  This authority is currently only
+used for database files and SQL packages.
+:PT.:PK.*OBJEXIST:EPK.
+:PD.
+Object existence authority provides the authority to control the
+object's existence and ownership.  If a user has special save system
+authority (*SAVSYS), object existence authority is not needed to
+perform save restore operations on the object.
+:PT.:PK.*OBJMGT:EPK.
+:PD.
+Object management authority provides the authority to specify the
+security for the object, move or rename the object, and add members to
+database files.
+:PT.:PK.*OBJOPR:EPK.
+:PD.
+Object operational authority provides authority to look at the
+description of an object and use the object as determined by the data
+authority that the user has to the object.
+:PT.:PK.*OBJREF:EPK.
+:PD.
+Object reference authority provides the authority needed to reference
+an object from another object such that operations on that object may
+be restricted by the other object.  If the user has this authority on
+a physical file, the user can add referential constraints in which the
+physical file is the parent.  This authority is currently only used
+for database files.
+:EPARML.
+:P.
+The possible data authorities are:
+:P.
+:PARML.
+:PT.:PK.*ADD:EPK.
+:PD.
+Authority to add entries to an object.
+:PT.:PK.*DLT:EPK.
+:PD.
+Delete authority provides the authority to remove entries from an
+object.
+:PT.:PK.*READ:EPK.
+:PD.
+Read authority provides the authority needed to get the contents of an
+entry in an object.
+:PT.:PK.*UPD:EPK.
+:PD.
+Update authority provides the authority to change the entries in an
+an object.
+:PT.:PK.*EXECUTE:EPK.
+:PD.
+Execute authority provides the authority needed to run a program or
+locate an object in a library.
+:EPARML.
+:EHELP.
+:HELP NAME='CHGOBJAUT/NEWAUT'.New authority (NEWAUT) - Help
+:XH3.New authority (NEWAUT)
+:P.
+Specifies the authority given to the users specified on the :HP2.User
+:EHP2. prompt (USER parameter).  A maximum of 10 authorities can be
+specified.
+:P.
+You can enter multiple values for this parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*CHANGE:EPK.
+:PD.
+Change authority allows the user to perform all operations on the
+object except those limited to the owner or controlled by object
+existence authority and object management authority.
+:PT.:PK.*ALL:EPK.
+:PD.
+The user can perform all operations except those limited to the owner
+or controlled by authorization list management authority.  The user can
+control the object's existence, specify the security for the object,
+change the object, and perform basic functions on the object.  The user
+user also can change ownership of the object.
+:PT.:PK.*USE:EPK.
+:PD.
+The user can perform basic operations on the edit description, such as
+running a program or reading a file.  The user cannot change the edit
+description.  *USE authority provides object operational authority,
+read authority, and execute authority.
+:PT.:PK.*EXCLUDE:EPK.
+:PD.
+The user cannot access the object.
+:P.
+:EPARML.
+:P.
+A maximum of ten of the following values can be specified:
+:P.
+:PARML.
+:PT.:PK.*OBJALTER:EPK.
+:PD.
+Object alter authority provides the authority needed to alter the
+attributes of an object.  If the user has this authority on a database
+file, the user can add and remove triggers, add and remove referential
+and unique constraints, and change the attributes of the database file.
+If the user has this authority on an SQL package, the user can change
+the attributes of the SQL package.  This authority is currently only
+used for database files and SQL packages.
+:PT.:PK.*OBJEXIST:EPK.
+:PD.
+Object existence authority provides the authority to control the
+object's existence and ownership.  If a user has special save system
+authority (*SAVSYS), object existence authority is not needed to
+perform save restore operations on the object.
+:PT.:PK.*OBJMGT:EPK.
+:PD.
+Object management authority provides the authority to specify the
+security for the object, move or rename the object, and add members to
+database files.
+:PT.:PK.*OBJOPR:EPK.
+:PD.
+Object operational authority provides authority to look at the
+description of an object and use the object as determined by the data
+authority that the user has to the object.
+:PT.:PK.*OBJREF:EPK.
+:PD.
+Object reference authority provides the authority needed to reference
+an object from another object such that operations on that object may
+be restricted by the other object.  If the user has this authority on
+a physical file, the user can add referential constraints in which the
+physical file is the parent.  This authority is currently only used
+for database files.
+:EPARML.
+:P.
+The possible data authorities are:
+:P.
+:PARML.
+:PT.:PK.*ADD:EPK.
+:PD.
+Authority to add entries to an object.
+:PT.:PK.*DLT:EPK.
+:PD.
+Delete authority provides the authority to remove entries from an
+object.
+:PT.:PK.*READ:EPK.
+:PD.
+Read authority provides the authority needed to get the contents of an
+entry in an object.
+:PT.:PK.*UPD:EPK.
+:PD.
+Update authority provides the authority to change the entries in an
+an object.
+:PT.:PK.*EXECUTE:EPK.
+:PD.
+Execute authority provides the authority needed to run a program or
+locate an object in a library.
+:EPARML.
+:EHELP.
+:EPNLGRP.

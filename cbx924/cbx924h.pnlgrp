@@ -1,37 +1,37 @@
-000100041009.*-----------------------------------------------------------------------**
-000200041009.*
-000300041009.*  Compile options:
-000400041009.*
-000500041009.*    CrtPnlGrp PnlGrp( CBX924H )
-000600041009.*              SrcFile( QPNLSRC )
-000700041009.*              SrcMbr( CBX924H )
-000800041009.*
-000900041009.*-----------------------------------------------------------------------**
-001000041009:PNLGRP.
-001100041009:HELP NAME='DSPSFWINV'.Display Software Inventory - Help
-001200041009:P.
-001300041009You can use the Display Software Inventory command to display your
-001400041009installed keyed licensed programs and features which are orderable.
-001500041009The command can help you decide which keyed licensed programs to order
-001600041009for an upgrade or a new release.  The command displays output to the
-001700041009screen or prints output with the job's spooled output.
-001800041009:P.
-001900041009:EHELP.
-002000041009:HELP NAME='DSPSFWINV/OUTPUT'.Output (OUTPUT) - Help
-002100041009:XH3.Output (OUTPUT)
-002200041009:P.
-002300041009Specifies where the output from the command is sent.
-002400041009:P.
-002500041009The possible values are:
-002600041009:P.
-002700041009:PARML.
-002800041009:PT.:PK DEF.*:EPK.
-002900041009:PD.
-003000041009The output is displayed (if requested by an interactive job) or printed
-003100041009with the job's spooled output (if requested by a batch job).
-003200041009:PT.:PK.*PRINT:EPK.
-003300041009:PD.
-003400041009The output is printed with the job's spooled output.
-003500041009:EPARML.
-003600041009:EHELP.
-003700041009:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX924H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBX924H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='DSPSFWINV'.Display Software Inventory - Help
+:P.
+You can use the Display Software Inventory command to display your
+installed keyed licensed programs and features which are orderable.
+The command can help you decide which keyed licensed programs to order
+for an upgrade or a new release.  The command displays output to the
+screen or prints output with the job's spooled output.
+:P.
+:EHELP.
+:HELP NAME='DSPSFWINV/OUTPUT'.Output (OUTPUT) - Help
+:XH3.Output (OUTPUT)
+:P.
+Specifies where the output from the command is sent.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*:EPK.
+:PD.
+The output is displayed (if requested by an interactive job) or printed
+with the job's spooled output (if requested by a batch job).
+:PT.:PK.*PRINT:EPK.
+:PD.
+The output is printed with the job's spooled output.
+:EPARML.
+:EHELP.
+:EPNLGRP.

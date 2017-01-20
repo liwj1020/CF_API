@@ -1,677 +1,677 @@
-000100070427.*-----------------------------------------------------------------------**
-000200070427.*
-000300070427.*  Compile options:
-000400070427.*
-000500070524.*    CrtPnlGrp PnlGrp( CBX971H )
-000600070427.*              SrcFile( QPNLSRC )
-000700070427.*              SrcMbr( *PNLGRP )
-000800070427.*
-000900070427.*-----------------------------------------------------------------------**
-001000070427:PNLGRP.
-001100070427
-001200070526:HELP NAME='WRKOUTQAUT'.Work with Output Queue Authorities - Help
-001300070524:P.
-001400070526The Work with Output Queue Authorities (WRKOUTQAUT) command displays
-001500070526the selected users' authority to the specified output queue as well as
-001600070526the authority to the spooled files on that output queue.
-001700070524:P.
-001800070526The panel list also specifies the source of authority and provides
-001900070526information about the user profile's special authorities and group
-002000070526profiles.
-002100070526:P.
-002200070526Please note that user profile special authority *SPLCTL implicitely
-002300070526grants authority to all output queue and spooled file operations.
-002400070526:P.
-002500070526All output queue operations require *EXECUTE authority to the output
-002600070526queue library.  This requirement also applies to user profiles having
-002700070526*SPLCTL special authority.
-002800070526:P.
-002900070526The authority checks performed by this command are based on the
-003000070526requirements specified in :CIT.Appendix D. Authority required for
-003100070526objects used by commands:ECIT. of the iSeries Secuity Reference
-003200070526manual.
-003300070526:NT.
-003400070526Depending on the number of user profiles on the system, this command
-003500070526will possibly take some time to complete and consume a substantial
-003600070526amount of system resources.
-003700070526:ENT.
-003800070526:P.
-003900070524:HP2.Restrictions::EHP2.
-004000070524:UL.
-004100070524:LI.
-004200070526This command requires *ALLOBJ and *SECADM special authority to run.
-004300070524:EUL.
-004400070524:EHELP.
-004500070524
-004600070524:HELP NAME='WRKOUTQAUT/OUTQ'.Output queue (OUTQ) - Help
-004700070524
-004800070524:XH3.Output queue (OUTQ)
-004900070524:P.
-005000070526Specifies the output queue to be shown on the Work with Output Queue
-005100070526Authorities display.
-005200070524:P.
-005300070524This is a required parameter.
-005400070524:P.
-005500070524:HP2.Qualifier 1: Output queue:EHP2.
-005600070524:PARML.
-005700070524:PT.:PV.name:EPV.
-005800070524:PD.
-005900070526Specify the name of the output queue whose authorities are shown.
-006000070526:EPARML.
-006100070524
-006200070524:P.
-006300070524:HP2.Qualifier 2: Library:EHP2.
-006400070524:PARML.
-006500070524:PT.:PK DEF.*LIBL:EPK.
-006600070524:PD.
-006700070526All libraries in the library list for the current thread are searched
-006800070526until the first match is found.
-006900070524:PT.:PK.*CURLIB:epk.
-007000070524:PD.
-007100070526The current library for the job is used to locate the output queue.
-007200070524:PT.:PV.name:EPV.
-007300070524:PD.
-007400070526Specify the library where the output queue is located.
-007500070524:EPARML.
-007600070524:EHELP.
-007700070524
-007800070524:HELP NAME='WRKOUTQAUT/USRPRF'.User profile (USRPRF) - Help
-007900070526
-008000070524:XH3.User profile (USRPRF)
-008100070524:P.
-008200070526Specifies the user profiles to be included in the displayed list.
-008300070524:PARML.
-008400070524:PT.:PK DEF.*ALL:EPK.
-008500070524:PD.
-008600070526All user profiles that you own or have authority to are included.
-008700070524:PT.:PV.generic-name:EPV.
-008800070524:PD.
-008900070526Specify the generic name of the user profiles to be shown.  A generic
-009000070526name is a character string that contains one or more characters
-009100070526followed by an asterisk (*).  If a generic name is specified, all user
-009200070526profiles that have names with the same prefix as the generic name are
-009300070526included in the list.
-009400070526:PT.:PV.name:EPV.
-009500070524:PD.
-009600070526Specify the name of the user profile to be included in the list.
-009700070524:EPARML.
-009800070524:EHELP.
-009900070524
-010000070524:HELP NAME='WRKOUTQAUT/OUTPUT'.Output (OUTPUT) - Help
-010100070526
-010200070524:xh3.Output (OUTPUT)
-010300070524:P.
-010400070526Specifies where the output from the command is sent.
-010500070524:PARML.
-010600070524:PT.:PK DEF.*:EPK.
-010700070524:PD.
-010800070526The output is displayed (if requested by an interactive job) or printed
-010900070526with the job's spooled output (if requested by a batch job).
-011000070524:PT.:PK.*PRINT:EPK.
-011100070524:PD.
-011200070526The output is printed with the job's spooled output.
-011300070524:EPARML.
-011400070524:EHELP.
-011500070524
-011600070524:HELP NAME='WRKOUTQAUT/COMMAND/EXAMPLES'.
-011700070524Examples for WRKOUTQAUT - Help
-011800070524:XH3.Examples for WRKOUTQAUT
-011900070524:P.
-012000070526:HP2.Example 1::EHP2.
-012100070524:XMP.
-012200070526WRKOUTQAUT OUTQ(QPRINT) USRPRF(*ALL)
-012300070524:EXMP.
-012400070524:P.
-012500070526This command will display all user profiles and their current
-012600070526authorization level to the output queue QPRINT found in the job's
-012700070526library list.
-012800070524.*
-012900070524:P.
-013000070526:HP2.Example 2::EHP2.
-013100070524:xmp.
-013200070526WRKOUTQAUT OUTQ(QGPL/QPRINT2) USRPRF(S*) OUTPUT(*PRINT)
-013300070524:EXMP.
-013400070524:P.
-013500070526This command will display all user profiles beginning with the letter
-013600070526'S' and these user profile's authorization level to the output queue
-013700070526QPRINT2 in library QGPL.  The generated list will be printed with the
-013800070526current job's spooled output.
-013900070524:EHELP.
-014000070524
-014100070524:HELP NAME='WRKOUTQAUT/ERROR/MESSAGES'.
-014200070524&MSG(CPX0005,QCPFMSG). WRKOUTQAUT - Help
-014300070524:XH3.&MSG(CPX0005,QCPFMSG). WRKOUTQAUT
-014400070524:P.
-014500070524:HP3.*ESCAPE &MSG(CPX0006,QCPFMSG).:EHP3.
-014600070524:DL COMPACT.
-014700070526:DT.CPF0002
-014800070526:DD.&MSG(CPF0002,QCPFMSG,*LIBL,nosub).
-014900070524:EDL.
-015000070524:EHELP.
-015100070427
-015200070427.* Panel help section:
-015300070524:HELP NAME=HLPFKEYS.
-015400070427Function Keys - Help
-015500070427:XH3.Function keys
-015600070427:EHELP.
-015700070427
-015800070524:HELP NAME=HLPENT.
-015900070427:PARML.
-016000070427:PT.Enter
-016100070427:PD.Submits information on the display for processing.
-016200070427:EPARML.
-016300070427:EHELP.
-016400070427
-016500070524:HELP NAME=HLPF1.
-016600070427:PARML.
-016700070427:PT.F1=Help
-016800070427:PD.Provides additional information about using the display.
-016900070427:EPARML.
-017000070427:EHELP.
-017100070427
-017200070524:HELP NAME=HLPF3.
-017300070427:PARML.
-017400070427:PT.F3=Exit
-017500070427:PD.Ends the current task and returns you to the display from which
-017600070427the task was started.
-017700070427:EPARML.
-017800070427:EHELP.
-017900070427
-018000070524:HELP NAME=HLPF4.
-018100070427:PARML.
-018200070427:PT.F4=Prompt
-018300070427:PD.Provides assistance in entering or selecting a command.
-018400070427:EPARML.
-018500070427:EHELP.
-018600070427
-018700070524:HELP NAME=HLPF5.
-018800070427:PARML.
-018900070427:PT.F5=Refresh
-019000070427:PD.Shows the display you are viewing with updated information.
-019100070427:EPARML.
-019200070427:EHELP.
-019300070427
-019400070524:HELP NAME=HLPF6.
-019500070427:PARML.
-019600070526:PT.F6=Change output queue
-019700070526:PD.Executes the Change Output Queue (CHGOUTQ) command.
-019800070427:EPARML.
-019900070427:EHELP.
-020000070427
-020100070524:HELP NAME=HLPF9.
-020200070427:PARML.
-020300070427:PT.F9=Retrieve
-020400070427:PD.Displays the last command you entered on the command line and any
-020500070427parameters you included.  Pressing this key once, shows the last
-020600070427command you ran.  Pressing this key twice, shows the command you ran
-020700070427before that and so on.
-020800070427:EPARML.
-020900070427:EHELP.
-021000070427
-021100070524:HELP NAME='HLPF11/VIEW1'.
-021200070427:PARML.
-021300070526:PT.F11=Spooled file authority
-021400070526:PD.Displays the user's authorization to the spooled files on the
-021500070526output queue as well as output queue authority and authority source.
-021600070427:EPARML.
-021700070427:EHELP.
-021800070427
-021900070524:HELP NAME='HLPF11/VIEW2'.
-022000070427:PARML.
-022100070526:PT.F11=User information
-022200070526:PD.Displays information about the user's user class, group profiles
-022300070526and special authority.
-022400070427:EPARML.
-022500070427:EHELP.
-022600070427
-022700070526:HELP NAME='HLPF11/VIEW3'.
-022800070526:PARML.
-022900070526:PT.F11=Output queue authority
-023000070526:PD.Displays the user's authorization to the output queue and the
-023100070526various operations that can be performed against an output queue.
-023200070526:EPARML.
-023300070526:EHELP.
-023400070526
-023500070524:HELP NAME=HLPF12.
-023600070427:PARML.
-023700070427:PT.F12=Cancel
-023800070427:PD.Cancels processing of any options or changes you have made to the
-023900070427current display and returns you to the previous menu or display.
-024000070427:EPARML.
-024100070427:EHELP.
-024200070427
-024300070526:HELP NAME=HLPF15.
-024400070526:PARML.
-024500070526:PT.F15=Work with output queue description
-024600070526:PD.Executes the Work with Output Queue Description (WRKOUTQD) command.
-024700070526:EPARML.
-024800070526:EHELP.
-024900070526
-025000070524:HELP NAME=HLPF17.
-025100070427:PARML.
-025200070427:PT.F17=Top
-025300070427:PD.Positions the display to the top of the list.
-025400070427:EPARML.
-025500070427:EHELP.
-025600070427
-025700070524:HELP NAME=HLPF18.
-025800070427:PARML.
-025900070427:PT.F18=Bottom
-026000070427:PD.Positions the display to the bottom of the list.
-026100070427:EPARML.
-026200070427:EHELP.
-026300070427
-026400140101:HELP NAME=HLPF19.
-026500070428:PARML.
-026600140101:PT.F19=Change object owner
-026700070526:PD.Executes the Change Object Owner (CHGOBJOWN) command.
-026800070428:EPARML.
-026900070428:EHELP.
-027000070428
-027100140101:HELP NAME=HLPF20.
-027200070526:PARML.
-027300140101:PT.F20=Edit object authority
-027400070526:PD.Executes the Edit Object Authority (EDTOBJAUT) command.
-027500070526:EPARML.
-027600070526:EHELP.
-027700070526
-027800140101:HELP NAME=HLPF21.
-027900070526:PARML.
-028000070526:PT.F21=Edit authorization list
-028100070526:PD.Executes the Edit Authorization List (EDTAUTL) command.
-028200070526:EPARML.
-028300070526:EHELP.
-028400070428
-028500140101:HELP NAME=HLPF22.
-028600140101:PARML.
-028700140101:PT.F22=Supplemental groups
-028800140101:PD.Lists all supplemental groups assigned to the user profile when
-028900140101the cursor is placed on the:HP2.Supplemental groups:EHP2. column.
-029000140101:EPARML.
-029100140101:EHELP.
-029200140101
-029300070524:HELP NAME=HLPF24.
-029400070427:PARML.
-029500070427:PT.F24=More keys
-029600070427:PD.Changes the keys shown at the bottom of the display.  When you
-029700070427press this key, additional function keys are displayed at the bottom
-029800070427of the display.
-029900070427:EPARML.
-030000070427:EHELP.
-030100070427
-030200070524:HELP NAME=HLPHLP.
-030300070427:PARML.
-030400070427:PT.Help
-030500070427:PD.Provides additional information about using the display.
-030600070427:EPARML.
-030700070427:EHELP.
-030800070427
-030900070524:HELP NAME=HLPPGD.
-031000070427:PARML.
-031100070427:PT.Page Down (Roll Up)
-031200070427:PD.Moves the information displayed forward to show additional
-031300070427information.
-031400070427:EPARML.
-031500070427:EHELP.
-031600070427
-031700070524:HELP NAME=HLPPGU.
-031800070427:PARML.
-031900070427:PT.Page Up (Roll Down)
-032000070427:PD.Moves the information displayed backward to show additional
-032100070427information.
-032200070427:EPARML.
-032300070427:EHELP.
-032400070427
-032500070524:HELP NAME=HLPPRT.
-032600070427:PARML.
-032700070427:PT.Print
-032800070427:PD.Prints information currently shown on the display.
-032900070427:EPARML.
-033000070427:EHELP.
-033100070427
-033200070526:HELP NAME='WRKOUTQAUT/'.Work with Output Queue Authorities - Help
-033300070427:P.
-033400070526The Work with Output Queue Authorities display, shows information about
-033500070526the selected user profiles' authorities to perform various operations
-033600070526against the output queue as well as spooled files on that output queue.
-033700070526:P.
-033800070526Information about the user profiles' user class, group profiles and
-033900070526special authority is included.
-034000070427:P.
-034100070428You can type an option next to one or more entries.  Then, when the
-034200070427Enter key is pressed, the function associated with the number you typed
-034300120512is performed for that user profile entry.
-034400070427:P.
-034500070427To run a command, type the command and press the Enter key.  For
-034600070427assistance in typing the command, type the command and press F4.  For
-034700070427assistance in selecting a command, press F4 without typing anything.
-034800070427:P.
-034900070427If you see More ... on the lower right side of your display, there is
-035000070427more information to view.  Press Page Down (Roll Up) to move toward the
-035100070427end of the information.  Press Page Up (Roll Down) to move toward the
-035200070427beginning of the information.
-035300070427:P.
-035400070427If you see Bottom instead of More ..., you are at the end of the list.
-035500070427:P.
-035600070427:EHELP.
-035700070427
-035800070526:HELP NAME='WRKOUTQAUT/OUTQUE'.
-035900070526Output queue - Help
-036000070526:XH3.Output queue
-036100070526:P.
-036200070526The name of the output queue for which each selected user's authority
-036300070526is displayed.
-036400070526:EHELP.
-036500070526
-036600070526:HELP NAME='WRKOUTQAUT/OUTLIB'.
-036700070526Library - Help
-036800070526:XH3.Library
-036900070526:P.
-037000070526The library containing the output queue.
-037100070526:EHELP.
-037200070526
-037300070526:HELP NAME='WRKOUTQAUT/WRKUSR'.
-037400070427User profile - Help
-037500070427:XH3.User profile
-037600070427:P.
-037700070427The name of the user profile(s) to work with.  Specify a user profile
-037800070427name, a generic user profile name or the special value *ALL.
-037900070427:EHELP.
-038000070427
-038100070526:HELP NAME='WRKOUTQAUT/QUEOWN'.
-038200070526Queue owner - Help
-038300070526:XH3.Queue owner
-038400070526:P.
-038500070526The owner of the output queue.
-038600070526:EHELP.
-038700070526
-038800070526:HELP NAME='WRKOUTQAUT/PUBAUT'.
-038900070526Public authority - Help
-039000070526:XH3.Public authority
-039100070526:P.
-039200070526The public authority assigned to the output queue.
-039300070526:EHELP.
-039400070526
-039500070526:HELP NAME='WRKOUTQAUT/QUEAUTL'.
-039600070526Authorization list - Help
-039700070526:XH3.Authorization list
-039800070526:P.
-039900070526The authorization list securing the output queue.  If no authorization
-040000070526list is securing the output queue, the special value *NONE is
-040100070526specified.
-040200070526:EHELP.
-040300070526
-040400070526:HELP NAME='WRKOUTQAUT/POSUSR'.
-040500070427Position to - Help
-040600070427:XH3.Position to
-040700070427:P.
-040800070427Use this prompt to go to a particular area in the list.  Use it for
-040900070427quick repositioning of the list, not for creating a subset of the list.
-041000070427:P.
-041100070428Specify a name or a partial name of the user profile name you want to
-041200070427position the list to.
-041300070427:P.
-041400070427The list of user profiles is positioned to the first user profile name
-041500070427beginning with the string specified.  If no user profiles exist in the
-041600070427present list, then the list is positioned to the item immediately
-041700070427preceding the position you want.
-041800070427:EHELP.
-041900070427
-042000070526:HELP NAME='WRKOUTQAUT/OPTCHG'.
-042100070427:PARML.
-042200070526:PT.2=Change user
-042300070526:PD.Use this option to run the Change User Profile (CHGUSRPRF) command
-042400070526for the selected user profile.
-042500070502:P.
-042600120512If a successfull change is performed against a user profile entry, the
-042700120512list panel will not reflect the change until a refresh of the panel
-042800120512occurs.
-042900070427:EPARML.
-043000070427:EHELP.
-043100070427
-043200070526:HELP NAME='WRKOUTQAUT/OPTDSP'.
-043300070427:PARML.
-043400070526:PT.5=Display user
-043500070526:PD.Use this option to run the Display User Profile (DSPUSRPRF) command
-043600070526for the selected user profile.
-043700070427:EPARML.
-043800070427:EHELP.
-043900070427
-044000070526:HELP NAME='WRKOUTQAUT/OPTGRT'.
-044100070526:PARML.
-044200070526:PT.7=Grant authority
-044300070526:PD.Use this option to run the Grant Object Authority (GRTOBJAUT)
-044400070526command against the output queue for the selected user profile.
-044500070526:EPARML.
-044600070526:EHELP.
-044700070526
-044800070526:HELP NAME='WRKOUTQAUT/OPTRVK'.
-044900070526:PARML.
-045000070526:PT.8=Revoke authority
-045100070526:PD.Use this option to run the Revoke Object Authority (RVKOBJAUT)
-045200070526command against the output queue for the selected user profile.
-045300070526:EPARML.
-045400070526:EHELP.
-045500070526
-045600070526:HELP NAME='WRKOUTQAUT/OPTION'.
-045700070427Option - Help
-045800070427:XH3.Opt
-045900070427:P.
-046000070427Type the number of the option you want to specify.
-046100070427:EHELP.
-046200070427
-046300070526:HELP NAME='WRKOUTQAUT/USRPRF2'.
-046400070428User profile - Help
-046500070428:XH3.User profile
-046600070427:P.
-046700070526The name of each user profile for which to work with the output queue
-046800070526authority.
-046900070427:EHELP.
-047000070427
-047100070526:HELP NAME='WRKOUTQAUT/USRCLS'.
-047200070526User class - Help
-047300070526:XH3.User class
-047400070428:P.
-047500070526The user class of the user profile.
-047600070428:EHELP.
-047700070428
-047800070526:HELP NAME='WRKOUTQAUT/GRPPRF'.
-047900070526Group profile - Help
-048000070526:XH3.Group profile
-048100070526:P.
-048200070526The group profile of the user profile.
-048300070526:EHELP.
-048400070526
-048500070526:HELP NAME='WRKOUTQAUT/SUPGRP'.
-048600070526Supplemental groups - Help
-048700070526:XH3.Supplemental groups
-048800070526:P.
-048900070526The number of supplemental group profile assigned to the user profile.
-049000140101:P.
-049100140101To see a list of the supplemental group profiles assigned to the user
-049200140101profile, place the cursor on this column for the entry selected, and
-049300140101press function key F22.
-049400070526:EHELP.
-049500070526
-049600070526:HELP NAME='WRKOUTQAUT/SPCCOL'.
-049700070526Special authority - Help
-049800070526:XH3.Special authority
-049900070428:P.
-050000070526The following special authorities are specified for each user profile:
-050100070428:P.
-050200070526:PARML.
-050300070526:PT.:PK.*SPLCTL:EPK.
-050400070526:PD.
-050500070526Defines whether the user profile has the *SPLCTL special authority.
-050600070526:EPARML.
-050700070526:P.
-050800070526:PARML.
-050900070526:PT.:PK.*JOBCTL:EPK.
-051000070526:PD.
-051100070526Defines whether the user profile has the *JOBCTL special authority.
-051200070526:EPARML.
-051300070428:EHELP.
-051400070428
-051500070526:HELP NAME='WRKOUTQAUT/QUEAUT'.
-051600070527Output queue authority - Help
-051700070527:XH3.Output queue authority
-051800070428:P.
-051900070526The user's object authority to the output queue.
-052000070428:EHELP.
-052100070428
-052200070526:HELP NAME='WRKOUTQAUT/AUTSRC'.
-052300070526Authority source - Help
-052400070526:XH3.Authority source
-052500070526:P.
-052600070526The source of the user's object authority.
-052700070526:P.
-052800070526The possible special values are:
-052900070526:DL.
-053000070526:DT.*ALLOBJ   :DD.User has *ALLOBJ special authority
-053100070526:DT.*USER     :DD.User is privately authorized
-053200070526:DT.*AUTL     :DD.User is in authorization list securing object
-053300070526:DT.*GRPALLOBJ:DD.Group has *ALLOBJ special authority
-053400070526:DT.*GROUP    :DD.Group is privately authorized
-053500070526:DT.*GRPAUTL  :DD.Group is in authorization list securing object
-053600070526:DT.*GRPACCAUT:DD.Groups accummulated authority
-053700070526:DT.*PUBLIC   :DD.Object public authority
-053800070526:DT.*PUBAUTL  :DD.Authorizaton list public authority
-053900070526:DT.*ADOPTED  :DD.Adopted authority
-054000070526:EDL.
-054100070526:EHELP.
-054200070427
-054300070526:HELP NAME='WRKOUTQAUT/QUECOL'.
-054400070526Output queue authority - Help
-054500070526:XH3.Output queue authority
-054600070526:P.
-054700070526The following authority levels are defined for the output queue:
-054800070526:P.
-054900070526:PARML.
-055000070526:PT.:PV.Start Writer:EPV.
-055100070526:PD.
-055200070526Defines whether the user profile is allowed to start a printer writer
-055300070526or remote writer against the output queue.
-055400070526:P.
-055500070527:HP2.Authority required, any of::EHP2.
-055600070527:UL.
-055700070526:LI.AUTCHK(*DTAAUT) and output queue authority *READ, *ADD and *DLT
-055800070526:LI.AUTCHK(*OWNER) and output queue ownership
-055900070526:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
-056000070526:EUL.
-056100070526:NT.
-056200070526*USE authority is additionally required to the printer device.
-056300070526:ENT.
-056400070526:EPARML.
-056500070526:P.
-056600070526:PARML.
-056700070526:PT.:PV.Add Spool:EPV.
-056800070526:PD.
-056900070526Defines whether the user profile is allowed to add spooled files to
-057000070526the output queue.
-057100070526:P.
-057200070527:HP2.Authority required, any of::EHP2.
-057300070526:UL.
-057400070526:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
-057500070526:LI.Output queue authority *READ
-057600070526:EUL.
-057700070526:EPARML.
-057800070526:P.
-057900070526:PARML.
-058000070526:PT.:PV.Work with:EPV.
-058100070526:PD.
-058200070526Defines whether the user profile is allowed to run the Work with
-058300070526Output (WRKOUTQ) command against the output queue.
-058400070526:P.
-058500070527:HP2.Authority required, any of::EHP2.
-058600070526:UL.
-058700070526:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
-058800070526:LI.Output queue authority *READ
-058900070526:EUL.
-059000070526:EPARML.
-059100070526:P.
-059200070526:PARML.
-059300070526:PT.:PV.Clear/Hold/Release:EPV.
-059400070526:PD.
-059500070526Defines whether the user profile is allowed to perform the following
-059600070526commands against the output queue:
-059700070526:DL.
-059800070526:DT.CLROUTQ:DD.Clear Output Queue
-059900070526:DT.HLDOUTQ:DD.Hold Output Queue
-060000070526:DT.RLSOUTQ:DD.Release Output Queue
-060100070526:EDL.
-060200070526:P.
-060300070527:HP2.Authority required, any of::EHP2.
-060400070526:UL.
-060500070526:LI.AUTCHK(*DTAAUT) and output queue authority *READ, *ADD and *DLT
-060600070526:LI.AUTCHK(*OWNER) and output queue ownership
-060700070526:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
-060800070526:EUL.
-060900070526:EPARML.
-061000070526:P.
-061100070526:PARML.
-061200070526:PT.:PV.Change:EPV.
-061300070526:PD.
-061400070526Defines whether the user profile is allowed to run the Change Output
-061500070526Queue (CHGOUTQ) command against the output queue.
-061600070526:P.
-061700070527:HP2.Authority required, any of::EHP2.
-061800070526:UL.
-061900070526:LI.AUTCHK(*DTAAUT) and output queue authority *OBJMGT, *READ, *ADD and *DLT
-062000070526:LI.AUTCHK(*OWNER) and output queue ownership
-062100070526:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
-062200070526:EUL.
-062300070526:EPARML.
-062400070526:EHELP.
-062500070526
-062600070526:HELP NAME='WRKOUTQAUT/SPLCOL'.
-062700070526Spooled file authority - Help
-062800070526:XH3.Spooled file authority
-062900070526:P.
-063000070526The following authority levels are defined for the spooled files on
-063100070526the output queue:
-063200070526:P.
-063300070526:PARML.
-063400070526:PT.:PV.Display/Copy/Send:EPV.
-063500070526:PD.
-063600070526Defines whether the user profile is allowed to perform the following
-063700070526commands against the output queue:
-063800070526:DL.
-063900070526:DT.DSPSPLF   :DD.Display Spooled File
-064000070526:DT.CPYSPLF   :DD.Copy Spooled File
-064100070526:DT.SNDNETSPLF:DD.Send Network Spooled File
-064200070526:DT.SNDTCPSPLF:DD.Send TCP/IP Spooled File
-064300070526:EDL.
-064400070526:P.
-064500070527:HP2.Authority required, any of::EHP2.
-064600070526:UL.
-064700070526:LI.DSPDTA(*YES) and output queue authority *READ
-064800070526:LI.DSPDTA(*NO) and AUTCHK(*DTAAUT) and output queue authority *READ,
-064900070526*ADD and *DLT
-065000070526:LI.DSPDTA(*NO) and AUTCHK(*OWNER) and output queue ownership
-065100070526:LI.DSPDTA(*YES|*NO) and OPRCTL(*YES) and user profile special
-065200070526authority *JOBCTL
-065300070526:EUL.
-065400070526:EPARML.
-065500070526:P.
-065600070526:PARML.
-065700070526:PT.:PV.Change/Delete/Hold/Release:EPV.
-065800070526:PD.
-065900070526Defines whether the user profile is allowed to perform the following
-066000070526commands against the output queue:
-066100070526:DL.
-066200070526:DT.CHGSPLFA:DD.Change Spooled File Attributes
-066300070526:DT.DLTSPLF :DD.Delete Spooled File
-066400070526:DT.HLDSPLF :DD.Hold Spooled File
-066500070526:DT.RLSSPLF :DD.Release Spooled File
-066600070526:EDL.
-066700070526:P.
-066800070527:HP2.Authority required, any of::EHP2.
-066900070526:UL.
-067000070527:LI.AUTCHK(*DTAAUT) and output queue authority *READ, *ADD and *DLT
-067100070527:LI.AUTCHK(*OWNER) and output queue ownership
-067200070526:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
-067300070526:EUL.
-067400070526:EPARML.
-067500070526:EHELP.
-067600070526
-067700070427:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX971H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+
+:HELP NAME='WRKOUTQAUT'.Work with Output Queue Authorities - Help
+:P.
+The Work with Output Queue Authorities (WRKOUTQAUT) command displays
+the selected users' authority to the specified output queue as well as
+the authority to the spooled files on that output queue.
+:P.
+The panel list also specifies the source of authority and provides
+information about the user profile's special authorities and group
+profiles.
+:P.
+Please note that user profile special authority *SPLCTL implicitely
+grants authority to all output queue and spooled file operations.
+:P.
+All output queue operations require *EXECUTE authority to the output
+queue library.  This requirement also applies to user profiles having
+*SPLCTL special authority.
+:P.
+The authority checks performed by this command are based on the
+requirements specified in :CIT.Appendix D. Authority required for
+objects used by commands:ECIT. of the iSeries Secuity Reference
+manual.
+:NT.
+Depending on the number of user profiles on the system, this command
+will possibly take some time to complete and consume a substantial
+amount of system resources.
+:ENT.
+:P.
+:HP2.Restrictions::EHP2.
+:UL.
+:LI.
+This command requires *ALLOBJ and *SECADM special authority to run.
+:EUL.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OUTQ'.Output queue (OUTQ) - Help
+
+:XH3.Output queue (OUTQ)
+:P.
+Specifies the output queue to be shown on the Work with Output Queue
+Authorities display.
+:P.
+This is a required parameter.
+:P.
+:HP2.Qualifier 1: Output queue:EHP2.
+:PARML.
+:PT.:PV.name:EPV.
+:PD.
+Specify the name of the output queue whose authorities are shown.
+:EPARML.
+
+:P.
+:HP2.Qualifier 2: Library:EHP2.
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+All libraries in the library list for the current thread are searched
+until the first match is found.
+:PT.:PK.*CURLIB:epk.
+:PD.
+The current library for the job is used to locate the output queue.
+:PT.:PV.name:EPV.
+:PD.
+Specify the library where the output queue is located.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/USRPRF'.User profile (USRPRF) - Help
+
+:XH3.User profile (USRPRF)
+:P.
+Specifies the user profiles to be included in the displayed list.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+All user profiles that you own or have authority to are included.
+:PT.:PV.generic-name:EPV.
+:PD.
+Specify the generic name of the user profiles to be shown.  A generic
+name is a character string that contains one or more characters
+followed by an asterisk (*).  If a generic name is specified, all user
+profiles that have names with the same prefix as the generic name are
+included in the list.
+:PT.:PV.name:EPV.
+:PD.
+Specify the name of the user profile to be included in the list.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OUTPUT'.Output (OUTPUT) - Help
+
+:xh3.Output (OUTPUT)
+:P.
+Specifies where the output from the command is sent.
+:PARML.
+:PT.:PK DEF.*:EPK.
+:PD.
+The output is displayed (if requested by an interactive job) or printed
+with the job's spooled output (if requested by a batch job).
+:PT.:PK.*PRINT:EPK.
+:PD.
+The output is printed with the job's spooled output.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/COMMAND/EXAMPLES'.
+Examples for WRKOUTQAUT - Help
+:XH3.Examples for WRKOUTQAUT
+:P.
+:HP2.Example 1::EHP2.
+:XMP.
+WRKOUTQAUT OUTQ(QPRINT) USRPRF(*ALL)
+:EXMP.
+:P.
+This command will display all user profiles and their current
+authorization level to the output queue QPRINT found in the job's
+library list.
+.*
+:P.
+:HP2.Example 2::EHP2.
+:xmp.
+WRKOUTQAUT OUTQ(QGPL/QPRINT2) USRPRF(S*) OUTPUT(*PRINT)
+:EXMP.
+:P.
+This command will display all user profiles beginning with the letter
+'S' and these user profile's authorization level to the output queue
+QPRINT2 in library QGPL.  The generated list will be printed with the
+current job's spooled output.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/ERROR/MESSAGES'.
+&MSG(CPX0005,QCPFMSG). WRKOUTQAUT - Help
+:XH3.&MSG(CPX0005,QCPFMSG). WRKOUTQAUT
+:P.
+:HP3.*ESCAPE &MSG(CPX0006,QCPFMSG).:EHP3.
+:DL COMPACT.
+:DT.CPF0002
+:DD.&MSG(CPF0002,QCPFMSG,*LIBL,nosub).
+:EDL.
+:EHELP.
+
+.* Panel help section:
+:HELP NAME=HLPFKEYS.
+Function Keys - Help
+:XH3.Function keys
+:EHELP.
+
+:HELP NAME=HLPENT.
+:PARML.
+:PT.Enter
+:PD.Submits information on the display for processing.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF1.
+:PARML.
+:PT.F1=Help
+:PD.Provides additional information about using the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF3.
+:PARML.
+:PT.F3=Exit
+:PD.Ends the current task and returns you to the display from which
+the task was started.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF4.
+:PARML.
+:PT.F4=Prompt
+:PD.Provides assistance in entering or selecting a command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF5.
+:PARML.
+:PT.F5=Refresh
+:PD.Shows the display you are viewing with updated information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF6.
+:PARML.
+:PT.F6=Change output queue
+:PD.Executes the Change Output Queue (CHGOUTQ) command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF9.
+:PARML.
+:PT.F9=Retrieve
+:PD.Displays the last command you entered on the command line and any
+parameters you included.  Pressing this key once, shows the last
+command you ran.  Pressing this key twice, shows the command you ran
+before that and so on.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW1'.
+:PARML.
+:PT.F11=Spooled file authority
+:PD.Displays the user's authorization to the spooled files on the
+output queue as well as output queue authority and authority source.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW2'.
+:PARML.
+:PT.F11=User information
+:PD.Displays information about the user's user class, group profiles
+and special authority.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW3'.
+:PARML.
+:PT.F11=Output queue authority
+:PD.Displays the user's authorization to the output queue and the
+various operations that can be performed against an output queue.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF12.
+:PARML.
+:PT.F12=Cancel
+:PD.Cancels processing of any options or changes you have made to the
+current display and returns you to the previous menu or display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF15.
+:PARML.
+:PT.F15=Work with output queue description
+:PD.Executes the Work with Output Queue Description (WRKOUTQD) command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF17.
+:PARML.
+:PT.F17=Top
+:PD.Positions the display to the top of the list.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF18.
+:PARML.
+:PT.F18=Bottom
+:PD.Positions the display to the bottom of the list.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF19.
+:PARML.
+:PT.F19=Change object owner
+:PD.Executes the Change Object Owner (CHGOBJOWN) command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF20.
+:PARML.
+:PT.F20=Edit object authority
+:PD.Executes the Edit Object Authority (EDTOBJAUT) command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF21.
+:PARML.
+:PT.F21=Edit authorization list
+:PD.Executes the Edit Authorization List (EDTAUTL) command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF22.
+:PARML.
+:PT.F22=Supplemental groups
+:PD.Lists all supplemental groups assigned to the user profile when
+the cursor is placed on the:HP2.Supplemental groups:EHP2. column.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF24.
+:PARML.
+:PT.F24=More keys
+:PD.Changes the keys shown at the bottom of the display.  When you
+press this key, additional function keys are displayed at the bottom
+of the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPHLP.
+:PARML.
+:PT.Help
+:PD.Provides additional information about using the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPGD.
+:PARML.
+:PT.Page Down (Roll Up)
+:PD.Moves the information displayed forward to show additional
+information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPGU.
+:PARML.
+:PT.Page Up (Roll Down)
+:PD.Moves the information displayed backward to show additional
+information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPRT.
+:PARML.
+:PT.Print
+:PD.Prints information currently shown on the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/'.Work with Output Queue Authorities - Help
+:P.
+The Work with Output Queue Authorities display, shows information about
+the selected user profiles' authorities to perform various operations
+against the output queue as well as spooled files on that output queue.
+:P.
+Information about the user profiles' user class, group profiles and
+special authority is included.
+:P.
+You can type an option next to one or more entries.  Then, when the
+Enter key is pressed, the function associated with the number you typed
+is performed for that user profile entry.
+:P.
+To run a command, type the command and press the Enter key.  For
+assistance in typing the command, type the command and press F4.  For
+assistance in selecting a command, press F4 without typing anything.
+:P.
+If you see More ... on the lower right side of your display, there is
+more information to view.  Press Page Down (Roll Up) to move toward the
+end of the information.  Press Page Up (Roll Down) to move toward the
+beginning of the information.
+:P.
+If you see Bottom instead of More ..., you are at the end of the list.
+:P.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OUTQUE'.
+Output queue - Help
+:XH3.Output queue
+:P.
+The name of the output queue for which each selected user's authority
+is displayed.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OUTLIB'.
+Library - Help
+:XH3.Library
+:P.
+The library containing the output queue.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/WRKUSR'.
+User profile - Help
+:XH3.User profile
+:P.
+The name of the user profile(s) to work with.  Specify a user profile
+name, a generic user profile name or the special value *ALL.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/QUEOWN'.
+Queue owner - Help
+:XH3.Queue owner
+:P.
+The owner of the output queue.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/PUBAUT'.
+Public authority - Help
+:XH3.Public authority
+:P.
+The public authority assigned to the output queue.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/QUEAUTL'.
+Authorization list - Help
+:XH3.Authorization list
+:P.
+The authorization list securing the output queue.  If no authorization
+list is securing the output queue, the special value *NONE is
+specified.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/POSUSR'.
+Position to - Help
+:XH3.Position to
+:P.
+Use this prompt to go to a particular area in the list.  Use it for
+quick repositioning of the list, not for creating a subset of the list.
+:P.
+Specify a name or a partial name of the user profile name you want to
+position the list to.
+:P.
+The list of user profiles is positioned to the first user profile name
+beginning with the string specified.  If no user profiles exist in the
+present list, then the list is positioned to the item immediately
+preceding the position you want.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OPTCHG'.
+:PARML.
+:PT.2=Change user
+:PD.Use this option to run the Change User Profile (CHGUSRPRF) command
+for the selected user profile.
+:P.
+If a successfull change is performed against a user profile entry, the
+list panel will not reflect the change until a refresh of the panel
+occurs.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OPTDSP'.
+:PARML.
+:PT.5=Display user
+:PD.Use this option to run the Display User Profile (DSPUSRPRF) command
+for the selected user profile.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OPTGRT'.
+:PARML.
+:PT.7=Grant authority
+:PD.Use this option to run the Grant Object Authority (GRTOBJAUT)
+command against the output queue for the selected user profile.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OPTRVK'.
+:PARML.
+:PT.8=Revoke authority
+:PD.Use this option to run the Revoke Object Authority (RVKOBJAUT)
+command against the output queue for the selected user profile.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/OPTION'.
+Option - Help
+:XH3.Opt
+:P.
+Type the number of the option you want to specify.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/USRPRF2'.
+User profile - Help
+:XH3.User profile
+:P.
+The name of each user profile for which to work with the output queue
+authority.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/USRCLS'.
+User class - Help
+:XH3.User class
+:P.
+The user class of the user profile.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/GRPPRF'.
+Group profile - Help
+:XH3.Group profile
+:P.
+The group profile of the user profile.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/SUPGRP'.
+Supplemental groups - Help
+:XH3.Supplemental groups
+:P.
+The number of supplemental group profile assigned to the user profile.
+:P.
+To see a list of the supplemental group profiles assigned to the user
+profile, place the cursor on this column for the entry selected, and
+press function key F22.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/SPCCOL'.
+Special authority - Help
+:XH3.Special authority
+:P.
+The following special authorities are specified for each user profile:
+:P.
+:PARML.
+:PT.:PK.*SPLCTL:EPK.
+:PD.
+Defines whether the user profile has the *SPLCTL special authority.
+:EPARML.
+:P.
+:PARML.
+:PT.:PK.*JOBCTL:EPK.
+:PD.
+Defines whether the user profile has the *JOBCTL special authority.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/QUEAUT'.
+Output queue authority - Help
+:XH3.Output queue authority
+:P.
+The user's object authority to the output queue.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/AUTSRC'.
+Authority source - Help
+:XH3.Authority source
+:P.
+The source of the user's object authority.
+:P.
+The possible special values are:
+:DL.
+:DT.*ALLOBJ   :DD.User has *ALLOBJ special authority
+:DT.*USER     :DD.User is privately authorized
+:DT.*AUTL     :DD.User is in authorization list securing object
+:DT.*GRPALLOBJ:DD.Group has *ALLOBJ special authority
+:DT.*GROUP    :DD.Group is privately authorized
+:DT.*GRPAUTL  :DD.Group is in authorization list securing object
+:DT.*GRPACCAUT:DD.Groups accummulated authority
+:DT.*PUBLIC   :DD.Object public authority
+:DT.*PUBAUTL  :DD.Authorizaton list public authority
+:DT.*ADOPTED  :DD.Adopted authority
+:EDL.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/QUECOL'.
+Output queue authority - Help
+:XH3.Output queue authority
+:P.
+The following authority levels are defined for the output queue:
+:P.
+:PARML.
+:PT.:PV.Start Writer:EPV.
+:PD.
+Defines whether the user profile is allowed to start a printer writer
+or remote writer against the output queue.
+:P.
+:HP2.Authority required, any of::EHP2.
+:UL.
+:LI.AUTCHK(*DTAAUT) and output queue authority *READ, *ADD and *DLT
+:LI.AUTCHK(*OWNER) and output queue ownership
+:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
+:EUL.
+:NT.
+*USE authority is additionally required to the printer device.
+:ENT.
+:EPARML.
+:P.
+:PARML.
+:PT.:PV.Add Spool:EPV.
+:PD.
+Defines whether the user profile is allowed to add spooled files to
+the output queue.
+:P.
+:HP2.Authority required, any of::EHP2.
+:UL.
+:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
+:LI.Output queue authority *READ
+:EUL.
+:EPARML.
+:P.
+:PARML.
+:PT.:PV.Work with:EPV.
+:PD.
+Defines whether the user profile is allowed to run the Work with
+Output (WRKOUTQ) command against the output queue.
+:P.
+:HP2.Authority required, any of::EHP2.
+:UL.
+:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
+:LI.Output queue authority *READ
+:EUL.
+:EPARML.
+:P.
+:PARML.
+:PT.:PV.Clear/Hold/Release:EPV.
+:PD.
+Defines whether the user profile is allowed to perform the following
+commands against the output queue:
+:DL.
+:DT.CLROUTQ:DD.Clear Output Queue
+:DT.HLDOUTQ:DD.Hold Output Queue
+:DT.RLSOUTQ:DD.Release Output Queue
+:EDL.
+:P.
+:HP2.Authority required, any of::EHP2.
+:UL.
+:LI.AUTCHK(*DTAAUT) and output queue authority *READ, *ADD and *DLT
+:LI.AUTCHK(*OWNER) and output queue ownership
+:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
+:EUL.
+:EPARML.
+:P.
+:PARML.
+:PT.:PV.Change:EPV.
+:PD.
+Defines whether the user profile is allowed to run the Change Output
+Queue (CHGOUTQ) command against the output queue.
+:P.
+:HP2.Authority required, any of::EHP2.
+:UL.
+:LI.AUTCHK(*DTAAUT) and output queue authority *OBJMGT, *READ, *ADD and *DLT
+:LI.AUTCHK(*OWNER) and output queue ownership
+:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
+:EUL.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKOUTQAUT/SPLCOL'.
+Spooled file authority - Help
+:XH3.Spooled file authority
+:P.
+The following authority levels are defined for the spooled files on
+the output queue:
+:P.
+:PARML.
+:PT.:PV.Display/Copy/Send:EPV.
+:PD.
+Defines whether the user profile is allowed to perform the following
+commands against the output queue:
+:DL.
+:DT.DSPSPLF   :DD.Display Spooled File
+:DT.CPYSPLF   :DD.Copy Spooled File
+:DT.SNDNETSPLF:DD.Send Network Spooled File
+:DT.SNDTCPSPLF:DD.Send TCP/IP Spooled File
+:EDL.
+:P.
+:HP2.Authority required, any of::EHP2.
+:UL.
+:LI.DSPDTA(*YES) and output queue authority *READ
+:LI.DSPDTA(*NO) and AUTCHK(*DTAAUT) and output queue authority *READ,
+*ADD and *DLT
+:LI.DSPDTA(*NO) and AUTCHK(*OWNER) and output queue ownership
+:LI.DSPDTA(*YES|*NO) and OPRCTL(*YES) and user profile special
+authority *JOBCTL
+:EUL.
+:EPARML.
+:P.
+:PARML.
+:PT.:PV.Change/Delete/Hold/Release:EPV.
+:PD.
+Defines whether the user profile is allowed to perform the following
+commands against the output queue:
+:DL.
+:DT.CHGSPLFA:DD.Change Spooled File Attributes
+:DT.DLTSPLF :DD.Delete Spooled File
+:DT.HLDSPLF :DD.Hold Spooled File
+:DT.RLSSPLF :DD.Release Spooled File
+:EDL.
+:P.
+:HP2.Authority required, any of::EHP2.
+:UL.
+:LI.AUTCHK(*DTAAUT) and output queue authority *READ, *ADD and *DLT
+:LI.AUTCHK(*OWNER) and output queue ownership
+:LI.OPRCTL(*YES) and user profile special authority *JOBCTL
+:EUL.
+:EPARML.
+:EHELP.
+
+:EPNLGRP.

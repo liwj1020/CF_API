@@ -1,25 +1,25 @@
-000100031113/*-------------------------------------------------------------------*/
-000200031113/*                                                                   */
-000300031113/*  Compile options:                                                 */
-000400031113/*                                                                   */
-000500061104/*    CrtCmd  Cmd( DSPSVRSHR )                                       */
-000600061104/*            Pgm( CBX963 )                                          */
-000700061104/*            VldCkr( CBX963V )                                      */
-000800061104/*            SrcMbr( CBX963X )                                      */
-000900061104/*            HlpPnlGrp( CBX963H )                                   */
-001000061028/*            HlpId( *CMD )                                          */
-001100031113/*                                                                   */
-001200031113/*-------------------------------------------------------------------*/
-001300061104             Cmd      Prompt( 'Display Server Share' )
-001400930930
-001500061104             Parm     SHARE       *Char       12                +
-001600061104                      Min( 1 )                                  +
-001700061104                      Expr( *YES )                              +
-001800061104                      Prompt( 'Share' )
-001900061104
-002000061104             Parm     OUTPUT      *Char       3                 +
-002100061104                      Rstd( *YES )                              +
-002200061104                      Dft( * )                                  +
-002300061104                      SpcVal(( * 'DSP' ) ( *PRINT 'PRT' ))      +
-002400061104                      Prompt( 'Output' )
-002500061104
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtCmd  Cmd( DSPSVRSHR )                                       */
+/*            Pgm( CBX963 )                                          */
+/*            VldCkr( CBX963V )                                      */
+/*            SrcMbr( CBX963X )                                      */
+/*            HlpPnlGrp( CBX963H )                                   */
+/*            HlpId( *CMD )                                          */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+             Cmd      Prompt( 'Display Server Share' )
+
+             Parm     SHARE       *Char       12                +
+                      Min( 1 )                                  +
+                      Expr( *YES )                              +
+                      Prompt( 'Share' )
+
+             Parm     OUTPUT      *Char       3                 +
+                      Rstd( *YES )                              +
+                      Dft( * )                                  +
+                      SpcVal(( * 'DSP' ) ( *PRINT 'PRT' ))      +
+                      Prompt( 'Output' )
+

@@ -1,91 +1,91 @@
-000100050809.*-----------------------------------------------------------------------**
-000200050809.*
-000300050809.*  Compile options:
-000400050809.*
-000500050809.*    CrtPnlGrp PnlGrp( CBX9411H )
-000600050809.*              SrcFile( QPNLSRC )
-000700050809.*              SrcMbr( *PNLGRP )
-000800050809.*
-000900050809.*-----------------------------------------------------------------------**
-001000050724:PNLGRP.
-001100050726:HELP NAME='RTVDIRSMTP'.Retrieve Directory Entry SMTP Address - Help
-001200050724:P.
-001300050809The Retrieve Directory Entry SMTP Address (DSPDIRSMTP) command is used
-001400050809to retrieve the SMTP address of the specified system distribution
-001500050809directory entry.
-001600050724:P.
-001700050724:EHELP.
-001800050724:HELP NAME='RTVDIRSMTP/USRID'.User identifier (USRID) - Help
-001900050724:XH3.User identifier (USRID)
-002000050724:P.
-002100050809Specifies the user ID and address of the user for whom the directory
-002200050809entry SMTP address is retrieved.
-002300050724:P.
-002400050809If the :HP2.USRID:EHP2. parameter is specified, the :HP2.USER:EHP2.
-002500050809parameter cannot be specified.
-002600050809:P.
-002700050809:NT.
-002800050809Do not type anything for the :HP2.USRID:EHP2. parameter if you want to
-002900050809identify the directory entry by the :HP2.USER:EHP2. parameter,
-003000050809otherwise the error message CPD9105 is issued.
-003100050809:ENT.
-003200050809:P.
-003300050724The possible values are:
-003400050724:P.
-003500050724:PARML.
-003600050724:PT.:PK DEF.*USRPRF:EPK.
-003700050724:PD.
-003800050809The value specified for the
-003900050809:LINK PERFORM='DSPHELP RTVDIRSMTP/USER'.
-004000050809USER
-004100050809:ELINK.
-004200050809parameter is used to identify the directory entry to have its SMTP
-004300050809address retrieved.
-004400050724:PT.:PV.user-identifier:EPV.
-004500050724:PD.
-004600050809The user ID and address of the user for which to retrieve the directory
-004700050809entry SMTP address.
-004800050724:EPARML.
-004900050724:XH3.User ID
-005000050724:P.
-005100050809Specify the user ID of the user for whom an existing directory entry
-005200050809SMTP address is retrieved.
-005300050724:P.
-005400050724:XH3.Address
-005500050724:P.
-005600050809Specify the user address of the user for whom an existing entry SMTP
-005700050809address is retrieved.
-005800050724:P.
-005900050724:EHELP.
-006000050724:HELP NAME='RTVDIRSMTP/USER'.User profile (USER) - Help
-006100050724:XH3.User profile (USER)
-006200050724:P.
-006300050809Specifies a user profile for which the directory entry SMTP address is
-006400050809retrieved.
-006500050809:P.
-006600050809If the :HP2.USER:EHP2. parameter is specified, the :HP2.USRID:EHP2.
-006700050809parameter cannot be specified.
-006800050724:P.
-006900050724The possible values are:
-007000050724:P.
-007100050724:PARML.
-007200050724:PT.:PK DEF.*CURRENT:EPK.
-007300050724:PD.
-007400050809The user profile under which the current job is running is used.
-007500050724:PT.:PV.user-profile-name:EPV.
-007600050724:PD.
-007700050809Specify a user profile name whose corresponding directory entry SMTP
-007800050809address is retrieved.
-007900050724:EPARML.
-008000050724:EHELP.
-008100050726:HELP NAME='RTVDIRSMTP/SMTPADDR'.CL var for SMTPADDR     (63) (SMTPADDR) - Help
-008200050726:XH3.CL var for SMTPADDR     (63) (SMTPADDR)
-008300050724:P.
-008400050809Specifies the name of the CL variable that receives the directory entry
-008500050809SMTP address.
-008600050724:P.
-008700050809The variable must be a character variable with a minumum length of 63
-008800050809characters.
-008900050809:P.
-009000050724:EHELP.
-009100050724:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX9411H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='RTVDIRSMTP'.Retrieve Directory Entry SMTP Address - Help
+:P.
+The Retrieve Directory Entry SMTP Address (DSPDIRSMTP) command is used
+to retrieve the SMTP address of the specified system distribution
+directory entry.
+:P.
+:EHELP.
+:HELP NAME='RTVDIRSMTP/USRID'.User identifier (USRID) - Help
+:XH3.User identifier (USRID)
+:P.
+Specifies the user ID and address of the user for whom the directory
+entry SMTP address is retrieved.
+:P.
+If the :HP2.USRID:EHP2. parameter is specified, the :HP2.USER:EHP2.
+parameter cannot be specified.
+:P.
+:NT.
+Do not type anything for the :HP2.USRID:EHP2. parameter if you want to
+identify the directory entry by the :HP2.USER:EHP2. parameter,
+otherwise the error message CPD9105 is issued.
+:ENT.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*USRPRF:EPK.
+:PD.
+The value specified for the
+:LINK PERFORM='DSPHELP RTVDIRSMTP/USER'.
+USER
+:ELINK.
+parameter is used to identify the directory entry to have its SMTP
+address retrieved.
+:PT.:PV.user-identifier:EPV.
+:PD.
+The user ID and address of the user for which to retrieve the directory
+entry SMTP address.
+:EPARML.
+:XH3.User ID
+:P.
+Specify the user ID of the user for whom an existing directory entry
+SMTP address is retrieved.
+:P.
+:XH3.Address
+:P.
+Specify the user address of the user for whom an existing entry SMTP
+address is retrieved.
+:P.
+:EHELP.
+:HELP NAME='RTVDIRSMTP/USER'.User profile (USER) - Help
+:XH3.User profile (USER)
+:P.
+Specifies a user profile for which the directory entry SMTP address is
+retrieved.
+:P.
+If the :HP2.USER:EHP2. parameter is specified, the :HP2.USRID:EHP2.
+parameter cannot be specified.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*CURRENT:EPK.
+:PD.
+The user profile under which the current job is running is used.
+:PT.:PV.user-profile-name:EPV.
+:PD.
+Specify a user profile name whose corresponding directory entry SMTP
+address is retrieved.
+:EPARML.
+:EHELP.
+:HELP NAME='RTVDIRSMTP/SMTPADDR'.CL var for SMTPADDR     (63) (SMTPADDR) - Help
+:XH3.CL var for SMTPADDR     (63) (SMTPADDR)
+:P.
+Specifies the name of the CL variable that receives the directory entry
+SMTP address.
+:P.
+The variable must be a character variable with a minumum length of 63
+characters.
+:P.
+:EHELP.
+:EPNLGRP.

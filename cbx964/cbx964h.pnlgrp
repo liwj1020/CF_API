@@ -1,377 +1,377 @@
-000100050216.*-----------------------------------------------------------------------**
-000200050216.*
-000300050216.*  Compile options:
-000400050216.*
-000500061106.*    CrtPnlGrp PnlGrp( CBX964H )
-000600050216.*              SrcFile( QPNLSRC )
-000700050216.*              SrcMbr( *PNLGRP )
-000800050216.*
-000900050216.*-----------------------------------------------------------------------**
-001000050216:PNLGRP.
-001100061106
-001200061106:HELP NAME='WRKSVRSHR'.Work with Server Shares - Help
-001300050216:P.
-001400061106The Work with Server Shares (WRKSVRSHR) command allows you to work
-001500061106with all currently configured server shares.
-001600050216:EHELP.
-001700060623
-001800061106:HELP NAME='WRKSVRSHR/SHARE'.Share (SHARE) - Help
-001900061106:XH3.Share (SHARE)
-002000060623:P.
-002100061106Specifies the server share you want to work with.
-002200060623:P.
-002300060623This is a required parameter.
-002400060623:P.
-002500060623The possible values are:
-002600060623:P.
-002700060623:PARML.
-002800060623:PT.:PK DEF.*ALL:EPK.
-002900060623:PD.
-003000061106All server shares are listed.
-003100060623:P.
-003200061106:PT.:PV.share-name:EPV.
-003300060623:PD.
-003400061106Specify the name of the server share you want to work with.
-003500060730:PT.:PV.*generic-name:EPV.
-003600060730:PD.
-003700061106Specify the generic name of the server shares to be shown.  A generic
-003800060730name is a character string that contains one or more characters
-003900060730followed by an asterisk (*).  If a generic name is specified, all
-004000061106server shares that have names with the same prefix as the generic
-004100060730name are shown.
-004200060623:EPARML.
-004300060730:EHELP.
-004400060730
-004500061106:HELP NAME='WRKSVRSHR/TYPE'.Type (TYPE) - Help
-004600061106:XH3.Type (TYPE)
-004700060730:P.
-004800061106Specifies the share type that qualifies a server share to be
-004900060730selected.
-005000060730:P.
-005100060730The possible values are:
-005200060730:P.
-005300060730:PARML.
-005400061106:PT.:PK DEF.*ALL:EPK.
-005500060730:PD.
-005600061106All server shares are selected.
-005700061106:PT.:PK.*FILE:EPK.
-005800061106:PD.
-005900061106Only file shares are selected.
-006000061106:PT.:PK.*PRINT:EPK.
-006100061106:PD.
-006200061106Only printer shares are selected.
-006300060730:EPARML.
-006400060730:EHELP.
-006500060730
-006600061106:HELP NAME='WRKSVRSHR/OUTPUT'.Output (OUTPUT) - Help
-006700060730:XH3.Output (OUTPUT)
-006800060730:P.
-006900060730Specifies where the output from the command is sent.
-007000060730:P.
-007100060730The possible values are:
-007200060730:P.
-007300060730:PARML.
-007400060730:PT.:PK DEF.*:EPK.
-007500060730:PD.
-007600060730The output is displayed (if requested by an interactive job) or printed
-007700060730with the job's spooled output (if requested by a batch job).
-007800060730:PT.:PK.*PRINT:EPK.
-007900060730:PD.
-008000060730The output is printed with the job's spooled output.
-008100060730:EPARML.
-008200060623:EHELP.
-008300060730
-008400060623.* Panel help section:
-008500060623:HELP NAME=HLPFKEYS.
-008600060623Function Keys - Help
-008700060623:XH3.Function keys
-008800060623:EHELP.
-008900060623
-009000060623:HELP NAME=HLPENT.
-009100060623:PARML.
-009200060623:PT.Enter
-009300060623:PD.Submits information on the display for processing.
-009400060623:EPARML.
-009500060623:EHELP.
-009600060623
-009700060623:HELP NAME=HLPF1.
-009800060623:PARML.
-009900060623:PT.F1=Help
-010000060623:PD.Provides additional information about using the display.
-010100060623:EPARML.
-010200060623:EHELP.
-010300060623
-010400060623:HELP NAME=HLPF3.
-010500060623:PARML.
-010600060623:PT.F3=Exit
-010700060623:PD.Ends the current task and returns you to the display from which
-010800060623the task was started.
-010900060623:EPARML.
-011000060623:EHELP.
-011100060623
-011200060623:HELP NAME=HLPF4.
-011300060623:PARML.
-011400060623:PT.F4=Prompt
-011500060623:PD.Provides assistance in entering or selecting a command.
-011600060623:EPARML.
-011700060623:EHELP.
-011800060623
-011900060623:HELP NAME=HLPF5.
-012000060623:PARML.
-012100060623:PT.F5=Refresh
-012200060623:PD.Shows the display you are viewing with updated information.
-012300060623:EPARML.
-012400060623:EHELP.
-012500060623
-012600061120:HELP NAME=HLPF6.
-012700061120:PARML.
-012800061120:PT.F6=Add server share
-012900061120:PD.Executes the Add Server Share (ADDSVRSHR) command.
-013000061120:EPARML.
-013100061120:EHELP.
-013200061120
-013300060623:HELP NAME=HLPF9.
-013400060623:PARML.
-013500060623:PT.F9=Retrieve
-013600060623:PD.Displays the last command you entered on the command line and any
-013700060623parameters you included.  Pressing this key once, shows the last
-013800060623command you ran.  Pressing this key twice, shows the command you ran
-013900060623before that and so on.
-014000060623:EPARML.
-014100060623:EHELP.
-014200060623
-014300060623:HELP NAME='HLPF11/VIEW1'.
-014400060623:PARML.
-014500061120:PT.F11=Display resource
-014600061120:PD. Displays the resources that are shared.
-014700060623:EPARML.
-014800060623:EHELP.
-014900060623
-015000060623:HELP NAME='HLPF11/VIEW2'.
-015100060623:PARML.
-015200061120:PT.F11=Display text
-015300061120:PD.Displays the server share's text description.
-015400060623:EPARML.
-015500060623:EHELP.
-015600060623
-015700060623:HELP NAME=HLPF12.
-015800060623:PARML.
-015900060623:PT.F12=Cancel
-016000060623:PD.Cancels processing of any options or changes you have made to the
-016100060623current display and returns you to the previous menu or display.
-016200060623:EPARML.
-016300060623:EHELP.
-016400060623
-016500061120:HELP NAME=HLPF17.
-016600061120:PARML.
-016700061120:PT.F17=Top
-016800061120:PD.Positions the display to the top of the list.
-016900061120:EPARML.
-017000061120:EHELP.
-017100061120
-017200061120:HELP NAME=HLPF18.
-017300061120:PARML.
-017400061120:PT.F18=Bottom
-017500061120:PD.Positions the display to the bottom of the list.
-017600061120:EPARML.
-017700061120:EHELP.
-017800061120
-017900060623:HELP NAME=HLPF24.
-018000060623:PARML.
-018100060623:PT.F24=More keys
-018200060623:PD.Changes the keys shown at the bottom of the display.  When you
-018300060623press this key, additional function keys are displayed at the bottom
-018400060623of the display.
-018500060623:EPARML.
-018600060623:EHELP.
-018700060623
-018800060623:HELP NAME=HLPHLP.
-018900060623:PARML.
-019000060623:PT.Help
-019100060623:PD.Provides additional information about using the display.
-019200060623:EPARML.
-019300060623:EHELP.
-019400060623
-019500060623:HELP NAME=HLPPGD.
-019600060623:PARML.
-019700060623:PT.Page Down (Roll Up)
-019800060623:PD.Moves the information displayed forward to show additional
-019900060623information.
-020000060623:EPARML.
-020100060623:EHELP.
-020200060623
-020300060623:HELP NAME=HLPPGU.
-020400060623:PARML.
-020500060623:PT.Page Up (Roll Down)
-020600060623:PD.Moves the information displayed backward to show additional
-020700060623information.
-020800060623:EPARML.
-020900060623:EHELP.
-021000060623
-021100060623:HELP NAME=HLPPRT.
-021200060623:PARML.
-021300060623:PT.Print
-021400060623:PD.Prints information currently shown on the display.
-021500060623:EPARML.
-021600060623:EHELP.
-021700060623
-021800061120:HELP NAME='WRKSVRSHR/'.Work with Server Shares - Help
-021900060623:P.
-022000061120The Work with Server Shares command display shows the name, resource
-022100061120and description of the selected server shares.
-022200060623:P.
-022300061120You can type an option next to one or more shares.  Then, when the
-022400061120Enter key is pressed, the function associated with the number you typed
-022500061120is performed for that share.
-022600060623:P.
-022700060623To run a command, type the command and press the Enter key.  For
-022800060623assistance in typing the command, type the command and press F4.  For
-022900060623assistance in selecting a command, press F4 without typing anything.
-023000060623:P.
-023100060623If you see More ... on the lower right side of your display, there is
-023200060623more information to view.  Press Page Down (Roll Up) to move toward the
-023300060623end of the information.  Press Page Up (Roll Down) to move toward the
-023400060623beginning of the information.
-023500060623:P.
-023600060623If you see Bottom instead of More ..., you are at the end of the list.
-023700060623:P.
-023800060623:EHELP.
-023900060623
-024000061121:HELP name='WRKSVRSHR/WRKSHR'.
-024100061121Share - Help
-024200061121:XH3.Share
-024300061121:P.
-024400061121The name of the share(s) to work with.  Specify a share name, a
-024500061121generic share name or the special value *ALL.
-024600061121:EHELP.
-024700061121
-024800061121:HELP name='WRKSVRSHR/WRKTYP'.
-024900061121Type - Help
-025000061121:XH3.Type
-025100061121:P.
-025200061121The type of shares to include in the work with list.
-025300061121:P.
-025400061121Possible values are:
-025500061121:DL COMPACT.
-025600061121:DT.*ALL  :DD.All server shares are included in the list.
-025700061121:DT.*FILE :DD.Only file shares are included in the list.
-025800061121:DT.*PRINT:DD.Only printer shares are included in the list.
-025900061121:EDL.
-026000061121:EHELP.
-026100061121
-026200061121:HELP name='WRKSVRSHR/POSSHR'.
-026300061121Position to - Help
-026400061121:XH3.Position to
-026500061121:P.
-026600061121Use this prompt to go to a particular area in the list.  Use it for
-026700061121quick repositioning of the list, not for creating a subset of the list.
-026800061121:P.
-026900061121Specify a name or a partial name of the share you want to position the
-027000061121list to.
-027100061121:P.
-027200061121The list of shares is positioned to the first share name beginning with
-027300061121the string specified.  If no shares exist in the present list, then the
-027400061121list is positioned to the item immediately preceding the position you
-027500061121want.
-027600061121:EHELP.
-027700061121
-027800061121:HELP NAME='WRKSVRSHR/OPTCHG'.
-027900060623:PARML.
-028000061121:PT.2=Change server share
-028100061121:PD.Use this option to run the Change Server Share (CHGSVRSHR)
-028200061121command for the selected server share.
-028300060623:EPARML.
-028400060623:EHELP.
-028500060623
-028600061121:HELP NAME='WRKSVRSHR/OPTRMV'.
-028700061121:PARML.
-028800061121:PT.4=Remove server share
-028900061121:PD.Use this option to run the Remove Server Share (RMVSVRSHR)
-029000061121command for the selected server share.
-029100061121:EPARML.
-029200061121:EHELP.
-029300061121
-029400061121:HELP NAME='WRKSVRSHR/OPTDSP'.
-029500061121:PARML.
-029600061121:PT.5=Display server share
-029700061121:PD.Use this option to run the Display Server Share (DSPSVRSHR)
-029800061121command for the selected server share.
-029900061121:EPARML.
-030000061121:EHELP.
-030100061121
-030200061121:HELP NAME='WRKSVRSHR/OPTPRT'.
-030300061121:PARML.
-030400061121:PT.6=Print server share
-030500061121:PD.Use this option to run the Display Server Share (DSPSVRSHR)
-030600061121OPTION(*PRINT) command for the selected server share.
-030700061121:EPARML.
-030800061121:EHELP.
-030900061121
-031000061121:HELP NAME='WRKSVRSHR/OPTAUT'.
-031100061121:PARML.
-031200061121:PT.9=Work with authority
-031300061121:PD.Use this option to run the Work with Authority (WRKAUT) command
-031400061121for the selected server share.
-031500061121:EPARML.
-031600061121:EHELP.
-031700061121
-031800061120:HELP NAME='WRKSVRSHR/OPTION'.
-031900060623Option - Help
-032000060623:XH3.Opt
-032100060623:P.
-032200060623Type the number of the option you want to specify.
-032300060623:EHELP.
-032400060623
-032500061121:HELP name='WRKSVRSHR/SHRNAM'.
-032600061121Share - Help
-032700061121:XH3.Share
-032800060623:P.
-032900061121The name of each server share that you can work with.
-033000060623:EHELP.
-033100060623
-033200061121:HELP name='WRKSVRSHR/TXTDSC'.
-033300060623Text - Help
-033400060623:XH3.Text
-033500060623:P.
-033600061121The descriptive text of the server share.
-033700060623:EHELP.
-033800060623
-033900061121:HELP name='WRKSVRSHR/SHRRSC'.
-034000061121Resource - Help
-034100061121:XH3.Resource
-034200061121:P.
-034300061121The path name of the resource being shared.
-034400061121:EHELP.
-034500061121
-034600061121:HELP NAME='CNFPNL/'.
-034700061121Confirm Removal of Server Share - Help
-034800061121:P.
-034900061121The Confirm Removal of Server Share display shows all of the server
-035000061121shares that you have chosen to remove by selecting option 4=Remove on
-035100061121the Work with Server Shares display.  The purpose of this display is to
-035200061121allow you to confirm your remove request(s) before the server share is
-035300061121removed.
-035400061121:P.
-035500061121Pressing the Enter key confirms the items on the display that you have
-035600061121chosen to remove.  Pressing F12 (Cancel) allows you to return to the
-035700061121previous display to change your choices.
-035800061121:P.
-035900061121If you see More ... on the lower right side of your display, there is
-036000061121more information to view. Press Page Down (Roll Up) to move toward the
-036100061121end of the information. Press Page Up (Roll Down) to move toward the
-036200061121beginning of the information.
-036300061121:P.
-036400061121If you see Bottom instead of More ..., you are at the end of the list.
-036500061121:P.
-036600061121:EHELP.
-036700061121
-036800061121:HELP name='CNFPNL/OPTION'.
-036900061121Opt - Help
-037000061121:XH3.Opt
-037100061121:P.
-037200061121This is the option field showing the remove option which causes the
-037300061121confirmation panel to be displayed.  For this panel, the option
-037400061121number will always be 4.
-037500061121:EHELP.
-037600061121
-037700060623:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX964H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+
+:HELP NAME='WRKSVRSHR'.Work with Server Shares - Help
+:P.
+The Work with Server Shares (WRKSVRSHR) command allows you to work
+with all currently configured server shares.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/SHARE'.Share (SHARE) - Help
+:XH3.Share (SHARE)
+:P.
+Specifies the server share you want to work with.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+All server shares are listed.
+:P.
+:PT.:PV.share-name:EPV.
+:PD.
+Specify the name of the server share you want to work with.
+:PT.:PV.*generic-name:EPV.
+:PD.
+Specify the generic name of the server shares to be shown.  A generic
+name is a character string that contains one or more characters
+followed by an asterisk (*).  If a generic name is specified, all
+server shares that have names with the same prefix as the generic
+name are shown.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/TYPE'.Type (TYPE) - Help
+:XH3.Type (TYPE)
+:P.
+Specifies the share type that qualifies a server share to be
+selected.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+All server shares are selected.
+:PT.:PK.*FILE:EPK.
+:PD.
+Only file shares are selected.
+:PT.:PK.*PRINT:EPK.
+:PD.
+Only printer shares are selected.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/OUTPUT'.Output (OUTPUT) - Help
+:XH3.Output (OUTPUT)
+:P.
+Specifies where the output from the command is sent.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*:EPK.
+:PD.
+The output is displayed (if requested by an interactive job) or printed
+with the job's spooled output (if requested by a batch job).
+:PT.:PK.*PRINT:EPK.
+:PD.
+The output is printed with the job's spooled output.
+:EPARML.
+:EHELP.
+
+.* Panel help section:
+:HELP NAME=HLPFKEYS.
+Function Keys - Help
+:XH3.Function keys
+:EHELP.
+
+:HELP NAME=HLPENT.
+:PARML.
+:PT.Enter
+:PD.Submits information on the display for processing.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF1.
+:PARML.
+:PT.F1=Help
+:PD.Provides additional information about using the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF3.
+:PARML.
+:PT.F3=Exit
+:PD.Ends the current task and returns you to the display from which
+the task was started.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF4.
+:PARML.
+:PT.F4=Prompt
+:PD.Provides assistance in entering or selecting a command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF5.
+:PARML.
+:PT.F5=Refresh
+:PD.Shows the display you are viewing with updated information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF6.
+:PARML.
+:PT.F6=Add server share
+:PD.Executes the Add Server Share (ADDSVRSHR) command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF9.
+:PARML.
+:PT.F9=Retrieve
+:PD.Displays the last command you entered on the command line and any
+parameters you included.  Pressing this key once, shows the last
+command you ran.  Pressing this key twice, shows the command you ran
+before that and so on.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW1'.
+:PARML.
+:PT.F11=Display resource
+:PD. Displays the resources that are shared.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW2'.
+:PARML.
+:PT.F11=Display text
+:PD.Displays the server share's text description.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF12.
+:PARML.
+:PT.F12=Cancel
+:PD.Cancels processing of any options or changes you have made to the
+current display and returns you to the previous menu or display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF17.
+:PARML.
+:PT.F17=Top
+:PD.Positions the display to the top of the list.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF18.
+:PARML.
+:PT.F18=Bottom
+:PD.Positions the display to the bottom of the list.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF24.
+:PARML.
+:PT.F24=More keys
+:PD.Changes the keys shown at the bottom of the display.  When you
+press this key, additional function keys are displayed at the bottom
+of the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPHLP.
+:PARML.
+:PT.Help
+:PD.Provides additional information about using the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPGD.
+:PARML.
+:PT.Page Down (Roll Up)
+:PD.Moves the information displayed forward to show additional
+information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPGU.
+:PARML.
+:PT.Page Up (Roll Down)
+:PD.Moves the information displayed backward to show additional
+information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPRT.
+:PARML.
+:PT.Print
+:PD.Prints information currently shown on the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/'.Work with Server Shares - Help
+:P.
+The Work with Server Shares command display shows the name, resource
+and description of the selected server shares.
+:P.
+You can type an option next to one or more shares.  Then, when the
+Enter key is pressed, the function associated with the number you typed
+is performed for that share.
+:P.
+To run a command, type the command and press the Enter key.  For
+assistance in typing the command, type the command and press F4.  For
+assistance in selecting a command, press F4 without typing anything.
+:P.
+If you see More ... on the lower right side of your display, there is
+more information to view.  Press Page Down (Roll Up) to move toward the
+end of the information.  Press Page Up (Roll Down) to move toward the
+beginning of the information.
+:P.
+If you see Bottom instead of More ..., you are at the end of the list.
+:P.
+:EHELP.
+
+:HELP name='WRKSVRSHR/WRKSHR'.
+Share - Help
+:XH3.Share
+:P.
+The name of the share(s) to work with.  Specify a share name, a
+generic share name or the special value *ALL.
+:EHELP.
+
+:HELP name='WRKSVRSHR/WRKTYP'.
+Type - Help
+:XH3.Type
+:P.
+The type of shares to include in the work with list.
+:P.
+Possible values are:
+:DL COMPACT.
+:DT.*ALL  :DD.All server shares are included in the list.
+:DT.*FILE :DD.Only file shares are included in the list.
+:DT.*PRINT:DD.Only printer shares are included in the list.
+:EDL.
+:EHELP.
+
+:HELP name='WRKSVRSHR/POSSHR'.
+Position to - Help
+:XH3.Position to
+:P.
+Use this prompt to go to a particular area in the list.  Use it for
+quick repositioning of the list, not for creating a subset of the list.
+:P.
+Specify a name or a partial name of the share you want to position the
+list to.
+:P.
+The list of shares is positioned to the first share name beginning with
+the string specified.  If no shares exist in the present list, then the
+list is positioned to the item immediately preceding the position you
+want.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/OPTCHG'.
+:PARML.
+:PT.2=Change server share
+:PD.Use this option to run the Change Server Share (CHGSVRSHR)
+command for the selected server share.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/OPTRMV'.
+:PARML.
+:PT.4=Remove server share
+:PD.Use this option to run the Remove Server Share (RMVSVRSHR)
+command for the selected server share.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/OPTDSP'.
+:PARML.
+:PT.5=Display server share
+:PD.Use this option to run the Display Server Share (DSPSVRSHR)
+command for the selected server share.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/OPTPRT'.
+:PARML.
+:PT.6=Print server share
+:PD.Use this option to run the Display Server Share (DSPSVRSHR)
+OPTION(*PRINT) command for the selected server share.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/OPTAUT'.
+:PARML.
+:PT.9=Work with authority
+:PD.Use this option to run the Work with Authority (WRKAUT) command
+for the selected server share.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKSVRSHR/OPTION'.
+Option - Help
+:XH3.Opt
+:P.
+Type the number of the option you want to specify.
+:EHELP.
+
+:HELP name='WRKSVRSHR/SHRNAM'.
+Share - Help
+:XH3.Share
+:P.
+The name of each server share that you can work with.
+:EHELP.
+
+:HELP name='WRKSVRSHR/TXTDSC'.
+Text - Help
+:XH3.Text
+:P.
+The descriptive text of the server share.
+:EHELP.
+
+:HELP name='WRKSVRSHR/SHRRSC'.
+Resource - Help
+:XH3.Resource
+:P.
+The path name of the resource being shared.
+:EHELP.
+
+:HELP NAME='CNFPNL/'.
+Confirm Removal of Server Share - Help
+:P.
+The Confirm Removal of Server Share display shows all of the server
+shares that you have chosen to remove by selecting option 4=Remove on
+the Work with Server Shares display.  The purpose of this display is to
+allow you to confirm your remove request(s) before the server share is
+removed.
+:P.
+Pressing the Enter key confirms the items on the display that you have
+chosen to remove.  Pressing F12 (Cancel) allows you to return to the
+previous display to change your choices.
+:P.
+If you see More ... on the lower right side of your display, there is
+more information to view. Press Page Down (Roll Up) to move toward the
+end of the information. Press Page Up (Roll Down) to move toward the
+beginning of the information.
+:P.
+If you see Bottom instead of More ..., you are at the end of the list.
+:P.
+:EHELP.
+
+:HELP name='CNFPNL/OPTION'.
+Opt - Help
+:XH3.Opt
+:P.
+This is the option field showing the remove option which causes the
+confirmation panel to be displayed.  For this panel, the option
+number will always be 4.
+:EHELP.
+
+:EPNLGRP.

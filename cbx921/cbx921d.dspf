@@ -1,60 +1,60 @@
-000100040827     **-----------------------------------------------------------------------**
-000200040827     **                                                                       **
-000300040827     **   Compile options:                                                    **
-000400040827     **     CrtDspF   File( QGPL/CBX921D )    +                               **
-000500040827     **               SrcFile( QDDSSRC )      +                               **
-000600040827     **               RstDsp( *YES )          +                               **
-000700040827     **               WaitRcd( 3 )            +                               **
-000800040827     **                                                                       **
-000900040827     **   Programmer's note:                                                  **
-001000040827     **     WAITRCD specifies the number of seconds that the message          **
-001100040827     **     window will remain on the screen before it is closed.             **
-001200040827     **                                                                       **
-001300040827     **-----------------------------------------------------------------------**
-001400040827     A                                      DSPSIZ(24 80 *DS3  27 132 *DS4)
-001500040825     A                                      PRINT(*LIBL/QSYSPRT)
-001600040825     A                                      VLDCMDKEY(15)
-001700040825     A                                      ERRSFL
-001800040825     A                                      CA06
-001900040825     A                                      CA07
-002000040825     A                                      CA08
-002100040825     A                                      CA09
-002200040825     A                                      CA10
-002300040825     A                                      CA11
-002400040821     **
-002500960718     A          R ASSUME
-002600960718     A                                      ASSUME
-002700960718     A                                      OVERLAY
-002800960718     A                                  2  5' '
-002900040827     **
-003000040825     A          R WDW001
-003100040825     A                                      CHGINPDFT
-003200040825     A  *DS3                                WINDOW(&WDWLIN 4 8 70 *NORSTCSR)
-003300040825     A  *DS4                                WINDOW(&WDWLIN 30 8 70 *NORSTCSR)
-003400040825     A                                      WDWBORDER((*COLOR WHT) (*DSPATR HI))
-003500040825     A                                      WDWTITLE((*TEXT &WDWTTL) (*COLOR WH-
-003600040825     A                                      T) *CENTER)
-003700040825     A  19                                  DSPMOD(*DS4)
-003800040825     A                                      KEEP
-003900040825     A                                      INVITE
-004000040825     A                                      OVERLAY
-004100040825     A                                      USRRSTDSP
-004200040825     A            WDWLIN         3S 0P
-004300040825     A            WDWTTL        20A  P
-004400040825     A            W1JBNM        10A  O  1  1
-004500040825     A            W1MSTP        10A  O  1 12
-004600040828     A            W1MSSV         2A  O  1 23
-004700040825     A            W1MSID         7A  O  1 45
-004800040825     A            W1DATE         8A  O  1 54
-004900040825     A            W1TIME         8A  O  1 63
-005000040827     A                                  2 63SYSNAME
-005100040825     A                                  3  1'From  . . :'
-005200040825     A            W1USPF        10A  O  3 14
-005300040825     A            W1UPTX        46A  O  3 25
-005400040825     A                                  4  1'Message . :'
-005500040825     A            W1MSG        114A  B  4 14CNTFLD(057)
-005600040825     A                                      DSPATR(PR)
-005700040825     A                                      DSPATR(HI)
-005800040825     A                                  7  1'F6=WrkMsg   F7=WrkJob   F8=Suspend-
-005900040825     A                                         F9=Keep   F10=Reply   F11=DltMsg'
-006000040825     A                                      COLOR(BLU)
+     **-----------------------------------------------------------------------**
+     **                                                                       **
+     **   Compile options:                                                    **
+     **     CrtDspF   File( QGPL/CBX921D )    +                               **
+     **               SrcFile( QDDSSRC )      +                               **
+     **               RstDsp( *YES )          +                               **
+     **               WaitRcd( 3 )            +                               **
+     **                                                                       **
+     **   Programmer's note:                                                  **
+     **     WAITRCD specifies the number of seconds that the message          **
+     **     window will remain on the screen before it is closed.             **
+     **                                                                       **
+     **-----------------------------------------------------------------------**
+     A                                      DSPSIZ(24 80 *DS3  27 132 *DS4)
+     A                                      PRINT(*LIBL/QSYSPRT)
+     A                                      VLDCMDKEY(15)
+     A                                      ERRSFL
+     A                                      CA06
+     A                                      CA07
+     A                                      CA08
+     A                                      CA09
+     A                                      CA10
+     A                                      CA11
+     **
+     A          R ASSUME
+     A                                      ASSUME
+     A                                      OVERLAY
+     A                                  2  5' '
+     **
+     A          R WDW001
+     A                                      CHGINPDFT
+     A  *DS3                                WINDOW(&WDWLIN 4 8 70 *NORSTCSR)
+     A  *DS4                                WINDOW(&WDWLIN 30 8 70 *NORSTCSR)
+     A                                      WDWBORDER((*COLOR WHT) (*DSPATR HI))
+     A                                      WDWTITLE((*TEXT &WDWTTL) (*COLOR WH-
+     A                                      T) *CENTER)
+     A  19                                  DSPMOD(*DS4)
+     A                                      KEEP
+     A                                      INVITE
+     A                                      OVERLAY
+     A                                      USRRSTDSP
+     A            WDWLIN         3S 0P
+     A            WDWTTL        20A  P
+     A            W1JBNM        10A  O  1  1
+     A            W1MSTP        10A  O  1 12
+     A            W1MSSV         2A  O  1 23
+     A            W1MSID         7A  O  1 45
+     A            W1DATE         8A  O  1 54
+     A            W1TIME         8A  O  1 63
+     A                                  2 63SYSNAME
+     A                                  3  1'From  . . :'
+     A            W1USPF        10A  O  3 14
+     A            W1UPTX        46A  O  3 25
+     A                                  4  1'Message . :'
+     A            W1MSG        114A  B  4 14CNTFLD(057)
+     A                                      DSPATR(PR)
+     A                                      DSPATR(HI)
+     A                                  7  1'F6=WrkMsg   F7=WrkJob   F8=Suspend-
+     A                                         F9=Keep   F10=Reply   F11=DltMsg'
+     A                                      COLOR(BLU)

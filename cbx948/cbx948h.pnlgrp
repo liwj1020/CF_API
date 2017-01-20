@@ -1,197 +1,197 @@
-000100051101.*-----------------------------------------------------------------------**
-000200051101.*
-000300051101.*  Compile options:
-000400051101.*
-000500051101.*    CrtPnlGrp PnlGrp( CBX948H )
-000600051101.*              SrcFile( QPNLSRC )
-000700051101.*              SrcMbr( CBX948H )
-000800051101.*
-000900051101.*-----------------------------------------------------------------------**
-001000051029:PNLGRP.
-001100051029:HELP NAME='ANZPRFUSG'.Analyze User Profile Usage - Help
-001200051029:P.
-001300051101The Analyze User Profile Usage (ANZPRFUSG) command prints a list of all
-001400051101all profiles meeting the specified selection criteria.  You can specify
-001500051101whether to disable the listed user profiles.  However, user profiles
-001600051101created by *IBM will not be disabled, regardless of this setting.
-001700051101:P.
-001800051101Both the previous sign-on date as well as the user profile object last
-001900051101used date can be used to calculate the number of days of inactivity.
-002000051101If the specified date is not available, the user profile restore date
-002100051101will be used, if present, otherwise the user profile creation date will
-002200051101be used.
-002300051101:P.
-002400051101When a profile is disabled, a message will be sent to the message queue
-002500051101of the user who issued this command.  You should examine the profiles
-002600051101that are disabled by this command to determine if they are still needed.
-002700051101:P.
-002800051101User profiles who already have been disabled, will not be attempted to
-002900051101be disabled again, and consequently not generate a message.  They will
-003000051101however be included in the list.
-003100051101:P.
-003200051101The user profile list is written to a spooled file and placed in the
-003300051101current job's default output queue.
-003400051029:P.
-003500051101:NT.
-003600051101Only user profiles to which the current user profile of the job running
-003700051101this command has *READ authority, are included in the list.
-003800051101:ENT.
-003900051101:P.
-004000051101:NT.
-004100051101Depending on the number of user profiles on the system, this command
-004200051101will possibly take some time to complete and consume many system
-004300051101resources.  To avoid a negative impact on the system performance and
-004400051101interactive response times, please consider running the command in
-004500051101batch.
-004600051101:ENT.
-004700051029:EHELP.
-004800051029:HELP NAME='ANZPRFUSG/INACTDAYS'.Number of inactive days (INACTDAYS) - Help
-004900051029:XH3.Number of inactive days (INACTDAYS)
-005000051029:P.
-005100051101The number of days a user profile can be inactive before it is
-005200051101included in the list.  User profiles will be listed and, if requested,
-005300051101be disabled when they have been inactive for the specified number of
-005400051101dsys.
-005500051029:P.
-005600051029This is a required parameter.
-005700051029:P.
-005800051029:EHELP.
-005900051029:HELP NAME='ANZPRFUSG/INACTCHECK'.Inactive check attribute (INACTCHECK) - Help
-006000051029:XH3.Inactive check attribute (INACTCHECK)
-006100051029:P.
-006200051105Specify what attribute should be used to identify inactive user
-006300051105profiles.
-006400051029:P.
-006500051029The possible values are:
-006600051029:P.
-006700051029:PARML.
-006800051029:PT.:PK DEF.*LASTUSED:EPK.
-006900051029:PD.
-007000051105The user profile object's last used date is used to determine whether
-007100051105the user profile is inactive.
-007200051029:PT.:PK.*PRVSIGNON:EPK.
-007300051029:PD.
-007400051105The user profile's previous sign-on date is used to determine whether
-007500051105the user profile is inactive.
-007600051029:EPARML.
-007700051029:EHELP.
-007800051029:HELP NAME='ANZPRFUSG/ACTION'.User profile action (ACTION) - Help
-007900051029:XH3.User profile action (ACTION)
-008000051029:P.
-008100051105Specifies what action to perform against inactive user profiles.
-008200051106:P.
-008300051106:NT.
-008400051106User profiles created by *IBM will not be disabled, regardless of
-008500051106this setting.
-008600051106:ENT.
-008700051029:P.
-008800051029The possible values are:
-008900051029:P.
-009000051029:PARML.
-009100051029:PT.:PK DEF.*NONE:EPK.
-009200051029:PD.
-009300051105An inactive user profile remains unchanged.
-009400051029:PT.:PK.*DISABLE:EPK.
-009500051029:PD.
-009600051105An inactive user profile will have it's status changed to *DISABLED.
-009700051029:EPARML.
-009800051029:EHELP.
-009900051029:HELP NAME='ANZPRFUSG/USRCLS'.User classes to select (USRCLS) - Help
-010000051029:XH3.User classes to select (USRCLS)
-010100051029:P.
-010200051106Specifies the user classes to include in the user profile selection.
-010300051029:P.
-010400051029The possible values are:
-010500051029:P.
-010600051029:PARML.
-010700051029:PT.:PK DEF.*ALL:EPK.
-010800051029:PD.
-010900051106All user profiles are selected, regardless of their user class.
-011000051029:PT.:PK.*NONUSER:EPK.
-011100051029:PD.
-011200051106All user profiles having a user class different from *USER are
-011300051106selected.
-011400051029:PT.:PK.*USER:EPK.
-011500051029:PD.
-011600051106Only user profiles having a user class of *USER are selected.
-011700051029:PT.:PK.*PGMR:EPK.
-011800051029:PD.
-011900051106Only user profiles having a user class of *PGMR are selected.
-012000051029:PT.:PK.*SYSOPR:EPK.
-012100051029:PD.
-012200051106Only user profiles having a user class of *SYSOPR are selected.
-012300051029:PT.:PK.*SECADM:EPK.
-012400051029:PD.
-012500051106Only user profiles having a user class of *SECADM are selected.
-012600051029:PT.:PK.*SECOFR:EPK.
-012700051029:PD.
-012800051106Only user profiles having a user class of *SECOFR are selected.
-012900051029:EPARML.
-013000051029:EHELP.
-013100051029:HELP NAME='ANZPRFUSG/EXCLUDE'.Exclude user profiles (EXCLUDE) - Help
-013200051029:XH3.Exclude user profiles (EXCLUDE)
-013300051029:P.
-013400051106Specifies user profiles to be excluded from the list and optional
-013500051106disabling.
-013600051029:P.
-013700051029The possible values are:
-013800051029:P.
-013900051029:PARML.
-014000051029:PT.:PK DEF.*NONE:EPK.
-014100051029:PD.
-014200051106No user profiles are excluded from the list based on user profile name.
-014300051105:PT.:PV.*generic-user-profile-name:EPV.
-014400051029:PD.
-014500051106Specify the generic name of the user profiles to be excluded from the
-014600051106list.
-014700051106:P.
-014800051106A generic name is a character string that contains one or more
-014900051106characters followed by an asterisk (*).  If a generic name is
-015000051106specified, all user profiles that have names with the same prefix as
-015100051106the generic name are excluded.
-015200051105:PT.:PV.user-profile-name:EPV.
-015300051029:PD.
-015400051106Specify the name of a user profile to be excluded from the list.
-015500051029:EPARML.
-015600051029:EHELP.
-015700051029:HELP NAME='ANZPRFUSG/STATUS'.User profile status (STATUS) - Help
-015800051029:XH3.User profile status (STATUS)
-015900051029:P.
-016000051105Defines what current status a user profile should have to be included
-016100051105in the list and optionally have it's status changed.
-016200051029:P.
-016300051029The possible values are:
-016400051029:P.
-016500051029:PARML.
-016600051029:PT.:PK DEF.*ANY:EPK.
-016700051029:PD.
-016800051105A user profile's current status is not taken into account.
-016900051029:PT.:PK.*ENABLED:EPK.
-017000051029:PD.
-017100051105Only user profiles having a current status of *ENABLED are included.
-017200051029:PT.:PK.*DISABLED:EPK.
-017300051029:PD.
-017400051105Only user profiles having a current status of *DISABLED are included.
-017500051029:EPARML.
-017600051029:EHELP.
-017700051029:HELP NAME='ANZPRFUSG/SYSPRF'.Include system profiles (SYSPRF) - Help
-017800051029:XH3.Include system profiles (SYSPRF)
-017900051029:P.
-018000051105Specifies whether system profiles should be included in the printed
-018100051105list.  User profiles having a creator user profile of *IBM are
-018200051105considered system profiles.
-018300051029:P.
-018400051029The possible values are:
-018500051029:P.
-018600051029:PARML.
-018700051029:PT.:PK DEF.*NO:EPK.
-018800051029:PD.
-018900051105Selected user profiles having a creator user profile of *IBM are
-019000051105excluded from the printed list.
-019100051029:PT.:PK.*YES:EPK.
-019200051029:PD.
-019300051105All selected user profiles, regardless of creator user profile, are
-019400051105included in the printed list.
-019500051029:EPARML.
-019600051029:EHELP.
-019700051029:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX948H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBX948H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='ANZPRFUSG'.Analyze User Profile Usage - Help
+:P.
+The Analyze User Profile Usage (ANZPRFUSG) command prints a list of all
+all profiles meeting the specified selection criteria.  You can specify
+whether to disable the listed user profiles.  However, user profiles
+created by *IBM will not be disabled, regardless of this setting.
+:P.
+Both the previous sign-on date as well as the user profile object last
+used date can be used to calculate the number of days of inactivity.
+If the specified date is not available, the user profile restore date
+will be used, if present, otherwise the user profile creation date will
+be used.
+:P.
+When a profile is disabled, a message will be sent to the message queue
+of the user who issued this command.  You should examine the profiles
+that are disabled by this command to determine if they are still needed.
+:P.
+User profiles who already have been disabled, will not be attempted to
+be disabled again, and consequently not generate a message.  They will
+however be included in the list.
+:P.
+The user profile list is written to a spooled file and placed in the
+current job's default output queue.
+:P.
+:NT.
+Only user profiles to which the current user profile of the job running
+this command has *READ authority, are included in the list.
+:ENT.
+:P.
+:NT.
+Depending on the number of user profiles on the system, this command
+will possibly take some time to complete and consume many system
+resources.  To avoid a negative impact on the system performance and
+interactive response times, please consider running the command in
+batch.
+:ENT.
+:EHELP.
+:HELP NAME='ANZPRFUSG/INACTDAYS'.Number of inactive days (INACTDAYS) - Help
+:XH3.Number of inactive days (INACTDAYS)
+:P.
+The number of days a user profile can be inactive before it is
+included in the list.  User profiles will be listed and, if requested,
+be disabled when they have been inactive for the specified number of
+dsys.
+:P.
+This is a required parameter.
+:P.
+:EHELP.
+:HELP NAME='ANZPRFUSG/INACTCHECK'.Inactive check attribute (INACTCHECK) - Help
+:XH3.Inactive check attribute (INACTCHECK)
+:P.
+Specify what attribute should be used to identify inactive user
+profiles.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*LASTUSED:EPK.
+:PD.
+The user profile object's last used date is used to determine whether
+the user profile is inactive.
+:PT.:PK.*PRVSIGNON:EPK.
+:PD.
+The user profile's previous sign-on date is used to determine whether
+the user profile is inactive.
+:EPARML.
+:EHELP.
+:HELP NAME='ANZPRFUSG/ACTION'.User profile action (ACTION) - Help
+:XH3.User profile action (ACTION)
+:P.
+Specifies what action to perform against inactive user profiles.
+:P.
+:NT.
+User profiles created by *IBM will not be disabled, regardless of
+this setting.
+:ENT.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NONE:EPK.
+:PD.
+An inactive user profile remains unchanged.
+:PT.:PK.*DISABLE:EPK.
+:PD.
+An inactive user profile will have it's status changed to *DISABLED.
+:EPARML.
+:EHELP.
+:HELP NAME='ANZPRFUSG/USRCLS'.User classes to select (USRCLS) - Help
+:XH3.User classes to select (USRCLS)
+:P.
+Specifies the user classes to include in the user profile selection.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+All user profiles are selected, regardless of their user class.
+:PT.:PK.*NONUSER:EPK.
+:PD.
+All user profiles having a user class different from *USER are
+selected.
+:PT.:PK.*USER:EPK.
+:PD.
+Only user profiles having a user class of *USER are selected.
+:PT.:PK.*PGMR:EPK.
+:PD.
+Only user profiles having a user class of *PGMR are selected.
+:PT.:PK.*SYSOPR:EPK.
+:PD.
+Only user profiles having a user class of *SYSOPR are selected.
+:PT.:PK.*SECADM:EPK.
+:PD.
+Only user profiles having a user class of *SECADM are selected.
+:PT.:PK.*SECOFR:EPK.
+:PD.
+Only user profiles having a user class of *SECOFR are selected.
+:EPARML.
+:EHELP.
+:HELP NAME='ANZPRFUSG/EXCLUDE'.Exclude user profiles (EXCLUDE) - Help
+:XH3.Exclude user profiles (EXCLUDE)
+:P.
+Specifies user profiles to be excluded from the list and optional
+disabling.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NONE:EPK.
+:PD.
+No user profiles are excluded from the list based on user profile name.
+:PT.:PV.*generic-user-profile-name:EPV.
+:PD.
+Specify the generic name of the user profiles to be excluded from the
+list.
+:P.
+A generic name is a character string that contains one or more
+characters followed by an asterisk (*).  If a generic name is
+specified, all user profiles that have names with the same prefix as
+the generic name are excluded.
+:PT.:PV.user-profile-name:EPV.
+:PD.
+Specify the name of a user profile to be excluded from the list.
+:EPARML.
+:EHELP.
+:HELP NAME='ANZPRFUSG/STATUS'.User profile status (STATUS) - Help
+:XH3.User profile status (STATUS)
+:P.
+Defines what current status a user profile should have to be included
+in the list and optionally have it's status changed.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ANY:EPK.
+:PD.
+A user profile's current status is not taken into account.
+:PT.:PK.*ENABLED:EPK.
+:PD.
+Only user profiles having a current status of *ENABLED are included.
+:PT.:PK.*DISABLED:EPK.
+:PD.
+Only user profiles having a current status of *DISABLED are included.
+:EPARML.
+:EHELP.
+:HELP NAME='ANZPRFUSG/SYSPRF'.Include system profiles (SYSPRF) - Help
+:XH3.Include system profiles (SYSPRF)
+:P.
+Specifies whether system profiles should be included in the printed
+list.  User profiles having a creator user profile of *IBM are
+considered system profiles.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+Selected user profiles having a creator user profile of *IBM are
+excluded from the printed list.
+:PT.:PK.*YES:EPK.
+:PD.
+All selected user profiles, regardless of creator user profile, are
+included in the printed list.
+:EPARML.
+:EHELP.
+:EPNLGRP.

@@ -1,102 +1,102 @@
-000100040919.*-----------------------------------------------------------------------**
-000200040919.*
-000300040919.*  Compile options:
-000400040919.*
-000500040919.*    CrtPnlGrp PnlGrp( CBX923H )
-000600040919.*              SrcFile( QPNLSRC )
-000700040919.*              SrcMbr( CBX923H )
-000800040919.*
-000900040919.*-----------------------------------------------------------------------**
-001000040828:PNLGRP.
-001100040828:HELP NAME='CHGUSRSTS'.Change user status - Help
-001200040828:P.
-001300040924The Change User Status (CHGUSRSTS) command is capable of resetting a
-001400040924user profile password as well as changing a user profile status to
-001500040924*ENABLED.
-001600040924:P.
-001700040924If the system audit journal QAUDJRN exists on the system where this
-001800040924command is run, all usage of the command will be recorded in the system
-001900040924audit journal, regardless of how the command ends.
-002000040924:P.
-002100040924The audit journal entry type is 'US' and the audit journal entry data
-002200040924will hold the following information:
-002300040924:P.
-002400040924:HP2.Offset&COLON.   Length&COLON.   Description&COLON.:EHP2.
-002500040924:LINES.
-002600040924     1        10    User profile running the command
-002700040924    11        10    User profile to be changed
-002800040924    21         4    Reset password parameter value
-002900040924    25         4    Enable profile parameter value
-003000040924    29         1    Return code
-003100040924:ELINES.
-003200040924:P.
-003300040924:HP2.Restriction&COLON.:EHP2. Special authority *ALLOBJ or explicit
-003400040924*USE authority to the authorization list CHGUSRSTS is required to run
-003500040924this command.
-003600040828:EHELP.
-003700040828:HELP NAME='CHGUSRSTS/USRPRF'.User profile (USRPRF) - Help
-003800040828:XH3.User profile (USRPRF)
-003900040828:P.
-004000040924Specifies the name of the user profile being changed.
-004100040924:P.
-004200040924:NT.
-004300040924Only user profiles currently having a password, that have been signed
-004400040926on or created within the last 60 days, and that have no profile special
-004500040926authorities, can be changed using this command.  The special authority
-004600040926restriction also applies to the user profile's group profile, if any.
-004700040924:P.
-004800040926If this command is run by a user profile having special authorities
-004900040926*ALLOBJ and *SECADM, the above restrictions are not enforced.
-005000040924:ENT.
-005100040828:P.
-005200040828This is a required parameter.
-005300040828:P.
-005400040828:EHELP.
-005500040828:HELP NAME='CHGUSRSTS/RESET'.Reset password (RESET) - Help
-005600040828:XH3.Reset password (RESET)
-005700040828:P.
-005800040924Specifies if the user profile password should be reset.  Resetting a
-005900040924user profile password is done by changing the profile password, using
-006000040924the specified user profile's name as the new password value.
-006100040828:P.
-006200040924To avoid the risk introduced by having default passwords on a system,
-006300040924the password is also expired, forcing the user to specify a new secret
-006400040924password at the next sign-on attempt.
-006500040924:P.
-006600040828The possible values are:
-006700040828:P.
-006800040828:PARML.
-006900040828:PT.:PK DEF.*NO:EPK.
-007000040828:PD.
-007100040924The user profile password does not change.
-007200040828:PT.:PK.*YES:EPK.
-007300040828:PD.
-007400040924The user profile password is changed, using the user profile name as
-007500040924the new password value.
-007600040828:EPARML.
-007700040828:EHELP.
-007800040828:HELP NAME='CHGUSRSTS/ENABLE'.Enable user profile (ENABLE) - Help
-007900040828:XH3.Enable user profile (ENABLE)
-008000040828:P.
-008100040924Defines if the status of the specified user profile status should be
-008200040924changed to *ENABLED.
-008300040924:P.
-008400040924:NT.
-008500040924The system will disable a user profile if the number of failed
-008600040924sign-on attempts reaches the limit specified on the QMAXSIGN system
-008700040924value and option 2 or 3 has been specified on the QMAXSGNACN system
-008800040924value.
-008900040924:ENT.
-009000040828:P.
-009100040828The possible values are:
-009200040828:P.
-009300040828:PARML.
-009400040828:PT.:PK DEF.*NO:EPK.
-009500040828:PD.
-009600040924The user profile status is not changed.
-009700040828:PT.:PK.*YES:EPK.
-009800040828:PD.
-009900040924The user profile status is changed to *ENABLED.
-010000040828:EPARML.
-010100040828:EHELP.
-010200040828:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX923H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBX923H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='CHGUSRSTS'.Change user status - Help
+:P.
+The Change User Status (CHGUSRSTS) command is capable of resetting a
+user profile password as well as changing a user profile status to
+*ENABLED.
+:P.
+If the system audit journal QAUDJRN exists on the system where this
+command is run, all usage of the command will be recorded in the system
+audit journal, regardless of how the command ends.
+:P.
+The audit journal entry type is 'US' and the audit journal entry data
+will hold the following information:
+:P.
+:HP2.Offset&COLON.   Length&COLON.   Description&COLON.:EHP2.
+:LINES.
+     1        10    User profile running the command
+    11        10    User profile to be changed
+    21         4    Reset password parameter value
+    25         4    Enable profile parameter value
+    29         1    Return code
+:ELINES.
+:P.
+:HP2.Restriction&COLON.:EHP2. Special authority *ALLOBJ or explicit
+*USE authority to the authorization list CHGUSRSTS is required to run
+this command.
+:EHELP.
+:HELP NAME='CHGUSRSTS/USRPRF'.User profile (USRPRF) - Help
+:XH3.User profile (USRPRF)
+:P.
+Specifies the name of the user profile being changed.
+:P.
+:NT.
+Only user profiles currently having a password, that have been signed
+on or created within the last 60 days, and that have no profile special
+authorities, can be changed using this command.  The special authority
+restriction also applies to the user profile's group profile, if any.
+:P.
+If this command is run by a user profile having special authorities
+*ALLOBJ and *SECADM, the above restrictions are not enforced.
+:ENT.
+:P.
+This is a required parameter.
+:P.
+:EHELP.
+:HELP NAME='CHGUSRSTS/RESET'.Reset password (RESET) - Help
+:XH3.Reset password (RESET)
+:P.
+Specifies if the user profile password should be reset.  Resetting a
+user profile password is done by changing the profile password, using
+the specified user profile's name as the new password value.
+:P.
+To avoid the risk introduced by having default passwords on a system,
+the password is also expired, forcing the user to specify a new secret
+password at the next sign-on attempt.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+The user profile password does not change.
+:PT.:PK.*YES:EPK.
+:PD.
+The user profile password is changed, using the user profile name as
+the new password value.
+:EPARML.
+:EHELP.
+:HELP NAME='CHGUSRSTS/ENABLE'.Enable user profile (ENABLE) - Help
+:XH3.Enable user profile (ENABLE)
+:P.
+Defines if the status of the specified user profile status should be
+changed to *ENABLED.
+:P.
+:NT.
+The system will disable a user profile if the number of failed
+sign-on attempts reaches the limit specified on the QMAXSIGN system
+value and option 2 or 3 has been specified on the QMAXSGNACN system
+value.
+:ENT.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+The user profile status is not changed.
+:PT.:PK.*YES:EPK.
+:PD.
+The user profile status is changed to *ENABLED.
+:EPARML.
+:EHELP.
+:EPNLGRP.

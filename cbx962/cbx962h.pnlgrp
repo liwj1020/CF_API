@@ -1,289 +1,289 @@
-000100060922.*-----------------------------------------------------------------------**
-000200060922.*
-000300060922.*  Compile options:
-000400060922.*
-000500061014.*    CrtPnlGrp PnlGrp( CBX962H )
-000600060922.*              SrcFile( QPNLSRC )
-000700060922.*              SrcMbr( *PNLGRP )
-000800060922.*
-000900060922.*-----------------------------------------------------------------------**
-001000060922:PNLGRP.
-001100060922
-001200061014:HELP NAME='CHGSVRSHR'.Change Server Share - Help
-001300060922:P.
-001400061014The Change Server Share (CHGSVRSHR) command changes an the information
-001500061014about a shared portion of the Integrated File System (IFS) or a shared
-001600061014system printer.
-001700060924:P.
-001800060924:HP2.Restriction&COLON.:EHP2. This command requires *IOSYSCFG special
-001900060924authority, or ownership of the integrated file system directory or
-002000060924ownership to the system output queue, respectively.
-002100060922:P.
-002200060922:EHELP.
-002300060922
-002400061014:HELP NAME='CHGSVRSHR/SHARE'.Share (SHARE) - Help
-002500060922:XH3.Share (SHARE)
-002600060922:P.
-002700061014The name of the share to be changed.
-002800060922:P.
-002900060922This is a required parameter.
-003000060922:P.
-003100060922:EHELP.
-003200060922
-003300061014:HELP NAME='CHGSVRSHR/TYPE'.Share type (TYPE) - Help
-003400060922:XH3.Share type (TYPE)
-003500060922:P.
-003600061014Specifies whether a file share or a printer share is changed.
-003700060922:P.
-003800060922This is a required parameter.
-003900060922:P.
-004000060922The possible values are:
-004100060922:P.
-004200060922:PARML.
-004300060922:PT.:PK.*FILE:EPK.
-004400060922:PD.
-004500061014A file share is changed.
-004600060922:PT.:PK.*PRINT:EPK.
-004700060922:PD.
-004800061014A printer share is changed.
-004900060922:EPARML.
-005000060922:EHELP.
-005100060922
-005200061014:HELP NAME='CHGSVRSHR/PATH'.Path (PATH) - Help
-005300060922:XH3.Path (PATH)
-005400060922:P.
-005500061014The path in the integrated file system to have its information changed.
-005600061014A forward slash, '/', is required as the first character.
-005700060922:P.
-005800060922:EHELP.
-005900060922
-006000061014:HELP NAME='CHGSVRSHR/TEXT'.Text ''description'' (TEXT) - Help
-006100060922:XH3.Text ''description'' (TEXT)
-006200060922:P.
-006300060924The text description for the share.
-006400060922:P.
-006500060922The possible values are:
-006600060922:P.
-006700060922:PARML.
-006800060922:PT.:PK DEF.*BLANK:EPK.
-006900060922:PD.
-007000060924No text description is specified for the share.
-007100060922:PT.:PV.text-''description'':EPV.
-007200060922:PD.
-007300060924Specify no more than 50 characters, enclosed in apostrophes.
-007400060922:EPARML.
-007500060922:EHELP.
-007600060922
-007700061014:HELP NAME='CHGSVRSHR/PERMISSION'.Share permissions (PERMISSION) - Help
-007800060922:XH3.Share permissions (PERMISSION)
-007900060922:P.
-008000060924The access available from the network for this share.
-008100060922:P.
-008200060922The possible values are:
-008300060922:P.
-008400060922:PARML.
-008500060922:PT.:PK DEF.*READONLY:EPK.
-008600060922:PD.
-008700060924The share is available for read only access.
-008800060922:PT.:PK.*READWRITE:EPK.
-008900060922:PD.
-009000060924The share is available for read and write access.
-009100060922:EPARML.
-009200060922:EHELP.
-009300060922
-009400061014:HELP NAME='CHGSVRSHR/MAXUSERS'.Maximum users (MAXUSERS) - Help
-009500060922:XH3.Maximum users (MAXUSERS)
-009600060922:P.
-009700060924The maximum number of users who can concurrently access this share.
-009800060922:P.
-009900060922The possible values are:
-010000060922:P.
-010100060922:PARML.
-010200060922:PT.:PK DEF.*NOMAX:EPK.
-010300060922:PD.
-010400060924There is no limit to the number of users who can concurrently use this
-010500060924share.
-010600060922:PT.:PV.maximum-users:EPV.
-010700060922:PD.
-010800060924Specifies the maximum number of users who can concurrently use this
-010900060924share.
-011000060922:EPARML.
-011100060922:EHELP.
-011200060922
-011300061014:HELP NAME='CHGSVRSHR/CCSID'.Text conversion CCSID (CCSID) - Help
-011400060922:XH3.Text conversion CCSID (CCSID)
-011500060922:P.
-011600060924The client CCSID that is used for text file data conversion. Text file
-011700060924data conversion is performed using this CCSID and the current CCSID of
-011800060924the system file.
-011900060922:P.
-012000060922The possible values are:
-012100060922:P.
-012200060922:PARML.
-012300060922:PT.:PK DEF.*SVRCCSID:EPK.
-012400060922:PD.
-012500060924The currently configured CCSID for the server is used.
-012600060922:PT.:PV.text-conversion-ccsid:EPV.
-012700060922:PD.
-012800060924Specifies the CCSID to use for text file data conversion.
-012900060922:EPARML.
-013000060922:EHELP.
-013100060922
-013200061014:HELP NAME='CHGSVRSHR/CVTTXT'.Text conversion (CVTTXT) - Help
-013300060922:XH3.Text conversion (CVTTXT)
-013400060922:P.
-013500060924Whether the server enables text conversion for the share.
-013600060922:P.
-013700060922The possible values are:
-013800060922:P.
-013900060922:PARML.
-014000060922:PT.:PK DEF.*NO:EPK.
-014100060922:PD.
-014200060924Text conversion is not enabled.
-014300060922:PT.:PK.*YES:EPK.
-014400060922:PD.
-014500060924Text conversion is enabled.
-014600060922:PT.:PK.*MIXED:EPK.
-014700060922:PD.
-014800060924Text conversion is enabled and mixed data is allowed.
-014900060922:EPARML.
-015000060922:EHELP.
-015100060922
-015200061014:HELP NAME='CHGSVRSHR/FILEXT'.File extensions (FILEXT) - Help
-015300060922:XH3.File extensions (FILEXT)
-015400060922:P.
-015500060924Specifies up to 128 file extensions for which text conversion using
-015600060924the Coded Character Set ID defined by the CCSID keyword is performed.
-015700060924:P.
-015800060924Possible values include:
-015900060924:P.
-016000060924:DL.
-016100060924:DT.TXT, .TXT   :DD.The server will convert all files ending with .TXT
-016200060924                    (that is, a.TXT, a.b.c.TXT).
-016300060924:DT.T*T         :DD.The server will convert all files ending with an
-016400060924                    extension that substitutes any number of characters
-016500060924                    for the * wild card (that is, a.T123T, b.TXT,
-016600060924                    c.TEST).
-016700060924:DT.T?T         :DD.The server will convert all files ending with an
-016800060924                    extension that substitutes any one character for
-016900060924                    the ? wild card (that is, a.T1T, b.TXT).
-017000060924:EDL.
-017100060924:P.
-017200060924Extensions with more than one leading period will have no effect
-017300060924on the server. No translation will be done. This includes the following
-017400060924examples:
-017500060924:XMP.
-017600060924&PERIOD.&PERIOD.TXT, ...TXT, ......TXT
-017700060924:EXMP.
-017800060922:P.
-017900060922The possible values are:
-018000060922:P.
-018100060922:PARML.
-018200060922:PT.:PK DEF.*NONE:EPK.
-018300060922:PD.
-018400060924No file extensions for text conversion are defined.
-018500060922:PT.:PK.*ALL:EPK.
-018600060922:PD.
-018700060924The server will convert all files.
-018800060922:PT.:PK.*NOEXT:EPK.
-018900060922:PD.
-019000060924The server will convert all files without an extension.
-019100060922:PT.:PV.file-extensions:EPV.
-019200060922:PD.
-019300060924Specify up to 128 file extionsions for which to perform text
-019400060924conversion.
-019500060922:EPARML.
-019600060922:EHELP.
-019700060922
-019800061014:HELP NAME='CHGSVRSHR/OUTQ'.Output queue (OUTQ) - Help
-019900060922:XH3.Output queue (OUTQ)
-020000060922:P.
-020100061014The output queue for which the printer share information is changed.
-020200060922:P.
-020300060922:EHELP.
-020400061014:HELP NAME='CHGSVRSHR/SPLFTYPE'.Spooled file type (SPLFTYPE) - Help
-020500060922:XH3.Spooled file type (SPLFTYPE)
-020600060922:P.
-020700060924The type of spooled files that are created using this share. This is
-020800060924based on spooled file data expected to be sent by the client; no
-020900060924conversion will be done.
-021000060922:P.
-021100060922The possible values are:
-021200060922:P.
-021300060922:PARML.
-021400060922:PT.:PK DEF.*AUTO:EPK.
-021500060922:PD.
-021600060924Automatic type sensing is performed.
-021700060922:PT.:PK.*USERASCII:EPK.
-021800060922:PD.
-021900060924User ASCII (*USERASCII) type of printer files are created.
-022000060922:PT.:PK.*AFPDS:EPK.
-022100060922:PD.
-022200060924Advanced Function Printing (*AFP) type of printer files are created.
-022300060922:PT.:PK.*SCS:EPK.
-022400060922:PD.
-022500060924SNA character string (*SCS) type of printer files are created.
-022600060922:EPARML.
-022700060922:EHELP.
-022800060922
-022900061014:HELP NAME='CHGSVRSHR/PRTDRV'.Print driver type (PRTDRV) - Help
-023000060924:XH3.Print driver type (PRTDRV)
-023100060922:P.
-023200060924The text string that identifies the print driver that is appropriate
-023300060924for this share. When personal computers connect to this shared printer,
-023400060924this identifies the print driver that they should use. This text should
-023500060924match the name of a print driver known to the personal computer
-023600060924operating system.
-023700060924:P.
-023800060924For example, :HP2.'IBM AFP 3820':EHP2. is an Advanced Function Print
-023900060924driver type.
-024000060922:P.
-024100060922The possible values are:
-024200060922:P.
-024300060922:PARML.
-024400060922:PT.:PK DEF.*BLANK:EPK.
-024500060922:PD.
-024600060924No print driver type is specified for this share.
-024700060922:PT.:PV.printer-driver:EPV.
-024800060922:PD.
-024900060924Specify a text string that identifies the appropriate print driver for
-025000060924this share.
-025100060922:EPARML.
-025200060922:EHELP.
-025300060922
-025400061014:HELP NAME='CHGSVRSHR/PRTF'.Printer file (PRTF) - Help
-025500060922:XH3.Printer file (PRTF)
-025600060922:P.
-025700060924A printer file template containing attributes used to create spooled
-025800060924files.
-025900060922:P.
-026000060922The possible values are:
-026100060922:P.
-026200060922:PARML.
-026300060922:PT.:PK DEF.*NONE:EPK.
-026400060922:PD.
-026500060924No printer file will be used to create spooled files.
-026600060922:PT.:PV.printer-file:EPV.
-026700060922:PD.
-026800060924Specifies a printer file template to use when creating spooled files.
-026900060922:EPARML.
-027000060922:EHELP.
-027100060922
-027200061014:HELP NAME='CHGSVRSHR/PUBLISH'.Publish print share (PUBLISH) - Help
-027300060922:XH3.Publish print share (PUBLISH)
-027400060922:P.
-027500060924Specifies Whether to publish this print share.
-027600060922:P.
-027700060922The possible values are:
-027800060922:P.
-027900060922:PARML.
-028000060922:PT.:PK DEF.*NO:EPK.
-028100060922:PD.
-028200060924Do not publish this print share.
-028300060922:PT.:PK.*YES:EPK.
-028400060922:PD.
-028500060924The print share is published.
-028600060922:EPARML.
-028700060922:EHELP.
-028800060922
-028900060922:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX962H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+
+:HELP NAME='CHGSVRSHR'.Change Server Share - Help
+:P.
+The Change Server Share (CHGSVRSHR) command changes an the information
+about a shared portion of the Integrated File System (IFS) or a shared
+system printer.
+:P.
+:HP2.Restriction&COLON.:EHP2. This command requires *IOSYSCFG special
+authority, or ownership of the integrated file system directory or
+ownership to the system output queue, respectively.
+:P.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/SHARE'.Share (SHARE) - Help
+:XH3.Share (SHARE)
+:P.
+The name of the share to be changed.
+:P.
+This is a required parameter.
+:P.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/TYPE'.Share type (TYPE) - Help
+:XH3.Share type (TYPE)
+:P.
+Specifies whether a file share or a printer share is changed.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*FILE:EPK.
+:PD.
+A file share is changed.
+:PT.:PK.*PRINT:EPK.
+:PD.
+A printer share is changed.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/PATH'.Path (PATH) - Help
+:XH3.Path (PATH)
+:P.
+The path in the integrated file system to have its information changed.
+A forward slash, '/', is required as the first character.
+:P.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/TEXT'.Text ''description'' (TEXT) - Help
+:XH3.Text ''description'' (TEXT)
+:P.
+The text description for the share.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*BLANK:EPK.
+:PD.
+No text description is specified for the share.
+:PT.:PV.text-''description'':EPV.
+:PD.
+Specify no more than 50 characters, enclosed in apostrophes.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/PERMISSION'.Share permissions (PERMISSION) - Help
+:XH3.Share permissions (PERMISSION)
+:P.
+The access available from the network for this share.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*READONLY:EPK.
+:PD.
+The share is available for read only access.
+:PT.:PK.*READWRITE:EPK.
+:PD.
+The share is available for read and write access.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/MAXUSERS'.Maximum users (MAXUSERS) - Help
+:XH3.Maximum users (MAXUSERS)
+:P.
+The maximum number of users who can concurrently access this share.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NOMAX:EPK.
+:PD.
+There is no limit to the number of users who can concurrently use this
+share.
+:PT.:PV.maximum-users:EPV.
+:PD.
+Specifies the maximum number of users who can concurrently use this
+share.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/CCSID'.Text conversion CCSID (CCSID) - Help
+:XH3.Text conversion CCSID (CCSID)
+:P.
+The client CCSID that is used for text file data conversion. Text file
+data conversion is performed using this CCSID and the current CCSID of
+the system file.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*SVRCCSID:EPK.
+:PD.
+The currently configured CCSID for the server is used.
+:PT.:PV.text-conversion-ccsid:EPV.
+:PD.
+Specifies the CCSID to use for text file data conversion.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/CVTTXT'.Text conversion (CVTTXT) - Help
+:XH3.Text conversion (CVTTXT)
+:P.
+Whether the server enables text conversion for the share.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+Text conversion is not enabled.
+:PT.:PK.*YES:EPK.
+:PD.
+Text conversion is enabled.
+:PT.:PK.*MIXED:EPK.
+:PD.
+Text conversion is enabled and mixed data is allowed.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/FILEXT'.File extensions (FILEXT) - Help
+:XH3.File extensions (FILEXT)
+:P.
+Specifies up to 128 file extensions for which text conversion using
+the Coded Character Set ID defined by the CCSID keyword is performed.
+:P.
+Possible values include:
+:P.
+:DL.
+:DT.TXT, .TXT   :DD.The server will convert all files ending with .TXT
+                    (that is, a.TXT, a.b.c.TXT).
+:DT.T*T         :DD.The server will convert all files ending with an
+                    extension that substitutes any number of characters
+                    for the * wild card (that is, a.T123T, b.TXT,
+                    c.TEST).
+:DT.T?T         :DD.The server will convert all files ending with an
+                    extension that substitutes any one character for
+                    the ? wild card (that is, a.T1T, b.TXT).
+:EDL.
+:P.
+Extensions with more than one leading period will have no effect
+on the server. No translation will be done. This includes the following
+examples:
+:XMP.
+&PERIOD.&PERIOD.TXT, ...TXT, ......TXT
+:EXMP.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NONE:EPK.
+:PD.
+No file extensions for text conversion are defined.
+:PT.:PK.*ALL:EPK.
+:PD.
+The server will convert all files.
+:PT.:PK.*NOEXT:EPK.
+:PD.
+The server will convert all files without an extension.
+:PT.:PV.file-extensions:EPV.
+:PD.
+Specify up to 128 file extionsions for which to perform text
+conversion.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/OUTQ'.Output queue (OUTQ) - Help
+:XH3.Output queue (OUTQ)
+:P.
+The output queue for which the printer share information is changed.
+:P.
+:EHELP.
+:HELP NAME='CHGSVRSHR/SPLFTYPE'.Spooled file type (SPLFTYPE) - Help
+:XH3.Spooled file type (SPLFTYPE)
+:P.
+The type of spooled files that are created using this share. This is
+based on spooled file data expected to be sent by the client; no
+conversion will be done.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*AUTO:EPK.
+:PD.
+Automatic type sensing is performed.
+:PT.:PK.*USERASCII:EPK.
+:PD.
+User ASCII (*USERASCII) type of printer files are created.
+:PT.:PK.*AFPDS:EPK.
+:PD.
+Advanced Function Printing (*AFP) type of printer files are created.
+:PT.:PK.*SCS:EPK.
+:PD.
+SNA character string (*SCS) type of printer files are created.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/PRTDRV'.Print driver type (PRTDRV) - Help
+:XH3.Print driver type (PRTDRV)
+:P.
+The text string that identifies the print driver that is appropriate
+for this share. When personal computers connect to this shared printer,
+this identifies the print driver that they should use. This text should
+match the name of a print driver known to the personal computer
+operating system.
+:P.
+For example, :HP2.'IBM AFP 3820':EHP2. is an Advanced Function Print
+driver type.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*BLANK:EPK.
+:PD.
+No print driver type is specified for this share.
+:PT.:PV.printer-driver:EPV.
+:PD.
+Specify a text string that identifies the appropriate print driver for
+this share.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/PRTF'.Printer file (PRTF) - Help
+:XH3.Printer file (PRTF)
+:P.
+A printer file template containing attributes used to create spooled
+files.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NONE:EPK.
+:PD.
+No printer file will be used to create spooled files.
+:PT.:PV.printer-file:EPV.
+:PD.
+Specifies a printer file template to use when creating spooled files.
+:EPARML.
+:EHELP.
+
+:HELP NAME='CHGSVRSHR/PUBLISH'.Publish print share (PUBLISH) - Help
+:XH3.Publish print share (PUBLISH)
+:P.
+Specifies Whether to publish this print share.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+Do not publish this print share.
+:PT.:PK.*YES:EPK.
+:PD.
+The print share is published.
+:EPARML.
+:EHELP.
+
+:EPNLGRP.

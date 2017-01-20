@@ -1,97 +1,97 @@
-000100041201.*-----------------------------------------------------------------------**
-000200041201.*
-000300041201.*  Compile options:
-000400041201.*
-000500050210.*    CrtPnlGrp PnlGrp( CBX9281H )
-000600041201.*              SrcFile( QPNLSRC )
-000700041201.*              SrcMbr( *PNLGRP )
-000800041201.*
-000900041201.*-----------------------------------------------------------------------**
-001000041201:PNLGRP.
-001100050209:HELP NAME='RTVSPCAUT'.Retrieve Special Authorities - Help
-001200041201:P.
-001300050209The Retrieve Special Authorities (RTVSPCAUT) command provides an
-001400041201indication of whether the user has the specified special authorities.
-001500041201:P.
-001600041201:EHELP.
-001700041202:HELP NAME='RTVSPCAUT/USRPRF'.User profile (USRPRF) - Help
-001800041201:XH3.User profile (USRPRF)
-001900041201:P.
-002000050209The name of the user whose special authorities are retrieved.
-002100041201:NT.
-002200041201When the user profile name parameter is *CURRENT or the user who is
-002300041201currently running, the special authorities available to the user
-002400041201include any special authorities the user or the groups has, and any
-002500041201program adopted special authorities.
-002600041201:P.
-002700041201If the user profile specified is not the user currently running, then
-002800041201the special authorities available to the user are only the special
-002900041201authorities the user and his groups have.
-003000041201:ENT.
-003100041201:P.
-003200041201This is a required parameter.
-003300041201:P.
-003400041201The possible values are:
-003500041201:P.
-003600041201:PARML.
-003700041201:PT.:PK.*CURRENT:EPK.
-003800041201:PD.
-003900050209The special authorities for the user currently running is retrieved.
-004000041201:P.
-004100041201:PT.:PV.user-profile-name:EPV.
-004200041201:PD.
-004300041202Specify the name of the user for which to retrieve the special
-004400050209authorities.
-004500041201:EPARML.
-004600041201:EHELP.
-004700041202:HELP NAME='RTVSPCAUT/SPCAUT'.Special authority (SPCAUT) - Help
-004800041201:XH3.Special authority (SPCAUT)
-004900041201:P.
-005000041201The special authorities checked for the user.
-005100041201:P.
-005200041201This is a required parameter.
-005300041201:P.
-005400041201The possible values are:
-005500041201:P.
-005600041201:PARML.
-005700041201:PT.:PK.*ALLOBJ:EPK.
-005800041201:PD.
-005900041201All object special authority.
-006000041201:PT.:PK.*AUDIT:EPK.
-006100041201:PD.
-006200041201Audit special authority.
-006300041201:PT.:PK.*IOSYSCFG:EPK.
-006400041201:PD.
-006500041201Input/output system configuration special authority.
-006600041201:PT.:PK.*JOBCTL:EPK.
-006700041201:PD.
-006800041201Job control special authority.
-006900041201:PT.:PK.*SAVSYS:EPK.
-007000041201:PD.
-007100041201Save system special authority.
-007200041201:PT.:PK.*SECADM:EPK.
-007300041201:PD.
-007400041201Security administrator special authority.
-007500041201:PT.:PK.*SERVICE:EPK.
-007600041201:PD.
-007700041201Service special authority.
-007800041201:PT.:PK.*SPLCTL:EPK.
-007900041201:PD.
-008000041201Spool control special authority.
-008100041201:EPARML.
-008200041201:EHELP.
-008300041202:HELP NAME='RTVSPCAUT/AUTIND'.CL var for AUTIND        (1) (AUTIND) - Help
-008400041201:XH3.CL var for AUTIND        (1) (AUTIND)
-008500041201:P.
-008600041201Specifies the name of a 1-character variable used to return the
-008700041201result of the user special authorities check.
-008800041201:P.
-008900041201This is a required parameter.
-009000041201:P.
-009100041201Possible return values:
-009200041202:DL.
-009300041202:DT.'Y':DD.The user has the specified special authorities.
-009400041203:DT.'N':DD.The user does not have the specified special authorities.
-009500041202:EDL.
-009600041201:EHELP.
-009700041201:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX9281H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='RTVSPCAUT'.Retrieve Special Authorities - Help
+:P.
+The Retrieve Special Authorities (RTVSPCAUT) command provides an
+indication of whether the user has the specified special authorities.
+:P.
+:EHELP.
+:HELP NAME='RTVSPCAUT/USRPRF'.User profile (USRPRF) - Help
+:XH3.User profile (USRPRF)
+:P.
+The name of the user whose special authorities are retrieved.
+:NT.
+When the user profile name parameter is *CURRENT or the user who is
+currently running, the special authorities available to the user
+include any special authorities the user or the groups has, and any
+program adopted special authorities.
+:P.
+If the user profile specified is not the user currently running, then
+the special authorities available to the user are only the special
+authorities the user and his groups have.
+:ENT.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*CURRENT:EPK.
+:PD.
+The special authorities for the user currently running is retrieved.
+:P.
+:PT.:PV.user-profile-name:EPV.
+:PD.
+Specify the name of the user for which to retrieve the special
+authorities.
+:EPARML.
+:EHELP.
+:HELP NAME='RTVSPCAUT/SPCAUT'.Special authority (SPCAUT) - Help
+:XH3.Special authority (SPCAUT)
+:P.
+The special authorities checked for the user.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*ALLOBJ:EPK.
+:PD.
+All object special authority.
+:PT.:PK.*AUDIT:EPK.
+:PD.
+Audit special authority.
+:PT.:PK.*IOSYSCFG:EPK.
+:PD.
+Input/output system configuration special authority.
+:PT.:PK.*JOBCTL:EPK.
+:PD.
+Job control special authority.
+:PT.:PK.*SAVSYS:EPK.
+:PD.
+Save system special authority.
+:PT.:PK.*SECADM:EPK.
+:PD.
+Security administrator special authority.
+:PT.:PK.*SERVICE:EPK.
+:PD.
+Service special authority.
+:PT.:PK.*SPLCTL:EPK.
+:PD.
+Spool control special authority.
+:EPARML.
+:EHELP.
+:HELP NAME='RTVSPCAUT/AUTIND'.CL var for AUTIND        (1) (AUTIND) - Help
+:XH3.CL var for AUTIND        (1) (AUTIND)
+:P.
+Specifies the name of a 1-character variable used to return the
+result of the user special authorities check.
+:P.
+This is a required parameter.
+:P.
+Possible return values:
+:DL.
+:DT.'Y':DD.The user has the specified special authorities.
+:DT.'N':DD.The user does not have the specified special authorities.
+:EDL.
+:EHELP.
+:EPNLGRP.

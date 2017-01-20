@@ -1,51 +1,51 @@
-000100040408/*-------------------------------------------------------------------*/
-000200040408/*                                                                   */
-000300040408/*  Compile options:                                                 */
-000400040408/*                                                                   */
-000500050327/*    CrtCmd Cmd( ENDJRNLIB )                                        */
-000600050327/*           Pgm( CBX934 )                                           */
-000700050327/*           SrcMbr( CBX934X )                                       */
-000800050327/*           VldCkr( CBX934V )                                       */
-000900050327/*           HlpPnlGrp( CBX934H )                                    */
-001000040408/*           HlpId( *CMD )                                           */
-001100040408/*                                                                   */
-001200040408/*-------------------------------------------------------------------*/
-001300050327          Cmd      Prompt( 'End Journal for Library' )
-001400040311
-001500050325          Parm     LIB         *Name       10                   +
-001600041201                   Min( 1 )                                     +
-001700041201                   Expr( *YES )                                 +
-001800050325                   Prompt( 'Library' 1 )
-001900041201
-002000050325          Parm     OBJ         *Generic    10                   +
-002100050325                   Dft( *ALL )                                  +
-002200050325                   SpcVal(( *ALL ))                             +
-002300050325                   Prompt( 'Object' 2 )
-002400050325
-002500050325          Parm     OBJTYPE     *Char       10                   +
-002600041201                   Rstd( *YES )                                 +
-002700050325                   Dft( *ALL )                                  +
-002800050325                   SpcVal(( *ALL    )                           +
-002900050325                          ( *FILE   )                           +
-003000050325                          ( *DTAQ   )                           +
-003100050325                          ( *DTAARA ))                          +
-003200041201                   Expr( *YES )                                 +
-003300050325                   Prompt( 'Object type' 3 )
-003400050325
-003500050327          Parm     JRN         Q0001                            +
-003600050327                   Dft( *OBJ )                                  +
-003700050327                   SngVal(( *OBJ ))                             +
-003800050327                   Choice( *NONE )                              +
-003900050327                   Prompt( 'Journal' 4 )
-004000050306
-004100041212
-004200050325 Q0001:   Qual                 *Name       10                   +
-004300050325                   Expr( *Yes )
-004400050325
-004500050325          Qual                 *Name       10                   +
-004600050325                   Dft( *LIBL )                                 +
-004700050325                   SpcVal(( *LIBL ) ( *CURLIB ))                +
-004800050325                   Expr( *Yes )                                 +
-004900050325                   Prompt( 'Library' )
-005000041212
-005100050325
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtCmd Cmd( ENDJRNLIB )                                        */
+/*           Pgm( CBX934 )                                           */
+/*           SrcMbr( CBX934X )                                       */
+/*           VldCkr( CBX934V )                                       */
+/*           HlpPnlGrp( CBX934H )                                    */
+/*           HlpId( *CMD )                                           */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+          Cmd      Prompt( 'End Journal for Library' )
+
+          Parm     LIB         *Name       10                   +
+                   Min( 1 )                                     +
+                   Expr( *YES )                                 +
+                   Prompt( 'Library' 1 )
+
+          Parm     OBJ         *Generic    10                   +
+                   Dft( *ALL )                                  +
+                   SpcVal(( *ALL ))                             +
+                   Prompt( 'Object' 2 )
+
+          Parm     OBJTYPE     *Char       10                   +
+                   Rstd( *YES )                                 +
+                   Dft( *ALL )                                  +
+                   SpcVal(( *ALL    )                           +
+                          ( *FILE   )                           +
+                          ( *DTAQ   )                           +
+                          ( *DTAARA ))                          +
+                   Expr( *YES )                                 +
+                   Prompt( 'Object type' 3 )
+
+          Parm     JRN         Q0001                            +
+                   Dft( *OBJ )                                  +
+                   SngVal(( *OBJ ))                             +
+                   Choice( *NONE )                              +
+                   Prompt( 'Journal' 4 )
+
+
+ Q0001:   Qual                 *Name       10                   +
+                   Expr( *Yes )
+
+          Qual                 *Name       10                   +
+                   Dft( *LIBL )                                 +
+                   SpcVal(( *LIBL ) ( *CURLIB ))                +
+                   Expr( *Yes )                                 +
+                   Prompt( 'Library' )
+
+

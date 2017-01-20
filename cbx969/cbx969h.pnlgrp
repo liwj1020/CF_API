@@ -1,732 +1,732 @@
-000100060512.*-----------------------------------------------------------------------**
-000200060512.*
-000300060512.*  Compile options:
-000400060512.*
-000500070423.*    CrtPnlGrp PnlGrp( CBX969H )
-000600060512.*              SrcFile( QPNLSRC )
-000700070423.*              SrcMbr( CBX969H )
-000800060512.*
-000900060512.*-----------------------------------------------------------------------**
-001000060512:PNLGRP.
-001100060514
-001200060514.* Command help section:
-001300070423:HELP NAME='WRKJOB2'.Work with Jobs - Help
-001400060512:P.
-001500070423The Work with Job 2 (WRKJOB2) command allows you to work with a list of
-001600060514jobs based on a combination of job name, user name, job status and job
-001700060514type.
-001800060512:P.
-001900060514The list is presented in descending job creation date and time order.
-002000060514:P.
-002100060512:EHELP.
-002200060531
-002300070423:HELP NAME='WRKJOB2/COMMAND/EXAMPLES'.
-002400070423Examples for WRKJOB2 - Help
-002500070423:XH3.Examples for WRKJOB2
-002600060531:P.
-002700060531:HP2.Example 1: Generic job name and active jobs:EHP2.
-002800060531:XMP.
-002900070423WRKJOB2 JOB(UPD*) STATUS(*ACTIVE)
-003000060531:EXMP.
-003100060531:P.
-003200060531This command shows all jobs whose names begin with the letters UPD, and
-003300060531that are currently active.
-003400060531:P.
-003500060531:HP2.Example 2: Specific user's non-completed jobs:EHP2.
-003600060531:XMP.
-003700070423WRKJOB2 USER(CHUCK) STATUS(*NONOUTQ)
-003800060531:EXMP.
-003900060531:P.
-004000060531This command shows all jobs initiated by user profile CHUCK, that are
-004100060531currently either active or on a job queue.
-004200060531:P.
-004300060531:HP2.Example 3: Jobs running under specific current user profile:EHP2.
-004400060531:XMP.
-004500070423WRKJOB2 USER(*CURUSR) STATUS(*ACTIVE) CURUSR(GARY)
-004600060531:EXMP.
-004700060531:P.
-004800060531This command shows all active jobs running under the current user
-004900060531profile GARY.  This allows you to identify jobs that were initiated by
-005000060531one user profile, but are currently running under another, specific
-005100060531user profile.
-005200070327:P.
-005300070327:HP2.Example 4: Jobs created in a specific date range by a specific user:EHP2.
-005400070327:XMP.
-005500070423WRKJOB22 USER(DAN) STATUS(*ALL) PERIOD((*AVAIL 100307) (*AVAIL 110307))
-005600070327:EXMP.
-005700070327:P.
-005800070327This command shows all jobs created by user DAN in the date range
-005900070327from March 10 to March 11 in 2007.  The command is executed in a job
-006000070327having a job date format of *DMY.
-006100060531:EHELP.
-006200060514
-006300070423:HELP NAME='WRKJOB2/JOB'.Job name (JOB) - Help
-006400060512:XH3.Job name (JOB)
-006500060512:P.
-006600060514Specifies the name of the jobs to include in the job list.
-006700060512:P.
-006800060512The possible values are:
-006900060512:P.
-007000060512:PARML.
-007100060512:PT.:PK DEF.*ALL:EPK.
-007200060512:PD.
-007300060514No jobs are excluded from the job list based on job name.
-007400060512:PT.:PK.*CURRENT:EPK.
-007500060512:PD.
-007600060514Only the current job from which this command is executed, is included
-007700060514in the job list.
-007800060514:PT.:PV.*generic-job-name:EPV.
-007900060512:PD.
-008000060514Specify the generic name of the jobs to be included in the job list.  A
-008100060514generic name is a character string that contains one or more characters
-008200060514followed by an asterisk (*).  If a generic name is specified, all jobs
-008300060514that have names with the same prefix as the generic name are shown.
-008400060512:PT.:PV.job-name:EPV.
-008500060512:PD.
-008600060514Specify the name of the job to include in the job list.
-008700060512:EPARML.
-008800060512:EHELP.
-008900060514
-009000070423:HELP NAME='WRKJOB2/USER'.User name (USER) - Help
-009100060512:XH3.User name (USER)
-009200060512:P.
-009300060514Specifies the name of the user profiles whose jobs should be included
-009400060514in the job list.
-009500060512:P.
-009600060512The possible values are:
-009700060512:P.
-009800060512:PARML.
-009900060518:PT.:PK DEF.*ALL:EPK.
-010000060517:PD.
-010100060517No jobs are excluded from the job list based on user name.
-010200060518:PT.:PK.*CURRENT:EPK.
-010300060518:PD.
-010400060518Only the jobs run be the user of the job from which this command is
-010500060518executed, are included in the job list.
-010600060512:PT.:PK.*CURUSR:EPK.
-010700060512:PD.
-010800060514The job list is selected based on the value specified for the
-010900070423:LINK PERFORM='DSPHELP WRKJOB2/CURUSR'.
-011000060514CURUSR
-011100060514:ELINK.
-011200060514keyword.  The current user of a job is the user profile under which the
-011300060514job is currently executing, and can be different from the user profile
-011400060514that initiated the job.
-011500060514:PT.:PV.*generic-user-name:EPV.
-011600060512:PD.
-011700060514Specify the generic name of the user profiles to be included in the job
-011800060514list.  A generic name is a character string that contains one or more
-011900060514characters followed by an asterisk (*).  If a generic name is
-012000060514specified, all user profiles that have names with the same prefix as
-012100060514generic name are shown.
-012200060512:PT.:PV.user-name:EPV.
-012300060512:PD.
-012400060514Specify the name of the user profile whose jobs should be included in
-012500060514the job list.
-012600060512:EPARML.
-012700060514
-012800060512:EHELP.
-012900070423:HELP NAME='WRKJOB2/STATUS'.Job status (STATUS) - Help
-013000060512:XH3.Job status (STATUS)
-013100060512:P.
-013200060514Specifies the status of the user jobs being worked with.
-013300060512:P.
-013400060512The possible values are:
-013500060512:P.
-013600060512:PARML.
-013700060520:PT.:PK DEF.*ACTIVE:EPK.
-013800060520:PD.
-013900060520Only jobs that are active are selected, including all group jobs
-014000060520and system request jobs.
-014100060516:PT.:PK.*ALL:EPK.
-014200060516:PD.
-014300060516All jobs of any status are selected, including jobs on job queues,
-014400060516active jobs, and jobs on output queues.
-014500060520:PT.:PK.*NONOUTQ:EPK.
-014600060520:PD.
-014700060520All jobs of status *JOBQ and *ACTIVE are included in the job list.
-014800060512:PT.:PK.*JOBQ:EPK.
-014900060512:PD.
-015000060514Only jobs that are on job queues are included in the job list.
-015100060512:PT.:PK.*OUTQ:EPK.
-015200060512:PD.
-015300060514Only user jobs that have completed running but still have output on an
-015400060514queue, are included in the job list.
-015500060512:EPARML.
-015600060512:EHELP.
-015700060514
-015800070423:HELP NAME='WRKJOB2/JOBTYPE'.Job type (JOBTYPE) - Help
-015900060512:XH3.Job type (JOBTYPE)
-016000060512:P.
-016100060514Specifies the type of the jobs included in the job list.
-016200060512:P.
-016300060512The possible values are:
-016400060512:P.
-016500060512:PARML.
-016600060512:PT.:PK DEF.*ALL:EPK.
-016700060512:PD.
-016800060514All types of jobs are selected, including interactive jobs and batch
-016900060514jobs.
-017000060512:PT.:PK.*AUTO:EPK.
-017100060512:PD.
-017200060514Only jobs having job type autostart are included in the job list.
-017300060512:PT.:PK.*BATCH:EPK.
-017400060512:PD.
-017500060514Only jobs having job type batch are included in the job list.
-017600060512:PT.:PK.*INTER:EPK.
-017700060512:PD.
-017800060514Only jobs having job type interactive are included in the job list.
-017900060512:PT.:PK.*SBSMON:EPK.
-018000060512:PD.
-018100060514Only jobs having job type subsystem monitors are included in the job
-018200060514list.
-018300060512:PT.:PK.*SPLRDR:EPK.
-018400060512:PD.
-018500060514Only jobs having job type spooled reader are included in the job
-018600060514list.
-018700060512:PT.:PK.*SPLWTR:EPK.
-018800060512:PD.
-018900060514Only jobs having job type spooled writer are included in the job list.
-019000060512:PT.:PK.*SYS:EPK.
-019100060512:PD.
-019200060514Only jobs having job type system job are included in the job list.
-019300060512:PT.:PK.*SCPF:EPK.
-019400060512:PD.
-019500060514Only the SCPF system job is included in the job list.
-019600060512:EPARML.
-019700060512:EHELP.
-019800060514
-019900070423:HELP NAME='WRKJOB2/CURUSR'.Current user (CURUSR) - Help
-020000060512:XH3.Current user (CURUSR)
-020100060512:P.
-020200060514Specifies the user name that is currently active in the jobs to include
-020300060514in the job list.
-020400060512:P.
-020500060514This parameter can only be specified if job status *ACTIVE is selected.
-020600060514:P.
-020700060512The possible values are:
-020800060512:P.
-020900060512:PARML.
-021000060512:PT.:PK DEF.*NOCHK:EPK.
-021100060512:PD.
-021200060514The job's current user profile is not checked when the job list is
-021300060514created.
-021400060512:PT.:PV.current-user:EPV.
-021500060512:PD.
-021600060514Specify the name of the current user profile that should be active in
-021700060514a job, for the job to be included in the job list.  Only jobs that has
-021800060514the specified user name as the job's current user profile are included.
-021900060512:EPARML.
-022000060512:EHELP.
-022100060514
-022200070423:HELP NAME='WRKJOB2/COMPSTS'.Completion status (COMPSTS) - Help
-022300060512:XH3.Completion status (COMPSTS)
-022400060512:P.
-022500060514Include jobs in the job list based on their completion status.
-022600060514:P.
-022700060514This parameter can only be specified if job status *OUTQ is selected.
-022800060512:P.
-022900060512The possible values are:
-023000060512:P.
-023100060512:PARML.
-023200060512:PT.:PK DEF.*ALL:EPK.
-023300060512:PD.
-023400060514No jobs are excluded from the job list based on completion status.
-023500060512:PT.:PK.*NORMAL:EPK.
-023600060512:PD.
-023700060514Only jobs having completion status normal are included in the job list.
-023800060512:PT.:PK.*ABNORMAL:EPK.
-023900060512:PD.
-024000060514Only jobs having completion status abnormal are included in the job
-024100060514list.
-024200060512:EPARML.
-024300060512:EHELP.
-024400060514
-024500060514.* Panel help section:
-024600060514:HELP NAME=HLPFKEYS.
-024700060514Function Keys - Help
-024800060514:XH3.Function keys
-024900060514:EHELP.
-025000060514
-025100060514:HELP NAME=HLPENT.
-025200060514:PARML.
-025300060514:PT.Enter
-025400060514:PD.Submits information on the display for processing.
-025500060514:EPARML.
-025600060514:EHELP.
-025700060514
-025800060514:HELP NAME=HLPF1.
-025900060514:PARML.
-026000060514:PT.F1=Help
-026100060514:PD.Provides additional information about using the display.
-026200060514:EPARML.
-026300060514:EHELP.
-026400060514
-026500060514:HELP     NAME=HLPF3.
-026600060514:PARML.
-026700060514:PT.F3=Exit
-026800060514:PD.Ends the current task and returns you to the display from which
-026900060514the task was started.
-027000060514:EPARML.
-027100060514:EHELP.
-027200060514
-027300060514:HELP NAME=HLPF4.
-027400060514:PARML.
-027500060514:PT.F4=Prompt
-027600060514:PD.Provides assistance in entering or selecting a command.
-027700060514:EPARML.
-027800060514:EHELP.
-027900060514
-028000060514:HELP NAME=HLPF5.
-028100060514:PARML.
-028200060514:PT.F5=Refresh
-028300060514:PD.Shows the display you are viewing with updated information.
-028400060514:EPARML.
-028500060514:EHELP.
-028600060514
-028700060514:HELP NAME=HLPF6.
-028800060514:PARML.
-028900060514:PT.F6=Submit job
-029000060514:PD.Prompts the Submit Job (SBMJOB) command.
-029100060514:EPARML.
-029200060514:EHELP.
-029300060514
-029400060514:HELP NAME=HLPF9.
-029500060514:PARML.
-029600060514:PT.F9=Retrieve
-029700060514:PD.Displays the last command you entered on the command line and any
-029800060514parameters you included.  Pressing this key once, shows the last
-029900060514command you ran.  Pressing this key twice, shows the command you ran
-030000060514before that and so on.
-030100060514:EPARML.
-030200060514:EHELP.
-030300060517
-030400060517:HELP NAME='HLPF11/VIEW1'.
-030500060517:PARML.
-030600060517:PT.F11=View 2
-030700060517:PD.Shows the list again displaying job initiation information.
-030800060517:EPARML.
-030900060517:EHELP.
-031000060514
-031100060517:HELP NAME='HLPF11/VIEW2'.
-031200060517:PARML.
-031300060517:PT.F11=View 1
-031400060517:PD.Shows the list again displaying job status information.
-031500060517:EPARML.
-031600060517:EHELP.
-031700060517
-031800060514:HELP NAME=HLPF12.
-031900060514:PARML.
-032000060514:PT.F12=Cancel
-032100060514:PD.Cancels processing of any options or changes you have made to the
-032200060514current display and returns you to the previous menu or display.
-032300060514:EPARML.
-032400060514:EHELP.
-032500060514
-032600060517:HELP NAME=HLPF21.
-032700060514:PARML.
-032800060517:PT.F21=Print list
-032900060517:PD.Prints the current list, including information from both views.
-033000060517The spooled file is sent to the output queue and can be viewed using
-033100060517the WRKJOB or WRKSPLF command.
-033200060514:EPARML.
-033300060514:EHELP.
-033400060514
-033500060514:HELP NAME=HLPF22.
-033600060514:PARML.
-033700060517:PT.F22=Work with active jobs
-033800060517:PD.Place the cursor on a job name and press F22 to have the WRKACTJOB
-033900060518command run for the specified job name.  Only jobs currently having
-034000060518status *ACTIVE can have this function performed.
-034100060514:EPARML.
-034200060514:EHELP.
-034300060514
-034400060514:HELP NAME=HLPF24.
-034500060514:PARML.
-034600060514:PT.F24=More keys
-034700060514:PD.Changes the keys shown at the bottom of the display.  When you
-034800060514press this key, additional function keys are displayed at the bottom
-034900060514of the display.
-035000060514:EPARML.
-035100060514:EHELP.
-035200060514
-035300060514:HELP NAME=HLPHLP.
-035400060514:PARML.
-035500060514:PT.Help
-035600060514:PD.Provides additional information about using the display.
-035700060514:EPARML.
-035800060514:EHELP.
-035900060514
-036000060514:HELP NAME=HLPPGD.
-036100060514:PARML.
-036200060514:PT.Page Down (Roll Up)
-036300060514:PD.Moves the information displayed forward to show additional
-036400060514information.
-036500060514:EPARML.
-036600060514:EHELP.
-036700060514
-036800060514:HELP NAME=HLPPGU.
-036900060514:PARML.
-037000060514:PT.Page Up (Roll Down)
-037100060514:PD.Moves the information displayed backward to show additional
-037200060514information.
-037300060514:EPARML.
-037400060514:EHELP.
-037500060514
-037600060514:HELP NAME=HLPPRT.
-037700060514:PARML.
-037800060514:PT.Print
-037900060514:PD.Prints information currently shown on the display.
-038000060514:EPARML.
-038100060514:EHELP.
-038200060514
-038300070423:HELP NAME='WRKJOB2/'.Work with Jobs  - Help
-038400060514:P.
-038500060604The Work with Jobs display shows the name, status and job initiation
-038600060517information of the jobs selected.
-038700060514:P.
-038800060517You can type an option next to one or more jobs.  Then, when the Enter
-038900060517key is pressed, the function associated with the number you typed is
-039000060517performed for that job.
-039100060514:P.
-039200060517If you press the Enter key without typing any other data, you are
-039300060517returned to the previous menu or display.
-039400060514:P.
-039500060517You can type parameters on the command line if you want to override the
-039600060517defaults for the option(s) you typed.  Typing parameters is valid only
-039700060517if you used one of the options.  For example, you typed option 4 next
-039800060517to one or more jobs and you want to type OPTION(*IMMED) to change from
-039900060517the default, OPTION(*CNTRLD).
-040000060517:P.
-040100060517To run a command, type the command and press the Enter key.  For
-040200060517assistance in typing the command, type the command and press F4.  For
-040300060517assistance in selecting a command, press F4 without typing anything.
-040400060517:P.
-040500060514If you see More ... on the lower right side of your display, there is
-040600060514more information to view.  Press Page Down (Roll Up) to move toward the
-040700060514end of the information.  Press Page Up (Roll Down) to move toward the
-040800060514beginning of the information.
-040900060514:P.
-041000060514If you see Bottom instead of More ..., you are at the end of the list.
-041100060514:P.
-041200060514:EHELP.
-041300060514
-041400070423:HELP NAME='WRKJOB2/OPTCHG'.
-041500060514:PARML.
-041600060517:PT.2=Change
-041700060517:PD.Use this option to run the Change Job (CHGJOB) command. If no value
-041800060517is specified on the Parameter's input field, current paramters are
-041900060517shown when you press the F4 (prompt) key.  However, when values have
-042000060517been specified on the Parameters input field, the command is run
-042100060517without the prompt appearing when you press the key.
-042200060517:P.
-042300060517Similarly, when you press F4, the specified values are highlighted and
-042400060517current values are shown for the remaining parameters.  The default of
-042500060517*SAME is shown only for parameters that do not make sense for the job).
-042600060517:P.
-042700060517'Chg' is placed as the new value in the second part of the status field
-042800060517if the command runs successfully.  It does not replace the entire
-042900060517status.
-043000060514:EPARML.
-043100060514:EHELP.
-043200060514
-043300070423:HELP NAME='WRKJOB2/OPTHLD'.
-043400060517:PARML.
-043500060517:PT.3=Hold
-043600060517:PD.Use this option to hold the job.  However, the job's spooled files
-043700060517are not held unless the default for the Hold spooled files (SPLFILE)
-043800060517parameter is overridden by using the Parameter's input field.
-043900060517:P.
-044000060517'Hld' is  placed as the new value in the second part of the status
-044100060517field if the command runs successfully.  It does not replace the entire
-044200060517status.
-044300060517:EPARML.
-044400060517:EHELP.
-044500060517
-044600070423:HELP NAME='WRKJOB2/OPTEND'.
-044700060517:PARML.
-044800060517:PT.4=End
-044900060517:PD.Use this option to run the End Job (ENDJOB) command.  However, the
-045000060517job's spooled files are not deleted unless the default for the Delete
-045100060517spooled files (SPLFILE) parameter is overridden by using the
-045200060517Parameter's input field.  Unless the OPTION parameter is overriden
-045300060517using the Parameter's input field, a controlled end is performed as if
-045400060517the End Job (ENDJOB) command were typed with all the default parameter
-045500060517assumed.
-045600060517:P.
-045700060517'End' is  placed as the new value in the second part of the status
-045800060517field if the command runs successfully.  It does not replace the entire
-045900060517status.
-046000060517:EPARML.
-046100060517:EHELP.
-046200060517
-046300070423:HELP NAME='WRKJOB2/OPTWRK'.
-046400060517:PARML.
-046500060517:PT.5=Work with
-046600060517:PD.This option runs the Work with Job (WRKJOB) command, which displays
-046700060517the Work with Job Menu.  The Work with Job Menu allows you to select
-046800060517options to work with for the selected job.
-046900060517:P.
-047000060517In addition, the Work with Job Menu allows you to select options to
-047100060517change, end, hold, or release the job.
-047200060517:EPARML.
-047300060517:EHELP.
-047400060517
-047500070423:HELP NAME='WRKJOB2/OPTRLS'.
-047600060517:PARML.
-047700060517:PT.6=Release
-047800060517:PD.Use this option to run the Release Job (RLSJOB) command, which
-047900060517releases the job if it is in the held condition.
-048000060517:P.
-048100060517'Rls' is placed as the new value in the second part of the status field
-048200060517if the command runs successfully.  It does not replace the entire
-048300060517status.
-048400060517:EPARML.
-048500060517:EHELP.
-048600060517
-048700070423:HELP NAME='WRKJOB2/OPTSPL'.
-048800060517:PARML.
-048900060517:PT.8=Spooled files
-049000060517:PD.This option runs the Work with Job (WRKJOB) command, which displays
-049100060517the job's spooled output files.
-049200060517:EPARML.
-049300060517:EHELP.
-049400060517
-049500070423:HELP NAME='WRKJOB2/OPTJBL'.
-049600060517:PARML.
-049700060517:PT.10=Display job log
-049800060517:PD.This option runs the Work with Job (WRKJOB) command, which displays
-049900060517the job's job log.
-050000060517:EPARML.
-050100060517:EHELP.
-050200060517
-050300070423:HELP NAME='WRKJOB2/OPTWUJ'.
-050400060517:PARML.
-050500060517:PT.12=Work with user jobs
-050600060517:PD.This option runs the Work with User Jobs (WRKUSRJOB) command for
-050700060517the selected job's job user profile and job status.
-050800060517:EPARML.
-050900060517:EHELP.
-051000060517
-051100070423:HELP NAME='WRKJOB2/OPTDSC'.
-051200060517:PARML.
-051300060517:PT.13=Disconnect job
-051400060517:PD.Use this option to run the Disconnect Job (DSCJOB) command.  All
-051500060517jobs at the device will be disconnected.
-051600060517:EPARML.
-051700060517:EHELP.
-051800060517
-051900070423:HELP NAME='WRKJOB2/OPTION'.
-052000060514Option - Help
-052100060514:XH3.Opt
-052200060514:P.
-052300060518Type the number of the option you want to specify.
-052400060514:EHELP.
-052500060514
-052600070423:HELP name='WRKJOB2/JOBNAM'.
-052700060517Job - Help
-052800060517:XH3.Job
-052900060514:P.
-053000060517The simple name of the job.
-053100060514:EHELP.
-053200060514
-053300070423:HELP name='WRKJOB2/JOBUSR'.
-053400060517User - Help
-053500060517:XH3.User
-053600060517:P.
-053700060517The user name identifies the user profile under which the job is
-053800060517started.
-053900060517:EHELP.
-054000060517
-054100070423:HELP name='WRKJOB2/JOBNBR'.
-054200060517Number - Help
-054300060517:XH3.Number
-054400060517:P.
-054500060517The system-assigned job number.
-054600060517:EHELP.
-054700060517
-054800070423:HELP name='WRKJOB2/CURUSP'.
-054900060517Current user - Help
-055000060517:XH3.Current user
-055100060517:P.
-055200060517The user profile under which the job is currently running.  The current
-055300060517user profile can be different from the user profile that initiated the
-055400060517job.
-055500060517:EHELP.
-055600060517
-055700070423:HELP name='WRKJOB2/JOBTYP'.
-055800060517Type - Help
-055900060517:XH3.Type
-056000060517:P.
-056100060517The type of active job.  Possible values are:
-056200060517:UL COMPACT.
-056300060517:LI.ASJ: Autostart
-056400060517:LI.BCH: Batch
-056500060517:LI.BCI: Batch Immediate
-056600060517:LI.EVK: Started by a procedure start request
-056700060517:LI.INT: Interactive
-056800060517:LI.M36: Advanced 36 server job
-056900060517:LI.MRT: Multiple requester terminal
-057000060517:LI.PJ:  Prestart job
-057100060517:LI.PDJ: Print driver job
-057200060517:LI.RDR: Reader
-057300060517:LI.SBS: Subsystem monitor
-057400060517:LI.SYS: System
-057500060517:LI.WTR: Writer
-057600060517:EUL.
-057700060517:EHELP.
-057800060517
-057900070423:HELP name='WRKJOB2/JOBSTS'.
-058000060517Status - Help
-058100060517:XH3.Status
-058200060514:P.
-058300060517The current status of the job (in two fields).
-058400060514:EHELP.
-058500060514
-058600070423:HELP name='WRKJOB2/JOBDAT'.
-058700060517Job date - Help
-058800060517:XH3.Job date
-058900060517:P.
-059000060517Specifies the date that is assigned to the job when it is started.
-059100060517:EHELP.
-059200060517
-059300070423:HELP name='WRKJOB2/ENTDTS'.
-059400060517Entered system - Help
-059500060517:XH3.Entered system
-059600060517:P.
-059700060517The date and time when the job was entered into the system.
-059800060517:EHELP.
-059900060517
-060000070423:HELP name='WRKJOB2/ACTDTS'.
-060100060517Job active - Help
-060200060517:XH3.Job active
-060300060517:P.
-060400060517The date and time the job began to run.
-060500060517:EHELP.
-060600060517
-060700070423:HELP name='WRKJOB2/FNCCMP'.
-060800060517Function/Completion - Help
-060900060517:XH3.Function/Completion
-061000060517:P.
-061100060518:HP2.Job status *ACTIVE::EHP2.
-061200060517For an active job this field contains the last high-level function
-061300060517initiated by the initial thread.  This field is blank when a logged
-061400060517function has not been performed.  The field is not cleared when a
-061500060517a function is completed.  The function name is prefixed by a function
-061600060517type followed by a hyphen.
-061700060517:P.
-061800060518:HP2.Job status *JOBQ::EHP2.
-061900060517For a job on a job queue this field is blank.
-062000060517:P.
-062100060518:HP2.Job status *OUTQ::EHP2.
-062200060517For a job that has completed running, this field contains the
-062300060518completion status *NORMAL or *ABNORMAL, depending on how the job
-062400060518ended.
-062500060517:EHELP.
-062600060514
-062700060517:HELP name='CNFPNL/OPTION'.
-062800060517Opt - Help
-062900060517:XH3.Opt
-063000060517:P.
-063100060517This is the option field showing the end job option which causes the
-063200060517confirmation panel to be displayed.  For this panel, the option
-063300060517number will always be 4.
-063400060517:EHELP.
-063500060514
-063600070423:HELP NAME='WRKJOB2/PERIOD'.Time period for job selection (PERIOD) - Help
-063700070309:XH3.Time period for job selection (PERIOD)
-063800070309:P.
-063900070309Specifies the period of time for which the jobs are listed.  This
-064000070309parameter contains two element lists of two elements each.  A value or
-064100150402*N must be specified for an element if a subsequent element value will
-064200070309be specified in order to maintain its position in the parameter value
-064300070309sequence.
-064400070309:P.
-064500070309:XH3.Start time and date
-064600070309:P.
-064700070309:XH3.Beginning time
-064800070309:P.
-064900070309One of the following is used to specify the starting time at which or
-065000070309after which the jobs must have entered the system.  Any jobs started
-065100070309the specified time and date are not shown.
-065200070309:P.
-065300070309The possible values are:
-065400070309:P.
-065500070309:PARML.
-065600070309:PT.:PK DEF.*AVAIL:EPK.
-065700070309:PD.
-065800070309Any jobs stared that are available for the specified starting date are
-065900070309shown.
-066000070309:PT.:PV.beginning-time:EPV.
-066100070309:PD.
-066200070309Specify the starting time for the specified starting date that
-066300070309indicates the jobs to be shown.  The time is specified in 24-hour
-066400070309format and can be specified with or without a time separator.
-066500070309:EPARML.
-066600070309:XH3.Beginning date
-066700070309:P.
-066800070309One of the following is used to specify the starting date on which or
-066900070309after which the jobs must have entered the system.  Any jobs entered
-067000070309before the specified date are not shown.
-067100070309:P.
-067200070309The possible values are:
-067300070309:P.
-067400070309:PARML.
-067500070309:PT.:PK DEF.*CURRENT:EPK.
-067600070309:PD.
-067700070309Jobs entered the current day and between the specified starting and
-067800070309ending times (if specified) are shown.
-067900070309:PT.:PK.*BEGIN:EPK.
-068000070309:PD.
-068100070309Jobs from the earliest found date are shown.
-068200070309:PT.:PV.beginning-date:EPV.
-068300070309:PD.
-068400070309Specify the starting date.  The date must be entered in the format
-068500070309specified by the system values QDATFMT and, if separators are used,
-068600070309QDATSEP.
-068700070309:EPARML.
-068800070309
-068900070309:XH3.End time and date
-069000070309:P.
-069100070309:XH3.Ending time
-069200070309:P.
-069300070309One of the following is used to specify the ending time before which
-069400070309the jobs must have entered the system.
-069500070309:P.
-069600070309The possible values are:
-069700070309:P.
-069800070309:PARML.
-069900070309:PT.:PK DEF.*AVAIL:EPK.
-070000070309:PD.
-070100070309Any jobs that are available for the specified ending date are shown.
-070200070309:PT.:PV.ending-time:EPV.
-070300070309:PD.
-070400070309Specify the ending time for the specified ending date that determines
-070500070309the jobs to be shown.
-070600070309:EPARML.
-070700070309
-070800070309:XH3.Ending date
-070900070309:P.
-071000070309One of the following is used to specify the ending date before which
-071100070309or on which the jobs must entered the system.
-071200070309:P.
-071300070309The possible values are:
-071400070309:P.
-071500070309:PARML.
-071600070309:PT.:PK DEF.*CURRENT:EPK.
-071700070309:PD.
-071800070309The current day is the last day for which jobs are shown.
-071900070309:PT.:PK.*END:EPK.
-072000070309:PD.
-072100070309The last day on which data was logged is the last day for which
-072200070309the logged data is shown.  If *END is specified, an ending time
-072300070309value other than *AVAIL is ignored.
-072400070309:PT.:PV.ending-date:EPV.
-072500070309:PD.
-072600070309Specify the ending date for which jobs are to be shown.  The date must
-072700070309be entered in the format specified by the system values QDATFMT and, if
-072800070309separators are used, QDATSEP.
-072900070309:EPARML.
-073000070309:EHELP.
-073100070309
-073200060512:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX969H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBX969H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+
+.* Command help section:
+:HELP NAME='WRKJOB2'.Work with Jobs - Help
+:P.
+The Work with Job 2 (WRKJOB2) command allows you to work with a list of
+jobs based on a combination of job name, user name, job status and job
+type.
+:P.
+The list is presented in descending job creation date and time order.
+:P.
+:EHELP.
+
+:HELP NAME='WRKJOB2/COMMAND/EXAMPLES'.
+Examples for WRKJOB2 - Help
+:XH3.Examples for WRKJOB2
+:P.
+:HP2.Example 1: Generic job name and active jobs:EHP2.
+:XMP.
+WRKJOB2 JOB(UPD*) STATUS(*ACTIVE)
+:EXMP.
+:P.
+This command shows all jobs whose names begin with the letters UPD, and
+that are currently active.
+:P.
+:HP2.Example 2: Specific user's non-completed jobs:EHP2.
+:XMP.
+WRKJOB2 USER(CHUCK) STATUS(*NONOUTQ)
+:EXMP.
+:P.
+This command shows all jobs initiated by user profile CHUCK, that are
+currently either active or on a job queue.
+:P.
+:HP2.Example 3: Jobs running under specific current user profile:EHP2.
+:XMP.
+WRKJOB2 USER(*CURUSR) STATUS(*ACTIVE) CURUSR(GARY)
+:EXMP.
+:P.
+This command shows all active jobs running under the current user
+profile GARY.  This allows you to identify jobs that were initiated by
+one user profile, but are currently running under another, specific
+user profile.
+:P.
+:HP2.Example 4: Jobs created in a specific date range by a specific user:EHP2.
+:XMP.
+WRKJOB22 USER(DAN) STATUS(*ALL) PERIOD((*AVAIL 100307) (*AVAIL 110307))
+:EXMP.
+:P.
+This command shows all jobs created by user DAN in the date range
+from March 10 to March 11 in 2007.  The command is executed in a job
+having a job date format of *DMY.
+:EHELP.
+
+:HELP NAME='WRKJOB2/JOB'.Job name (JOB) - Help
+:XH3.Job name (JOB)
+:P.
+Specifies the name of the jobs to include in the job list.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+No jobs are excluded from the job list based on job name.
+:PT.:PK.*CURRENT:EPK.
+:PD.
+Only the current job from which this command is executed, is included
+in the job list.
+:PT.:PV.*generic-job-name:EPV.
+:PD.
+Specify the generic name of the jobs to be included in the job list.  A
+generic name is a character string that contains one or more characters
+followed by an asterisk (*).  If a generic name is specified, all jobs
+that have names with the same prefix as the generic name are shown.
+:PT.:PV.job-name:EPV.
+:PD.
+Specify the name of the job to include in the job list.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/USER'.User name (USER) - Help
+:XH3.User name (USER)
+:P.
+Specifies the name of the user profiles whose jobs should be included
+in the job list.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+No jobs are excluded from the job list based on user name.
+:PT.:PK.*CURRENT:EPK.
+:PD.
+Only the jobs run be the user of the job from which this command is
+executed, are included in the job list.
+:PT.:PK.*CURUSR:EPK.
+:PD.
+The job list is selected based on the value specified for the
+:LINK PERFORM='DSPHELP WRKJOB2/CURUSR'.
+CURUSR
+:ELINK.
+keyword.  The current user of a job is the user profile under which the
+job is currently executing, and can be different from the user profile
+that initiated the job.
+:PT.:PV.*generic-user-name:EPV.
+:PD.
+Specify the generic name of the user profiles to be included in the job
+list.  A generic name is a character string that contains one or more
+characters followed by an asterisk (*).  If a generic name is
+specified, all user profiles that have names with the same prefix as
+generic name are shown.
+:PT.:PV.user-name:EPV.
+:PD.
+Specify the name of the user profile whose jobs should be included in
+the job list.
+:EPARML.
+
+:EHELP.
+:HELP NAME='WRKJOB2/STATUS'.Job status (STATUS) - Help
+:XH3.Job status (STATUS)
+:P.
+Specifies the status of the user jobs being worked with.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ACTIVE:EPK.
+:PD.
+Only jobs that are active are selected, including all group jobs
+and system request jobs.
+:PT.:PK.*ALL:EPK.
+:PD.
+All jobs of any status are selected, including jobs on job queues,
+active jobs, and jobs on output queues.
+:PT.:PK.*NONOUTQ:EPK.
+:PD.
+All jobs of status *JOBQ and *ACTIVE are included in the job list.
+:PT.:PK.*JOBQ:EPK.
+:PD.
+Only jobs that are on job queues are included in the job list.
+:PT.:PK.*OUTQ:EPK.
+:PD.
+Only user jobs that have completed running but still have output on an
+queue, are included in the job list.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/JOBTYPE'.Job type (JOBTYPE) - Help
+:XH3.Job type (JOBTYPE)
+:P.
+Specifies the type of the jobs included in the job list.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+All types of jobs are selected, including interactive jobs and batch
+jobs.
+:PT.:PK.*AUTO:EPK.
+:PD.
+Only jobs having job type autostart are included in the job list.
+:PT.:PK.*BATCH:EPK.
+:PD.
+Only jobs having job type batch are included in the job list.
+:PT.:PK.*INTER:EPK.
+:PD.
+Only jobs having job type interactive are included in the job list.
+:PT.:PK.*SBSMON:EPK.
+:PD.
+Only jobs having job type subsystem monitors are included in the job
+list.
+:PT.:PK.*SPLRDR:EPK.
+:PD.
+Only jobs having job type spooled reader are included in the job
+list.
+:PT.:PK.*SPLWTR:EPK.
+:PD.
+Only jobs having job type spooled writer are included in the job list.
+:PT.:PK.*SYS:EPK.
+:PD.
+Only jobs having job type system job are included in the job list.
+:PT.:PK.*SCPF:EPK.
+:PD.
+Only the SCPF system job is included in the job list.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/CURUSR'.Current user (CURUSR) - Help
+:XH3.Current user (CURUSR)
+:P.
+Specifies the user name that is currently active in the jobs to include
+in the job list.
+:P.
+This parameter can only be specified if job status *ACTIVE is selected.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NOCHK:EPK.
+:PD.
+The job's current user profile is not checked when the job list is
+created.
+:PT.:PV.current-user:EPV.
+:PD.
+Specify the name of the current user profile that should be active in
+a job, for the job to be included in the job list.  Only jobs that has
+the specified user name as the job's current user profile are included.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/COMPSTS'.Completion status (COMPSTS) - Help
+:XH3.Completion status (COMPSTS)
+:P.
+Include jobs in the job list based on their completion status.
+:P.
+This parameter can only be specified if job status *OUTQ is selected.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*ALL:EPK.
+:PD.
+No jobs are excluded from the job list based on completion status.
+:PT.:PK.*NORMAL:EPK.
+:PD.
+Only jobs having completion status normal are included in the job list.
+:PT.:PK.*ABNORMAL:EPK.
+:PD.
+Only jobs having completion status abnormal are included in the job
+list.
+:EPARML.
+:EHELP.
+
+.* Panel help section:
+:HELP NAME=HLPFKEYS.
+Function Keys - Help
+:XH3.Function keys
+:EHELP.
+
+:HELP NAME=HLPENT.
+:PARML.
+:PT.Enter
+:PD.Submits information on the display for processing.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF1.
+:PARML.
+:PT.F1=Help
+:PD.Provides additional information about using the display.
+:EPARML.
+:EHELP.
+
+:HELP     NAME=HLPF3.
+:PARML.
+:PT.F3=Exit
+:PD.Ends the current task and returns you to the display from which
+the task was started.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF4.
+:PARML.
+:PT.F4=Prompt
+:PD.Provides assistance in entering or selecting a command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF5.
+:PARML.
+:PT.F5=Refresh
+:PD.Shows the display you are viewing with updated information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF6.
+:PARML.
+:PT.F6=Submit job
+:PD.Prompts the Submit Job (SBMJOB) command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF9.
+:PARML.
+:PT.F9=Retrieve
+:PD.Displays the last command you entered on the command line and any
+parameters you included.  Pressing this key once, shows the last
+command you ran.  Pressing this key twice, shows the command you ran
+before that and so on.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW1'.
+:PARML.
+:PT.F11=View 2
+:PD.Shows the list again displaying job initiation information.
+:EPARML.
+:EHELP.
+
+:HELP NAME='HLPF11/VIEW2'.
+:PARML.
+:PT.F11=View 1
+:PD.Shows the list again displaying job status information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF12.
+:PARML.
+:PT.F12=Cancel
+:PD.Cancels processing of any options or changes you have made to the
+current display and returns you to the previous menu or display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF21.
+:PARML.
+:PT.F21=Print list
+:PD.Prints the current list, including information from both views.
+The spooled file is sent to the output queue and can be viewed using
+the WRKJOB or WRKSPLF command.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF22.
+:PARML.
+:PT.F22=Work with active jobs
+:PD.Place the cursor on a job name and press F22 to have the WRKACTJOB
+command run for the specified job name.  Only jobs currently having
+status *ACTIVE can have this function performed.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPF24.
+:PARML.
+:PT.F24=More keys
+:PD.Changes the keys shown at the bottom of the display.  When you
+press this key, additional function keys are displayed at the bottom
+of the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPHLP.
+:PARML.
+:PT.Help
+:PD.Provides additional information about using the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPGD.
+:PARML.
+:PT.Page Down (Roll Up)
+:PD.Moves the information displayed forward to show additional
+information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPGU.
+:PARML.
+:PT.Page Up (Roll Down)
+:PD.Moves the information displayed backward to show additional
+information.
+:EPARML.
+:EHELP.
+
+:HELP NAME=HLPPRT.
+:PARML.
+:PT.Print
+:PD.Prints information currently shown on the display.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/'.Work with Jobs  - Help
+:P.
+The Work with Jobs display shows the name, status and job initiation
+information of the jobs selected.
+:P.
+You can type an option next to one or more jobs.  Then, when the Enter
+key is pressed, the function associated with the number you typed is
+performed for that job.
+:P.
+If you press the Enter key without typing any other data, you are
+returned to the previous menu or display.
+:P.
+You can type parameters on the command line if you want to override the
+defaults for the option(s) you typed.  Typing parameters is valid only
+if you used one of the options.  For example, you typed option 4 next
+to one or more jobs and you want to type OPTION(*IMMED) to change from
+the default, OPTION(*CNTRLD).
+:P.
+To run a command, type the command and press the Enter key.  For
+assistance in typing the command, type the command and press F4.  For
+assistance in selecting a command, press F4 without typing anything.
+:P.
+If you see More ... on the lower right side of your display, there is
+more information to view.  Press Page Down (Roll Up) to move toward the
+end of the information.  Press Page Up (Roll Down) to move toward the
+beginning of the information.
+:P.
+If you see Bottom instead of More ..., you are at the end of the list.
+:P.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTCHG'.
+:PARML.
+:PT.2=Change
+:PD.Use this option to run the Change Job (CHGJOB) command. If no value
+is specified on the Parameter's input field, current paramters are
+shown when you press the F4 (prompt) key.  However, when values have
+been specified on the Parameters input field, the command is run
+without the prompt appearing when you press the key.
+:P.
+Similarly, when you press F4, the specified values are highlighted and
+current values are shown for the remaining parameters.  The default of
+*SAME is shown only for parameters that do not make sense for the job).
+:P.
+'Chg' is placed as the new value in the second part of the status field
+if the command runs successfully.  It does not replace the entire
+status.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTHLD'.
+:PARML.
+:PT.3=Hold
+:PD.Use this option to hold the job.  However, the job's spooled files
+are not held unless the default for the Hold spooled files (SPLFILE)
+parameter is overridden by using the Parameter's input field.
+:P.
+'Hld' is  placed as the new value in the second part of the status
+field if the command runs successfully.  It does not replace the entire
+status.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTEND'.
+:PARML.
+:PT.4=End
+:PD.Use this option to run the End Job (ENDJOB) command.  However, the
+job's spooled files are not deleted unless the default for the Delete
+spooled files (SPLFILE) parameter is overridden by using the
+Parameter's input field.  Unless the OPTION parameter is overriden
+using the Parameter's input field, a controlled end is performed as if
+the End Job (ENDJOB) command were typed with all the default parameter
+assumed.
+:P.
+'End' is  placed as the new value in the second part of the status
+field if the command runs successfully.  It does not replace the entire
+status.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTWRK'.
+:PARML.
+:PT.5=Work with
+:PD.This option runs the Work with Job (WRKJOB) command, which displays
+the Work with Job Menu.  The Work with Job Menu allows you to select
+options to work with for the selected job.
+:P.
+In addition, the Work with Job Menu allows you to select options to
+change, end, hold, or release the job.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTRLS'.
+:PARML.
+:PT.6=Release
+:PD.Use this option to run the Release Job (RLSJOB) command, which
+releases the job if it is in the held condition.
+:P.
+'Rls' is placed as the new value in the second part of the status field
+if the command runs successfully.  It does not replace the entire
+status.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTSPL'.
+:PARML.
+:PT.8=Spooled files
+:PD.This option runs the Work with Job (WRKJOB) command, which displays
+the job's spooled output files.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTJBL'.
+:PARML.
+:PT.10=Display job log
+:PD.This option runs the Work with Job (WRKJOB) command, which displays
+the job's job log.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTWUJ'.
+:PARML.
+:PT.12=Work with user jobs
+:PD.This option runs the Work with User Jobs (WRKUSRJOB) command for
+the selected job's job user profile and job status.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTDSC'.
+:PARML.
+:PT.13=Disconnect job
+:PD.Use this option to run the Disconnect Job (DSCJOB) command.  All
+jobs at the device will be disconnected.
+:EPARML.
+:EHELP.
+
+:HELP NAME='WRKJOB2/OPTION'.
+Option - Help
+:XH3.Opt
+:P.
+Type the number of the option you want to specify.
+:EHELP.
+
+:HELP name='WRKJOB2/JOBNAM'.
+Job - Help
+:XH3.Job
+:P.
+The simple name of the job.
+:EHELP.
+
+:HELP name='WRKJOB2/JOBUSR'.
+User - Help
+:XH3.User
+:P.
+The user name identifies the user profile under which the job is
+started.
+:EHELP.
+
+:HELP name='WRKJOB2/JOBNBR'.
+Number - Help
+:XH3.Number
+:P.
+The system-assigned job number.
+:EHELP.
+
+:HELP name='WRKJOB2/CURUSP'.
+Current user - Help
+:XH3.Current user
+:P.
+The user profile under which the job is currently running.  The current
+user profile can be different from the user profile that initiated the
+job.
+:EHELP.
+
+:HELP name='WRKJOB2/JOBTYP'.
+Type - Help
+:XH3.Type
+:P.
+The type of active job.  Possible values are:
+:UL COMPACT.
+:LI.ASJ: Autostart
+:LI.BCH: Batch
+:LI.BCI: Batch Immediate
+:LI.EVK: Started by a procedure start request
+:LI.INT: Interactive
+:LI.M36: Advanced 36 server job
+:LI.MRT: Multiple requester terminal
+:LI.PJ:  Prestart job
+:LI.PDJ: Print driver job
+:LI.RDR: Reader
+:LI.SBS: Subsystem monitor
+:LI.SYS: System
+:LI.WTR: Writer
+:EUL.
+:EHELP.
+
+:HELP name='WRKJOB2/JOBSTS'.
+Status - Help
+:XH3.Status
+:P.
+The current status of the job (in two fields).
+:EHELP.
+
+:HELP name='WRKJOB2/JOBDAT'.
+Job date - Help
+:XH3.Job date
+:P.
+Specifies the date that is assigned to the job when it is started.
+:EHELP.
+
+:HELP name='WRKJOB2/ENTDTS'.
+Entered system - Help
+:XH3.Entered system
+:P.
+The date and time when the job was entered into the system.
+:EHELP.
+
+:HELP name='WRKJOB2/ACTDTS'.
+Job active - Help
+:XH3.Job active
+:P.
+The date and time the job began to run.
+:EHELP.
+
+:HELP name='WRKJOB2/FNCCMP'.
+Function/Completion - Help
+:XH3.Function/Completion
+:P.
+:HP2.Job status *ACTIVE::EHP2.
+For an active job this field contains the last high-level function
+initiated by the initial thread.  This field is blank when a logged
+function has not been performed.  The field is not cleared when a
+a function is completed.  The function name is prefixed by a function
+type followed by a hyphen.
+:P.
+:HP2.Job status *JOBQ::EHP2.
+For a job on a job queue this field is blank.
+:P.
+:HP2.Job status *OUTQ::EHP2.
+For a job that has completed running, this field contains the
+completion status *NORMAL or *ABNORMAL, depending on how the job
+ended.
+:EHELP.
+
+:HELP name='CNFPNL/OPTION'.
+Opt - Help
+:XH3.Opt
+:P.
+This is the option field showing the end job option which causes the
+confirmation panel to be displayed.  For this panel, the option
+number will always be 4.
+:EHELP.
+
+:HELP NAME='WRKJOB2/PERIOD'.Time period for job selection (PERIOD) - Help
+:XH3.Time period for job selection (PERIOD)
+:P.
+Specifies the period of time for which the jobs are listed.  This
+parameter contains two element lists of two elements each.  A value or
+*N must be specified for an element if a subsequent element value will
+be specified in order to maintain its position in the parameter value
+sequence.
+:P.
+:XH3.Start time and date
+:P.
+:XH3.Beginning time
+:P.
+One of the following is used to specify the starting time at which or
+after which the jobs must have entered the system.  Any jobs started
+the specified time and date are not shown.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*AVAIL:EPK.
+:PD.
+Any jobs stared that are available for the specified starting date are
+shown.
+:PT.:PV.beginning-time:EPV.
+:PD.
+Specify the starting time for the specified starting date that
+indicates the jobs to be shown.  The time is specified in 24-hour
+format and can be specified with or without a time separator.
+:EPARML.
+:XH3.Beginning date
+:P.
+One of the following is used to specify the starting date on which or
+after which the jobs must have entered the system.  Any jobs entered
+before the specified date are not shown.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*CURRENT:EPK.
+:PD.
+Jobs entered the current day and between the specified starting and
+ending times (if specified) are shown.
+:PT.:PK.*BEGIN:EPK.
+:PD.
+Jobs from the earliest found date are shown.
+:PT.:PV.beginning-date:EPV.
+:PD.
+Specify the starting date.  The date must be entered in the format
+specified by the system values QDATFMT and, if separators are used,
+QDATSEP.
+:EPARML.
+
+:XH3.End time and date
+:P.
+:XH3.Ending time
+:P.
+One of the following is used to specify the ending time before which
+the jobs must have entered the system.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*AVAIL:EPK.
+:PD.
+Any jobs that are available for the specified ending date are shown.
+:PT.:PV.ending-time:EPV.
+:PD.
+Specify the ending time for the specified ending date that determines
+the jobs to be shown.
+:EPARML.
+
+:XH3.Ending date
+:P.
+One of the following is used to specify the ending date before which
+or on which the jobs must entered the system.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*CURRENT:EPK.
+:PD.
+The current day is the last day for which jobs are shown.
+:PT.:PK.*END:EPK.
+:PD.
+The last day on which data was logged is the last day for which
+the logged data is shown.  If *END is specified, an ending time
+value other than *AVAIL is ignored.
+:PT.:PV.ending-date:EPV.
+:PD.
+Specify the ending date for which jobs are to be shown.  The date must
+be entered in the format specified by the system values QDATFMT and, if
+separators are used, QDATSEP.
+:EPARML.
+:EHELP.
+
+:EPNLGRP.

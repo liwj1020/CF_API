@@ -1,46 +1,46 @@
-000100050513/*-------------------------------------------------------------------*/
-000200050513/*                                                                   */
-000300050513/*  Compile options:                                                 */
-000400050513/*                                                                   */
-000500050513/*    CrtCmd Cmd( RUNJOBCMD )                                        */
-000600050513/*           Pgm( CBX9351 )                                          */
-000700050513/*           SrcMbr( CBX935X )                                       */
-000800050513/*           Mode( *PROD )                                           */
-000900050513/*           HlpPnlGrp( CBX935H )                                    */
-001000050513/*           HlpId( *CMD )                                           */
-001100050513/*                                                                   */
-001200050513/*-------------------------------------------------------------------*/
-001300020815    Cmd        Prompt( 'Run job command' )
-001400020815
-001500020815    Parm       JOB      Job001              +
-001600020815               Min(1)                       +
-001700020815               Choice(*NONE)                +
-001800020815               Prompt('Job name')
-001900020815
-002000050320    Parm       CMD      *CmdStr    3000     +
-002100050320               Vary( *YES *INT2 )           +
-002200020815               Min( 1 )                     +
-002300020815               Prompt( 'Command')
-002400020815
-002500050320    Parm       TIMEOUT  *Dec          5     +
-002600050320               Dft( 25 )                    +
-002700050320               Range( 5  3600 )             +
-002800050320               Expr( *YES )                 +
-002900050322               Choice( 'Seconds, 5-3600' )   +
-003000050320               Prompt( 'Request time-out' )
-003100050320
-003200020815Job001:                                     +
-003300020815    Qual                *Name        10     +
-003400020815               Min( 1 )                     +
-003500020815               Expr( *YES )
-003600020815
-003700020815    Qual                *Name        10     +
-003800020815               Expr( *YES )                 +
-003900020815               Prompt( 'User' )
-004000020815
-004100020815    Qual                *Char         6     +
-004200020815               Range( '000000' '999999' )   +
-004300020815               Full( *YES )                 +
-004400020815               Expr( *YES )                 +
-004500020815               Prompt( 'Number' )
-004600050320
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtCmd Cmd( RUNJOBCMD )                                        */
+/*           Pgm( CBX9351 )                                          */
+/*           SrcMbr( CBX935X )                                       */
+/*           Mode( *PROD )                                           */
+/*           HlpPnlGrp( CBX935H )                                    */
+/*           HlpId( *CMD )                                           */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+    Cmd        Prompt( 'Run job command' )
+
+    Parm       JOB      Job001              +
+               Min(1)                       +
+               Choice(*NONE)                +
+               Prompt('Job name')
+
+    Parm       CMD      *CmdStr    3000     +
+               Vary( *YES *INT2 )           +
+               Min( 1 )                     +
+               Prompt( 'Command')
+
+    Parm       TIMEOUT  *Dec          5     +
+               Dft( 25 )                    +
+               Range( 5  3600 )             +
+               Expr( *YES )                 +
+               Choice( 'Seconds, 5-3600' )   +
+               Prompt( 'Request time-out' )
+
+Job001:                                     +
+    Qual                *Name        10     +
+               Min( 1 )                     +
+               Expr( *YES )
+
+    Qual                *Name        10     +
+               Expr( *YES )                 +
+               Prompt( 'User' )
+
+    Qual                *Char         6     +
+               Range( '000000' '999999' )   +
+               Full( *YES )                 +
+               Expr( *YES )                 +
+               Prompt( 'Number' )
+

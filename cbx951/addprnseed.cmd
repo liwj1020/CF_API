@@ -1,39 +1,39 @@
-000100040606/*-------------------------------------------------------------------*/
-000200040606/*                                                                   */
-000300040606/*  Compile options:                                                 */
-000400040606/*                                                                   */
-000500050630/*    CrtCmd Cmd( ADDPRNSEED )                                       */
-000600060117/*           Pgm( CBX951 )                                           */
-000700060117/*           SrcMbr( CBX951X )                                       */
-000800050630/*           Allow(( *INTERACT ))                                    */
-000900060117/*           HlpPnlGrp( CBX951H )                                    */
-001000040606/*           HlpId( *CMD )                                           */
-001100040606/*                                                                   */
-001200040606/*-------------------------------------------------------------------*/
-001300050630      Cmd        Prompt( 'Add Pseudo Random Number Seed' )
-001400961213
-001500050629      Parm       SEED1         *Char      32                  +
-001600040606                 Min( 1 )                                     +
-001700050701                 Full( *YES )                                 +
-001800050629                 Prompt( 'Seed block 1' )
-001900961230
-002000050629      Parm       SEED2         *Char      32                  +
-002100050629                 Min( 1 )                                     +
-002200050629                 Full( *YES )                                 +
-002300050629                 Prompt( 'Seed block 2' )
-002400050629
-002500050629      Parm       SEED3         *Char      32                  +
-002600050629                 Min( 1 )                                     +
-002700050629                 Full( *YES )                                 +
-002800050629                 Prompt( 'Seed block 3' )
-002900050629
-003000050629      Parm       SEED4         *Char      32                  +
-003100050629                 Min( 1 )                                     +
-003200050629                 Full( *YES )                                 +
-003300050629                 Prompt( 'Seed block 4' )
-003400050629
-003500050629      Parm       SEED5         *Char      32                  +
-003600050629                 Min( 1 )                                     +
-003700050629                 Full( *YES )                                 +
-003800050629                 Prompt( 'Seed block 5' )
-003900961213
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtCmd Cmd( ADDPRNSEED )                                       */
+/*           Pgm( CBX951 )                                           */
+/*           SrcMbr( CBX951X )                                       */
+/*           Allow(( *INTERACT ))                                    */
+/*           HlpPnlGrp( CBX951H )                                    */
+/*           HlpId( *CMD )                                           */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+      Cmd        Prompt( 'Add Pseudo Random Number Seed' )
+
+      Parm       SEED1         *Char      32                  +
+                 Min( 1 )                                     +
+                 Full( *YES )                                 +
+                 Prompt( 'Seed block 1' )
+
+      Parm       SEED2         *Char      32                  +
+                 Min( 1 )                                     +
+                 Full( *YES )                                 +
+                 Prompt( 'Seed block 2' )
+
+      Parm       SEED3         *Char      32                  +
+                 Min( 1 )                                     +
+                 Full( *YES )                                 +
+                 Prompt( 'Seed block 3' )
+
+      Parm       SEED4         *Char      32                  +
+                 Min( 1 )                                     +
+                 Full( *YES )                                 +
+                 Prompt( 'Seed block 4' )
+
+      Parm       SEED5         *Char      32                  +
+                 Min( 1 )                                     +
+                 Full( *YES )                                 +
+                 Prompt( 'Seed block 5' )
+

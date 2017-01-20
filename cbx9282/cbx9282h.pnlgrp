@@ -1,92 +1,92 @@
-000100041201.*-----------------------------------------------------------------------**
-000200041201.*
-000300041201.*  Compile options:
-000400041201.*
-000500050210.*    CrtPnlGrp PnlGrp( CBX9282H )
-000600041201.*              SrcFile( QPNLSRC )
-000700041201.*              SrcMbr( *PNLGRP )
-000800041201.*
-000900041201.*-----------------------------------------------------------------------**
-001000041201:PNLGRP.
-001100041201:HELP NAME='CHKSPCAUT'.Check User Special Authorities - Help
-001200041201:P.
-001300050107The Check User Special Authorities (CHKSPCAUT) command provides a
-001400041202verification of whether the user has the specified special authorities.
-001500041201:P.
-001600041202:XH3.&MSG(CPX0005,QCPFMSG). CHKSPCAUT
-001700041202:IMHELP NAME='CHKSPCAUT/ERROR/MESSAGES'.
-001800041202:EHELP.
-001900041202:HELP NAME='CHKSPCAUT/ERROR/MESSAGES'.&MSG(CPX0005,QCPFMSG).CHKSPCAUT - Help
-002000041202:P.
-002100041202:HP3.*ESCAPE &MSG(CPX0006,QCPFMSG).:EHP3.
-002200041202:DL COMPACT.
-002300111017:DT.CPF9801:DD.&MSG(CPF9801,QCPFMSG,*LIBL,NOSUB).
-002400111017:DT.CPFB304:DD.&MSG(CPFB304,QCPFMSG,*LIBL,NOSUB).
-002500041202:EDL.
-002600041201:EHELP.
-002700041201:HELP NAME='CHKSPCAUT/USRPRF'.User profile (USRPRF) - Help
-002800041201:XH3.User profile (USRPRF)
-002900041201:P.
-003000041201The name of the user whose special authorities are checked.
-003100041201:NT.
-003200041201When the user profile name parameter is *CURRENT or the user who is
-003300041201currently running, the special authorities available to the user
-003400041201include any special authorities the user or the groups has, and any
-003500041201program adopted special authorities.
-003600041201:P.
-003700041201If the user profile specified is not the user currently running, then
-003800041201the special authorities available to the user are only the special
-003900041201authorities the user and his groups have.
-004000041201:ENT.
-004100041201:P.
-004200041201This is a required parameter.
-004300041201:P.
-004400041201The possible values are:
-004500041201:P.
-004600041201:PARML.
-004700041201:PT.:PK.*CURRENT:EPK.
-004800041201:PD.
-004900041201The special authorities for the user currently running are checked.
-005000041201:P.
-005100041201:PT.:PV.user-profile-name:EPV.
-005200041201:PD.
-005300041201Specify the name of the user for which to check the special authorities.
-005400041201:EPARML.
-005500041201:EHELP.
-005600041201:HELP NAME='CHKSPCAUT/SPCAUT'.Special authority (SPCAUT) - Help
-005700041201:XH3.Special authority (SPCAUT)
-005800041201:P.
-005900041201The special authorities checked for the user.
-006000041201:P.
-006100041201This is a required parameter.
-006200041201:P.
-006300041201The possible values are:
-006400041201:P.
-006500041201:PARML.
-006600041201:PT.:PK.*ALLOBJ:EPK.
-006700041201:PD.
-006800041201All object special authority.
-006900041201:PT.:PK.*AUDIT:EPK.
-007000041201:PD.
-007100041201Audit special authority.
-007200041201:PT.:PK.*IOSYSCFG:EPK.
-007300041201:PD.
-007400041201Input/output system configuration special authority.
-007500041201:PT.:PK.*JOBCTL:EPK.
-007600041201:PD.
-007700041201Job control special authority.
-007800041201:PT.:PK.*SAVSYS:EPK.
-007900041201:PD.
-008000041201Save system special authority.
-008100041201:PT.:PK.*SECADM:EPK.
-008200041201:PD.
-008300041201Security administrator special authority.
-008400041201:PT.:PK.*SERVICE:EPK.
-008500041201:PD.
-008600041201Service special authority.
-008700041201:PT.:PK.*SPLCTL:EPK.
-008800041201:PD.
-008900041201Spool control special authority.
-009000041201:EPARML.
-009100041201:EHELP.
-009200041201:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX9282H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='CHKSPCAUT'.Check User Special Authorities - Help
+:P.
+The Check User Special Authorities (CHKSPCAUT) command provides a
+verification of whether the user has the specified special authorities.
+:P.
+:XH3.&MSG(CPX0005,QCPFMSG). CHKSPCAUT
+:IMHELP NAME='CHKSPCAUT/ERROR/MESSAGES'.
+:EHELP.
+:HELP NAME='CHKSPCAUT/ERROR/MESSAGES'.&MSG(CPX0005,QCPFMSG).CHKSPCAUT - Help
+:P.
+:HP3.*ESCAPE &MSG(CPX0006,QCPFMSG).:EHP3.
+:DL COMPACT.
+:DT.CPF9801:DD.&MSG(CPF9801,QCPFMSG,*LIBL,NOSUB).
+:DT.CPFB304:DD.&MSG(CPFB304,QCPFMSG,*LIBL,NOSUB).
+:EDL.
+:EHELP.
+:HELP NAME='CHKSPCAUT/USRPRF'.User profile (USRPRF) - Help
+:XH3.User profile (USRPRF)
+:P.
+The name of the user whose special authorities are checked.
+:NT.
+When the user profile name parameter is *CURRENT or the user who is
+currently running, the special authorities available to the user
+include any special authorities the user or the groups has, and any
+program adopted special authorities.
+:P.
+If the user profile specified is not the user currently running, then
+the special authorities available to the user are only the special
+authorities the user and his groups have.
+:ENT.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*CURRENT:EPK.
+:PD.
+The special authorities for the user currently running are checked.
+:P.
+:PT.:PV.user-profile-name:EPV.
+:PD.
+Specify the name of the user for which to check the special authorities.
+:EPARML.
+:EHELP.
+:HELP NAME='CHKSPCAUT/SPCAUT'.Special authority (SPCAUT) - Help
+:XH3.Special authority (SPCAUT)
+:P.
+The special authorities checked for the user.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*ALLOBJ:EPK.
+:PD.
+All object special authority.
+:PT.:PK.*AUDIT:EPK.
+:PD.
+Audit special authority.
+:PT.:PK.*IOSYSCFG:EPK.
+:PD.
+Input/output system configuration special authority.
+:PT.:PK.*JOBCTL:EPK.
+:PD.
+Job control special authority.
+:PT.:PK.*SAVSYS:EPK.
+:PD.
+Save system special authority.
+:PT.:PK.*SECADM:EPK.
+:PD.
+Security administrator special authority.
+:PT.:PK.*SERVICE:EPK.
+:PD.
+Service special authority.
+:PT.:PK.*SPLCTL:EPK.
+:PD.
+Spool control special authority.
+:EPARML.
+:EHELP.
+:EPNLGRP.

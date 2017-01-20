@@ -1,159 +1,159 @@
-000100060819.*-----------------------------------------------------------------------**
-000200060819.*
-000300060819.*  Compile options:
-000400060819.*
-000500060819.*    CrtPnlGrp PnlGrp( CBX959H )
-000600060819.*              SrcFile( QPNLSRC )
-000700060819.*              SrcMbr( *PNLGRP )
-000800060819.*
-000900060819.*-----------------------------------------------------------------------**
-001000060819:PNLGRP.
-001100060819
-001200060819:IMPORT  PNLGRP='QHJOCMD' NAME='*'.
-001300060819
-001400060819:HELP NAME='RMVJRNRCV'.Remove Journal Receivers - Help
-001500060819:P.
-001600060820The Remove Journal Receivers (RMVJRNRCV) command is used to remove
-001700060820the journal receivers matching the specified selection criteria from
-001800060820the system.  The command also optionally changes the journal receiver.
-001900060819:P.
-002000060820For each removed journal receiver a completion message is sent to the
-002100060820joblog of the job executing this command.  A final completion message
-002200060820specifying the total number of journal receivers removed is also sent.
-002300060820:P.
-002400060819:NT.
-002500060819Currently attached receivers are not included in the processing
-002600060819performed by this command.
-002700060819:ENT.
-002800060819:P.
-002900060819:HP2.Restrictions&COLON.:EHP2.  *OBJOPR and some data authority other
-003000060819than *EXECUTE is required to the specified journal and it's journal
-003100060819receivers to retrieve the information.  Proper object authority is
-003200060819required to delete a journal receiver.
-003300060819:P.
-003400060819:EHELP.
-003500060819
-003600060819:HELP NAME='RMVJRNRCV/JRN'.Journal (JRN) - Help
-003700060819:XH3.Journal (JRN)
-003800060819:P.
-003900060819Specifies the journal whose journal receivers are to be removed.
-004000060819:P.
-004100060819This is a required parameter.
-004200060819:P.
-004300060819:XH3.Library
-004400060819:P.
-004500060819The name of the journal can be qualified by one of the following
-004600060819possible library values:
-004700060819:P.
-004800060819:PARML.
-004900060819:PT.:PK DEF.*LIBL:EPK.
-005000060819:PD.
-005100060819All libraries in the job's library list are searched until the first
-005200060819match is found.
-005300060819:PT.:PK.*CURLIB:EPK.
-005400060819:PD.
-005500060819The current library for the job is searched.  If no library is
-005600060819specified as the current library for the job, QGPL is used.
-005700060819:PT.:PV.library-name:EPV.
-005800060819:PD.
-005900060819Specify the name of the library to be searched.
-006000060819:EPARML.
-006100060819:EHELP.
-006200060819
-006300060819:HELP NAME='RMVJRNRCV/DAYS'.Journal receiver retain days (DAYS) - Help
-006400060819:XH3.Journal receiver retain days (DAYS)
-006500060819:P.
-006600060819Specifies the number of days to keep journal receivers online, after
-006700060819they have been detached.  This criteria is evaluated independently of
-006800060819the journal receiver save status.
-006900060819:P.
-007000060819The possible values are:
-007100060819:P.
-007200060819:PARML.
-007300060819:PT.:PK DEF.*NONE:EPK.
-007400060819:PD.
-007500060819The journal receiver detach date is not evaluated during the selection
-007600060819process.
-007700060819:PT.:PV.journal-receiver-retain-days:EPV.
-007800060819:PD.
-007900060819Specify the minimum number of days to keep journal receivers online,
-008000060819after they have been detached.
-008100060819:EPARML.
-008200060819:EHELP.
-008300060819
-008400060819:HELP NAME='RMVJRNRCV/RETAIN'.Journal receivers to retain (RETAIN) - Help
-008500060819:XH3.Journal receivers to retain (RETAIN)
-008600060819:P.
-008700060819Specifies the minimum number of journal receivers to keep online.  The
-008800060819journal receivers are counted from the currently attached receiver and
-008900060819backwards.
-009000060819:P.
-009100060819The possible values are:
-009200060819:P.
-009300060819:PARML.
-009400060819:PT.:PK DEF.*NONE:EPK.
-009500060819:PD.
-009600060819The relative number of the journal receiver is not considered during
-009700060819the selection process.
-009800060819:PT.:PV.journal-receivers-to-retain:EPV.
-009900060819:PD.
-010000060819Specify the minimum number of journal receivers to keep online,
-010100060819deleting the oldest receivers first.
-010200060819:EPARML.
-010300060819:EHELP.
-010400060819
-010500060819:HELP NAME='RMVJRNRCV/FORCE'.Force receiver deletion (FORCE) - Help
-010600060819:XH3.Force receiver deletion (FORCE)
-010700060819:P.
-010800060819Specifies whether journal receivers that have not been saved can be
-010900060820deleted. This parameter also controls whether local journal receivers
-011000060820that have not been fully replicated to a remote journal should be
-011100060820deleted.
-011200060819:P.
-011300060819The possible values are:
-011400060819:P.
-011500060819:PARML.
-011600060819:PT.:PK DEF.*NO:EPK.
-011700060819:PD.
-011800060820Only journal recievers that have been saved and are fully replicated
-011900060820to a remote journal are eligible to deletion.
-012000060820:P.
-012100060820An attempt to delete a local journal receiver that has not fully been
-012200060820replicated to a remote journal, will cause the diagnostic message
-012300060820CPD705F to be sent to the joblog and the exception message CPF705F to
-012400060820terminate further processing of journal receivers.  Refer to the
-012500060820message text and second level help text for more information.
-012600060819:PT.:PK.*YES:EPK.
-012700060819:PD.
-012800060819Journal recievers are eligible to deletion regardless of their save
-012900060820and remote journal replication status.
-013000060819:EPARML.
-013100060819:EHELP.
-013200060819
-013300060819:HELP NAME='RMVJRNRCV/CHGJRN'.Change journal receiver (CHGJRN) - Help
-013400060819:XH3.Change journal receiver (CHGJRN)
-013500060819:P.
-013600060820Specifies whether the currently attached journal receiver should be
-013700060820changed prior to performing the journal receiver deletion process.
-013800060819:P.
-013900060819The possible values are:
-014000060819:P.
-014100060819:PARML.
-014200060819:PT.:PK DEF.*NO:EPK.
-014300060819:PD.
-014400060819The journal receivers are not changed.
-014500060819:PT.:PK.*YES:EPK.
-014600060819:PD.
-014700060819The journal receivers are changed before the journal receiver deletion
-014800060819process is performed.
-014900060819:EPARML.
-015000060819:EHELP.
-015100060819
-015200060819:HELP NAME='RMVJRNRCV/JRNRCV'.Journal receiver (JRNRCV) - Help
-015300060819:IMHELP  NAME='CHGJRN/JRNRCV'.
-015400060819:EHELP.
-015500060819
-015600060819:HELP NAME='RMVJRNRCV/SEQOPT'.Sequence option (SEQOPT) - Help
-015700060819:IMHELP  NAME='CHGJRN/SEQOPT'.
-015800060819:EHELP.
-015900060819:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX959H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+
+:IMPORT  PNLGRP='QHJOCMD' NAME='*'.
+
+:HELP NAME='RMVJRNRCV'.Remove Journal Receivers - Help
+:P.
+The Remove Journal Receivers (RMVJRNRCV) command is used to remove
+the journal receivers matching the specified selection criteria from
+the system.  The command also optionally changes the journal receiver.
+:P.
+For each removed journal receiver a completion message is sent to the
+joblog of the job executing this command.  A final completion message
+specifying the total number of journal receivers removed is also sent.
+:P.
+:NT.
+Currently attached receivers are not included in the processing
+performed by this command.
+:ENT.
+:P.
+:HP2.Restrictions&COLON.:EHP2.  *OBJOPR and some data authority other
+than *EXECUTE is required to the specified journal and it's journal
+receivers to retrieve the information.  Proper object authority is
+required to delete a journal receiver.
+:P.
+:EHELP.
+
+:HELP NAME='RMVJRNRCV/JRN'.Journal (JRN) - Help
+:XH3.Journal (JRN)
+:P.
+Specifies the journal whose journal receivers are to be removed.
+:P.
+This is a required parameter.
+:P.
+:XH3.Library
+:P.
+The name of the journal can be qualified by one of the following
+possible library values:
+:P.
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+All libraries in the job's library list are searched until the first
+match is found.
+:PT.:PK.*CURLIB:EPK.
+:PD.
+The current library for the job is searched.  If no library is
+specified as the current library for the job, QGPL is used.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library to be searched.
+:EPARML.
+:EHELP.
+
+:HELP NAME='RMVJRNRCV/DAYS'.Journal receiver retain days (DAYS) - Help
+:XH3.Journal receiver retain days (DAYS)
+:P.
+Specifies the number of days to keep journal receivers online, after
+they have been detached.  This criteria is evaluated independently of
+the journal receiver save status.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NONE:EPK.
+:PD.
+The journal receiver detach date is not evaluated during the selection
+process.
+:PT.:PV.journal-receiver-retain-days:EPV.
+:PD.
+Specify the minimum number of days to keep journal receivers online,
+after they have been detached.
+:EPARML.
+:EHELP.
+
+:HELP NAME='RMVJRNRCV/RETAIN'.Journal receivers to retain (RETAIN) - Help
+:XH3.Journal receivers to retain (RETAIN)
+:P.
+Specifies the minimum number of journal receivers to keep online.  The
+journal receivers are counted from the currently attached receiver and
+backwards.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NONE:EPK.
+:PD.
+The relative number of the journal receiver is not considered during
+the selection process.
+:PT.:PV.journal-receivers-to-retain:EPV.
+:PD.
+Specify the minimum number of journal receivers to keep online,
+deleting the oldest receivers first.
+:EPARML.
+:EHELP.
+
+:HELP NAME='RMVJRNRCV/FORCE'.Force receiver deletion (FORCE) - Help
+:XH3.Force receiver deletion (FORCE)
+:P.
+Specifies whether journal receivers that have not been saved can be
+deleted. This parameter also controls whether local journal receivers
+that have not been fully replicated to a remote journal should be
+deleted.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+Only journal recievers that have been saved and are fully replicated
+to a remote journal are eligible to deletion.
+:P.
+An attempt to delete a local journal receiver that has not fully been
+replicated to a remote journal, will cause the diagnostic message
+CPD705F to be sent to the joblog and the exception message CPF705F to
+terminate further processing of journal receivers.  Refer to the
+message text and second level help text for more information.
+:PT.:PK.*YES:EPK.
+:PD.
+Journal recievers are eligible to deletion regardless of their save
+and remote journal replication status.
+:EPARML.
+:EHELP.
+
+:HELP NAME='RMVJRNRCV/CHGJRN'.Change journal receiver (CHGJRN) - Help
+:XH3.Change journal receiver (CHGJRN)
+:P.
+Specifies whether the currently attached journal receiver should be
+changed prior to performing the journal receiver deletion process.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*NO:EPK.
+:PD.
+The journal receivers are not changed.
+:PT.:PK.*YES:EPK.
+:PD.
+The journal receivers are changed before the journal receiver deletion
+process is performed.
+:EPARML.
+:EHELP.
+
+:HELP NAME='RMVJRNRCV/JRNRCV'.Journal receiver (JRNRCV) - Help
+:IMHELP  NAME='CHGJRN/JRNRCV'.
+:EHELP.
+
+:HELP NAME='RMVJRNRCV/SEQOPT'.Sequence option (SEQOPT) - Help
+:IMHELP  NAME='CHGJRN/SEQOPT'.
+:EHELP.
+:EPNLGRP.

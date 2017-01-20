@@ -1,100 +1,100 @@
-000100050210.*-----------------------------------------------------------------------**
-000200050210.*
-000300050210.*  Compile options:
-000400050210.*
-000500050210.*    CrtPnlGrp PnlGrp( CBX929H )
-000600050210.*              SrcFile( QPNLSRC )
-000700050210.*              SrcMbr( *PNLGRP )
-000800050210.*
-000900050210.*-----------------------------------------------------------------------**
-001000050209:PNLGRP.
-001100050209:HELP NAME='RTVUSRSPCA'.Retrieve User Special Auth - Help
-001200050209:P.
-001300050209The Retrieve User Special Authorities (RTVUSRSPCA) command returns an
-001400050211array of the special authorities that the specified user profile has,
-001500050211either privately, through it's group profile, it's supplemental group
-001600050209profiles accumulated, or optionally all aforemented profiles' special
-001700050209authorities accumulated.
-001800050209:P.
-001900050209:XH3.&MSG(CPX0005,QCPFMSG). CHKSPCAUT
-002000050209:IMHELP NAME='RTVUSRSPCA/ERROR/MESSAGES'.
-002100050209:EHELP.
-002200050209:HELP NAME='RTVUSRSPCA/ERROR/MESSAGES'.&MSG(CPX0005,QCPFMSG).RTVUSRSPCA - Help
-002300050209:P.
-002400050209:HP3.*ESCAPE &MSG(CPX0006,QCPFMSG).:EHP3.
-002500050209:DL COMPACT.
-002600050209:DT.CPF2203:DD.&MSG(CPF2203,QCPFMSG).
-002700050209:DT.CPF2225:DD.&MSG(CPF2225,QCPFMSG).
-002800050209:DT.CPF3CF1:DD.&MSG(CPF3CF1,QCPFMSG).
-002900050209:DT.CPF3C19:DD.&MSG(CPF3C19,QCPFMSG).
-003000050209:DT.CPF3C21:DD.&MSG(CPF3C21,QCPFMSG).
-003100050209:DT.CPF3C24:DD.&MSG(CPF3C24,QCPFMSG).
-003200050209:DT.CPF3C90:DD.&MSG(CPF3C90,QCPFMSG).
-003300050209:DT.CPF9801:DD.&MSG(CPF9801,QCPFMSG).
-003400050209:DT.CPF9802:DD.&MSG(CPF9802,QCPFMSG).
-003500050209:DT.CPF9803:DD.&MSG(CPF9803,QCPFMSG).
-003600050209:DT.CPF9872:DD.&MSG(CPF9872,QCPFMSG).
-003700050209:EDL.
-003800050209:EHELP.
-003900050209:HELP NAME='RTVUSRSPCA/USRPRF'.User profile (USRPRF) - Help
-004000050209:XH3.User profile (USRPRF)
-004100050209:P.
-004200050209The name of the user whose special authorities are retrieved.
-004300050209:P.
-004400050209This is a required parameter.
-004500050209:P.
-004600050209The possible values are:
-004700050209:P.
-004800050209:PARML.
-004900050209:PT.:PK.*CURRENT:EPK.
-005000050209:PD.
-005100050209The special authorities for the user currently running this command are
-005200050209retrieved.
-005300050209:PT.:PV.user-profile-name:EPV.
-005400050209:PD.
-005500050209Specify the name of the user for which to retrieve the special
-005600050209authorities.
-005700050209:EPARML.
-005800050209:EHELP.
-005900050209:HELP NAME='RTVUSRSPCA/OPTION'.Option (OPTION) - Help
-006000050209:XH3.Option (OPTION)
-006100050209:P.
-006200050210Specifies the source of the returned special authorities.
-006300050209:P.
-006400050209The possible values are:
-006500050209:P.
-006600050209:PARML.
-006700050209:PT.:PK DEF.*USRPRF:EPK.
-006800050209:PD.
-006900050210The special authorities of the specified user profile are returned.
-007000050209:PT.:PK.*GRPPRF:EPK.
-007100050209:PD.
-007200050210The special authorities of the specified user profile's group profile
-007300050210are returned.
-007400050209:PT.:PK.*SUPGRP:EPK.
-007500050209:PD.
-007600050210The accumulated special authorities of all the specified user profile's
-007700050210supplemental group profiles are returned.
-007800050209:PT.:PK.*ALL:EPK.
-007900050209:PD.
-008000050210The accumulated special authorities of the specified user profile and
-008100050210the user profile's group profile and supplemental group profiles are
-008200050210returned.
-008300050209:EPARML.
-008400050209:EHELP.
-008500050211:HELP NAME='RTVUSRSPCA/SPCAUT'.CL var for SPCAUT      (150) (SPCAUT) - Help
-008600050211:XH3.CL var for SPCAUT      (150) (SPCAUT)
-008700050209:P.
-008800050210Specifies the name of a variable that is used to retrieve the list of
-008900050210special authorities the user has.  In CL programs, this should be a
-009000050210150-character variable.  The format returned is a list of up to 15
-009100050210entries.  Each entry is 10 characters in length and each entry contains
-009200050211a special authority.
-009300050211:P.
-009400050211If there are fewer than 15 special authorities in the list, the
-009500050211remaining entries are padded on the right with blanks.  If the user has
-009600050211no special authorities, the first entry contains the value of *NONE,
-009700050211followed by blanks.
-009800050209:P.
-009900050209:EHELP.
-010000050209:EPNLGRP.
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX929H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( *PNLGRP )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='RTVUSRSPCA'.Retrieve User Special Auth - Help
+:P.
+The Retrieve User Special Authorities (RTVUSRSPCA) command returns an
+array of the special authorities that the specified user profile has,
+either privately, through it's group profile, it's supplemental group
+profiles accumulated, or optionally all aforemented profiles' special
+authorities accumulated.
+:P.
+:XH3.&MSG(CPX0005,QCPFMSG). CHKSPCAUT
+:IMHELP NAME='RTVUSRSPCA/ERROR/MESSAGES'.
+:EHELP.
+:HELP NAME='RTVUSRSPCA/ERROR/MESSAGES'.&MSG(CPX0005,QCPFMSG).RTVUSRSPCA - Help
+:P.
+:HP3.*ESCAPE &MSG(CPX0006,QCPFMSG).:EHP3.
+:DL COMPACT.
+:DT.CPF2203:DD.&MSG(CPF2203,QCPFMSG).
+:DT.CPF2225:DD.&MSG(CPF2225,QCPFMSG).
+:DT.CPF3CF1:DD.&MSG(CPF3CF1,QCPFMSG).
+:DT.CPF3C19:DD.&MSG(CPF3C19,QCPFMSG).
+:DT.CPF3C21:DD.&MSG(CPF3C21,QCPFMSG).
+:DT.CPF3C24:DD.&MSG(CPF3C24,QCPFMSG).
+:DT.CPF3C90:DD.&MSG(CPF3C90,QCPFMSG).
+:DT.CPF9801:DD.&MSG(CPF9801,QCPFMSG).
+:DT.CPF9802:DD.&MSG(CPF9802,QCPFMSG).
+:DT.CPF9803:DD.&MSG(CPF9803,QCPFMSG).
+:DT.CPF9872:DD.&MSG(CPF9872,QCPFMSG).
+:EDL.
+:EHELP.
+:HELP NAME='RTVUSRSPCA/USRPRF'.User profile (USRPRF) - Help
+:XH3.User profile (USRPRF)
+:P.
+The name of the user whose special authorities are retrieved.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*CURRENT:EPK.
+:PD.
+The special authorities for the user currently running this command are
+retrieved.
+:PT.:PV.user-profile-name:EPV.
+:PD.
+Specify the name of the user for which to retrieve the special
+authorities.
+:EPARML.
+:EHELP.
+:HELP NAME='RTVUSRSPCA/OPTION'.Option (OPTION) - Help
+:XH3.Option (OPTION)
+:P.
+Specifies the source of the returned special authorities.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*USRPRF:EPK.
+:PD.
+The special authorities of the specified user profile are returned.
+:PT.:PK.*GRPPRF:EPK.
+:PD.
+The special authorities of the specified user profile's group profile
+are returned.
+:PT.:PK.*SUPGRP:EPK.
+:PD.
+The accumulated special authorities of all the specified user profile's
+supplemental group profiles are returned.
+:PT.:PK.*ALL:EPK.
+:PD.
+The accumulated special authorities of the specified user profile and
+the user profile's group profile and supplemental group profiles are
+returned.
+:EPARML.
+:EHELP.
+:HELP NAME='RTVUSRSPCA/SPCAUT'.CL var for SPCAUT      (150) (SPCAUT) - Help
+:XH3.CL var for SPCAUT      (150) (SPCAUT)
+:P.
+Specifies the name of a variable that is used to retrieve the list of
+special authorities the user has.  In CL programs, this should be a
+150-character variable.  The format returned is a list of up to 15
+entries.  Each entry is 10 characters in length and each entry contains
+a special authority.
+:P.
+If there are fewer than 15 special authorities in the list, the
+remaining entries are padded on the right with blanks.  If the user has
+no special authorities, the first entry contains the value of *NONE,
+followed by blanks.
+:P.
+:EHELP.
+:EPNLGRP.

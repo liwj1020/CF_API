@@ -1,68 +1,68 @@
-000100041009/*-------------------------------------------------------------------*/
-000200041009/*                                                                   */
-000300041009/*  Program . . : CBX924                                             */
-000400041009/*  Description : Display software inventory - initial CPP           */
-000500041009/*  Author  . . : Carsten Flensburg                                  */
-000600041009/*                                                                   */
-000700041009/*                                                                   */
-000800041010/*  The main CPP, the QSFWINV program is documented here:            */
-000900041009/*             http://publib.boulder.ibm.com/iseries/v5r1/ic2924/    */
-001000041009/*                    tstudio/tech_ref/invtool/index.htm             */
-001100041009/*                                                                   */
-001200041009/*  V4R4 PTF:  SF55269                                               */
-001300041009/*      APAR:  http://www-912.ibm.com/n_dir/nas4apar.nsf/            */
-001400041009/*                    c79815e083182fec862564c00079d117/              */
-001500041009/*                    64c226fdc56df0128625673e0035e8c6?OpenDocument  */
-001600041009/*                                                                   */
-001700041009/*                                                                   */
-001800041009/*  Compile options:                                                 */
-001900041009/*                                                                   */
-002000041009/*    CrtClPgm   Pgm( CBX924 )                                       */
-002100041009/*               SrcFile( QCLSRC )                                   */
-002200041009/*               SrcMbr( *PGM )                                      */
-002300041009/*                                                                   */
-002400041009/*                                                                   */
-002500041009/*-------------------------------------------------------------------*/
-002600041009     Pgm        &PxOutput
-002700990504
-002800041009/*- Parameter:  -----------------------------------------------------*/
-002900041009     Dcl        &PxOutput     *Char    1
-003000991124
-003100990908
-003200990908/*- Global error monitor:  ------------------------------------------*/
-003300041009     MonMsg     CPF0000       *N       GoTo  Error
-003400990908
-003500041009
-003600041009     If       ( &PxOutput = 'P' )      Do
-003700041009
-003800041009     Call       QSFWINV     '*PRINT'
-003900041009
-004000041009     SndPgmMsg  Msg( 'Software inventory list has been printed.' ) +
-004100041009                MsgType( *COMP )
-004200041009     EndDo
-004300041009     Else Do
-004400041009
-004500041009     Call       QSFWINV
-004600041009     EndDo
-004700041009
-004800041009
-004900041009Return:
-005000041009     Return
-005100041009
-005200041009/*- Error handling:  ------------------------------------------------*/
-005300041009Error:
-005400041009     Call       QMHMOVPM    ( '    '                  +
-005500041009                              '*DIAG'                 +
-005600041009                              x'00000001'             +
-005700041009                              '*PGMBDY'               +
-005800041009                              x'00000001'             +
-005900041009                              x'0000000800000000'     +
-006000041009                            )
-006100041009
-006200041009     Call       QMHRSNEM    ( '    '                  +
-006300041009                              x'0000000800000000'     +
-006400041009                            )
-006500041009
-006600990908
-006700990908EndPgm:
-006800990504    EndPgm
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Program . . : CBX924                                             */
+/*  Description : Display software inventory - initial CPP           */
+/*  Author  . . : Carsten Flensburg                                  */
+/*                                                                   */
+/*                                                                   */
+/*  The main CPP, the QSFWINV program is documented here:            */
+/*             http://publib.boulder.ibm.com/iseries/v5r1/ic2924/    */
+/*                    tstudio/tech_ref/invtool/index.htm             */
+/*                                                                   */
+/*  V4R4 PTF:  SF55269                                               */
+/*      APAR:  http://www-912.ibm.com/n_dir/nas4apar.nsf/            */
+/*                    c79815e083182fec862564c00079d117/              */
+/*                    64c226fdc56df0128625673e0035e8c6?OpenDocument  */
+/*                                                                   */
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtClPgm   Pgm( CBX924 )                                       */
+/*               SrcFile( QCLSRC )                                   */
+/*               SrcMbr( *PGM )                                      */
+/*                                                                   */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+     Pgm        &PxOutput
+
+/*- Parameter:  -----------------------------------------------------*/
+     Dcl        &PxOutput     *Char    1
+
+
+/*- Global error monitor:  ------------------------------------------*/
+     MonMsg     CPF0000       *N       GoTo  Error
+
+
+     If       ( &PxOutput = 'P' )      Do
+
+     Call       QSFWINV     '*PRINT'
+
+     SndPgmMsg  Msg( 'Software inventory list has been printed.' ) +
+                MsgType( *COMP )
+     EndDo
+     Else Do
+
+     Call       QSFWINV
+     EndDo
+
+
+Return:
+     Return
+
+/*- Error handling:  ------------------------------------------------*/
+Error:
+     Call       QMHMOVPM    ( '    '                  +
+                              '*DIAG'                 +
+                              x'00000001'             +
+                              '*PGMBDY'               +
+                              x'00000001'             +
+                              x'0000000800000000'     +
+                            )
+
+     Call       QMHRSNEM    ( '    '                  +
+                              x'0000000800000000'     +
+                            )
+
+
+EndPgm:
+    EndPgm

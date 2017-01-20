@@ -1,94 +1,94 @@
-000100050729/*-------------------------------------------------------------------*/
-000200050729/*                                                                   */
-000300050729/*  Program . . : CBX9421                                            */
-000400050729/*  Description : Retrieve device IP address - CPP                   */
-000500050729/*  Author  . . : Carsten Flensburg                                  */
-000600050729/*                                                                   */
-000700050729/*                                                                   */
-000800050729/*  Compile options:                                                 */
-000900050729/*                                                                   */
-001000050729/*    CrtClPgm   Pgm( CBX9421 )                                      */
-001100050729/*               SrcFile( QCLSRC )                                   */
-001200050729/*               SrcMbr( *PGM )                                      */
-001300050729/*                                                                   */
-001400050729/*                                                                   */
-001500050729/*-------------------------------------------------------------------*/
-001600050729     Pgm      ( &Device  &DevIp )
-001700050729
-001800050729     Dcl        &Device      *Char       10
-001900050729     Dcl        &DevIp       *Char       15
-002000050729
-002100050731     Dcl        &DevCtg      *Char       10
-002200050731     Dcl        &DevInf      *Char     2048
-002300050731     Dcl        &RcvLen      *Char        4   x'00000800'
-002400050729
-002500050729     Dcl        &IP_NONE     *Char       15   x'000000000000000000000000000000'
-002600050731     Dcl        &IP_BLANK    *Char       15   ' '
-002700050729
-002800050729     MonMsg     CPF0000       *N         GoTo Error
-002900050729
-003000030320
-003100050729     ChgVar     &DevIp       ' '
-003200050729
-003300050729     If       ( &Device = '*CURRENT' )   Do
-003400050729     RtvJobA    Job( &Device )
-003500050729     EndDo
-003600050729
-003700050731     Call       QDCRDEVD     Parm( &DevInf         +
-003800050731                                   &RcvLen         +
-003900050731                                   'DEVD0100'      +
-004000050731                                   &Device         +
-004100050731                                   x'00000000'     +
-004200050731                                 )
-004300050731
-004400050731     ChgVar     &DevCtg      %Sst( &DevInf   32 10 )
-004500050731
-004600050731     If       ( &DevCtg = '*DSP' )       Do
-004700050731
-004800050729     Call       QDCRDEVD     Parm( &DevInf         +
-004900050729                                   &RcvLen         +
-005000050729                                   'DEVD0600'      +
-005100050729                                   &Device         +
-005200050729                                   x'00000000'     +
-005300050729                                 )
-005400050729
-005500050729     ChgVar     &DevIp       %Sst( &DevInf  878 15 )
-005600050731     EndDo
-005700050731
-005800050731     Else If  ( &DevCtg = '*PRT' )       Do
-005900050731
-006000050731     Call       QDCRDEVD     Parm( &DevInf         +
-006100050731                                   &RcvLen         +
-006200050731                                   'DEVD1100'      +
-006300050731                                   &Device         +
-006400050731                                   x'00000000'     +
-006500050731                                 )
-006600050731
-006700050731     ChgVar     &DevIp       %Sst( &DevInf 1405 15 )
-006800050731     EndDo
-006900050729
-007000050729     If       ( &DevIp = &IP_NONE )      Do
-007100050729     ChgVar     &DevIp       '*NONE'
-007200050729     EndDo
-007300050729
-007400050731     Else If  ( &DevIp = &IP_BLANK )     Do
-007500050731     ChgVar     &DevIp       '*NONE'
-007600050731     EndDo
-007700050731
-007800050729Return:
-007900050729     Return
-008000050729
-008100050729Error:
-008200050729     Call       QMHMOVPM    ( '    '                  +
-008300050729                              '*DIAG'                 +
-008400050729                              x'00000001'             +
-008500050729                              '*PGMBDY'               +
-008600050729                              x'00000001'             +
-008700050729                              x'0000000800000000'     +
-008800050729                            )
-008900050729
-009000050729     Call       QMHRSNEM    ( '    '                  +
-009100050729                              x'0000000800000000'     +
-009200050729                            )
-009300050729EndPgm:
-009400050729     EndPgm
+/*-------------------------------------------------------------------*/
+/*                                                                   */
+/*  Program . . : CBX9421                                            */
+/*  Description : Retrieve device IP address - CPP                   */
+/*  Author  . . : Carsten Flensburg                                  */
+/*                                                                   */
+/*                                                                   */
+/*  Compile options:                                                 */
+/*                                                                   */
+/*    CrtClPgm   Pgm( CBX9421 )                                      */
+/*               SrcFile( QCLSRC )                                   */
+/*               SrcMbr( *PGM )                                      */
+/*                                                                   */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+     Pgm      ( &Device  &DevIp )
+
+     Dcl        &Device      *Char       10
+     Dcl        &DevIp       *Char       15
+
+     Dcl        &DevCtg      *Char       10
+     Dcl        &DevInf      *Char     2048
+     Dcl        &RcvLen      *Char        4   x'00000800'
+
+     Dcl        &IP_NONE     *Char       15   x'000000000000000000000000000000'
+     Dcl        &IP_BLANK    *Char       15   ' '
+
+     MonMsg     CPF0000       *N         GoTo Error
+
+
+     ChgVar     &DevIp       ' '
+
+     If       ( &Device = '*CURRENT' )   Do
+     RtvJobA    Job( &Device )
+     EndDo
+
+     Call       QDCRDEVD     Parm( &DevInf         +
+                                   &RcvLen         +
+                                   'DEVD0100'      +
+                                   &Device         +
+                                   x'00000000'     +
+                                 )
+
+     ChgVar     &DevCtg      %Sst( &DevInf   32 10 )
+
+     If       ( &DevCtg = '*DSP' )       Do
+
+     Call       QDCRDEVD     Parm( &DevInf         +
+                                   &RcvLen         +
+                                   'DEVD0600'      +
+                                   &Device         +
+                                   x'00000000'     +
+                                 )
+
+     ChgVar     &DevIp       %Sst( &DevInf  878 15 )
+     EndDo
+
+     Else If  ( &DevCtg = '*PRT' )       Do
+
+     Call       QDCRDEVD     Parm( &DevInf         +
+                                   &RcvLen         +
+                                   'DEVD1100'      +
+                                   &Device         +
+                                   x'00000000'     +
+                                 )
+
+     ChgVar     &DevIp       %Sst( &DevInf 1405 15 )
+     EndDo
+
+     If       ( &DevIp = &IP_NONE )      Do
+     ChgVar     &DevIp       '*NONE'
+     EndDo
+
+     Else If  ( &DevIp = &IP_BLANK )     Do
+     ChgVar     &DevIp       '*NONE'
+     EndDo
+
+Return:
+     Return
+
+Error:
+     Call       QMHMOVPM    ( '    '                  +
+                              '*DIAG'                 +
+                              x'00000001'             +
+                              '*PGMBDY'               +
+                              x'00000001'             +
+                              x'0000000800000000'     +
+                            )
+
+     Call       QMHRSNEM    ( '    '                  +
+                              x'0000000800000000'     +
+                            )
+EndPgm:
+     EndPgm
