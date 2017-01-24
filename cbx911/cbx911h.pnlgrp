@@ -1,0 +1,25 @@
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX911H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBXP11H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='VALCCSID'.Validate CCSID - Help
+:P.
+The Validate Coded Character Set ID command determines if a given CCSID
+is actually supported by the iSeries server performing the validation.
+:P.
+:EHELP.
+:HELP NAME='VALCCSID/CCSID'.Coded character set ID (CCSID) - Help
+:XH3.Coded character set ID (CCSID)
+:P.
+Specifies the coded character set ID to be validated.
+:P.
+This is a required parameter.
+:P.
+:EHELP.
+:EPNLGRP.

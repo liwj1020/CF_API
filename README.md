@@ -10,6 +10,23 @@ Provide a number of code examples which can be used as utilities on IBM i. The c
 ## Utilities
 * 100 - Sample of QDBRTVFD
 * ... - More utilities/samples
+* 900 - Job Notification Exit Program
+* 901 - Password Validation exit program
+* 902 - Receive journal entry exit program
+* 904 - Retrieve the number of physical devices that a given privileged user profile - user class greater than *USER - is signed on to.
+* 905 - Retrieve identity of last spooled file created (QSPRILSP) API
+* 906 - Materialize Machine Attributes
+* 907 - Process and print QHST log performance entries
+* 908 - Demonstrate adopted authority propagation blocking
+* 909 - Process spooled file creation data queue entries (multiple programs)
+* 910 - Process data queue entries from output queue
+* 911 - VALCCSID Validate CCSID
+* 912 - Delete journal receiver exit program with test programs
+* 913 - Critical ASP usage % exit program
+* 914 - DSPPTFINF Display PTF Information
+* 915 - RNMHDWRSC Rename Hardware Resource
+* 916 - DSPCCSID Display Language Default CCSID
+* 917 - PRTSVRAUTE Print Server Authority Entries
 * 918 - A collection of programs to Retrieve and set Encrypted User Password. Note: pass second parameter '*CALLER' for service program build.
 * 919 - RMVARPTBLE Remove ARP Table Entry
 * 920 - PRCFILLCK Process File Locks

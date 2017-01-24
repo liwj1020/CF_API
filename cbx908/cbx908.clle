@@ -1,0 +1,102 @@
+/*                                                                   */
+/*  Program . . : CBX908                                             */
+/*  Author  . . : Carsten Flensburg                                  */
+/*                                                                   */
+/*  Program function:                                                */
+/*    Demonstrate adopted authority propagation blocking.            */
+/*                                                                   */
+/*  Program summary:                                                 */
+/*    In general a program can influence adopted authority in        */
+/*    two ways:                                                      */
+/*                                                                   */
+/*    1. The program object can have the USRPRF attribute set to     */
+/*       to either *USER or *OWNER:                                  */
+/*                                                                   */
+/*       *USER means that runtime authority will only be checked     */
+/*       for the user profile currently running the job.             */
+/*                                                                   */
+/*       *OWNER means that if the user profile currently running     */
+/*       the job does not have sufficient authority to a given       */
+/*       action, then the authority of the user profile owning       */
+/*       the program will be used to look up the authority.          */
+/*                                                                   */
+/*    2. If the program does not have the USRPRF attribute set to    */
+/*       *OWNER, it can enherit adopted authority from a program     */
+/*       higher in the invocation stack, but only if the program     */
+/*       attribute USEADPAUT has been set to *YES, using the CHGPGM  */
+/*       command. USEADPAUT is set to *NO when the program is first  */
+/*       created.                                                    */
+/*                                                                   */
+/*       The system value QUSEADPAUT can be used to specify an       */
+/*       authorization list to control who is allowed to change      */
+/*       a program to USEADPAUT(*YES).                               */
+/*                                                                   */
+/*    There is however no program attribute available to control     */
+/*    whether adopted authority at the current invocation level      */
+/*    should be available for the next invocation level to use       */
+/*    - in other terms referred to as authority propagation.         */
+/*                                                                   */
+/*    So if a program adopting authority from a powerful user        */
+/*    profile calls another program or command, which in turn        */
+/*    makes a command line available to the user, he or she will     */
+/*    be able to run commands using the powerful user's authority.   */
+/*                                                                   */
+/*    The ILE MI builtin '_MODINVAU' (Modify invocation authority    */
+/*    attribute) is, however, available to all ILE compilers,        */
+/*    and this builtin function is capable of setting the authority  */
+/*    propagation attribute for the current invocation of a program  */
+/*    - without affecting the program object permanently.            */
+/*                                                                   */
+/*    Here's how this example of authority propagation blocking      */
+/*    works:                                                         */
+/*                                                                   */
+/*    1. Propagation of adopted authority is blocked and QCMD is     */
+/*       called. Running the command WRKUSRPRF *ALL will show        */
+/*       you only the user profiles to which the executing user      */
+/*       profile has authority. Press F3 to continue.                */
+/*                                                                   */
+/*    2. Propagation of adopted authority is allowed and QCMD is     */
+/*       called. Running the command WRKUSRPRF *ALL again will now   */
+/*       show you all user profiles, regardless of the authority     */
+/*       that the executing user profile has to the listed user      */
+/*       profiles. Press F3 to end the test program.                 */
+/*                                                                   */
+/*    Please note that for this test to work, the user profile       */
+/*    running this program must have LMTCPB(*NO).  Adopted           */
+/*    authority does not override this user profile attribute.       */
+/*                                                                   */
+/*    The _MODINVAU builtin is documented here:                      */
+/*      http://publib.boulder.ibm.com/iseries/v5r1/ic2924/tstudio/   */
+/*      tech_ref/mi/MODINVAU.htm                                     */
+/*                                                                   */
+/*                                                                   */
+/*  Compile options:                                                 */
+/*    CrtClMod   Module( CBX908 )                                    */
+/*               SrcFile( QCLLESRC )                                 */
+/*               SrcMbr( CBX908 )                                    */
+/*               DbgView( *LIST )                                    */
+/*                                                                   */
+/*    CrtPgm     Pgm( CBX908 )                                       */
+/*               Module( CBX908 )                                    */
+/*               ActGrp( QILE )                                      */
+/*               UsrPrf( *OWNER )                                    */
+/*                                                                   */
+/*    ChgObjOwn  Obj( CBX908 )                                       */
+/*               ObjType( *PGM )                                     */
+/*               NewOwn( QSECOFR )                                   */
+/*                                                                   */
+/*                                                                   */
+/*-------------------------------------------------------------------*/
+     Pgm
+ 
+     Dcl        &ModTplPpg    *Char    1    x'00'
+     Dcl        &ModTplBlk    *Char    1    x'01'
+ 
+     CallPrc    Prc( '_MODINVAU' )   Parm( &ModTplBlk )
+     Call       QCMD
+ 
+     CallPrc    Prc( '_MODINVAU' )   Parm( &ModTplPpg )
+     Call       QCMD
+ 
+Endpgm:
+     EndPgm

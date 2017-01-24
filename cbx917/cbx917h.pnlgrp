@@ -1,0 +1,46 @@
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX917H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBX917H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='PRTSVRAUTE'.Print server auth entries - Help
+:P.
+The Print Server Authentication Entries (PRTSVRAUTE) command prints a
+list of server authentication entries for either a specific user
+profile or all user profiles on the system.
+:P.
+The list is printed to the default output queue of the job running
+this command.
+:P.
+:EHELP.
+:HELP NAME='PRTSVRAUTE/USRPRF'.User profile (USRPRF) - Help
+:XH3.User profile (USRPRF)
+:P.
+Specifies the name of the user profile whose server authenticaton
+entries should be printed.
+:P.
+This is a required parameter.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*ALL:EPK.
+:PD.
+All user profiles having one or more server authentication entries on
+the system are included in the list.
+:PT.:PK.*CURRENT:EPK.
+:PD.
+The server authentication entries for the user profile running this
+command are printed.
+:PT.:PV.user-profile:EPV.
+:PD.
+Specify the name of the user profile for which to print the server
+authentication entries list.
+:EPARML.
+:EHELP.
+:EPNLGRP.

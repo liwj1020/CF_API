@@ -1,0 +1,31 @@
+.*-----------------------------------------------------------------------**
+.*
+.*  Compile options:
+.*
+.*    CrtPnlGrp PnlGrp( CBX916H )
+.*              SrcFile( QPNLSRC )
+.*              SrcMbr( CBX916H )
+.*
+.*-----------------------------------------------------------------------**
+:PNLGRP.
+:HELP NAME='DSPCCSID'.Display language default CCSID - Help
+:P.
+The Display Language Default CCSID (DSPCCSID) command displays the
+specified language ID's corresponding default coded character set ID
+(CCSID).
+:P.
+:NT.
+This command requires V5R2 to run.
+:ENT.
+:EHELP.
+:HELP NAME='DSPCCSID/LNGID'.Language ID (LNGID) - Help
+:XH3.Language ID (LNGID)
+:P.
+The language ID whose default CCSID you want to display.
+:P.
+Press F4 to see a list of available CCSIDs and their description.
+:P.
+This is a required parameter.
+:P.
+:EHELP.
+:EPNLGRP.

@@ -1,0 +1,29 @@
+:PNLGRP.
+:HELP NAME='RNMHDWRSC'.Rename Hardware Resource - Help
+:P.
+The Rename Hardware Resource (RNMHDWRSC) command changes the name of
+a hardware resource on the system.  Use the Display Hardware Resources
+(DSPHDWRSC) or the Work with Hardware Resources (WRKHDWRSC) commands to
+establish the current resource names.
+:P.
+:HP2.Restriction&COLON.:EHP2. Special authority *ALLOBJ or object
+authority *USE to system API QRZCHGE is required to run this command.
+:P.
+:EHELP.
+:HELP NAME='RNMHDWRSC/HDWRSC'.Resource (HDWRSC) - Help
+:XH3.Resource (HDWRSC)
+:P.
+Specifies the name of the hardware resource that is being renamed.
+:P.
+This is a required parameter.
+:P.
+:EHELP.
+:HELP NAME='RNMHDWRSC/NEWHDWRSC'.New resource (NEWHDWRSC) - Help
+:XH3.New resource (NEWHDWRSC)
+:P.
+Specifies the new name of the hardware resource that is being renamed.
+:P.
+This is a required parameter.
+:P.
+:EHELP.
+:EPNLGRP.

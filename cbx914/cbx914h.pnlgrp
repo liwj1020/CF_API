@@ -1,0 +1,44 @@
+:PNLGRP.
+:HELP NAME='DSPPTFINF'.Display PTF Information - Help
+:P.
+The Display PTF Information (DSPPTFINF) command shows the program
+temporary fix (PTF) information for the specified PTF identification
+number.
+:P.
+No product ID is required, the PTF identification number is assumed
+to be unique for the current release.
+:NT.
+Proper authorization to the DSPPTF (Display Program Temporary Fix)
+command is required to run this command with OPTION *DSP or *CVR.
+:ENT.
+:P.
+:EHELP.
+:HELP NAME='DSPPTFINF/PTF'.PTF (PTF) - Help
+:XH3.PTF (PTF)
+:P.
+This is a required parameter.
+:P.
+Specifies the PTF identification number of the PTF to be displayed.
+:P.
+:EHELP.
+:HELP NAME='DSPPTFINF/OPTION'.Display option (OPTION) - Help
+:XH3.Display option (OPTION)
+:P.
+Defines what action to perform if the specified PTF ID is found.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.*VFY:EPK.
+:PD.
+An informational messesage is sent if the specified PTF ID is found.
+If the specified PTF ID is not found, an escape message is sent.
+:PT.:PK.*DSP:EPK.
+:PD.
+The information panel for the DSPPTF (Display PTF) command is displayed.
+:PT.:PK.*CVR:EPK.
+:PD.
+The cover letter is displayed.  No other PTF information is displayed.
+:EPARML.
+:EHELP.
+:EPNLGRP.
