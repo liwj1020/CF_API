@@ -6,11 +6,10 @@ OLIB=OSSILE
 VLDCHK="*NONE"
 PMTOP="*NONE"
 ACTGRP="*NEW"
-# if second parm then activation group needs to be set
+# if second Parm then activation group needs to be set
 if["$2"]; then
   $ACTGRP = $2
 fi  
-
 # need parameter to determine the build directory
 if [ "$#" -eq 0 ]; then
    print "No Arguments"
@@ -18,17 +17,27 @@ if [ "$#" -eq 0 ]; then
 fi
 # the build name is the first parameter prepended with cbx
 BUILD = "cbx$1"
+# make sure the libraries exist
+if [ ! -e /qsys.lib/ossilesrc.lib ]; then
+    system "CRTLIB $SRCLIB"
+fi
+if [ ! -e /qsys.lib/ossile.lib ]; then
+    system "CRTLIB $OLIB"
+fi
+# create the working directory
+export WORKDIR=$(pwd)/$BUILD
 # will create source file to hold all of the sources
 system -kpieb "CRTSRCPF FILE($SRCLIB/$BUILD) RCDLEN(150)"
 # some samples will need to be built using a CLP as they have additional objects involved.
-# search the directory for a file with $BUILDm
-if[ find "$PWD/$BUILD" -name "$BUILDm.clp" ]
+# search the directory for a file with $BUILD
+if[ find "$WORKDIR" -name "$BUILDm.clp" ]
    # copy all of the source and just build the CLP command before calling with required parms
-   for FILE in "$PWD/$BUILD"
-      do
-        # seperate the file name and extension
-  		EXT = $(echo ${FILE}|awk -F\. '{print $2}')
-  		OBJ = $(echo ${FILE}|awk -F\. '{print $1}')
+   for FILE in "$WORKDIR"*
+    do
+    # seperate the file name and extension
+    export FILENAME=$(echo ${FILE} | awk -F"/" '{print $NF}')
+  		export OBJ=$(echo $FILENAME | awk -F"\." '{print $1}')
+  		export EXT=$(echo $FILENAME | awk -F"\." '{print $2}')
   		# when creating service program need export file
   		if[ "$EXT" = "srvsrc" ]
   			$EXT = "*blank"
@@ -36,23 +45,24 @@ if[ find "$PWD/$BUILD" -name "$BUILDm.clp" ]
   		# add the source member
   		system -kpieb "ADDPFM FILE($SRCLIB/$BUILD) MBR($OBJ) SRCTYPE($EXT)"
   		# copy the source
-  		system -kpieb "CPYFRMSTMF FROMSTMF('$PWD/$BUILD/$FILE') TOMBR('/QSYS.lib/OSSILE.lib/$BUILD.file/$OBJ.mbr')"
+  		system -kpieb "CPYFRMSTMF FROMSTMF('${FILE}') TOMBR('/QSYS.LIB/$SRCLIB.LIB/$BUILD.FILE/$OBJ.MBR') MBROPT(*REPLACE)"
   		if[ "$OBJ" = "$BUILDm" ]
   			system -kpieb "CRTCLPGM PGM($OLIB/$OBJ) SRCFILE($SRCLIB/$BUILD)"
   		fi
    done   
    # now call the clp to build all the other required objects
-   system -kpieb "CALL PGM($OLIB/$BUILDM) PARM('$OLIB')"
+   system -kpieb "CALL PGM($OLIB/$BUILDm) PARM('$OLIB')"
    # clean up and exit
    system -kpieb "DLTF FILE($SRCLIB/$BUILD)"
    exit
 fi
 # loop through the directory content and copy the source to the source file
-for FILE in "$PWD/$BUILD"
+for FILE in "$WORKDIR"*
   do
   # seperate the file name and extension
-  EXT = $(echo ${FILE}|awk -F\. '{print $2}')
-  OBJ = $(echo ${FILE}|awk -F\. '{print $1}')
+  export FILENAME=$(echo ${FILE} | awk -F"/" '{print $NF}')
+ 	export OBJ=$(echo $FILENAME | awk -F"\." '{print $1}')
+ 	export EXT=$(echo $FILENAME | awk -F"\." '{print $2}')
   # if the program == $OBJv we have a validity checker
   if[ "$OBJ" = "$BUILDv" ]
      $VLDCHK = "$BUILDv"
@@ -64,7 +74,7 @@ for FILE in "$PWD/$BUILD"
   # add the file member
   system -kpieb "ADDPFM FILE($SRCLIB/$BUILD) MBR($OBJ) SRCTYPE($EXT)"
   # copy the source across
-  system -kpieb "CPYFRMSTMF FROMSTMF('$PWD/$BUILD/$FILE') TOMBR('/QSYS.lib/OSSILE.lib/$BUILD.file/$OBJ.mbr')"
+		system -kpieb "CPYFRMSTMF FROMSTMF('${FILE}') TOMBR('/QSYS.LIB/$SRCLIB.LIB/$BUILD.FILE/$OBJ.MBR') MBROPT(*REPLACE)"
   if[ "$EXT" == "rpgle" ]
     # service programs can be built with standard parms. User needs to veryfy
     if[ "$OBJ" = "$BUILDs"]; then
